@@ -1,323 +1,92 @@
 {
-    "@context": {
-        "@vocab": "http://senscience.ai/",
-        "Audience": {
-            "@id": "dv:Audience"
-        },
-        "Boolean": {
-            "@id": "schema:Boolean"
-        },
-        "CreativeWork": {
-            "@id": "schema:CreativeWork"
-        },
-        "Date": {
-            "@id": "schema:Date"
-        },
-        "DataDownload": {
-            "@id": "schema:DataDownload"
-        },
-        "Dataset": {
-            "@id": "schema:Dataset"
-        },
-        "DateTime": {
-            "@id": "schema:DateTime"
-        },
-        "DescriptiveStatistics": {
-            "@id": "dv:DescriptiveStatistics"
-        },
-        "Duration": {
-            "@id": "schema:Duration"
-        },
-        "ExperimentDataset": {
-            "@id": "dv:ExperimentDataset",
-            "@type": "schema:Dataset"
-        },
-        "Field": {
-            "@id": "cr:Field"
-        },
-        "FileObject": {
-            "@id": "cr:FileObject"
-        },
-        "Float": {
-            "@id": "schema:Float"
-        },
-        "HowTo": {
-            "@id": "schema:HowTo"
-        },
-        "HowToSection": {
-            "@id": "schema:HowToSection"
-        },
-        "HowToStep": {
-            "@id": "schema:HowToStep"
-        },
-        "Integer": {
-            "@id": "schema:Integer"
-        },
-        "Location": {
-            "@id": "schema:Location"
-        },
-        "MethodSection": {
-            "@id": "dv:MethodSection",
-            "@type": "schema:HowToSection"
-        },
-        "Number": {
-            "@id": "schema:Number"
-        },
-        "OpenDataArticle": {
-            "@id": "dv:OpenDataArticle",
-            "@type": "schema:ScholarlyArticle"
-        },
-        "OpenDataArticleSection": {
-            "@id": "dv:OpenDataArticleSection",
-            "@type": "schema:Text"
-        },
-        "Organization": {
-            "@id": "schema:Organization"
-        },
-        "Periodical": {
-            "@id": "schema:Periodical"
-        },
-        "Person": {
-            "@id": "schema:Person"
-        },
-        "PropertyValue": {
-            "@id": "schema:PropertyValue"
-        },
-        "Rating": {
-            "@id": "schema:Rating"
-        },
-        "RecordSet": {
-            "@id": "cr:RecordSet"
-        },
-        "Role": {
-            "@id": "dv:Role"
-        },
-        "ScholarlyArticle": {
-            "@id": "schema:ScholarlyArticle"
-        },
-        "Step": {
-            "@id": "dv:Step",
-            "@type": "schema:HowToStep"
-        },
-        "Submission": {
-            "@id": "dv:Submission"
-        },
-        "Substep": {
-            "@id": "dv:Substep"
-        },
-        "Section": {
-            "@id": "dv:Section"
-        },
-        "Text": {
-            "@id": "schema:Text"
-        },
-        "Visualization": {
-            "@id": "dv:Visualization"
-        },
-        "activities": {
-            "@id": "dv:activities"
-        },
-        "affiliation": {
-            "@id": "schema:affiliation"
-        },
-        "algorithm": {
-            "@id": "schema:algorithm"
-        },
-        "annotationsPerItem": {
-            "@id": "rai:annotationsPerItem"
-        },
-        "annotatorDemographics": {
-            "@id": "rai:annotatorDemographics"
-        },
-        "atLocation": {
-            "@id": "schema:atLocation"
-        },
-        "attachment": {
-            "@id": "dv:attachment"
-        },
-        "author": {
-            "@id": "schema:author"
-        },
-        "builds": {
-            "@id": "dv:builds"
-        },
-        "citation": {
-            "@id": "schema:citation"
-        },
-        "citeAs": {
-            "@id": "cr:citeAs"
-        },
-        "column": {
-            "@id": "cr:column"
-        },
-        "conformsTo": {
-            "@id": "dct:conformsTo"
-        },
-        "contentSize": {
-            "@id": "schema:contentSize"
-        },
-        "contentUrl": {
-            "@id": "schema:contentUrl"
-        },
-        "contributor": {
-            "@id": "schema:contributor"
-        },
-        "contributorRole": {
-            "@id": "dv:contributorRole"
-        },
-        "cr": "http://mlcommons.org/croissant/",
-        "credit": "http://www.niso.org/publications/z39104-2022-credit#",
-        "dataAnnotationAnalysis": {
-            "@id": "rai:dataAnnotationAnalysis"
-        },
-        "dataAnnotationPlatform": {
-            "@id": "rai:dataAnnotationPlatform"
-        },
-        "dataAnnotationProtocol": {
-            "@id": "rai:dataAnnotationProtocol"
-        },
-        "dataBiases": {
-            "@id": "rai:dataBiases"
-        },
-        "dataCollection": {
-            "@id": "rai:dataCollection"
-        },
-        "dataCollectionMissingData": {
-            "@id": "rai:dataCollectionMissingData"
-        },
-        "dataCollectionRawData": {
-            "@id": "rai:dataCollectionRawData"
-        },
-        "dataCollectionTimeframe": {
-            "@id": "rai:dataCollectionTimeframe"
-        },
-        "dataCollectionType": {
-            "@id": "rai:dataCollectionType"
-        },
-        "dataImputationProtocol": {
-            "@id": "rai:dataImputationProtocol"
-        },
-        "dataLimitations": {
-            "@id": "rai:dataLimitations"
-        },
-        "dataManipulationProtocol": {
-            "@id": "rai:dataManipulationProtocol"
-        },
-        "dataPreprocessingProtocol": {
-            "@id": "rai:dataPreprocessingProtocol"
-        },
-        "dataReleaseMaintenancePlan": {
-            "@id": "rai:dataReleaseMaintenancePlan"
-        },
-        "dataSocialImpact": {
-            "@id": "rai:dataSocialImpact"
-        },
-        "dataType": {
-            "@id": "cr:dataType",
-            "@type": "@vocab"
-        },
-        "dataUseCases": {
-            "@id": "rai:dataUseCases"
-        },
-        "dataset": {
-            "@id": "dv:dataset"
-        },
-        "datePublished": {
-            "@id": "schema:datePublished"
-        },
-        "dct": "http://purl.org/dc/terms/",
-        "description": {
-            "@id": "schema:description"
-        },
-        "digest": {
-            "@id": "dv:digest"
-        },
-        "distribution": {
-            "@id": "schema:distribution"
-        },
-        "dv": "http://senscience.ai/",
-        "encoding": {
-            "@id": "schema:encoding"
-        },
-        "encodingFormat": {
-            "@id": "schema:encodingFormat"
-        },
-        "extract": {
-            "@id": "cr:extract"
-        },
-        "field": {
-            "@id": "cr:field"
-        },
-        "fileObject": {
-            "@id": "cr:fileObject"
-        },
-        "funding": {
-            "@id": "schema:funding"
-        },
-        "hasPart": {
-            "@id": "schema:hasPart"
-        },
-        "isBasedOn": {
-            "@id": "schema:isBasedOn"
-        },
-        "license": {
-            "@id": "schema:license"
-        },
-        "machineAnnotationTools": {
-            "@id": "rai:machineAnnotationTools"
-        },
-        "manuscript": {
-            "@id": "dv:manuscript"
-        },
-        "methodSection": {
-            "@id": "dv:mnethodSection"
-        },
-        "name": {
-            "@id": "schema:name"
-        },
-        "personalSensitiveInformation": {
-            "@id": "rai:personalSensitiveInformation"
-        },
-        "prov": "http://www.w3.org/ns/prov#",
-        "publication": {
-            "@id": "schema:publication"
-        },
-        "publisher": {
-            "@id": "schema:publisher"
-        },
-        "rai": "http://mlcommons.org/croissant/RAI/",
-        "recordSet": {
-            "@id": "cr:recordSet"
-        },
-        "roleName": {
-            "@id": "dv:roleName"
-        },
-        "schema": "https://schema.org/",
-        "sh": "http://www.w3.org/ns/shacl#",
-        "sha256": {
-            "@id": "schema:sha256"
-        },
-        "source": {
-            "@id": "cr:source"
-        },
-        "statistics": {
-            "@id": "dv:statistics"
-        },
-        "steps": {
-            "@id": "dv:steps"
-        },
-        "store": {
-            "@id": "dv:store"
-        },
-        "unitCode": {
-            "@id": "schema:unitCode"
-        },
-        "value": {
-            "@id": "schema:value"
-        },
-        "variables": {
-            "@id": "dv:variables",
-            "@type": "schema:DefinedTermSet"
+    "@id": "https://fair-squared.github.io/fair2-spec/context/fair2_context.json",
+    "@context": [
+        "https://schema.org/",
+        "https://w3id.org/croissant/v1.0.0",
+        {
+            "Audience": {
+                "@id": "dv:Audience"
+            },
+            "DescriptiveStatistics": {
+                "@id": "dv:DescriptiveStatistics"
+            },
+            "ExperimentDataset": {
+                "@id": "dv:ExperimentDataset",
+                "@type": "schema:Dataset"
+            },
+            "OpenDataArticleSection": {
+                "@id": "dv:OpenDataArticleSection",
+                "@type": "schema:Text"
+            },
+            "Role": {
+                "@id": "dv:Role"
+            },
+            "Step": {
+                "@id": "dv:Step",
+                "@type": "schema:HowToStep"
+            },
+            "Submission": {
+                "@id": "dv:Submission"
+            },
+            "Substep": {
+                "@id": "dv:Substep"
+            },
+            "Section": {
+                "@id": "dv:Section"
+            },
+            "Visualization": {
+                "@id": "dv:Visualization"
+            },
+            "activities": {
+                "@id": "dv:activities"
+            },
+            "attachment": {
+                "@id": "dv:attachment"
+            },
+            "builds": {
+                "@id": "dv:builds"
+            },
+            "conformsTo": {
+                "@id": "dct:conformsTo"
+            },
+            "contributorRole": {
+                "@id": "dv:contributorRole"
+            },
+            "cr": "http://mlcommons.org/croissant/",
+            "credit": "http://www.niso.org/publications/z39104-2022-credit#",
+            "dataset": {
+                "@id": "dv:dataset"
+            },
+            "dct": "http://purl.org/dc/terms/",
+            "digest": {
+                "@id": "dv:digest"
+            },
+            "dv": "http://senscience.ai/",
+            "manuscript": {
+                "@id": "dv:manuscript"
+            },
+            "methodSection": {
+                "@id": "dv:methodSection"
+            },
+            "prov": "http://www.w3.org/ns/prov#",
+            "roleName": {
+                "@id": "dv:roleName"
+            },
+            "schema": "https://schema.org/",
+            "sh": "http://www.w3.org/ns/shacl#",
+            "statistics": {
+                "@id": "dv:statistics"
+            },
+            "step": {
+                "@id": "dv:step"
+            },
+            "store": {
+                "@id": "dv:store"
+            },
+            "variable": {
+                "@id": "dv:variable",
+                "@type": "schema:DefinedTermSet"
+            }
         }
-    }
+    ]
 }
