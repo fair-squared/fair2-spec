@@ -1,0 +1,36 @@
+{
+  "@context": [
+    "http://senscience.ai/context/shacl.context.ld.json",
+    {
+      "dv": "http://senscience.ai/"
+    }
+  ],
+  "@id": "author-shape",
+  "shapes": [
+    {
+      "@id": "dv:PersonShape",
+      "@type": "NodeShape",
+      "property": [
+        {
+          "minCount": 0,
+          "path": "https://schema.org/affiliation",
+          "nodeKind": "sh:IRI"
+        },
+        {
+          "path": "https://schema.org/name"
+        }
+      ],
+      "targetClass": "https://schema.org/Person"
+    },
+    {
+      "@id": "dv:OrganizationShape",
+      "@type": "NodeShape",
+      "property": [
+        {
+          "path": "https://schema.org/name"
+        }
+      ],
+      "targetClass": "https://schema.org/Organization"
+    }
+  ]
+}

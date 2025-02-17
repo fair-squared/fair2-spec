@@ -1,0 +1,21 @@
+{
+  "@context": [
+    "http://senscience.ai/context/shacl.context.ld.json",
+    {
+      "dv": "http://senscience.ai/"
+    }
+  ],
+  "@id": "visualizations-shape",
+  "shapes": [
+    {
+      "@id": "dv:VisualizationsShape",
+      "@type": "NodeShape",
+      "property": {
+        "class": "dv:Visualization",
+        "minCount": 4,
+        "path": "dv:visualization"
+      },
+      "targetClass": "dv:Dataset"
+    }
+  ]
+}

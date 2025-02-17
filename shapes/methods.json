@@ -1,0 +1,42 @@
+{
+  "@context": [
+    "http://senscience.ai/context/shacl.context.ld.json",
+    {
+      "dv": "http://senscience.ai/"
+    }
+  ],
+  "@id": "methods-shape",
+  "shapes": [
+    {
+      "@id": "dv:MethodsSectionShape",
+      "@type": "NodeShape",
+      "property": [
+        {
+          "datatype": "xsd:string",
+          "path": "https://schema.org/name"
+        },
+        {
+          "minCount": 1,
+          "nodeKind": "sh:IRI",
+          "path": "dv:steps"
+        }
+      ],
+      "targetClass": "dv:Section"
+    },
+    {
+      "@id": "dv:MethodsStepShape",
+      "@type": "NodeShape",
+      "property": [
+        {
+          "datatype": "xsd:string",
+          "path": "https://schema.org/name"
+        },
+        {
+          "datatype": "xsd:string",
+          "path": "https://schema.org/description"
+        }
+      ],
+      "targetClass": "dv:Step"
+    }
+  ]
+}
