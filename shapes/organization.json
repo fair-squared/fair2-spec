@@ -1,16 +1,11 @@
 {
   "@context": "https://fair-squared.github.io/fair2-spec/context/fair2_context.json",
-  "@id": "f2:PersonShape",
+  "@id": "f2:OrganizationShape",
   "@type": "NodeShape",
   "property": [
-    {
-      "minCount": 0,
-      "path": "https://schema.org/affiliation",
-      "nodeKind": "sh:IRI"
-    },
     {
       "path": "https://schema.org/name"
     }
   ],
-  "targetClass": "https://schema.org/Person"
+  "targetClass": "https://schema.org/Organization"
 }

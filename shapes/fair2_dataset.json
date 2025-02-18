@@ -1,0 +1,13 @@
+{
+  "@context": "https://fair-squared.github.io/fair2-spec/context/fair2_context.json",
+    "@id": "f2:DatasetShape",
+    "@type": "NodeShape",
+    "property": [
+      {
+        "minCount": 1,
+        "nodeKind": "sh:BlankNodeOrIRI",
+        "path": "https://schema.org/author"
+      }
+    ],
+    "targetClass": "https://schema.org/Dataset"
+}

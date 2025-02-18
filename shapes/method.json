@@ -1,14 +1,8 @@
 {
-  "@context": [
-    "http://senscience.ai/context/shacl.context.ld.json",
+  "@context": "https://fair-squared.github.io/fair2-spec/context/fair2_context.json", 
+  "@graph": [
     {
-      "dv": "http://senscience.ai/"
-    }
-  ],
-  "@id": "methods-shape",
-  "shapes": [
-    {
-      "@id": "dv:MethodsSectionShape",
+      "@id": "f2:MethodSectionShape",
       "@type": "NodeShape",
       "property": [
         {
@@ -18,13 +12,13 @@
         {
           "minCount": 1,
           "nodeKind": "sh:IRI",
-          "path": "dv:steps"
+          "path": "f2:step"
         }
       ],
-      "targetClass": "dv:Section"
+      "targetClass": "f2:Section"
     },
     {
-      "@id": "dv:MethodsStepShape",
+      "@id": "f2:MethodStepShape",
       "@type": "NodeShape",
       "property": [
         {
@@ -36,7 +30,7 @@
           "path": "https://schema.org/description"
         }
       ],
-      "targetClass": "dv:Step"
+      "targetClass": "f2:Step"
     }
   ]
 }

@@ -1,47 +1,36 @@
 {
-  "@context": [
-    "http://senscience.ai/context/shacl.context.ld.json",
+  "@context": "https://fair-squared.github.io/fair2-spec/context/fair2_context.json",
+  "@id": "f2:SubmissionShape",
+  "@type": "NodeShape",
+  "property": [
     {
-      "dv": "http://senscience.ai/",
-      "cr": "http://mlcommons.org/croissant/"
-    }
-  ],
-  "@id": "submission-shape",
-  "shapes": [
-    {
-      "@id": "dv:SubmissionShape",
-      "@type": "NodeShape",
-      "property": [
+      "minCount": 2,
+      "or": [
         {
-          "minCount": 2,
-          "or": [
-            {
-              "class": "https://schema.org/CreativeWork"
-            },
-            {
-              "class": "https://schema.org/ScholarlyArticle"
-            },
-            {
-              "class": "https://schema.org/Dataset",
-              "node": {
-                "@type": "NodeShape",
-                "property": [
-                  {
-                    "minCount": 1,
-                    "path": "https://schema.org/distribution"
-                  },
-                  {
-                    "minCount": 1,
-                    "path": "cr:recordSet"
-                  }
-                ]
+          "class": "https://schema.org/CreativeWork"
+        },
+        {
+          "class": "https://schema.org/ScholarlyArticle"
+        },
+        {
+          "class": "https://schema.org/Dataset",
+          "node": {
+            "@type": "NodeShape",
+            "property": [
+              {
+                "minCount": 1,
+                "path": "https://schema.org/distribution"
+              },
+              {
+                "minCount": 1,
+                "path": "cr:recordSet"
               }
-            }
-          ],
-          "path": "https://schema.org/isBasedOn"
+            ]
+          }
         }
       ],
-      "targetClass": "dv:Submission"
+      "path": "https://schema.org/isBasedOn"
     }
-  ]
+  ],
+  "targetClass": "f2:Submission"
 }

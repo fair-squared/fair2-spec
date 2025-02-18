@@ -64,12 +64,15 @@ To validate your data against the SHACL shapes provided in this repository, you 
     }
     ```
 
-3. **Run the validation** using a SHACL validation tool:
+3. **Run the validation** using a SHACL validation tools:
 
     ```sh
-    validate --shapes fair2.json --data data.json
+    python validate_shacl.py my_data.json ./shapes/fair2_dataset.json
     ```
 
-    The tool will output whether the data conforms to the shapes or provide details on any validation errors.
+    Where:
+    - my_data.json = The RDF dataset (in JSON-LD format).
+	- ./shapes/fair2_data_package.json = The SHACL shape file (in JSON-LD format).
+
 
 By following these steps, you can ensure that your data adheres to the FAIR² specification, promoting better data management and interoperability.

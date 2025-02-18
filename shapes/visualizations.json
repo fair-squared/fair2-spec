@@ -1,21 +1,11 @@
 {
-  "@context": [
-    "http://senscience.ai/context/shacl.context.ld.json",
-    {
-      "dv": "http://senscience.ai/"
-    }
-  ],
-  "@id": "visualizations-shape",
-  "shapes": [
-    {
-      "@id": "dv:VisualizationsShape",
-      "@type": "NodeShape",
-      "property": {
-        "class": "dv:Visualization",
-        "minCount": 4,
-        "path": "dv:visualization"
-      },
-      "targetClass": "dv:Dataset"
-    }
-  ]
+  "@context": "https://fair-squared.github.io/fair2-spec/context/fair2_context.json",
+  "@id": "f2:VisualizationsShape",
+  "@type": "NodeShape",
+  "property": {
+    "class": "f2:Visualization",
+    "minCount": 4,
+    "path": "f2:visualization"
+  },
+  "targetClass": "f2:Dataset"
 }

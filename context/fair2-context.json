@@ -5,86 +5,86 @@
         "https://w3id.org/croissant/v1.0.0",
         {
             "Audience": {
-                "@id": "dv:Audience"
+                "@id": "f2:Audience"
             },
             "DescriptiveStatistics": {
-                "@id": "dv:DescriptiveStatistics"
+                "@id": "f2:DescriptiveStatistics"
             },
             "ExperimentDataset": {
-                "@id": "dv:ExperimentDataset",
+                "@id": "f2:ExperimentDataset",
                 "@type": "schema:Dataset"
             },
             "OpenDataArticleSection": {
-                "@id": "dv:OpenDataArticleSection",
+                "@id": "f2:OpenDataArticleSection",
                 "@type": "schema:Text"
             },
             "Role": {
-                "@id": "dv:Role"
+                "@id": "f2:Role"
             },
             "Step": {
-                "@id": "dv:Step",
+                "@id": "f2:Step",
                 "@type": "schema:HowToStep"
             },
             "Submission": {
-                "@id": "dv:Submission"
+                "@id": "f2:Submission"
             },
             "Substep": {
-                "@id": "dv:Substep"
+                "@id": "f2:Substep"
             },
             "Section": {
-                "@id": "dv:Section"
+                "@id": "f2:Section"
             },
             "Visualization": {
-                "@id": "dv:Visualization"
+                "@id": "f2:Visualization"
             },
             "activities": {
-                "@id": "dv:activities"
+                "@id": "f2:activities"
             },
             "attachment": {
-                "@id": "dv:attachment"
+                "@id": "f2:attachment"
             },
             "builds": {
-                "@id": "dv:builds"
+                "@id": "f2:builds"
             },
             "conformsTo": {
                 "@id": "dct:conformsTo"
             },
             "contributorRole": {
-                "@id": "dv:contributorRole"
+                "@id": "f2:contributorRole"
             },
             "cr": "http://mlcommons.org/croissant/",
             "credit": "http://www.niso.org/publications/z39104-2022-credit#",
             "dataset": {
-                "@id": "dv:dataset"
+                "@id": "f2:dataset"
             },
             "dct": "http://purl.org/dc/terms/",
             "digest": {
-                "@id": "dv:digest"
+                "@id": "f2:digest"
             },
-            "dv": "http://senscience.ai/",
+            "f2": "https://fair2.ai/ns/",
             "manuscript": {
-                "@id": "dv:manuscript"
+                "@id": "f2:manuscript"
             },
             "methodSection": {
-                "@id": "dv:methodSection"
+                "@id": "f2:methodSection"
             },
             "prov": "http://www.w3.org/ns/prov#",
             "roleName": {
-                "@id": "dv:roleName"
+                "@id": "f2:roleName"
             },
             "schema": "https://schema.org/",
             "sh": "http://www.w3.org/ns/shacl#",
             "statistics": {
-                "@id": "dv:statistics"
+                "@id": "f2:statistics"
             },
             "step": {
-                "@id": "dv:step"
+                "@id": "f2:step"
             },
             "store": {
-                "@id": "dv:store"
+                "@id": "f2:store"
             },
             "variable": {
-                "@id": "dv:variable",
+                "@id": "f2:variable",
                 "@type": "schema:DefinedTermSet"
             }
         }
