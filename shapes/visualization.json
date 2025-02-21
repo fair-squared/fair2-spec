@@ -1,0 +1,43 @@
+{
+    "@context": {
+        "sh": "http://www.w3.org/ns/shacl#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "schema": "https://schema.org/"
+    },
+    "@id": "http://senscience.ai/VisualizationShape",
+    "@type": "sh:NodeShape",
+    "sh:targetClass": "fair2:Visualization",
+    "sh:property": [
+        {
+            "sh:path": "schema:name",
+            "sh:datatype": "xsd:string",
+            "sh:minCount": 1,
+            "sh:maxCount": 1
+        },
+        {
+            "sh:path": "schema:description",
+            "sh:minCount": 1,
+            "sh:maxCount": 1
+        },
+        {
+            "sh:path": "fair2:active",
+            "sh:datatype": "xsd:boolean",
+            "sh:minCount": 1,
+            "sh:maxCount": 1
+        },
+        {
+            "sh:path": "fair2:model",
+            "sh:datatype": "xsd:string",
+            "schema:description": "The model used to generate the visualization, given as @json",
+            "sh:minCount": 1,
+            "sh:maxCount": 1
+        },
+        {
+            "sh:path": "fair2:schema",
+            "sh:datatype": "xsd:string",
+            "schema:description": "The schema used to generate the visualization, given as @json",
+            "sh:minCount": 1,
+            "sh:maxCount": 1
+        }
+    ]
+}

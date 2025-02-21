@@ -1,5 +1,5 @@
 {
-    "@id": "https://fair-squared.github.io/fair2-spec/context/fair2_context.json",
+    "@id": "https://fair2.ai/spec/context.json",
     "@context": [
         "https://schema.org/",
         "https://w3id.org/croissant/v1.0.0",
@@ -86,7 +86,8 @@
             "variable": {
                 "@id": "f2:variable",
                 "@type": "schema:DefinedTermSet"
-            }
+            },
+            "xsd": "http://www.w3.org/2001/XMLSchema#"
         }
     ]
 }

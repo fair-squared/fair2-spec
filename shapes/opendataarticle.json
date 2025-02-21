@@ -1,0 +1,13 @@
+{
+    "@context": "https://fair2.ai/spec/context.json", 
+    "@id": "http://example.org/shapes/OpenDataArticleShape",
+    "@type": "sh:NodeShape",
+    "sh:targetClass": "fair2:OpenDataArticle",
+    "sh:property": [
+        {
+            "sh:path": "schema:name",
+            "sh:minCount": 1,
+            "sh:message": "An OpenDataArticle must have a name."
+        }
+    ]
+}

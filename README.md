@@ -76,3 +76,22 @@ To validate your data against the SHACL shapes provided in this repository, you 
 
 
 By following these steps, you can ensure that your data adheres to the FAIR² specification, promoting better data management and interoperability.
+
+4. **Data Architerture**
+
+```mermaid
+
+graph LR;
+    Schema_Repo["📂 Schema Repo (GitHub)"] -->|Defines metadata schemas| FAIR2py["🛠️ FAIR2 Python Library"];
+    FAIR2py -->|Generates/Modifies metadata| Data_Package["📁 FAIR2 Data Package"];
+    Data_Package -->|Validates metadata| SHACL_Validation["✅ SHACL Validation"];
+    SHACL_Validation -->|Stores validated data| Knowledge_Graph["🧠 Knowledge Graph"];
+    Nexus Knowledge_Graph -->|Used for discovery & compliance| FAIR2_Platform["🌐 FAIR2 Platform"];
+    
+    style Schema_Repo fill:#D0E8FF,stroke:#0077CC
+    style FAIR2py fill:#C8E6C9,stroke:#388E3C
+    style Data_Package fill:#FFF9C4,stroke:#FBC02D
+    style SHACL_Validation fill:#FFCCBC,stroke:#E64A19
+    style Knowledge_Graph fill:#E0E0E0,stroke:#616161
+    style FAIR2_Platform fill:#F8BBD0,stroke:#D81B60
+```

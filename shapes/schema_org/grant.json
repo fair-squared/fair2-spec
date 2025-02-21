@@ -1,0 +1,35 @@
+{
+    "@context": {
+        "sh": "http://www.w3.org/ns/shacl#",
+        "schema": "http://schema.org/",
+        "xsd": "http://www.w3.org/2001/XMLSchema#"
+    },
+    "@id": "http://example.org/shapes/GrantShape",
+    "@type": "sh:NodeShape",
+    "sh:targetClass": "schema:Grant",
+    "sh:property": [
+        {
+            "sh:path": "schema:identifier",
+            "sh:datatype": "xsd:string"
+        },
+        {
+            "sh:path": "schema:name",
+            "sh:datatype": "xsd:string",
+            "sh:minCount": 1
+        },
+        {
+            "sh:path": "schema:description",
+            "sh:datatype": "xsd:string"
+        },
+        {
+            "sh:path": "schema:fundingAgency",
+            "sh:node": {
+                "sh:nodeKind": "sh:IRI"
+            }
+        },
+        {
+            "sh:path": "schema:amount",
+            "sh:datatype": "xsd:decimal"
+        }
+    ]
+}

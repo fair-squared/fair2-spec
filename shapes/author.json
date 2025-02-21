@@ -1,15 +1,17 @@
 {
-  "@context": "https://fair-squared.github.io/fair2-spec/context/fair2_context.json",
+  "@context": "https://fair2.ai/spec/context.json",
   "@id": "f2:PersonShape",
   "@type": "NodeShape",
   "property": [
     {
-      "minCount": 0,
       "path": "https://schema.org/affiliation",
-      "nodeKind": "sh:IRI"
+      "nodeKind": "sh:IRI",
+      "minCount": 1
     },
     {
-      "path": "https://schema.org/name"
+      "path": "https://schema.org/name",
+      "datatype": "xsd:string",
+      "minCount": 1
     }
   ],
   "targetClass": "https://schema.org/Person"

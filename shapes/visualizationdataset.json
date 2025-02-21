@@ -1,0 +1,11 @@
+{
+  "@context": "https://fair2.ai/spec/context.json",
+  "@id": "f2:VisualizationDataCatalogShape",
+  "@type": "NodeShape",
+  "property": {
+    "class": "f2:Visualization",
+    "minCount": 4,
+    "path": "f2:visualization"
+  },
+  "targetClass": "f2:VisualizationDataCatalog"
+}
