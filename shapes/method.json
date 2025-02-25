@@ -1,8 +1,8 @@
 {
-  "@context": "https://fair2.ai/spec/context.json", 
+  "@context": "https://fair2.ai/spec/context/fair2_context.json", 
   "@graph": [
     {
-      "@id": "f2:MethodSectionShape",
+      "@id": "fair2:MethodSectionShape",
       "@type": "NodeShape",
       "property": [
         {
@@ -12,13 +12,13 @@
         {
           "minCount": 1,
           "nodeKind": "sh:IRI",
-          "path": "f2:step"
+          "path": "fair2:step"
         }
       ],
-      "targetClass": "f2:Section"
+      "targetClass": "fair2:Section"
     },
     {
-      "@id": "f2:MethodStepShape",
+      "@id": "fair2:MethodStepShape",
       "@type": "NodeShape",
       "property": [
         {
@@ -30,7 +30,7 @@
           "path": "https://schema.org/description"
         }
       ],
-      "targetClass": "f2:Step"
+      "targetClass": "fair2:Step"
     }
   ]
 }

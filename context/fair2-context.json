@@ -1,90 +1,90 @@
 {
-    "@id": "https://fair2.ai/spec/context.json",
+    "@id": "https://fair2.ai/spec/context/fair2_context.json",
     "@context": [
         "https://schema.org/",
         "https://w3id.org/croissant/v1.0.0",
         {
             "Audience": {
-                "@id": "f2:Audience"
+                "@id": "fair2:Audience"
             },
             "DescriptiveStatistics": {
-                "@id": "f2:DescriptiveStatistics"
+                "@id": "fair2:DescriptiveStatistics"
             },
             "ExperimentDataset": {
-                "@id": "f2:ExperimentDataset",
+                "@id": "fair2:ExperimentDataset",
                 "@type": "schema:Dataset"
             },
             "OpenDataArticleSection": {
-                "@id": "f2:OpenDataArticleSection",
+                "@id": "fair2:OpenDataArticleSection",
                 "@type": "schema:Text"
             },
             "Role": {
-                "@id": "f2:Role"
+                "@id": "fair2:Role"
             },
             "Step": {
-                "@id": "f2:Step",
+                "@id": "fair2:Step",
                 "@type": "schema:HowToStep"
             },
             "Submission": {
-                "@id": "f2:Submission"
+                "@id": "fair2:Submission"
             },
             "Substep": {
-                "@id": "f2:Substep"
+                "@id": "fair2:Substep"
             },
             "Section": {
-                "@id": "f2:Section"
+                "@id": "fair2:Section"
             },
             "Visualization": {
-                "@id": "f2:Visualization"
+                "@id": "fair2:Visualization"
             },
             "activities": {
-                "@id": "f2:activities"
+                "@id": "fair2:activities"
             },
             "attachment": {
-                "@id": "f2:attachment"
+                "@id": "fair2:attachment"
             },
             "builds": {
-                "@id": "f2:builds"
+                "@id": "fair2:builds"
             },
             "conformsTo": {
                 "@id": "dct:conformsTo"
             },
             "contributorRole": {
-                "@id": "f2:contributorRole"
+                "@id": "fair2:contributorRole"
             },
             "cr": "http://mlcommons.org/croissant/",
             "credit": "http://www.niso.org/publications/z39104-2022-credit#",
             "dataset": {
-                "@id": "f2:dataset"
+                "@id": "fair2:dataset"
             },
             "dct": "http://purl.org/dc/terms/",
             "digest": {
-                "@id": "f2:digest"
+                "@id": "fair2:digest"
             },
-            "f2": "https://fair2.ai/ns/",
+            "fair2": "https://fair2.ai/ns/",
             "manuscript": {
-                "@id": "f2:manuscript"
+                "@id": "fair2:manuscript"
             },
             "methodSection": {
-                "@id": "f2:methodSection"
+                "@id": "fair2:methodSection"
             },
             "prov": "http://www.w3.org/ns/prov#",
             "roleName": {
-                "@id": "f2:roleName"
+                "@id": "fair2:roleName"
             },
             "schema": "https://schema.org/",
             "sh": "http://www.w3.org/ns/shacl#",
             "statistics": {
-                "@id": "f2:statistics"
+                "@id": "fair2:statistics"
             },
             "step": {
-                "@id": "f2:step"
+                "@id": "fair2:step"
             },
             "store": {
-                "@id": "f2:store"
+                "@id": "fair2:store"
             },
             "variable": {
-                "@id": "f2:variable",
+                "@id": "fair2:variable",
                 "@type": "schema:DefinedTermSet"
             },
             "xsd": "http://www.w3.org/2001/XMLSchema#"

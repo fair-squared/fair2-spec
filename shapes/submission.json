@@ -1,6 +1,6 @@
 {
-  "@context": "https://fair2.ai/spec/context.json",
-  "@id": "f2:SubmissionShape",
+  "@context": "https://fair2.ai/spec/context/fair2_context.json",
+  "@id": "fair2:SubmissionShape",
   "@type": "NodeShape",
   "property": [
     {
@@ -32,5 +32,5 @@
       "path": "https://schema.org/isBasedOn"
     }
   ],
-  "targetClass": "f2:Submission"
+  "targetClass": "fair2:Submission"
 }
