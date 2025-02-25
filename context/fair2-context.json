@@ -1,7 +1,7 @@
 {
     "@id": "https://fair2.ai/spec/context/fair2_context.json",
     "@context": [
-        "https://schema.org/",
+        "http://schema.org/",
         "https://w3id.org/croissant/v1.0.0",
         {
             "Audience": {

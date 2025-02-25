@@ -1,7 +1,7 @@
 {
     "@id": "https://w3id.org/croissant/v1.0.0",
     "@context": [
-        "https://schema.org/",
+        "http://schema.org/",
         {
             "Field": {
                 "@id": "cr:Field"
