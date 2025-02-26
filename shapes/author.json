@@ -1,6 +1,6 @@
 {
   "@context": "https://fair2.ai/spec/context/fair2_context.json",
-  "@graph": {
+  "shapes": [{
     "@id": "fair2:PersonShape",
     "@type": "NodeShape",
     "property": [
@@ -16,5 +16,5 @@
       }
     ],
     "targetClass": "https://schema.org/Person"
-  }
+  }]
 }
