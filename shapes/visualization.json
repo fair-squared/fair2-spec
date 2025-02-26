@@ -5,39 +5,39 @@
         "schema": "https://schema.org/"
     },
     "@id": "http://senscience.ai/VisualizationShape",
-    "@type": "sh:NodeShape",
-    "sh:targetClass": "fair2:Visualization",
-    "sh:property": [
+    "@type": "NodeShape",
+    "targetClass": "fair2:Visualization",
+    "property": [
         {
-            "sh:path": "schema:name",
-            "sh:datatype": "xsd:string",
-            "sh:minCount": 1,
-            "sh:maxCount": 1
+            "path": "schema:name",
+            "datatype": "xsd:string",
+            "minCount": 1,
+            "maxCount": 1
         },
         {
-            "sh:path": "schema:description",
-            "sh:minCount": 1,
-            "sh:maxCount": 1
+            "path": "schema:description",
+            "minCount": 1,
+            "maxCount": 1
         },
         {
-            "sh:path": "fair2:active",
-            "sh:datatype": "xsd:boolean",
-            "sh:minCount": 1,
-            "sh:maxCount": 1
+            "path": "fair2:active",
+            "datatype": "xsd:boolean",
+            "minCount": 1,
+            "maxCount": 1
         },
         {
-            "sh:path": "fair2:model",
-            "sh:datatype": "xsd:string",
+            "path": "fair2:model",
+            "datatype": "xsd:string",
             "schema:description": "The model used to generate the visualization, given as @json",
-            "sh:minCount": 1,
-            "sh:maxCount": 1
+            "minCount": 1,
+            "maxCount": 1
         },
         {
-            "sh:path": "fair2:schema",
-            "sh:datatype": "xsd:string",
+            "path": "fair2:schema",
+            "datatype": "xsd:string",
             "schema:description": "The schema used to generate the visualization, given as @json",
-            "sh:minCount": 1,
-            "sh:maxCount": 1
+            "minCount": 1,
+            "maxCount": 1
         }
     ]
 }

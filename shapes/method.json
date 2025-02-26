@@ -1,6 +1,6 @@
 {
   "@context": "https://fair2.ai/spec/context/metadata/fair2_context", 
-  "@graph": [
+  "shapes": [
     {
       "@id": "fair2:MethodSectionShape",
       "@type": "NodeShape",

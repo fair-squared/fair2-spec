@@ -1,23 +1,23 @@
 {
     "@context": "https://fair2.ai/spec/context/metadata/fair2_context",
     "@id": "http://example.org/shapes/OpenDataArticleSectionShape",
-    "@type": "sh:NodeShape",
-    "sh:targetClass": "fair2:OpenDataArticleSection",
-    "sh:property": [
+    "@type": "NodeShape",
+    "targetClass": "fair2:OpenDataArticleSection",
+    "property": [
         {
-            "sh:path": "schema:name",
-            "sh:datatype": "xsd:string",
-            "sh:minCount": 1
+            "path": "schema:name",
+            "datatype": "xsd:string",
+            "minCount": 1
         },
         {
-            "sh:path": "fair2:content",
-            "sh:datatype": "xsd:string",
-            "sh:minCount": 1
+            "path": "fair2:content",
+            "datatype": "xsd:string",
+            "minCount": 1
         },
         {
-            "sh:path": "fair2:kind",
-            "sh:datatype": "xsd:string",
-            "sh:minCount": 1
+            "path": "fair2:kind",
+            "datatype": "xsd:string",
+            "minCount": 1
         }
     ]
 }
