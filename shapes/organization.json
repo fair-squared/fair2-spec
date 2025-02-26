@@ -1,5 +1,5 @@
 {
-  "@context": "https://fair2.ai/spec/context/fair2_context.json",
+  "@context": "https://fair2.ai/spec/context/metadata/fair2_context",
   "@id": "fair2:OrganizationShape",
   "@type": "NodeShape",
   "property": [
