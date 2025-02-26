@@ -1,13 +1,16 @@
 {
-    "@context": "https://fair2.ai/spec/context/metadata/fair2_context", 
+    "@context":[
+        "https://fair2.ai/spec/context/metadata/fair2_context",
+        "https://fair2.ai/spec/context/shacl_context.json"
+    ], 
     "@id": "http://example.org/shapes/OpenDataArticleShape",
     "@type": "sh:NodeShape",
-    "sh:targetClass": "fair2:OpenDataArticle",
-    "sh:property": [
+    "targetClass": "fair2:OpenDataArticle",
+    "property": [
         {
-            "sh:path": "schema:name",
-            "sh:minCount": 1,
-            "sh:message": "An OpenDataArticle must have a name."
+            "path": "schema:name",
+            "minCount": 1,
+            "message": "An OpenDataArticle must have a name."
         }
     ]
 }
