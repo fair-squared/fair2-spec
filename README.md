@@ -1,5 +1,5 @@
 # fair2-spec
-This repository hosts the FAIR² (FAIR SQUARED) specification, providing data schemas, SHACL shapes, and JSON-LD context
+This repository hosts the FAIR² (FAIR SQUARED™) specification, providing data schemas, SHACL shapes, and JSON-LD context
 ## Description
 
 The FAIR² specification aims to enhance the FAIR (Findable, Accessible, Interoperable, and Reusable) principles by providing a structured approach to data management. This repository includes:
