@@ -1,20 +1,21 @@
 {
-  "@context": "https://fair2.ai/spec/context/fair2_context.json",
-  "shapes": [{
-    "@id": "fair2:PersonShape",
-    "@type": "NodeShape",
-    "property": [
-      {
-        "path": "https://schema.org/affiliation",
-        "nodeKind": "sh:IRI",
-        "minCount": 1
-      },
-      {
-        "path": "https://schema.org/name",
-        "datatype": "xsd:string",
-        "minCount": 1
-      }
-    ],
-    "targetClass": "https://schema.org/Person"
-  }]
+  "@context": [
+    "https://fair2.ai/spec/context/fair2_context.json",
+    "https://fair2.ai/spec/context/shacl_context.json"
+  ],
+  "@id": "fair2:PersonShape",
+  "@type": "NodeShape",
+  "property": [
+    {
+      "path": "https://schema.org/affiliation",
+      "nodeKind": "sh:IRI",
+      "minCount": 1
+    },
+    {
+      "path": "https://schema.org/name",
+      "datatype": "xsd:string",
+      "minCount": 1
+    }
+  ],
+  "targetClass": "https://schema.org/Person"
 }
