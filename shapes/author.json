@@ -3,6 +3,7 @@
     "https://fair2.ai/spec/context/fair2_context.json",
     "https://fair2.ai/spec/context/shacl_context.json"
   ],
+  "@id": "fair2:PersonShapeSchema",
   "shapes": [
     {
       "@id": "fair2:PersonShape",
