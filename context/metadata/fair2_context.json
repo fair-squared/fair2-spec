@@ -1,5 +1,5 @@
 {
-    "@id": "https://fair2.ai/spec/context/metadata/fair2_context",
+    "@id": "https://fair2.ai/spec/fair2_context",
     "@context": [
         "https://schema.org/",
         "https://w3id.org/croissant/v1.0.0",

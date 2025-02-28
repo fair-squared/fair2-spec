@@ -1,7 +1,7 @@
 {
   "@context":[
-    "https://fair2.ai/spec/context/metadata/fair2_context",
-    "https://fair2.ai/spec/context/shacl_context.json"
+    "https://fair2.ai/spec/fair2_context",
+    "https://fair2.ai/spec/shacl_context.json"
   ], 
   "@id": "fair2:SubmissionShape",
   "@type": "NodeShape",
