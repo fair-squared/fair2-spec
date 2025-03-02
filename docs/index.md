@@ -71,43 +71,43 @@ Here is an example of a dataset described using the FAIR2 Specification:
 
 ```json
 {
-  "@context": [
-    "https://fair2.ai/spec/fair2_context",
-    "https://fair2.ai/spec/shacl_context.json"
-  ],
-  "@id": "https://sen.science/doi/10.71728/r1rj-f947",
-  "@type": "Dataset",
-  "author": [
-    {
-      "@id": "/authors/c1b96691-fbbf-4157-a2c5-e8fb78c799f1",
-      "@type": "Person",
-      "affiliation": [
+    "@context": [
+        "https://fair2.ai/spec/fair2_context",
+        "https://fair2.ai/spec/shacl_context.json"
+    ],
+    "@id": "https://example.org/dataset/12345",
+    "@type": "Dataset",
+    "author": [
         {
-          "@id": "/organizations/0d6a7bd5-95ee-4b5a-9ea9-35747624b353",
-          "@type": "Organization",
-          "address": "Herrera Kaia Portualdea s/n, 20110 Pasaia, Spain",
-          "name": "AZTI, Marine Research, Basque Research and Technology Alliance (BRTA)"
+            "@id": "/authors/abc123",
+            "@type": "Person",
+            "affiliation": [
+                {
+                    "@id": "/organizations/xyz789",
+                    "@type": "Organization",
+                    "address": "123 Research Lane, Science City, Country",
+                    "name": "Institute of Data Science"
+                }
+            ],
+            "name": "Jane Doe"
         }
-      ],
-      "name": "Ángel Borja"
-    }
-  ],
-  "citation": "https://doi.org/10.3389/focsu.2024.1528837",
-  "citeAs": "Borja Á, Adarraga I, Bald J, et al. (2024). Marine Biodiversity and Environmental Data: An AI-Ready, Open Dataset from the long term (1995–2023) Basque Country Monitoring Network. Front. Ocean Sustain. 2:1528837. doi: 10.3389/focsu.2024.1528837",
-  "conformsTo": "http://mlcommons.org/croissant/1.0",
-  "contentUrl": "fair2.json",
-  "datePublished": "2025-02-05",
-  "description": "This dataset encompasses extensive long-term monitoring data from the Basque Country, focusing on assessing the responsiveness of 83 environmental variables across water, sediment, biota, phytoplankton, macroinvertebrates, and fish. It includes metadata and biodiversity data from various aquatic environments, detailing site-specific identifiers, sampling methods, and instruments used. The dataset is crucial for understanding trends in environmental quality and the effects of human pressures and management actions over time.",
-  "distribution": [
-    {
-      "@id": "resources/AUTHORS",
-      "@type": "FileObject",
-      "contentSize": "1742",
-      "contentUrl": "https://sen.science/doi/10.71728/r1rj-f947/AUTHORS.csv",
-      "description": "Contains information about authors, including their affiliations, contact details, and institutional information, primarily from AZTI in Spain.",
-      "encodingFormat": "text/csv",
-      "name": "AUTHORS.csv",
-      "sha256": "2ebf316803d056aa3f8471c19458db744d41189c095eb9dc3b656b63a45b810c"
-    }
-  ]
+    ],
+    "citation": "https://doi.org/10.1234/example.2024.56789",
+    "citeAs": "Doe J, Smith A, Johnson R, et al. (2024). Example Dataset for Research Purposes. Journal of Data Science. 1:56789. doi: 10.1234/example.2024.56789",
+    "conformsTo": "http://example.org/spec/1.0",
+    "contentUrl": "example_dataset.json",
+    "datePublished": "2024-01-01",
+    "description": "This dataset includes sample data for research purposes, covering various aspects of data science and analytics. It provides metadata and detailed descriptions of the data collection methods and instruments used.",
+    "distribution": [
+        {
+            "@id": "resources/DATA",
+            "@type": "FileObject",
+            "contentSize": "2048",
+            "contentUrl": "https://example.org/dataset/12345/DATA.csv",
+            "description": "Contains the main dataset, including all relevant data points and metadata.",
+            "encodingFormat": "text/csv",
+            "name": "DATA.csv",
+            "sha256": "abcdef1234567890abcdef1234567890abcdef1234567890abcdef1234567890"
+        }
+    ]
 }
