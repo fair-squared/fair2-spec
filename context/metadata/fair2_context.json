@@ -259,6 +259,7 @@
             "@id": "schema:publisher"
             },
             "rai": "http://mlcommons.org/croissant/RAI/",
+            "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
             "recordSet": {
             "@id": "cr:recordSet"
             },

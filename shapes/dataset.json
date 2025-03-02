@@ -1,13 +1,152 @@
 {
-  "@context": "https://fair2.ai/spec/fair2_context",
-    "@id": "fair2:DatasetShape",
-    "@type": "NodeShape",
-    "property": [
-      {
+  "@context": [
+    "https://fair2.ai/spec/fair2_context",
+    "https://fair2.ai/spec/shacl_context.json"
+  ],
+  "@id": "fair2:DatasetShape",
+  "@type": "NodeShape",
+  "targetClass": "Dataset",
+  "imports": [
+    "https://fair2.ai/AuthorShape",
+    "https://fair2.ai/OrganizationShape",
+    "https://fair2.ai/RecordSetShape",
+    "https:schema.org/ScholarlyArticleShape",
+    "https:schema.org/GrantShape"
+  ],
+  "property": [
+    {
+      "path": "schema:author",
+      "node": "fair2:PersonShape",
+      "minCount": 1,
+      "description": "The author of the dataset."
+    },
+    {
+      "path": "schema:citation",
+      "datatype": "xsd:string",
+      "minCount": 1,
+      "description": "A citation or reference to another creative work, such as another publication, web page, scholarly article, etc."
+    },
+    {
+      "path": "mlc:citeAs",
+      "datatype": "xsd:string",
+      "minCount": 1,
+      "maxCount": 1,
+      "description": "The preferred way to cite this dataset."
+    },
+    {
+      "path": "schema:conformsTo",
+      "datatype": "xsd:anyURI",
+      "minCount": 1,
+      "maxCount": 1,
+      "description": "An established standard to which the dataset conforms."
+    },
+    {
+      "path": "schema:contentUrl",
+      "datatype": "xsd:anyURI",
+      "minCount": 1,
+      "description": "A URL to the actual dataset file."
+    },
+    {
+      "path": "schema:datePublished",
+      "datatype": "xsd:date",
+      "minCount": 1,
+      "maxCount": 1,
+      "description": "The date on which the dataset was published."
+    },
+    {
+      "path": "schema:description",
+      "datatype": "xsd:string",
+      "minCount": 1,
+      "maxCount": 1,
+      "description": "A description of the dataset."
+    },
+    {
+      "path": "schema:distribution",
+      "node": {
+        "@type": "NodeShape",
+        "property": [
+          {
+            "path": "schema:contentSize",
+            "datatype": "xsd:integer",
+            "description": "The size of the dataset file in bytes."
+          },
+          {
+            "path": "schema:contentUrl",
+            "datatype": "xsd:anyURI",
+            "description": "A URL to the dataset file."
+          },
+          {
+            "path": "schema:description",
+            "datatype": "xsd:string",
+            "description": "A description of the dataset file."
+          },
+          {
+            "path": "schema:encodingFormat",
+            "datatype": "xsd:string",
+            "description": "The file format of the dataset file."
+          },
+          {
+            "path": "schema:name",
+            "datatype": "xsd:string",
+            "description": "The name of the dataset file."
+          },
+          {
+            "path": "mlc:sha256",
+            "datatype": "xsd:string",
+            "description": "The SHA-256 hash of the dataset file."
+          }
+        ],
         "minCount": 1,
-        "nodeKind": "sh:BlankNodeOrIRI",
-        "path": "https://schema.org/author"
+        "description": "Details about the distribution of the dataset."
       }
-    ],
-    "targetClass": "https://schema.org/Dataset"
+    },
+    {
+      "path": "schema:funding",
+      "node": "schema:GrantShape",
+      "minCount": 1
+    },
+    {
+      "path": "schema:identifier",
+      "datatype": "xsd:anyURI",
+      "minCount": 1,
+      "description": "A unique identifier for the dataset."
+    },
+    {
+      "path": "schema:keywords",
+      "datatype": "xsd:string",
+      "minCount": 1,
+      "description": "Keywords or tags used to describe the dataset."
+    },
+    {
+      "path": "schema:license",
+      "datatype": "xsd:anyURI",
+      "minCount": 1,
+      "description": "The license under which the dataset is published."
+    },
+    {
+      "path": "schema:name",
+      "datatype": "xsd:string",
+      "minCount": 1,
+      "description": "The name of the dataset."
+    },
+    {
+      "path": "schema:isPartOf",
+      "node": "schema:ScholarlyArticleShape",
+      "description": "Indicates that the dataset is part of a scholarly article."
+    },
+    {
+      "path": "mlc:recordSet",
+      "node": {
+        "@type": "NodeShape",
+        "property": [
+          {
+            "path": "schema:description",
+            "datatype": "xsd:string",
+            "description": "A description of the record set."
+          }
+        ],
+        "description": "Details about the record set."
+      }
+    }
+  ]
 }

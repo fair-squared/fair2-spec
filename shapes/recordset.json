@@ -1,0 +1,128 @@
+{
+    "@context": [
+        "https://fair2.ai/spec/fair2_context",
+        "https://fair2.ai/spec/shacl_context.json"
+    ],
+    "@id": "fair2:RecordSetShape",
+    "@type": "sh:NodeShape",
+    "sh:targetClass": "mlc:RecordSet",
+    "sh:property": [
+        {
+            "sh:path": "schema:name",
+            "sh:datatype": "xsd:string",
+            "sh:minCount": 1
+        },
+        {
+            "sh:path": "schema:description",
+            "sh:datatype": "xsd:string",
+            "sh:minCount": 1
+        },
+        {
+            "sh:path": "prov:wasGeneratedBy",
+            "sh:node": {
+                "@type": "sh:NodeShape",
+                "sh:property": [
+                    {
+                        "sh:path": "rdfs:label",
+                        "sh:datatype": "xsd:string",
+                        "sh:minCount": 1
+                    },
+                    {
+                        "sh:path": "prov:startedAtTime",
+                        "sh:datatype": "xsd:dateTime"
+                    },
+                    {
+                        "sh:path": "prov:endedAtTime",
+                        "sh:datatype": "xsd:dateTime"
+                    },
+                    {
+                        "sh:path": "prov:used",
+                        "sh:node": {
+                            "@type": "sh:NodeShape",
+                            "sh:property": [
+                                {
+                                    "sh:path": "schema:name",
+                                    "sh:datatype": "xsd:string"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "sh:path": "prov:wasAssociatedWith",
+                        "sh:node": {
+                            "@type": "sh:NodeShape",
+                            "sh:property": [
+                                {
+                                    "sh:path": "schema:name",
+                                    "sh:datatype": "xsd:string"
+                                },
+                                {
+                                    "sh:path": "schema:version",
+                                    "sh:datatype": "xsd:string"
+                                },
+                                {
+                                    "sh:path": "schema:url",
+                                    "sh:datatype": "xsd:anyURI"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "sh:path": "prov:hadPlan",
+                        "sh:node": {
+                            "@type": "sh:NodeShape",
+                            "sh:property": [
+                                {
+                                    "sh:path": "rdfs:label",
+                                    "sh:datatype": "xsd:string"
+                                },
+                                {
+                                    "sh:path": "schema:description",
+                                    "sh:datatype": "xsd:string"
+                                },
+                                {
+                                    "sh:path": "schema:value",
+                                    "sh:node": {
+                                        "@type": "sh:NodeShape",
+                                        "sh:property": [
+                                            {
+                                                "sh:path": "op",
+                                                "sh:datatype": "xsd:string"
+                                            },
+                                            {
+                                                "sh:path": "column",
+                                                "sh:datatype": "xsd:string"
+                                            },
+                                            {
+                                                "sh:path": "params",
+                                                "sh:node": {
+                                                    "@type": "sh:NodeShape"
+                                                }
+                                            },
+                                            {
+                                                "sh:path": "outputColumn",
+                                                "sh:datatype": "xsd:string"
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "sh:path": "prov:wasDerivedFrom",
+            "sh:node": {
+                "@type": "sh:NodeShape",
+                "sh:property": [
+                    {
+                        "sh:path": "schema:name",
+                        "sh:datatype": "xsd:string"
+                    }
+                ]
+            }
+        }
+    ]
+}
