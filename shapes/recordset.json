@@ -1,9 +1,9 @@
 {
     "@context": [
         "https://fair2.ai/spec/fair2_context",
-        "https://fair2.ai/spec/shacl_context.json"
+        "https://fair2.ai/spec/shacl_context"
     ],
-    "@id": "fair2:RecordSetShape",
+    "@id": "fair2s:RecordSetShape",
     "@type": "sh:NodeShape",
     "sh:targetClass": "mlc:RecordSet",
     "sh:property": [
@@ -16,6 +16,30 @@
             "sh:path": "schema:description",
             "sh:datatype": "xsd:string",
             "sh:minCount": 1
+        },
+        {
+            "sh:path": "mlc:field",
+            "sh:node": {
+                "@type": "sh:NodeShape",
+                "sh:property": [
+                    {
+                        "sh:path": "mlc:dataType",
+                        "sh:datatype": "xsd:string",
+                        "sh:description": "The data type of the field."
+                    },
+                    {
+                        "sh:path": "schema:description",
+                        "sh:datatype": "xsd:string",
+                        "sh:description": "A description of the field."
+                    },
+                    {
+                        "sh:path": "schema:name",
+                        "sh:datatype": "xsd:string",
+                        "sh:description": "The name of the field."
+                    }
+                ],
+                "sh:description": "Details about the fields in the record set."
+            }
         },
         {
             "sh:path": "prov:wasGeneratedBy",

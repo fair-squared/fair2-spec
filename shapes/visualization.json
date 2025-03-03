@@ -6,7 +6,7 @@
     },
     "@id": "http://senscience.ai/VisualizationShape",
     "@type": "NodeShape",
-    "targetClass": "fair2:Visualization",
+    "targetClass": "fair2s:Visualization",
     "property": [
         {
             "path": "schema:name",

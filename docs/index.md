@@ -73,7 +73,7 @@ Here is an example of a dataset described using the FAIR2 Specification:
 {
     "@context": [
         "https://fair2.ai/spec/fair2_context",
-        "https://fair2.ai/spec/shacl_context.json"
+        "https://fair2.ai/spec/shacl_context"
     ],
     "@id": "https://example.org/dataset/12345",
     "@type": "Dataset",

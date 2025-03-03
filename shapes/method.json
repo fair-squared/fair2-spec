@@ -1,11 +1,11 @@
 {
   "@context": [
     "https://fair2.ai/spec/fair2_context",
-    "https://fair2.ai/spec/shacl_context.json"
+    "https://fair2.ai/spec/shacl_context"
   ],
   "shapes": [
     {
-      "@id": "fair2:MethodSectionShape",
+      "@id": "fair2s:MethodSectionShape",
       "@type": "NodeShape",
       "property": [
         {
@@ -21,7 +21,7 @@
       "targetClass": "fair2:Section"
     },
     {
-      "@id": "fair2:MethodStepShape",
+      "@id": "fair2s:MethodStepShape",
       "@type": "NodeShape",
       "property": [
         {
@@ -31,6 +31,15 @@
         {
           "datatype": "xsd:string",
           "path": "https://schema.org/description"
+        },
+        {
+          "path": "schema:nextItem",
+          "nodeKind": "sh:IRI"
+        },
+        {
+          "path": "substep",
+          "nodeKind": "sh:IRI",
+          "targetClass": "fair2:Step"
         }
       ],
       "targetClass": "fair2:Step"

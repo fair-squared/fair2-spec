@@ -1,22 +1,22 @@
 {
   "@context": [
     "https://fair2.ai/spec/fair2_context",
-    "https://fair2.ai/spec/shacl_context.json"
+    "https://fair2.ai/spec/shacl_context"
   ],
   "@id": "fair2:DatasetShape",
   "@type": "NodeShape",
   "targetClass": "Dataset",
   "imports": [
-    "https://fair2.ai/AuthorShape",
-    "https://fair2.ai/OrganizationShape",
-    "https://fair2.ai/RecordSetShape",
-    "https:schema.org/ScholarlyArticleShape",
+    "https://fair2.ai/shapes/AuthorShape",
+    "https://fair2.ai/shapes/OrganizationShape",
+    "https://fair2.ai/shapes/RecordSetShape",
+    "https://fair2.ai/shapes/DataArticleShape",
     "https:schema.org/GrantShape"
   ],
   "property": [
     {
       "path": "schema:author",
-      "node": "fair2:PersonShape",
+      "node": "fair2s:AuthorShape",
       "minCount": 1,
       "description": "The author of the dataset."
     },
@@ -130,23 +130,14 @@
       "description": "The name of the dataset."
     },
     {
-      "path": "schema:isPartOf",
-      "node": "schema:ScholarlyArticleShape",
-      "description": "Indicates that the dataset is part of a scholarly article."
+      "path": "fair2:dataArticle",
+      "node": "fair2s:DataArticleShape",
+      "description": "Holds the metadata of a related data article." 
     },
     {
       "path": "mlc:recordSet",
-      "node": {
-        "@type": "NodeShape",
-        "property": [
-          {
-            "path": "schema:description",
-            "datatype": "xsd:string",
-            "description": "A description of the record set."
-          }
-        ],
-        "description": "Details about the record set."
-      }
+      "node": "mls:RecordSetShape",
+      "minCount": 1
     }
   ]
 }

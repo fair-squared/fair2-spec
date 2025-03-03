@@ -174,5 +174,5 @@
         "@type": "@id"
       }
     },
-    "@id": "https://fair2.ai/spec/shacl_context.json"
+    "@id": "https://fair2.ai/spec/shacl_context"
   }
