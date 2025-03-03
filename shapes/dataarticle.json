@@ -1,0 +1,24 @@
+{
+    "@context": [
+        "https://fair2.ai/spec/shacl_context",
+        {
+            "schema": "http://schema.org/",
+            "xsd": "http://www.w3.org/2001/XMLSchema#"
+        }
+    ],
+    "imports": [
+        "https://schema.org/ScholarlyArticleShape",
+        "https://fair2.ai/ns/MethodSectionShape"
+    ],
+    "@id": "https://fair2.ai/spec/DataArticleShape",
+    "@type": "sh:NodeShape",
+    "node": "https://schema.org/ScholarlyArticleShape",
+    "targetClass": "schema:ScholarlyArticle",
+    "property": [
+        {
+            "path": "fair2:methodSection",
+            "node": "https://fair2.ai/spec/MethodSectionShape",
+            "minCount": 1
+        }
+    ]
+}
