@@ -68,4 +68,4 @@ To start using FAIR²:
 Want to contribute? See [Contributing](../community/contributing.md).
 
 ---
-_Last updated:  
+_Last updated: [03/03/2025]_

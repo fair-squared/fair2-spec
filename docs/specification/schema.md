@@ -89,4 +89,4 @@ The **`MethodSectionShape`** and **`MethodStepShape`** document the dataset’s 
 - **[Learn about JSON-LD & RDF](../technical/json-ld.md)** for AI-ready metadata.
 
 ---
-_Last updated: 03/03/2025_  
+_Last updated: [03/03/2025]_  

@@ -73,4 +73,4 @@ All contributors are expected to follow our **[Code of Conduct](code-of-conduct.
 We appreciate your contributions and look forward to working together to make **FAIR² the standard for AI-ready FAIR data!** 🚀
 
 ---
-_Last updated: 03/03/2025_  
+_Last updated: [03/03/2025]_  
