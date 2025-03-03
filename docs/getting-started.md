@@ -16,7 +16,7 @@ To work with FAIR² metadata, you may need:
 - **JSON-LD tools** (optional, for linked data processing)
 
 You can install the necessary Python libraries with:
-``bash
+```bash
 pip install ml-croissant torch tensorflow rdflib pyshacl
 ```
 
