@@ -72,9 +72,9 @@ The `DatasetShape` is the main schema used in FAIR² to describe datasets.
 | **Property** | **Type** | **Description** | **Constraints** |
 |-------------|---------|----------------|----------------|
 | `fair2:dataArticle` | `fair2:DataArticleShape` | Metadata of a related data article. | Optional |
-| `schema:ethicsReview` | `fair2:EthicsReview` | Ethical assessments related to the dataset. | Optional (min 1) |
-| `fair2:dataBiases` | `fair2:DataBiases` | Documents known biases in the dataset. | Optional (min 1) |
-| `fair2:dataLimitations` | `fair2:DataLimitations` | Specifies known limitations or constraints of the dataset. | Optional (min 1) |
+| `rai:ethicsReview` | `fair2:EthicsReview` | Ethical assessments related to the dataset. | Optional (min 1) |
+| `rai:dataBiases` | `fair2:DataBiases` | Documents known biases in the dataset. | Optional (min 1) |
+| `rai:dataLimitations` | `fair2:DataLimitations` | Specifies known limitations or constraints of the dataset. | Optional (min 1) |
 | `mlc:citeAs` | `xsd:string` | Citation for the dataset, ideally in BibTeX format. | Optional (exactly 1) |
 | `fair2:isLiveDataset` | `xsd:boolean` | Indicates whether the dataset is live and subject to updates. | Optional (exactly 1) |
 

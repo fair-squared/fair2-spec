@@ -198,7 +198,7 @@
       "description": "Information about any known biases in the dataset."
     },
     {
-      "path": "rai:dataLimitation",
+      "path": "rai:dataLimitations",
       "datatype": "xsd:string",
       "description": "Information about any limitations of the dataset."
     }

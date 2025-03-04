@@ -5,6 +5,22 @@
   ],
   "shapes": [
     {
+      "@id": "fair2s:MethodShape",
+      "@type": "NodeShape",
+      "property": [
+        {
+          "datatype": "xsd:string",
+          "path": "https://schema.org/name"
+        },
+        {
+          "minCount": 1,
+          "nodeKind": "sh:IRI",
+          "path": "fair2:methodSection"
+        }
+      ],
+      "targetClass": "fair2:Method"
+    },
+    {
       "@id": "fair2s:MethodSectionShape",
       "@type": "NodeShape",
       "property": [
@@ -18,7 +34,7 @@
           "path": "fair2:step"
         }
       ],
-      "targetClass": "fair2:Section"
+      "targetClass": "fair2:MethodSection"
     },
     {
       "@id": "fair2s:MethodStepShape",
