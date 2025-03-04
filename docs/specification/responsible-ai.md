@@ -6,7 +6,7 @@ FAIR² incorporates the **Croissant RAI vocabulary** to align datasets with **Re
 
 ---
 
-## 📑 5.1 Ethical Documentation
+## 📑 Ethical Documentation
 
 FAIR² integrates **Responsible AI metadata** using the **Croissant RAI vocabulary** to document:
 
@@ -41,7 +41,7 @@ Identifies known constraints or deficiencies, such as:
 
 ---
 
-## 📊 5.2 Provenance for Responsible AI
+## 📊 Provenance for Responsible AI
 
 ### 🌍 **Provenance (`prov:wasGeneratedBy`)**
 FAIR² integrates **PROV-O metadata** to **link dataset variables to the methods, tools, and steps used to generate them**.
