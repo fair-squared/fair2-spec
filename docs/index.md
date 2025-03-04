@@ -23,8 +23,11 @@ To start using FAIR²:
 
 ## 📚 Documentation Structure
 - **[Specification](specification/overview.md)** – Core principles and structure of FAIR².
-- **[ML Integration](integration/ml-croissant.md)** – How FAIR² aligns with ML Croissant, schema.org, and GO FAIR.
+- **[ML Croissant Integration](integration/ml-croissant.md)** – How FAIR² aligns with ML Croissant, schema.org, and GO FAIR.
+- **[Croissant RAI Integration](integration/croissant-rai.md)** – How FAIR² leaverages the Croissant RAI vocabulary to document ethical reviews, biases, and limitations.
 - **[PROV-O Integration](integration/prov-o.md)** – How FAIR² aligns with PROV-O to inhance provenance metadata.
+- **[QUDT Integration](integration/qudt.md)** – How FAIR² uses standarized units and definitions for measurements.
+- **[CRediT Integration](integration/credit.md)** – How FAIR² supports academic use cases including contributor roles and citations metadata.
 - **[Technical Details](technical/json-ld.md)** – JSON-LD, RDF, and API considerations.
 - **[Community](community/contributing.md)** – How to contribute, governance, and roadmap.
 

@@ -138,6 +138,70 @@
       "path": "mlc:recordSet",
       "node": "mls:RecordSetShape",
       "minCount": 1
+    },
+    {
+      "path": "schema:version",
+      "datatype": "xsd:string",
+      "minCount": 1,
+      "description": "The version of the dataset."
+    },
+    {
+      "path": "schema:dateCreated",
+      "datatype": "xsd:date",
+      "minCount": 1,
+      "maxCount": 1,
+      "description": "The date on which the dataset was created."
+    },
+    {
+      "path": "schema:dateModified",
+      "datatype": "xsd:date",
+      "minCount": 1,
+      "maxCount": 1,
+      "description": "The date on which the dataset was last modified."
+    },
+    {
+      "path": "fair2:isLiveDataset",
+      "datatype": "xsd:boolean",
+      "minCount": 1,
+      "maxCount": 1,
+      "description": "Indicates whether the dataset is live."
     }
+    ,
+    {
+      "path": "rai:ethicsReview",
+      "node": {
+        "@type": "NodeShape",
+        "property": [
+          {
+        "path": "rai:reviewedBy",
+        "datatype": "xsd:string",
+        "description": "The entity that reviewed the dataset for ethical considerations."
+          },
+          {
+        "path": "rai:approvalStatus",
+        "datatype": "xsd:string",
+        "description": "The approval status of the ethics review."
+          },
+          {
+        "path": "rai:reviewDate",
+        "datatype": "xsd:date",
+        "description": "The date on which the ethics review was conducted."
+          }
+        ]
+      },
+      "datatype": "xsd:string",
+      "description": "Information about the ethics review process for the dataset."
+    },
+    {
+      "path": "rai:dataBiases",
+      "datatype": "xsd:string",
+      "description": "Information about any known biases in the dataset."
+    },
+    {
+      "path": "rai:dataLimitation",
+      "datatype": "xsd:string",
+      "description": "Information about any limitations of the dataset."
+    }
+
   ]
 }

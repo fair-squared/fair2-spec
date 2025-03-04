@@ -256,6 +256,7 @@
             "priceCurrency": {
             "@id": "schema:priceCurrency"
             },
+            "prov": "http://www.w3.org/ns/prov#",
             "publisher": {
             "@id": "schema:publisher"
             },
