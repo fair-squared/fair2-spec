@@ -78,7 +78,6 @@ The `DatasetShape` is the main schema used in FAIR² to describe datasets.
 | `mlc:citeAs` | `xsd:string` | Citation for the dataset, ideally in BibTeX format. | Optional (exactly 1) |
 | `fair2:isLiveDataset` | `xsd:boolean` | Indicates whether the dataset is live and subject to updates. | Optional (exactly 1) |
 
----|
 
 ---
 
