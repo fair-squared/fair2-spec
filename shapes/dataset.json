@@ -201,7 +201,11 @@
       "path": "rai:dataLimitations",
       "datatype": "xsd:string",
       "description": "Information about any limitations of the dataset."
+    },
+    {
+      "path": "fair2:method",
+      "node": "fair2s:MethodShape",
+      "description": "The methods used to generate the dataset."
     }
-
   ]
 }

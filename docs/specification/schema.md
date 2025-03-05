@@ -14,10 +14,10 @@ FAIR² supports a broad range of **research resources** to ensure **AI-ready, FA
 | **Resource Type** | **Description** | **Schema Mapping** |
 |------------------|---------------|--------------------|
 | **Datasets (`schema:Dataset`)** | Primary research datasets, including structured and unstructured data files. | `schema:Dataset`, `mlc:DatasetShape` |
-| **Scholarly Articles (`schema:ScholarlyArticle`)** | Research publications describing datasets, methodologies, or findings. | `schema:ScholarlyArticle`, `fair2:DataArticleShape` |
-| **Methodology & Workflows (`fair2:MethodSection`)** | Descriptions of methods used in research, including computational workflows. | `fair2:MethodSectionShape`, `fair2:MethodStepShape` |
+| **Scholarly Articles (`schema:ScholarlyArticle`)** | Research publications describing datasets, methodologies, or findings. | `schema:ScholarlyArticle`, `fair2s:DataArticleShape` |
+| **Methodology & Workflows (`fair2:Method`)** | Descriptions of methods used in research, including computational workflows. | `fair2s:MethodShape`, `fair2s:StepShape` |
 | **Visualizations (`fair2:Visualization`)** | Graphs, plots, and interactive visual representations of datasets. | `fair2:Visualization`, `schema:ImageObject` |
-| **Data Records (`mlc:RecordSet`)** | Individual data points, records, or observations within datasets. | `mlc:RecordSet`, `fair2:RecordSetShape` |
+| **Data Records (`mlc:RecordSet`)** | Individual data points, records, or observations within datasets. | `mlc:RecordSet`, `fair2s:RecordSetShape` |
 | **Fields (`mlc:Field`)** | Metadata describing **individual attributes/columns** in tabular datasets. | `mlc:Field`, `schema:PropertyValue` |
 | **Files (`mlc:FileObject`)** | Individual files within a dataset (e.g., CSV, images, logs). | `mlc:FileObject`, `schema:MediaObject` |
 
@@ -43,11 +43,11 @@ The `DatasetShape` is the main schema used in FAIR² to describe datasets.
 | `schema:description` | `xsd:string` | A short textual description of the dataset. | Required (exactly 1) |
 | `schema:version` | `xsd:string` | Version identifier for the dataset. | Required (exactly 1) |
 | `schema:distribution` | `mlc:FileObject` or `mlc:FileSet` | Describes the dataset’s distribution resources. | Required (min 1) |
-| `schema:author` | `fair2:AuthorShape` | The author(s) of the dataset. | Required (min 1) |
+| `schema:author` | `fair2:Author` | The author(s) of the dataset. | Required (min 1) |
 | `schema:creator` | `schema:Person` or `schema:Organization` | Identifies dataset creators (with CRediT roles). | Required (min 1) |
-| `schema:methods` | `fair2:MethodShape` | Details the methods used to generate the dataset. | Required (min 1) |
+| `fair2:method` | `fair2:Method` | Details the methods used to generate the dataset. | Required (min 1) |
 | `mlc:recordSet` | `mlc:RecordSet` | Represents structured data in the dataset. | Required (min 1) |
-| `schema:funding` | `schema:GrantShape` | Funding information for the dataset. | Required (min 1) |
+| `schema:funding` | `schema:Grant` | Funding information for the dataset. | Required (min 1) |
 | `schema:datePublished` | `xsd:date` | Date the dataset was published. | Required (exactly 1) |
 | `schema:identifier` | `xsd:anyURI` | A unique identifier for the dataset (DOI, URL, etc.). | Required (min 1) |
 | `schema:license` | `xsd:anyURI` | The dataset's license. | Required (min 1) |
@@ -71,10 +71,10 @@ The `DatasetShape` is the main schema used in FAIR² to describe datasets.
 ### 🎯 **Optional Properties**
 | **Property** | **Type** | **Description** | **Constraints** |
 |-------------|---------|----------------|----------------|
-| `fair2:dataArticle` | `fair2:DataArticleShape` | Metadata of a related data article. | Optional |
-| `rai:ethicsReview` | `fair2:EthicsReview` | Ethical assessments related to the dataset. | Optional (min 1) |
-| `rai:dataBiases` | `fair2:DataBiases` | Documents known biases in the dataset. | Optional (min 1) |
-| `rai:dataLimitations` | `fair2:DataLimitations` | Specifies known limitations or constraints of the dataset. | Optional (min 1) |
+| `fair2:dataArticle` | `fair2:DataArticle` | Metadata of a related data article. | Optional |
+| `rai:ethicsReview` | `xsd:string` | Ethical assessments related to the dataset. | Optional (min 1) |
+| `rai:dataBiases` | `xsd:string` | Documents known biases in the dataset. | Optional (min 1) |
+| `rai:dataLimitations` | `xsd:string` | Specifies known limitations or constraints of the dataset. | Optional (min 1) |
 | `mlc:citeAs` | `xsd:string` | Citation for the dataset, ideally in BibTeX format. | Optional (exactly 1) |
 | `fair2:isLiveDataset` | `xsd:boolean` | Indicates whether the dataset is live and subject to updates. | Optional (exactly 1) |
 
@@ -183,22 +183,22 @@ Since **articles are often part of journals, books, or conference proceedings**,
 ```
 ---
 
-## 📂 **Methodology Schema (`MethodSectionShape` & `MethodStepShape`)**
-The **`MethodSectionShape`** and **`MethodStepShape`** document the dataset’s methodology.
+## 📂 **Methodology Schema (`MethodShape` & `StepShape`)**
+The **`MethodShape`** and **`StepShape`** document the dataset’s methodology.
 
-### **MethodSectionShape**
+### **MethodShape**
 | Property | Type | Description | Constraints |
 |----------|------|-------------|-------------|
 | `schema:name` | `xsd:string` | Section title. | Required |
-| `fair2:step` | `MethodStepShape` | Steps in the methodology. | Required (min 1) |
+| `fair2:step` | `StepShape` | Steps in the methodology. | Required (min 1) |
 
-### **MethodStepShape**
+### **StepShape**
 | Property | Type | Description | Constraints |
 |----------|------|-------------|-------------|
 | `schema:name` | `xsd:string` | Step title. | Required |
 | `schema:description` | `xsd:string` | Step details. | Required |
 | `schema:nextItem` | `IRI` | Reference to the next step. | Optional |
-| `fair2:substep` | `IRI` | Reference to a sub-step. | Optional |
+| `fair2:substep` | `StepShape` | Reference to a sub-step. | Optional |
 
 ---
 

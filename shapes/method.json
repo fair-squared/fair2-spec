@@ -13,31 +13,16 @@
           "path": "https://schema.org/name"
         },
         {
+          "path": "fair2:step",
           "minCount": 1,
           "nodeKind": "sh:IRI",
-          "path": "fair2:methodSection"
+          "targetClass": "fair2:Step"
         }
       ],
       "targetClass": "fair2:Method"
     },
     {
-      "@id": "fair2s:MethodSectionShape",
-      "@type": "NodeShape",
-      "property": [
-        {
-          "datatype": "xsd:string",
-          "path": "https://schema.org/name"
-        },
-        {
-          "minCount": 1,
-          "nodeKind": "sh:IRI",
-          "path": "fair2:step"
-        }
-      ],
-      "targetClass": "fair2:MethodSection"
-    },
-    {
-      "@id": "fair2s:MethodStepShape",
+      "@id": "fair2s:StepShape",
       "@type": "NodeShape",
       "property": [
         {
