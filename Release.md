@@ -81,9 +81,11 @@ This document provides a structured checklist to ensure a complete and well-docu
  ├── CHANGELOG.md                 # Version updates
  ├── VERSION                      # Semantic versioning (e.g., v1.0)
 ```
-❌ CHANGELOG.md is mising
-❌ VERSION is mising
-❌ LICENSE is mising
+ - ❌ CHANGELOG" is mising
+  
+ - ❌ VERSION is mising
+
+ - ❌ LICENSE is mising
 ---
 
 ## **📑 2. Specification Documentation**
