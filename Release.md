@@ -14,28 +14,67 @@ This document provides a structured checklist to ensure a complete and well-docu
 ---
 
 ## **📂 1. GitHub Repository Structure**
-✅ **Public Repository on GitHub** with the following structure:
+⏳ **Public Repository on GitHub** with the following structure:
 ```
-📂 fair2-specification/
+📂 fair2-spec
+ ├── 📂 context/                 # Context definitions
+ │    ├── 📂 metadata/           # Metadata contexts
+ │    │    ├── fair2_context.json
+ │    ├── 📂 validation/         # SHACL validation contexts
+ │    │    ├── shacl_context.json
+ │
  ├── 📂 docs/                     # Documentation files
- │    ├── overview.md             # General introduction and scope
- │    ├── ontology.md             # FAIR² ontology details (JSON-LD, TTL)
- │    ├── schema.md               # SHACL/JSON Schema validation
- │    ├── examples.md             # Example implementations
- │    ├── faq.md                  # Frequently asked questions
- │    ├── contributing.md         # Contribution guidelines
- │    ├── changelog.md            # Version history
- │
- ├── 📂 ontology/                 # Ontology definitions
- │    ├── fair2_ontology.jsonld   # JSON-LD format
- │    ├── fair2_ontology.ttl      # Turtle format
- │
- ├── 📂 schema/                   # Schema validation files
- │    ├── fair2_schema.json       # JSON Schema
- │    ├── fair2_schema.shacl.ttl  # SHACL validation
+ │    ├── 📂 community/           # Community-related guidelines
+ │    │    ├── code-of-conduct.md
+ │    │    ├── contributing.md
+ │    │    ├── governance.md
+ │    │    ├── roadmap.md
+ │    │
+ │    ├── 📂 integration/         # External ontology & standard integrations
+ │    │    ├── credit.md
+ │    │    ├── croissant-rai.md
+ │    │    ├── go-fair.md
+ │    │    ├── ml-croissant.md
+ │    │    ├── prov-o.md
+ │    │    ├── qudt.md
+ │    │    ├── schema-org.md
+ │    │
+ │    ├── 📂 specification/       # Core FAIR² specification docs
+ │    │    ├── examples.md
+ │    │    ├── ontology.md
+ │    │    ├── overview.md
+ │    │    ├── responsible-ai.md
+ │    │    ├── schema.md
+ │    │    ├── shacl-validation.md
+ │    │
+ │    ├── 📂 technical/           # Technical documentation
+ │    │    ├── getting-started.md
+ │    │    ├── index.md
  │
  ├── 📂 examples/                 # Example datasets
- │    ├── example_dataset.jsonld  # Example dataset using FAIR²
+ │
+ ├── 📂 ontologies/               # Ontology files
+ │    ├── 📂 turtle/              # RDF/Turtle format
+ │    │    ├── fair2_ontology.ttl
+ │    ├── fair2_ontology.json     # JSON-LD format
+ │
+ ├── 📂 scripts/                  # Scripts for validation and formatting
+ │    ├── format.py               # Formatting script
+ │    ├── validate_shacl.py        # SHACL validation script (Python)
+ │    ├── validate.sh              # SHACL validation script (Shell)
+ │
+ ├── 📂 shapes/                   # SHACL validation shapes
+ │    ├── author.json
+ │    ├── contribution.json
+ │    ├── dataarticle.json
+ │    ├── dataset.json
+ │    ├── grant.json
+ │    ├── method.json
+ │    ├── organization.json
+ │    ├── recordset.json
+ │    ├── scholarlyarticle.json
+ │    ├── visualization.json
+ │    ├── README.md
  │
  ├── LICENSE                      # License file (MIT, Apache 2.0, or CC-BY 4.0)
  ├── README.md                    # Overview of FAIR²
@@ -43,6 +82,7 @@ This document provides a structured checklist to ensure a complete and well-docu
  ├── VERSION                      # Semantic versioning (e.g., v1.0)
 ```
 ❌ CHANGELOG.md is mising
+❌ LICENSE is mising
 ---
 
 ## **📑 2. Specification Documentation**
