@@ -119,7 +119,7 @@ This document provides a structured checklist to ensure a complete and well-docu
 ⏳ **Toolkit**
 - ❌ **Conversion Tools** Turtle from/to JSON. 
 - 🛠 **fai2py tools** python library
-- ❌ **SPARQL Queries** for ontology validation.
+- ❌ **SPARQL Example Queries**.
 
 ---
 
