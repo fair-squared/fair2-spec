@@ -116,9 +116,10 @@ This document provides a structured checklist to ensure a complete and well-docu
 - ✅ `fair2_schema.json` (JSON Schema)
 - ❌`fair2_schema.ttl` (SHACL Turtle for RDF validation)
 
-❌ **Conversion Tools** Turtle from/to JSON. 
-⚠️  **fai2py tools** python library
-❌ **SPARQL Queries** for ontology validation.
+⏳ **Toolkit**
+- ❌ **Conversion Tools** Turtle from/to JSON. 
+- 🛠 **fai2py tools** python library
+- ❌ **SPARQL Queries** for ontology validation.
 
 ---
 
