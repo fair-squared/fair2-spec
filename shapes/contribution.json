@@ -1,0 +1,24 @@
+{
+    "@context": [
+    "https://fair2.ai/spec/fair2_context",
+    "https://fair2.ai/spec/shacl_context"
+  ],
+    "@id": "ex:ContributionShape",
+    "@type": "sh:NodeShape",
+    "sh:targetClass": "schema:Contribution",
+    "sh:property": [
+      {
+        "sh:path": "prov:agent",
+        "sh:node": "ex:PersonShape",
+        "sh:minCount": 1,
+        "sh:maxCount": 1,
+        "sh:description": "Each contribution must be associated with exactly one agent (a person)."
+      },
+      {
+        "sh:path": "schema:role",
+        "sh:node": "ex:RoleShape",
+        "sh:minCount": 1,
+        "sh:description": "Each contribution must have at least one role."
+      }
+    ]
+  }
