@@ -97,6 +97,7 @@ This document provides a structured checklist to ensure a complete and well-docu
 🛠 `faq.md` → Common questions, troubleshooting.  
 
 📑 **Formatted Specification Document** (`PDF/DOCX`):
+
 ⚠️ ⏳ **Official FAIR² Specification Document** (for citation & distribution):
 - **Introduction & Scope**
 - **Ontology & Schema Details**
@@ -112,9 +113,11 @@ This document provides a structured checklist to ensure a complete and well-docu
 - ❌`fair2_ontology.ttl` (Turtle format)
 
 ✅ **Schema validation files** (`schema/` folder):
-- `fair2_schema.json` (JSON Schema)
-- `fair2_schema.shacl.ttl` (SHACL Turtle for RDF validation)
+- ✅ `fair2_schema.json` (JSON Schema)
+- ❌`fair2_schema.ttl` (SHACL Turtle for RDF validation)
 
+❌ **Conversion Tools** Turtle from/to JSON. 
+⚠️  **fai2py tools** python library
 ❌ **SPARQL Queries** for ontology validation.
 
 ---
