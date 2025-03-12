@@ -56,6 +56,11 @@ FAIR² **extends** the [ML Croissant](https://mlcommons.org/croissant/) specific
 
 FAIR² remains **fully compatible** with ML Croissant and Schema.org, ensuring seamless interoperability.
 
+---
+
+## 🧩 **Ontology**
+
+FAIR² includes an ontology that defines the relationships and properties of the various entities involved in the dataset. The ontology is available in both JSON and Turtle formats for easy integration and use. For more details, see the [Ontology Documentation](ontology.md).
 
 ---
 
@@ -70,6 +75,7 @@ For more details, see:
 - [FAIR² Schema](schema.md)
 - [SHACL Validation](shacl-validation.md)
 - [JSON-LD & RDF](../technical/json-ld.md)
+
 
 ---
 

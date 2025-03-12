@@ -86,6 +86,28 @@ FAIR²’s SHACL rules ensure datasets comply with structured metadata requireme
 
 ---
 
+## Namespaces
+
+The FAIR² schema relies on multiple vocabularies to ensure interoperability with existing standards such as **schema.org**, **ML Croissant**, and **Contributor Role Ontology (CRO)**.
+
+Below are the key namespaces used in this schema:
+
+| Prefix  | Namespace URI |
+|---------|--------------------------------------------------------------|
+| `fair2` | `https://fair2.ai/ontology#` |
+| `schema` | `https://schema.org/` |
+| `cr` | `https://mlcommons.org/croissant#` |
+| `sh` | `http://www.w3.org/ns/shacl#` |
+| `rdfs` | `http://www.w3.org/2000/01/rdf-schema#` |
+| `xsd` | `http://www.w3.org/2001/XMLSchema#` |
+| `rai` | `https://fair2.ai/ontology/responsibleAI#` |
+| `obo` | `http://purl.obolibrary.org/obo/` |
+| `prov` | `http://www.w3.org/ns/prov#` |
+
+For a **detailed description** of these namespaces and their usage in the FAIR² ontology, refer to:  
+📖 **[Ontology Documentation](./ontology.md#namespaces-used-in-fair²)**.
+---
+
 ## 🎯 **Why SHACL is Essential for FAIR²**
 
 ✅ **Guarantees dataset compliance** with FAIR² and ML Croissant.
