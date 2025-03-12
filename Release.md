@@ -82,6 +82,7 @@ This document provides a structured checklist to ensure a complete and well-docu
  ├── VERSION                      # Semantic versioning (e.g., v1.0)
 ```
 ❌ CHANGELOG.md is mising
+❌ VERSION is mising
 ❌ LICENSE is mising
 ---
 
@@ -142,7 +143,7 @@ This document provides a structured checklist to ensure a complete and well-docu
 
 ⏳ **Community Engagement**
 - ✅ **Mailing List, Slack, or Discord** for discussions and feedback.
-- **Call for Adoption**: Engage research groups, ML communities, and data repositories.
+- ⏳ **Call for Adoption**: Engage research groups, ML communities, and data repositories.
 
 ---
 
