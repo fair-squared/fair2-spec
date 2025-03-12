@@ -27,7 +27,7 @@
       "description": "A citation or reference to another creative work, such as another publication, web page, scholarly article, etc."
     },
     {
-      "path": "mlc:citeAs",
+      "path": "cr:citeAs",
       "datatype": "xsd:string",
       "minCount": 1,
       "maxCount": 1,
@@ -91,7 +91,7 @@
             "description": "The name of the dataset file."
           },
           {
-            "path": "mlc:sha256",
+            "path": "cr:sha256",
             "datatype": "xsd:string",
             "description": "The SHA-256 hash of the dataset file."
           }
@@ -135,7 +135,7 @@
       "description": "Holds the metadata of a related data article." 
     },
     {
-      "path": "mlc:recordSet",
+      "path": "cr:recordSet",
       "node": "mls:RecordSetShape",
       "minCount": 1
     },

@@ -13,13 +13,13 @@ FAIR² supports a broad range of **research resources** to ensure **AI-ready, FA
 
 | **Resource Type** | **Description** | **Schema Mapping** |
 |------------------|---------------|--------------------|
-| **Datasets (`schema:Dataset`)** | Primary research datasets, including structured and unstructured data files. | `schema:Dataset`, `mlc:DatasetShape` |
+| **Datasets (`schema:Dataset`)** | Primary research datasets, including structured and unstructured data files. | `schema:Dataset`, `cr:DatasetShape` |
 | **Scholarly Articles (`schema:ScholarlyArticle`)** | Research publications describing datasets, methodologies, or findings. | `schema:ScholarlyArticle`, `fair2s:DataArticleShape` |
 | **Methodology & Workflows (`fair2:Method`)** | Descriptions of methods used in research, including computational workflows. | `fair2s:MethodShape`, `fair2s:StepShape` |
 | **Visualizations (`fair2:Visualization`)** | Graphs, plots, and interactive visual representations of datasets. | `fair2:Visualization`, `schema:ImageObject` |
-| **Data Records (`mlc:RecordSet`)** | Individual data points, records, or observations within datasets. | `mlc:RecordSet`, `fair2s:RecordSetShape` |
-| **Fields (`mlc:Field`)** | Metadata describing **individual attributes/columns** in tabular datasets. | `mlc:Field`, `schema:PropertyValue` |
-| **Files (`mlc:FileObject`)** | Individual files within a dataset (e.g., CSV, images, logs). | `mlc:FileObject`, `schema:MediaObject` |
+| **Data Records (`cr:RecordSet`)** | Individual data points, records, or observations within datasets. | `cr:RecordSet`, `fair2s:RecordSetShape` |
+| **Fields (`cr:Field`)** | Metadata describing **individual attributes/columns** in tabular datasets. | `cr:Field`, `schema:PropertyValue` |
+| **Files (`cr:FileObject`)** | Individual files within a dataset (e.g., CSV, images, logs). | `cr:FileObject`, `schema:MediaObject` |
 
 ### 🔍 **How FAIR² Extends These Resource Types**
 - **AI/ML Ready** – Ensures datasets, fields, and file objects are **structured for AI workflows**.
@@ -42,17 +42,17 @@ The `DatasetShape` is the main schema used in FAIR² to describe datasets.
 | `schema:name` | `xsd:string` | The name of the dataset. | Required (exactly 1) |
 | `schema:description` | `xsd:string` | A short textual description of the dataset. | Required (exactly 1) |
 | `schema:version` | `xsd:string` | Version identifier for the dataset. | Required (exactly 1) |
-| `schema:distribution` | `mlc:FileObject` or `mlc:FileSet` | Describes the dataset’s distribution resources. | Required (min 1) |
+| `schema:distribution` | `cr:FileObject` or `cr:FileSet` | Describes the dataset’s distribution resources. | Required (min 1) |
 | `schema:author` | `fair2:Author` | The author(s) of the dataset. | Required (min 1) |
 | `schema:creator` | `schema:Person` or `schema:Organization` | Identifies dataset creators (with CRediT roles). | Required (min 1) |
 | `fair2:method` | `fair2:Method` | Details the methods used to generate the dataset. | Required (min 1) |
-| `mlc:recordSet` | `mlc:RecordSet` | Represents structured data in the dataset. | Required (min 1) |
+| `cr:recordSet` | `cr:RecordSet` | Represents structured data in the dataset. | Required (min 1) |
 | `schema:funding` | `schema:Grant` | Funding information for the dataset. | Required (min 1) |
 | `schema:datePublished` | `xsd:date` | Date the dataset was published. | Required (exactly 1) |
 | `schema:identifier` | `xsd:anyURI` | A unique identifier for the dataset (DOI, URL, etc.). | Required (min 1) |
 | `schema:license` | `xsd:anyURI` | The dataset's license. | Required (min 1) |
 | `schema:citation` | `xsd:string` | A reference to another creative work citing this dataset. | Required (min 1) |
-| `mlc:citeAs` | `xsd:string` | The preferred way to cite this dataset. | Required (min 1, max 1) |
+| `cr:citeAs` | `xsd:string` | The preferred way to cite this dataset. | Required (min 1, max 1) |
 | `schema:conformsTo` | `xsd:anyURI` | The standard the dataset conforms to. | Required (min 1, max 1) |
 
 ---
@@ -75,7 +75,7 @@ The `DatasetShape` is the main schema used in FAIR² to describe datasets.
 | `rai:ethicsReview` | `xsd:string` | Ethical assessments related to the dataset. | Optional (min 1) |
 | `rai:dataBiases` | `xsd:string` | Documents known biases in the dataset. | Optional (min 1) |
 | `rai:dataLimitations` | `xsd:string` | Specifies known limitations or constraints of the dataset. | Optional (min 1) |
-| `mlc:citeAs` | `xsd:string` | Citation for the dataset, ideally in BibTeX format. | Optional (exactly 1) |
+| `cr:citeAs` | `xsd:string` | Citation for the dataset, ideally in BibTeX format. | Optional (exactly 1) |
 | `fair2:isLiveDataset` | `xsd:boolean` | Indicates whether the dataset is live and subject to updates. | Optional (exactly 1) |
 
 
@@ -92,7 +92,7 @@ The **`schema:distribution`** property defines the dataset files.
 | `schema:description` | `xsd:string` | A description of the dataset file. |
 | `schema:encodingFormat` | `xsd:string` | The file format (e.g., CSV, JSON). |
 | `schema:name` | `xsd:string` | The name of the dataset file. |
-| `mlc:sha256` | `xsd:string` | SHA-256 hash for data integrity. |
+| `cr:sha256` | `xsd:string` | SHA-256 hash for data integrity. |
 
 ---
 
@@ -209,55 +209,55 @@ Below is a detailed breakdown of **key properties** for ML Croissant’s **`Reco
 
 ---
 
-## 📌 **RecordSet Properties (`mlc:RecordSet`)**
+## 📌 **RecordSet Properties (`cr:RecordSet`)**
 
 A **`RecordSet`** represents structured data, such as tabular datasets, containing individual **data records**.
 
 | **Property** | **Type** | **Description** | **Constraints** |
 |-------------|---------|----------------|----------------|
 | `@context` | `URL` | JSON-LD context definitions for metadata. | Required (exactly 1) |
-| `@type` | `Text` | Declares the type as `mlc:RecordSet`. | Required (exactly 1) |
+| `@type` | `Text` | Declares the type as `cr:RecordSet`. | Required (exactly 1) |
 | `schema:name` | `xsd:string` | The name of the record set. | Required (exactly 1) |
 | `schema:description` | `xsd:string` | A textual description of the record set. | Required (exactly 1) |
-| `mlc:fields` | `mlc:Field` | The list of fields (columns) in the record set. | Required (min 1) |
+| `cr:fields` | `cr:Field` | The list of fields (columns) in the record set. | Required (min 1) |
 | `schema:identifier` | `xsd:anyURI` | A unique identifier for the record set. | Recommended (min 1) |
 | `schema:keywords` | `xsd:string`, `URL`, `DefinedTerm` | Keywords describing the record set. | Recommended (min 1) |
-| `mlc:source` | `mlc:FileObject` | Reference to the data file containing the record set. | Recommended (min 1) |
+| `cr:source` | `cr:FileObject` | Reference to the data file containing the record set. | Recommended (min 1) |
 
 ---
 
-## 📌 **Field Properties (`mlc:Field`)**
+## 📌 **Field Properties (`cr:Field`)**
 
 A **`Field`** describes **an individual attribute/column** within a `RecordSet`, specifying **data types, descriptions, and relationships**.
 
 | **Property** | **Type** | **Description** | **Constraints** |
 |-------------|---------|----------------|----------------|
 | `@context` | `URL` | JSON-LD context definitions for metadata. | Required (exactly 1) |
-| `@type` | `Text` | Declares the type as `mlc:Field`. | Required (exactly 1) |
+| `@type` | `Text` | Declares the type as `cr:Field`. | Required (exactly 1) |
 | `schema:name` | `xsd:string` | The name of the field. | Required (exactly 1) |
 | `schema:description` | `xsd:string` | A description of what the field represents. | Required (exactly 1) |
-| `mlc:dataType` | `Text` | Data type of the field (e.g., `Integer`, `String`, `Boolean`). | Required (exactly 1) |
-| `mlc:example` | `Any` | Example values demonstrating typical field content. | Recommended (min 1) |
-| `mlc:unitCode` | `Text` | The unit of measurement (if applicable). | Optional |
-| `mlc:format` | `Text` | The expected format of the data (e.g., `ISO-8601`, `float`). | Optional |
-| `mlc:isRequired` | `Boolean` | Indicates if the field is mandatory. | Optional |
-| `mlc:hasCategory` | `URL` | Link to an external vocabulary defining field values. | Optional |
+| `cr:dataType` | `Text` | Data type of the field (e.g., `Integer`, `String`, `Boolean`). | Required (exactly 1) |
+| `cr:example` | `Any` | Example values demonstrating typical field content. | Recommended (min 1) |
+| `cr:unitCode` | `Text` | The unit of measurement (if applicable). | Optional |
+| `cr:format` | `Text` | The expected format of the data (e.g., `ISO-8601`, `float`). | Optional |
+| `cr:isRequired` | `Boolean` | Indicates if the field is mandatory. | Optional |
+| `cr:hasCategory` | `URL` | Link to an external vocabulary defining field values. | Optional |
 
 ---
 
-## 📌 **FileObject Properties (`mlc:FileObject`)**
+## 📌 **FileObject Properties (`cr:FileObject`)**
 
 A **`FileObject`** represents **a file containing dataset records**, including its **format, location, and checksum validation**.
 
 | **Property** | **Type** | **Description** | **Constraints** |
 |-------------|---------|----------------|----------------|
 | `@context` | `URL` | JSON-LD context definitions for metadata. | Required (exactly 1) |
-| `@type` | `Text` | Declares the type as `mlc:FileObject`. | Required (exactly 1) |
+| `@type` | `Text` | Declares the type as `cr:FileObject`. | Required (exactly 1) |
 | `schema:name` | `xsd:string` | The name of the file. | Required (exactly 1) |
 | `schema:description` | `xsd:string` | A textual description of the file contents. | Required (exactly 1) |
 | `schema:contentUrl` | `xsd:anyURI` | The URL or file path where the file can be accessed. | Required (exactly 1) |
 | `schema:encodingFormat` | `xsd:string` | File format (e.g., `text/csv`, `application/json`). | Required (exactly 1) |
-| `mlc:sha256` | `xsd:string` | SHA-256 hash of the file for integrity verification. | Recommended (exactly 1) |
+| `cr:sha256` | `xsd:string` | SHA-256 hash of the file for integrity verification. | Recommended (exactly 1) |
 | `schema:contentSize` | `xsd:integer` | Size of the file in bytes. | Recommended (exactly 1) |
 | `schema:dateCreated` | `xsd:date` | The date the file was created. | Optional |
 | `schema:dateModified` | `xsd:date` | The date the file was last modified. | Optional |

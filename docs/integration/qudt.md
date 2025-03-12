@@ -16,9 +16,9 @@ QUDT ensures that **dataset attributes and values are properly annotated with un
 
 | **FAIR² Property** | **QUDT Mapping** | **Description** |
 |-----------------|------------------|----------------|
-| `mlc:Field` | `qudt:QuantityKind` | Defines the **type of measurement** (e.g., `Temperature`, `Mass`). |
-| `mlc:unitCode` | `qudt:Unit` | Specifies the **unit of measurement** (e.g., `qudt:DegreeCelsius`). |
-| `mlc:format` | `xsd:string` | Defines the **data format** for numeric fields (e.g., decimal precision). |
+| `cr:Field` | `qudt:QuantityKind` | Defines the **type of measurement** (e.g., `Temperature`, `Mass`). |
+| `cr:unitCode` | `qudt:Unit` | Specifies the **unit of measurement** (e.g., `qudt:DegreeCelsius`). |
+| `cr:format` | `xsd:string` | Defines the **data format** for numeric fields (e.g., decimal precision). |
 
 ---
 
@@ -32,22 +32,22 @@ QUDT ensures that **dataset attributes and values are properly annotated with un
   "@type": "Dataset",
   "name": "Climate Sensor Data",
   "description": "Temperature and humidity readings from a weather station.",
-  "mlc:recordSet": {
+  "cr:recordSet": {
     "@type": "RecordSet",
-    "mlc:fields": [
+    "cr:fields": [
       {
         "@type": "Field",
         "name": "Temperature",
-        "mlc:dataType": "xsd:float",
-        "mlc:unitCode": "qudt:DegreeCelsius",
-        "mlc:format": "##.##"
+        "cr:dataType": "xsd:float",
+        "cr:unitCode": "qudt:DegreeCelsius",
+        "cr:format": "##.##"
       },
       {
         "@type": "Field",
         "name": "Humidity",
-        "mlc:dataType": "xsd:float",
-        "mlc:unitCode": "qudt:Percent",
-        "mlc:format": "##.#"
+        "cr:dataType": "xsd:float",
+        "cr:unitCode": "qudt:Percent",
+        "cr:format": "##.#"
       }
     ]
   }

@@ -5,7 +5,7 @@
     ],
     "@id": "fair2s:RecordSetShape",
     "@type": "sh:NodeShape",
-    "sh:targetClass": "mlc:RecordSet",
+    "sh:targetClass": "cr:RecordSet",
     "sh:property": [
         {
             "sh:path": "schema:name",
@@ -18,12 +18,12 @@
             "sh:minCount": 1
         },
         {
-            "sh:path": "mlc:field",
+            "sh:path": "cr:field",
             "sh:node": {
                 "@type": "sh:NodeShape",
                 "sh:property": [
                     {
-                        "sh:path": "mlc:dataType",
+                        "sh:path": "cr:dataType",
                         "sh:datatype": "xsd:string",
                         "sh:description": "The data type of the field."
                     },

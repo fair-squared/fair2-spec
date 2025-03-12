@@ -52,7 +52,7 @@ The @context defines how terms in the dataset metadata map to standardized vocab
   "@context": {
     "schema": "https://schema.org/",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
-    "mlc": "https://mlcommons.org/ns/",
+    "cr": "https://mlcommons.org/ns/",
     "fair2": "https://fair2.ai/ns/"
   }
 }
@@ -61,7 +61,7 @@ The @context defines how terms in the dataset metadata map to standardized vocab
 ### How @context Works
 - schema → Maps to Schema.org properties (e.g., schema:name).
 - xsd → Ensures correct datatypes (e.g., xsd:string).
-- mlc → Supports ML Croissant metadata (e.g., mlc:citeAs).
+- mlc → Supports ML Croissant metadata (e.g., cr:citeAs).
 - fair2 → Defines FAIR²-specific extensions.
 
 ## 📌 FAIR² Metadata Schema in JSON-LD
@@ -95,7 +95,7 @@ FAIR² extends Schema.org and ML Croissant to describe AI-ready datasets.
       "encodingFormat": "application/zip"
     }
   ],
-  "mlc:citeAs": "Doe, J. FAIR² AI Dataset (2025)",
+  "cr:citeAs": "Doe, J. FAIR² AI Dataset (2025)",
   "schema:conformsTo": "https://fair2.ai/spec/"
 }
 ```

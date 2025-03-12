@@ -41,7 +41,7 @@ FAIR² extends **ML Croissant** by adding **SHACL validation & methodology track
   "name": "AI-ready Dataset",
   "description": "A dataset structured for AI and machine learning workflows.",
   "license": "https://creativecommons.org/licenses/by/4.0/",
-  "mlc:features": [
+  "cr:features": [
     {
       "@type": "Feature",
       "name": "Image",
@@ -53,7 +53,7 @@ FAIR² extends **ML Croissant** by adding **SHACL validation & methodology track
       "dataType": "string"
     }
   ],
-  "mlc:citeAs": "Doe, J. AI Dataset (2025)",
+  "cr:citeAs": "Doe, J. AI Dataset (2025)",
   "fair2:methodSection": {
     "@type": "MethodSection",
     "name": "Data Preprocessing",
@@ -68,7 +68,7 @@ FAIR² extends **ML Croissant** by adding **SHACL validation & methodology track
 }
 ```
 
-✅ ML Croissant-compatible – Uses mlc:features for structured metadata.
+✅ ML Croissant-compatible – Uses cr:features for structured metadata.
 ✅ FAIR² extensions – Adds methodology tracking for AI workflows.
 ✅ FAIR AI principles – Supports citation tracking & licensing compliance.
 
@@ -108,7 +108,7 @@ pyshacl -s fair2-shapes.ttl -d fair2.jsonld
 
 | **Error** | **Cause** | **Fix** |
 |-----------|----------|---------|
-| **"Missing required property mlc:citeAs"** | Dataset lacks citation metadata. | Add `"mlc:citeAs": "Your citation format"`. |
+| **"Missing required property cr:citeAs"** | Dataset lacks citation metadata. | Add `"cr:citeAs": "Your citation format"`. |
 | **"schema:distribution must be at least 1"** | No dataset file provided. | Add `"schema:distribution": { "contentUrl": "your_file_url" }`. |
 | **"Invalid datatype for schema:datePublished"** | Incorrect date format. | Use `YYYY-MM-DD` format. |
 
