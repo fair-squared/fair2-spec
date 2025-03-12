@@ -154,8 +154,9 @@ This document provides a structured checklist to ensure a complete and well-docu
 ---
 
 ## **📢 6. Final Steps for Release**
-⚠️ **Public Draft Release (`v1.0-beta`)** → Gather feedback → Iterate.
-❌ **Use GitHub Releases** to tag and distribute the specification (`v1.0`, `v1.1`).
-❌ **Announce Release** on social media, conferences, and research networks.
+
+- ⚠️ **Public Draft Release (`v1.0-beta`)** → Gather feedback → Iterate.
+- ❌ **Use GitHub Releases** to tag and distribute the specification (`v1.0`, `v1.1`).
+- ❌ **Announce Release** on social media, conferences, and research networks.
 
 
