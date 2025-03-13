@@ -9,43 +9,18 @@
     },
     "@graph": [
       {
-        "@id": "fair2:Dataset",
+        "@id": "cr:Dataset",
         "@type": "rdfs:Class",
         "rdfs:subClassOf": "schema:Dataset",
+        "rdfs:label": "ML Croissant Dataset",
+        "rdfs:comment": "A dataset that adheres to the ML Croissant specification."
+      },
+      {
+        "@id": "fair2:Dataset",
+        "@type": "rdfs:Class",
+        "rdfs:subClassOf": "cr:Dataset",
         "rdfs:label": "FAIR-Squared Dataset",
         "rdfs:comment": "A dataset that adheres to the FAIR2 principles, integrating context-rich metadata, AI-readiness, and responsible AI alignment."
-      },
-      {
-        "@id": "fair2:hasMetadata",
-        "@type": "rdf:Property",
-        "rdfs:label": "Has Metadata",
-        "rdfs:comment": "Links a dataset to its metadata.",
-        "rdfs:domain": "fair2:Dataset",
-        "rdfs:range": "fair2:Metadata"
-      },
-      {
-        "@id": "fair2:hasProvenance",
-        "@type": "rdf:Property",
-        "rdfs:label": "Has Provenance",
-        "rdfs:comment": "Links metadata to provenance details.",
-        "rdfs:domain": "fair2:Metadata",
-        "rdfs:range": "fair2:Provenance"
-      },
-      {
-        "@id": "fair2:isAIReady",
-        "@type": "rdf:Property",
-        "rdfs:label": "Is AI Ready",
-        "rdfs:comment": "Indicates AI compatibility of a dataset.",
-        "rdfs:domain": "fair2:Dataset",
-        "rdfs:range": "fair2:AIReadiness"
-      },
-      {
-        "@id": "fair2:hasBiasAssessment",
-        "@type": "rdf:Property",
-        "rdfs:label": "Has Bias Assessment",
-        "rdfs:comment": "Links a dataset to its bias assessment report.",
-        "rdfs:domain": "fair2:Dataset",
-        "rdfs:range": "fair2:ResponsibleAI"
       },
       {
         "@id": "fair2:Method",
@@ -58,14 +33,6 @@
         "@type": "rdfs:Class",
         "rdfs:label": "FAIR2 Step",
         "rdfs:comment": "A step within a method that describes a specific action in the dataset generation process."
-      },
-      {
-        "@id": "fair2:hasMethod",
-        "@type": "rdf:Property",
-        "rdfs:label": "Has Method",
-        "rdfs:comment": "Links a dataset to the methods used in its creation.",
-        "rdfs:domain": "fair2:Dataset",
-        "rdfs:range": "fair2:Method"
       },
       {
         "@id": "fair2:step",
@@ -99,7 +66,7 @@
         "rdfs:range": "fair2:Step"
       },
       {
-        "@id": "fair2:substep",
+        "@id": "sense:substep",
         "@type": "rdf:Property",
         "rdfs:label": "Substep",
         "rdfs:comment": "Defines a substep within a larger step.",

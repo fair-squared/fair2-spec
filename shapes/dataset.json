@@ -3,16 +3,18 @@
     "https://fair2.ai/spec/fair2_context",
     "https://fair2.ai/spec/shacl_context"
   ],
-  "@id": "fair2:DatasetShape",
-  "@type": "NodeShape",
-  "targetClass": "Dataset",
   "imports": [
+    "http://mlcommons.org/croissant/DatasetShape",
     "https://fair2.ai/shapes/AuthorShape",
     "https://fair2.ai/shapes/OrganizationShape",
     "https://fair2.ai/shapes/RecordSetShape",
     "https://fair2.ai/shapes/DataArticleShape",
     "https:schema.org/GrantShape"
   ],
+  "@id": "fair2s:DatasetShape",
+  "node": "cr:DatasetShape",
+  "@type": "NodeShape",
+  "targetClass": "Dataset",
   "property": [
     {
       "path": "schema:author",

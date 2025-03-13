@@ -1,24 +1,40 @@
 {
     "@context": [
-    "https://fair2.ai/spec/fair2_context",
-    "https://fair2.ai/spec/shacl_context"
-  ],
-    "@id": "ex:ContributionShape",
+        "https://fair2.ai/spec/fair2_context",
+        "https://fair2.ai/spec/shacl_context"
+    ],
+    "@id": "fair2s:ContributionShape",
     "@type": "sh:NodeShape",
     "sh:targetClass": "schema:Contribution",
     "sh:property": [
-      {
-        "sh:path": "prov:agent",
-        "sh:node": "ex:PersonShape",
-        "sh:minCount": 1,
-        "sh:maxCount": 1,
-        "sh:description": "Each contribution must be associated with exactly one agent (a person)."
-      },
-      {
-        "sh:path": "schema:role",
-        "sh:node": "ex:RoleShape",
-        "sh:minCount": 1,
-        "sh:description": "Each contribution must have at least one role."
-      }
+        {
+            "sh:path": "prov:agent",
+            "sh:or": [
+            {
+                "sh:node": "fair2s:AuthorShape",
+                "sh:class": "schema:Person"
+            },
+            {
+                "sh:node": "fair2s:AgentShape",
+                "sh:class": "schema:Organization"
+            }
+            ],
+            "sh:minCount": 1,
+            "sh:maxCount": 1,
+            "sh:description": "Each contribution must be associated with exactly one agent (either a person or an organization)."
+        },
+        {
+            "sh:path": "prov:hadRole",
+            "sh:minCount": 1,
+            "sh:description": "Each contribution must have at least one role.",
+            "sh:or": [
+                {
+                    "sh:class": "cro:CRO_0000001"
+                },
+                {
+                    "sh:class": "credit:Role"
+                }
+            ]
+        }
     ]
-  }
+}

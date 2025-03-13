@@ -55,6 +55,23 @@ FAIR² **extends** the [ML Croissant](https://mlcommons.org/croissant/) specific
 - Providing **detailed contributor attribution using CRediT**.
 
 FAIR² remains **fully compatible** with ML Croissant and Schema.org, ensuring seamless interoperability.
+---
+
+## Contributor Roles: Integrating CRediT & CRO
+
+FAIR² supports both **CREdiT roles** (widely used in publishing) and **CRO roles** (more semantically structured). 
+A contributor can be assigned a role using either:
+- `credit:Role` (for compatibility with **schema.org** and research repositories)
+- `cro:CRO_0000001` (for **ontology-based reasoning and provenance tracking**)
+
+### Example Usage:
+- **A dataset author could have:**
+  - `credit:WritingOriginalDraft`
+  - `cro:CRO_0000039` (Writing Original Draft)
+- **A dataset curator could have:**
+  - `credit:DataCuration`
+  - `cro:CRO_0000027` (Data Curation)
+
 
 ---
 
