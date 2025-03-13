@@ -9,12 +9,9 @@ This ensures that **researchers, curators, and developers receive proper recogni
 
 ## 📌 **How FAIR² Uses CRediT**
 CRediT enables **structured contributor roles** in FAIR² metadata.
-
 | **FAIR² Property** | **CRediT Mapping** | **Description** |
 |-----------------|----------------|----------------|
-| `schema:creator` | `credit:ContributorRole` | Defines **individual roles in dataset creation**. |
-| `schema:contributor` | `credit:ContributorRole` | Specifies **additional dataset contributors**. |
-| `schema:curator` | `credit:Curation` | Documents **data curation efforts**. |
+| `schema:contribution` | `credit:Role` | Lists **contributions** using agents and assigns `schema:hadRole` properties that link to `credit:Role` instances. |
 
 ---
 

@@ -13,7 +13,6 @@ This document explains how FAIR² extends **ML Croissant** to provide **machine-
 
 ---
 
-
 ## ML Croissant Dataset: High-Level Required Properties
 
 | **Property**      | **Description** | **Type** | **Example** |
@@ -141,10 +140,14 @@ FAIR² ensures that datasets are machine-actionable and seamlessly integrate int
 
 FAIR² uses SHACL validation to ensure ML Croissant metadata is correctly structured.
 
-To validate a dataset using pySHACL, run:
+To validate a ML Croissant dataset using pySHACL, run:
 ```bash
-pyshacl -s fair2-shapes.ttl -d fair2.json
+pyshacl -s cr_dataset.json -d mydata.json
 ```
+
+The FAIR2 dataset schema extends the ML Croissant shape. You can ensure all constraints are applied simply by using the `fair2s:DatasetShape` defined in `fair2_dataset.json` :
+```bash
+pyshacl -s fair2_dataset.json -d mydata.json
 
 ### Common Validation Errors & Fixes
 
