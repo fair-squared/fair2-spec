@@ -126,9 +126,8 @@
             "@id": "fair2:contributorRole"
             },
             "cr": "http://mlcommons.org/croissant/",
-            "credit": {
-            "@id": "http://www.niso.org/publications/z39104-2022-credit#"
-            },
+            "cro": "http://purl.obolibrary.org/obo/CRO_",
+            "credit": "http://purl.org/credit/ontology#CREDIT_",
             "dataAnnotationAnalysis": {
             "@id": "rai:dataAnnotationAnalysis"
             },
