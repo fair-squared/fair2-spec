@@ -3,7 +3,7 @@
     "https://fair2.ai/spec/fair2_context",
     "https://fair2.ai/spec/shacl_context"
   ],
-  "@id": "fair2:AuthorShape",
+  "@id": "fair2s:AuthorShape",
   "@type": "NodeShape",
   "property": [
     {

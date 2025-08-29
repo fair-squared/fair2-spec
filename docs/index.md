@@ -23,6 +23,7 @@ To start using FAIR²:
 
 ## 📚 Documentation Structure
 - **[Specification](specification/overview.md)** – Core principles and structure of FAIR².
+- **[Method Representation](specification/methods.md)** – How FAIR² represents structured methods using schema.org-compatible blocks.
 - **[ML Croissant Integration](integration/ml-croissant.md)** – How FAIR² aligns with ML Croissant, schema.org, and GO FAIR.
 - **[Croissant RAI Integration](integration/croissant-rai.md)** – How FAIR² leaverages the Croissant RAI vocabulary to document ethical reviews, biases, and limitations.
 - **[PROV-O Integration](integration/prov-o.md)** – How FAIR² aligns with PROV-O to inhance provenance metadata.

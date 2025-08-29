@@ -40,10 +40,6 @@ The FAIR² specification integrates multiple vocabularies to ensure broad compat
 - `fair2:Protocol`: A protocol used in computational or data processing methods.
 
 ### **Key Properties**
-- `fair2:hasMetadata`: Indicates the presence of metadata.
-- `fair2:hasProvenance`: Indicates the presence of provenance information.
-- `fair2:isAIReady`: Indicates AI compatibility.
-- `fair2:hasBiasAssessment`: Associates bias evaluation with a dataset.
 - `fair2:method`: Defines the method used to generate the dataset.
 - `fair2:step`: Defines a step within a method.
 - `fair2:isLiveDataset`: Indicates whether the dataset is actively updated.
@@ -58,6 +54,7 @@ The FAIR² ontology can be used for:
 - **Provenance Tracking:** Linking dataset modifications and authorship.
 - **AI Model Integration:** Structuring data for ML pipelines.
 - **Ethical AI Compliance:** Documenting bias assessments and ethics reviews.
+
 
 ## **Accessing the Ontology**
 The ontology files are available in the FAIR² repository:
