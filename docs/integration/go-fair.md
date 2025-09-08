@@ -1,6 +1,6 @@
 # FAIR² and GO FAIR Integration
 
-## 🎯 Overview
+## Overview
 
 FAIR² (**FAIR Squared**) is aligned with the **GO FAIR** initiative, ensuring that datasets are **Findable, Accessible, Interoperable, and Reusable (FAIR)** while also being **AI-ready and machine-actionable**.
 
@@ -10,7 +10,7 @@ This document explains how FAIR² extends GO FAIR principles and enhances **mach
 
 ---
 
-## 📌 **FAIR² and the GO FAIR Principles**
+## FAIR² and the GO FAIR Principles
 
 | **GO FAIR Principle** | **How FAIR² Enhances It** |
 |----------------------|-------------------------|
@@ -23,19 +23,22 @@ FAIR² maintains **full compatibility** with GO FAIR principles while focusing o
 
 ---
 
-## 🚀 **How FAIR² Extends GO FAIR**
+## How FAIR² Extends GO FAIR
 
-### 1️⃣ **FAIR² Uses Linked Data for Interoperability**
+### 1. FAIR² Uses Linked Data for Interoperability
+
 - **Built on RDF & JSON-LD** to support semantic data integration.
 - Uses **persistent identifiers (PIDs)** for dataset tracking.
 - Supports **Schema.org & ML Croissant metadata** for AI-driven research.
 
-### 2️⃣ **FAIR² Enhances AI/ML Dataset Documentation**
+### 2. FAIR² Enhances AI/ML Dataset Documentation
+
 - Introduces **ML Croissant extensions** to describe **AI model training datasets**.
 - Standardizes **methodology tracking** with `MethodSectionShape` & `MethodStepShape`.
 - Supports **FAIR AI metadata** to ensure **bias, ethics, and reproducibility** are documented.
 
-### 3️⃣ **FAIR² Implements SHACL Validation**
+### 3. FAIR² Implements SHACL Validation
+
 - Uses **SHACL constraints** to enforce structured metadata.
 - Provides **machine-readable validation rules** for **dataset quality control**.
 - Ensures datasets conform to **GO FAIR's Interoperability guidelines**.

@@ -1,90 +1,104 @@
 # FAIR² Code of Conduct
 
-## 🎯 Purpose
+## Purpose
 
-FAIR² is committed to fostering an inclusive, welcoming, and collaborative community.  
-We believe that **open collaboration** leads to better **FAIR and AI-ready metadata standards**.
+The FAIR² community is committed to fostering an inclusive, respectful, and collaborative environment for all participants. This Code of Conduct outlines the expectations for behavior by contributors, maintainers, and stakeholders across all FAIR² activities, including online discussions, collaborative projects, events, and affiliated spaces.
 
-This Code of Conduct outlines our expectations for **all contributors, maintainers, and participants** in the FAIR² community.
-
----
-
-## 🚀 **Our Pledge**
-
-We pledge to create an environment where **everyone** can contribute **without fear of harassment or discrimination**.  
-This includes respecting:
-- **Diversity of backgrounds, expertise, and perspectives**.
-- **Constructive feedback and open discussions**.
-- **Collaboration over competition**.
-
-We will **not tolerate** any behavior that violates these principles.
+Open collaboration, transparency, and mutual respect are essential for advancing AI-ready, FAIR-compliant metadata standards. All participants are expected to uphold these values.
 
 ---
 
-## 📌 **Expected Behavior**
-All community members should:
-✅ **Be respectful and inclusive** – Treat everyone with kindness.  
-✅ **Provide constructive feedback** – Help improve ideas, not attack them.  
-✅ **Acknowledge contributions** – Give credit where it's due.  
-✅ **Follow professional conduct** – Use welcoming and inclusive language.  
-✅ **Respect privacy** – Do not share personal/private information.  
+## Our Commitment
+
+As maintainers, contributors, and community members, we pledge to:
+
+- Foster an environment where all individuals feel welcome regardless of background, experience, identity, or ability.
+- Encourage constructive contributions, thoughtful dialogue, and respectful critique.
+- Uphold the principles of openness, fairness, and accountability in all FAIR²-related forums and activities.
+- Prevent harassment, discrimination, or exclusionary behavior of any kind.
+
+Harassment or violations of this code undermine the community and will not be tolerated.
 
 ---
 
-## ❌ **Unacceptable Behavior**
-The following behaviors are **strictly prohibited**:
-🚫 **Harassment** – Including personal attacks, intimidation, or discrimination.  
-🚫 **Hate speech or offensive language** – No racist, sexist, or otherwise exclusionary comments.  
-🚫 **Disruptive behavior** – Intentionally derailing discussions or spamming.  
-🚫 **Trolling** – Posting inflammatory, off-topic, or overly aggressive content.  
-🚫 **Unwanted solicitation** – Avoid excessive self-promotion or irrelevant sales pitches.  
+## Expected Behavior
+
+All participants are expected to:
+
+- **Be respectful** and courteous in all interactions.
+- **Engage constructively**, offering helpful feedback and supporting others’ contributions.
+- **Acknowledge the work of others** and provide appropriate credit.
+- **Use inclusive and professional language** in all communications.
+- **Respect privacy and confidentiality**, especially in shared or collaborative spaces.
 
 ---
 
-## 📌 **Reporting Violations**
-If you witness or experience a Code of Conduct violation:
-1️⃣ **Document the issue** – Take screenshots or notes if possible.  
-2️⃣ **Report confidentially** – Email **[info@fair2.ai](mailto:info@fair2.ai)**.  
-3️⃣ **Resolution process** – The **Steering Committee** will review reports and take appropriate action.
+## Unacceptable Behavior
 
-We aim for **fair, confidential, and timely** responses.
+The following behaviors are considered unacceptable within the FAIR² community:
 
----
-
-## 🚀 **Consequences of Violations**
-Violations may result in:
-- **Warnings or temporary suspension** from discussions.
-- **Permanent bans** from FAIR² projects or platforms.
-- **Further action**, depending on the severity of the violation.
-
-All decisions are made at the discretion of the **FAIR² Steering Committee**.
+- Harassment or intimidation of any kind, including discriminatory comments or personal attacks.
+- Use of hate speech, derogatory, or exclusionary language.
+- Sustained disruption of meetings, forums, or conversations.
+- Trolling, inflammatory commentary, or deliberate provocation.
+- Unsolicited promotions, spam, or unrelated sales activity.
 
 ---
 
-## 🏛 **Scope of This Code**
-This Code of Conduct applies to:
-- **GitHub discussions & issues**.
-- **Community forums & mailing lists**.
-- **Conferences, webinars, and events**.
-- **Any other FAIR²-related communication spaces**.
+## Reporting a Violation
 
-By participating, you agree to follow these guidelines.
+If you observe or experience behavior that violates this Code of Conduct, please:
+
+1. **Document the incident**, where safe to do so.
+2. **Report confidentially** to the FAIR² Steering Committee via email at:  
+   📩 [info@fair2.ai](mailto:info@fair2.ai)
+
+All reports will be reviewed promptly and confidentially. The Steering Committee will investigate the situation and take appropriate action based on the circumstances.
 
 ---
 
-## 💙 **Acknowledgments**
-This Code of Conduct is inspired by:
+## Consequences
+
+Depending on the nature and severity of the violation, actions may include:
+
+- A formal warning or request to modify behavior.
+- Temporary suspension from communication channels or events.
+- Permanent removal from FAIR² projects, platforms, or governance bodies.
+
+The FAIR² Steering Committee reserves the right to take any necessary measures to maintain a safe and inclusive community.
+
+---
+
+## Scope
+
+This Code of Conduct applies to all FAIR²-related environments, including but not limited to:
+
+- GitHub repositories and issue trackers
+- Mailing lists and collaborative platforms
+- Online forums and discussion boards
+- Events, webinars, and conferences
+- Public and private communications involving FAIR² activities
+
+---
+
+## Acknowledgments
+
+This Code of Conduct is informed by and adapted from:
+
 - [Contributor Covenant](https://www.contributor-covenant.org/)
 - [Mozilla Community Participation Guidelines](https://www.mozilla.org/en-US/about/governance/policies/participation/)
 - [OpenAI Community Guidelines](https://openai.com/)
 
 ---
 
-## 📩 **Need Help?**
-For questions, concerns, or Code of Conduct issues, please contact:  
-📩 **[info@fair2.ai](mailto:info@fair2.ai)** (Confidential Reporting)  
+## Contact
 
-Thank you for making FAIR² a **welcoming and collaborative** community! 🚀  
+For any questions, concerns, or Code of Conduct issues, please contact:
+
+📩 [info@fair2.ai](mailto:info@fair2.ai)
+
+All communications will be treated with discretion and handled in a timely and fair manner.
 
 ---
-_Last updated: [03/03/2025]_  
+
+_Last updated: 2025-03-03_

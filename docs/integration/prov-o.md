@@ -1,36 +1,34 @@
-# FAIR² and PROV-O Integration
+di# FAIR² and PROV-O Integration
 
-## 🎯 Overview
+## Overview
 
-FAIR² (**FAIR Squared**) adopts **PROV-O (Provenance Ontology)** to provide **structured provenance metadata**, ensuring datasets are:
-- **Findable** – Tracking dataset origins and modifications.
-- **Accessible** – Providing machine-readable provenance records.
-- **Interoperable** – Using **linked data** for provenance documentation.
-- **Reusable** – Ensuring transparency and reproducibility in AI/ML research.
+FAIR² (FAIR Squared) adopts the PROV-O (Provenance Ontology) standard to support structured provenance metadata. This enables datasets to be:
 
-PROV-O is a **W3C standard ontology** for representing **data lineage, authorship, and transformation processes**.  
-FAIR² enhances **dataset provenance** using PROV-O within **JSON-LD metadata**.
+- Findable: by tracking their origins and transformation processes.
+- Accessible: by providing machine-readable provenance records.
+- Interoperable: through the use of linked data for provenance documentation.
+- Reusable: by enabling transparency and reproducibility in AI and machine learning workflows.
 
----
-
-## 📌 **How FAIR² Uses PROV-O**
-FAIR² integrates **PROV-O concepts** to **track dataset creation, modifications, and usage**.
-
-| **PROV-O Term** | **Usage in FAIR²** | **Example** |
-|----------------|------------------|-------------|
-| `prov:Entity` | Represents a dataset or data file. | `"@type": "prov:Entity"` |
-| `prov:Agent` | Describes authors, organizations, or software involved. | `"@type": "prov:Agent"` |
-| `prov:Activity` | Captures actions like dataset creation or transformation. | `"@type": "prov:Activity"` |
-| `prov:wasGeneratedBy` | Links a dataset to the process that created it. | `"wasGeneratedBy": { "@type": "prov:Activity", "name": "Data Collection" }` |
-| `prov:wasAttributedTo` | Assigns authorship or ownership to an entity. | `"wasAttributedTo": { "@type": "prov:Agent", "name": "Research Lab X" }` |
-| `prov:wasDerivedFrom` | Links derived datasets to their original sources. | `"wasDerivedFrom": "https://doi.org/10.1234/original-dataset"` |
-
-By incorporating PROV-O, FAIR² ensures **provenance metadata is machine-actionable and AI-compatible**.
+PROV-O is a W3C recommendation for representing provenance information, including data lineage, authorship, and transformations. FAIR² incorporates PROV-O in JSON-LD metadata to improve dataset transparency and facilitate auditability in responsible AI.
 
 ---
 
-## 🚀 **FAIR² Provenance Metadata Example (JSON-LD)**
-Here’s how a **FAIR²-compliant dataset** includes **PROV-O metadata**:
+## PROV-O Concepts in FAIR²
+
+The following table summarizes how FAIR² utilizes core PROV-O terms:
+
+| PROV-O Term           | Purpose in FAIR²                                       | Example                                                             |
+|-----------------------|--------------------------------------------------------|---------------------------------------------------------------------|
+| `prov:Entity`         | Represents a dataset or data file                      | `"@type": "prov:Entity"`                                            |
+| `prov:Agent`          | Identifies individuals, organizations, or software     | `"@type": "prov:Agent"`                                             |
+| `prov:Activity`       | Describes processes such as data generation or curation| `"@type": "prov:Activity"`                                          |
+| `prov:wasGeneratedBy` | Links a dataset to the activity that created it        | `"wasGeneratedBy": { "@type": "prov:Activity", "name": "Collection" }` |
+| `prov:wasAttributedTo`| Associates a dataset with its creator or maintainer    | `"wasAttributedTo": { "@type": "prov:Agent", "name": "Research Lab" }` |
+| `prov:wasDerivedFrom` | References prior datasets used in derivation           | `"wasDerivedFrom": "https://doi.org/10.1234/original-dataset"`     |
+
+---
+
+## Example: JSON-LD with PROV-O Metadata
 
 ```json
 {
@@ -62,24 +60,26 @@ Here’s how a **FAIR²-compliant dataset** includes **PROV-O metadata**:
   },
   "wasDerivedFrom": "https://doi.org/10.1234/original-dataset"
 }
-
 ```
-
-✅ PROV-O-compatible – Uses standard provenance terms.
-✅ FAIR²-compliant – Tracks dataset lineage and transformation.
-✅ Machine-actionable – Enhances AI/ML data transparency.
-
-## 📌 Why PROV-O Matters for FAIR²
-
-✅ Ensures dataset transparency – Tracks who created, modified, or curated the dataset.
-✅ Improves AI/ML model reproducibility – Documents data transformations and derivations.
-✅ Aligns with Open Science – Supports provenance tracking for research integrity.
-✅ Enhances metadata interoperability – Uses W3C standards for global adoption.
 
 ---
 
-## 🚀 Next Steps
+## Rationale for Using PROV-O
 
-1️⃣ [Explore the FAIR² Schema](../specification/schema.md)
-2️⃣ [Learn about SHACL Validation](../specification/shacl-validation.md)
-3️⃣ [Contribute to FAIR²](../community/contributing.md)
+Integrating PROV-O into FAIR² enables:
+
+- Provenance traceability: recording who created, modified, and curated datasets.
+- Reproducibility: documenting data transformations and source dependencies.
+- Compliance with Open Science and Responsible AI practices.
+- Interoperability: aligning with existing W3C standards for metadata reuse.
+
+---
+
+## Next Steps
+
+To include provenance metadata using PROV-O in FAIR²:
+
+1. Refer to the [FAIR² Schema](../specification/schema.md) for relevant properties.
+2. Incorporate PROV-O terms into your dataset JSON-LD metadata.
+3. Validate using [SHACL rules](../specification/shacl-validation.md).
+4. Contribute examples or feedback via [GitHub Issues](https://github.com/fair2-spec/issues) or [feedback@fair2.ai](mailto:feedback@fair2.ai).

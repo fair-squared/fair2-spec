@@ -1,76 +1,77 @@
 # FAIR² and ML Croissant Integration
 
-## 🎯 Overview
+## Overview
 
-FAIR² (**FAIR Squared**) builds directly on **ML Croissant**, extending its capabilities to ensure that datasets are **FAIR (Findable, Accessible, Interoperable, and Reusable) and AI-ready**.
+FAIR² (FAIR Squared) builds directly on ML Croissant, extending its capabilities to ensure that datasets are both FAIR (Findable, Accessible, Interoperable, and Reusable) and AI-ready.
 
-ML Croissant is a **metadata standard for machine learning datasets** developed by MLCommons. FAIR² enhances this by adding:
-✅ **SHACL validation** for structured dataset metadata.  
-✅ **Support for AI/ML methodologies** using `MethodSectionShape` and `MethodStepShape`.  
-✅ **FAIR AI compliance** by tracking dataset provenance and usage.  
+ML Croissant is a metadata standard for machine learning datasets developed by MLCommons. FAIR² enhances this foundation by adding:
 
-This document explains how FAIR² extends **ML Croissant** to provide **machine-actionable AI metadata**.
+- SHACL validation for structured dataset metadata
+- Support for AI/ML methodologies using `MethodSectionShape` and `MethodStepShape`
+- Compliance features aligned with Responsible AI through explicit tracking of dataset provenance and usage
 
----
-
-## ML Croissant Dataset: High-Level Required Properties
-
-| **Property**      | **Description** | **Type** | **Example** |
-|------------------|---------------|----------|-------------|
-| `@type` | Specifies the type of the dataset. Always `sc:Dataset`. | `sc:Dataset` | `"@type": "sc:Dataset"` |
-| `name` | The title of the dataset. | `xsd:string` | `"name": "FAIR AI Benchmark Dataset"` |
-| `description` | A detailed explanation of the dataset’s contents and purpose. | `xsd:string` | `"description": "A dataset for evaluating AI fairness."` |
-| `license` | The license under which the dataset is released. | `xsd:anyURI` | `"license": "https://creativecommons.org/licenses/by/4.0/"` |
-| `url` | A link to the dataset’s landing page or repository. | `xsd:anyURI` | `"url": "https://example.com/dataset"` |
-| `distribution` | An array describing dataset files. | `Array<FileObject>` | See **FileObject** section below. |
-| `recordSet` | Defines the structure of the dataset. | `Array<RecordSet>` | See **RecordSet** section below. |
-
-## FileObject (Inside `distribution`)
-| **Property** | **Description** | **Type** | **Example** |
-|-------------|---------------|----------|-------------|
-| `@type` | Specifies that the entry is a file. | `cr:FileObject` | `"@type": "cr:FileObject"` |
-| `@id` | Unique identifier for the file. | `xsd:string` | `"@id": "file1"` |
-| `name` | The filename. | `xsd:string` | `"name": "data.csv"` |
-| `contentUrl` | URL where the file is hosted. | `xsd:anyURI` | `"contentUrl": "https://example.com/data.csv"` |
-| `encodingFormat` | File format (e.g., CSV, JSON). | `xsd:string` | `"encodingFormat": "text/csv"` |
-| `sha256` | SHA-256 checksum for file integrity. | `xsd:string` | `"sha256": "abc123..."` |
-
-## RecordSet (Inside `recordSet`)
-| **Property** | **Description** | **Type** | **Example** |
-|-------------|---------------|----------|-------------|
-| `@type` | Specifies a collection of records. | `cr:RecordSet` | `"@type": "cr:RecordSet"` |
-| `name` | The name of the record set. | `xsd:string` | `"name": "User Data"` |
-| `description` | A description of the records. | `xsd:string` | `"description": "Contains demographic information."` |
-| `field` | Array defining the dataset fields. | `Array<Field>` | See **Field** section below. |
-
-## Field (Inside `field`)
-| **Property** | **Description** | **Type** | **Example** |
-|-------------|---------------|----------|-------------|
-| `@type` | Specifies a dataset field. | `cr:Field` | `"@type": "cr:Field"` |
-| `name` | The field name. | `xsd:string` | `"name": "age"` |
-| `description` | Description of the field. | `xsd:string` | `"description": "Age of the individual."` |
-| `dataType` | The expected data type. | `sc:DataType` | `"dataType": "sc:Integer"` |
-| `references` | How to extract the field from a file. | `Object` | `"references": { "fileObject": "file1" }` |
+This document outlines how FAIR² builds upon and extends ML Croissant to provide machine-actionable metadata for AI workflows.
 
 ---
 
-## 📌 **How FAIR² Enhances ML Croissant**
+## Required Properties in ML Croissant
 
-| **ML Croissant Feature** | **How FAIR² Extends It** |
-|----------------------|-------------------------|
-| **Dataset Metadata** | ✅ Adds **SHACL validation** to enforce structured metadata. |
-| **ML-Specific Features** | ✅ Supports **structured methodology tracking** for AI models. |
-| **Schema.org Compatibility** | ✅ Aligns metadata with **linked data & FAIR principles**. |
-| **Provenance & Licensing** | ✅ Adds **FAIR² certification tracking** for AI-ready datasets. |
+| Property       | Description                                       | Type             | Example                                       |
+|----------------|---------------------------------------------------|------------------|-----------------------------------------------|
+| `@type`        | Specifies the type of the dataset (typically `Dataset`) | `sc:Dataset`     | `"@type": "sc:Dataset"`                        |
+| `name`         | The title of the dataset                          | `xsd:string`     | `"name": "FAIR AI Benchmark Dataset"`         |
+| `description`  | Explanation of the dataset’s content and purpose | `xsd:string`     | `"description": "A dataset for AI fairness"`  |
+| `license`      | Dataset license URI                              | `xsd:anyURI`     | `"license": "https://creativecommons.org/licenses/by/4.0/"` |
+| `url`          | Landing page or repository URL                   | `xsd:anyURI`     | `"url": "https://example.com/dataset"`        |
+| `distribution` | Description of downloadable files                | Array<FileObject> | Refer to FileObject structure below           |
+| `recordSet`    | Defines logical data structure                   | Array<RecordSet>  | Refer to RecordSet section                    |
 
-FAIR² ensures that **ML Croissant metadata is fully validated and AI/ML workflows are documented**.
+### FileObject (Inside `distribution`)
+
+| Property        | Description                            | Type           | Example                                       |
+|----------------|----------------------------------------|----------------|-----------------------------------------------|
+| `@type`        | Specifies file type                    | `cr:FileObject`| `"@type": "cr:FileObject"`                    |
+| `@id`          | Unique file identifier                 | `xsd:string`   | `"@id": "file1"`                              |
+| `name`         | Filename                               | `xsd:string`   | `"name": "data.csv"`                          |
+| `contentUrl`   | URL of hosted file                     | `xsd:anyURI`   | `"contentUrl": "https://example.com/data.csv"`|
+| `encodingFormat`| File format (e.g., text/csv)           | `xsd:string`   | `"encodingFormat": "text/csv"`               |
+| `sha256`       | File checksum                          | `xsd:string`   | `"sha256": "abc123..."`                       |
+
+### RecordSet (Inside `recordSet`)
+
+| Property     | Description                              | Type             | Example                                       |
+|--------------|------------------------------------------|------------------|-----------------------------------------------|
+| `@type`     | Declares a record set                    | `cr:RecordSet`   | `"@type": "cr:RecordSet"`                     |
+| `name`      | Name of the record set                   | `xsd:string`     | `"name": "User Data"`                         |
+| `description`| Textual summary of the records           | `xsd:string`     | `"description": "Demographic information"`    |
+| `field`     | List of field definitions                | Array<Field>     | Refer to Field section                        |
+
+### Field (Inside `field`)
+
+| Property     | Description                              | Type           | Example                                       |
+|--------------|------------------------------------------|----------------|-----------------------------------------------|
+| `@type`     | Field object                             | `cr:Field`     | `"@type": "cr:Field"`                         |
+| `name`      | Field name                               | `xsd:string`   | `"name": "age"`                               |
+| `description`| Field explanation                        | `xsd:string`   | `"description": "Age of participant"`         |
+| `dataType`  | Expected data type                       | `sc:DataType`  | `"dataType": "sc:Integer"`                    |
+| `references`| How the field maps to a file             | Object         | `"references": { "fileObject": "file1" }`     |
 
 ---
 
-## 🚀 **Using FAIR² with ML Croissant**
+## Extensions Provided by FAIR²
 
-### 1️⃣ **FAIR² Metadata Example (JSON-LD)**  
-FAIR² extends **ML Croissant** by adding **SHACL validation & methodology tracking**.
+| ML Croissant Feature      | FAIR² Enhancement                                              |
+|---------------------------|----------------------------------------------------------------|
+| Dataset metadata          | SHACL validation for compliance and consistency                |
+| AI methodology support    | Structured method tracking for data processing and modeling    |
+| Schema.org compatibility  | Alignment with linked data vocabularies                        |
+| Provenance and licensing  | Integration of provenance and citation tracking mechanisms     |
+
+FAIR² ensures that metadata not only meets FAIR requirements but also enables seamless integration with modern machine learning workflows.
+
+---
+
+## Example: FAIR² Metadata with Croissant Extensions
 
 ```json
 {
@@ -109,17 +110,12 @@ FAIR² extends **ML Croissant** by adding **SHACL validation & methodology track
 }
 ```
 
-✅ ML Croissant-compatible – Uses cr:features for structured metadata.
-✅ FAIR² extensions – Adds methodology tracking for AI workflows.
-✅ FAIR AI principles – Supports citation tracking & licensing compliance.
-
 ---
 
-## 📂 Loading FAIR² Metadata in ML Frameworks
+## Loading FAIR² Datasets in AI Frameworks
 
-One of the key advantages of ML Croissant + FAIR² is that datasets can be loaded directly into AI frameworks like PyTorch and TensorFlow.
+Datasets described using FAIR² and ML Croissant metadata can be loaded directly into AI frameworks:
 
-### Loading a FAIR² Dataset in PyTorch
 ```python
 from mlcroissant import Dataset
 from torch.utils.data import DataLoader
@@ -129,47 +125,36 @@ dataloader = DataLoader(dataset)
 
 for batch in dataloader:
     images, labels = batch
-    # Train your AI model here...
+    # Training logic here
 ```
-
-FAIR² ensures that datasets are machine-actionable and seamlessly integrate into AI pipelines.
 
 ---
 
-## 🔍 FAIR² SHACL Validation for ML Croissant Metadata
+## Validation of FAIR² Metadata
 
-FAIR² uses SHACL validation to ensure ML Croissant metadata is correctly structured.
+FAIR² uses SHACL to validate ML Croissant-based metadata:
 
-To validate a ML Croissant dataset using pySHACL, run:
-```bash
-pyshacl -s cr_dataset.json -d mydata.json
-```
-
-The FAIR2 dataset schema extends the ML Croissant shape. You can ensure all constraints are applied simply by using the `fair2s:DatasetShape` defined in `fair2_dataset.json` :
 ```bash
 pyshacl -s fair2_dataset.json -d mydata.json
+```
 
-### Common Validation Errors & Fixes
+Typical validation errors and solutions:
 
-| **Error** | **Cause** | **Fix** |
-|-----------|----------|---------|
-| **"Missing required property cr:citeAs"** | Dataset lacks citation metadata. | Add `"cr:citeAs": "Your citation format"`. |
-| **"schema:distribution must be at least 1"** | No dataset file provided. | Add `"schema:distribution": { "contentUrl": "your_file_url" }`. |
-| **"Invalid datatype for schema:datePublished"** | Incorrect date format. | Use `YYYY-MM-DD` format. |
-
-## 📌 FAIR² + ML Croissant: Key Benefits
-
-✅ Ensures datasets are AI-ready with structured metadata.
-✅ Supports PyTorch & TensorFlow integration.
-✅ Provides SHACL validation for metadata consistency.
-✅ Tracks methodology to ensure reproducibility in AI research.
+| Error Message                                  | Cause                         | Recommended Fix                                     |
+|------------------------------------------------|-------------------------------|-----------------------------------------------------|
+| Missing required property `cr:citeAs`          | Citation field not provided   | Add `"cr:citeAs": "Your citation"` to metadata      |
+| `schema:distribution` must be present          | No file references defined    | Include at least one `schema:distribution` object   |
+| Invalid datatype for `schema:datePublished`    | Incorrect date format         | Use `YYYY-MM-DD` format                             |
 
 ---
 
-## 🚀 Next Steps
+## Summary
 
-1️⃣ [Explore the FAIR² Schema](../specification/schema.md)
-2️⃣ [Learn about SHACL Validation](../specification/shacl-validation.md)
-3️⃣ [Contribute to FAIR²](../community/contributing.md)
+FAIR² provides the following enhancements to ML Croissant:
 
-Together, FAIR² and ML Croissant make AI datasets more FAIR and machine-actionable! 🚀
+- Structured metadata validation using SHACL
+- Provenance tracking and citation support
+- Interoperable format for use with AI training pipelines
+- Integrated methodology documentation for reproducibility
+
+For further details, refer to the FAIR² schema documentation and validator tools.

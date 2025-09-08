@@ -1,26 +1,31 @@
 # FAIR² and Croissant RAI Integration
 
-## 🎯 Overview
+## Overview
 
-FAIR² integrates **Croissant RAI (Responsible AI Vocabulary)** to ensure that datasets align with **ethical AI principles**.  
-This supports **transparency, fairness, and bias detection** in AI-driven research.
+The FAIR² specification integrates the **Croissant Responsible AI Vocabulary (RAI)** to support ethical, transparent, and accountable use of datasets in machine learning workflows. This integration enables datasets to be described not only in terms of structure and provenance, but also with respect to potential risks, biases, and ethical review processes.
 
----
-
-## 📌 **How FAIR² Uses Croissant RAI**
-Croissant RAI provides metadata for **ethical considerations, dataset biases, and risk assessments**.
-
-| **FAIR² RAI Feature** | **Benefit** |
-|----------------|----------------------|
-| **Ethics Review (`ethicsReview`)** | Ensures datasets undergo ethical assessment. |
-| **Data Biases (`dataBiases`)** | Identifies potential biases for transparency. |
-| **Data Limitations (`dataLimitations`)** | Highlights dataset constraints and risks. |
-| **Provenance (`prov:wasGeneratedBy`)** | Provides full traceability of data generation. |
-| **RAI Metadata (Croissant RAI)** | Aligns datasets with Responsible AI frameworks. |
+RAI metadata provides essential context for downstream users—particularly AI developers, data stewards, and compliance reviewers—seeking to assess the ethical implications of using a dataset in automated decision-making.
 
 ---
 
-## 🔍 **Example: JSON-LD with Croissant RAI**
+## Key Features
+
+FAIR² supports the following Responsible AI metadata elements via the Croissant RAI vocabulary:
+
+| **FAIR² Element**           | **Purpose**                                               |
+|----------------------------|-----------------------------------------------------------|
+| `rai:ethicsReview`         | Captures details of any formal ethical review conducted. |
+| `rai:dataBiases`           | Documents known or suspected biases in the dataset.       |
+| `rai:dataLimitations`      | Identifies limitations, constraints, or known weaknesses. |
+| `prov:wasGeneratedBy`      | Records the provenance and generation activity.           |
+| `rai:*` metadata (general) | Supports alignment with Responsible AI standards.         |
+
+These elements extend [ML Croissant](https://mlcommons.org/croissant/) and are fully compatible with JSON-LD and SHACL validation frameworks used in FAIR².
+
+---
+
+## Example: JSON-LD with Croissant RAI Metadata
+
 ```json
 {
   "@context": [
@@ -51,14 +56,40 @@ Croissant RAI provides metadata for **ethical considerations, dataset biases, an
   }
 }
 ```
-✅ Promotes ethical AI research – Captures biases and limitations.  
-✅ Supports AI fairness assessments – Ensures datasets align with Responsible AI principles.  
-✅ Enhances transparency – Allows researchers to understand dataset limitations.
+
+This metadata enables:
+
+- **Ethical traceability**: Describing the ethical oversight applied to the dataset.
+- **Bias documentation**: Disclosing sampling, labeling, or structural biases.
+- **Transparency in limitations**: Clarifying conditions under which data may be unsuitable for reuse.
+- **Provenance**: Tracking how the data was collected and processed.
 
 ---
 
-## 🚀 Next Steps
+## Alignment with Responsible AI Principles
 
-1️⃣ [Explore FAIR²’s AI-Ready Metadata](../specification/schema.md) – Learn how to document AI datasets.  
-2️⃣ [Validate Bias & Risk Metadata](../specification/shacl-validation.md) – Ensure compliance with Croissant RAI.  
-3️⃣ [Contribute to FAIR²](../community/contributing.md) – Help improve dataset responsibility guidelines.
+By incorporating Croissant RAI elements, FAIR² provides compatibility with leading frameworks for Responsible AI, including:
+
+- OECD Principles on AI
+- EU AI Act compliance requirements
+- MLCommons RAI and Model Card standards
+
+Datasets using these metadata properties can be assessed programmatically for fairness, traceability, and compliance readiness.
+
+---
+
+## Next Steps
+
+To incorporate Responsible AI metadata into your dataset:
+
+1. Review the [FAIR² Schema](../specification/schema.md) for AI-relevant fields.
+2. Add `rai:*` properties describing ethical oversight, limitations, and biases.
+3. Use [SHACL validation rules](../specification/shacl-validation.md) to ensure conformance.
+4. [Contribute to FAIR²](../community/contributing.md) by suggesting extensions or sharing Responsible AI use cases.
+
+For questions or contributions related to Responsible AI alignment, please contact:  
+📩 [feedback@fair2.ai](mailto:feedback@fair2.ai)
+
+---
+
+_Last updated: 2025-03-14_

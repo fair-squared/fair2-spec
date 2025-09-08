@@ -1,112 +1,126 @@
 # FAIR² Governance Model
 
-## 🎯 Purpose of Governance
+## Purpose
 
-FAIR² is a community-driven initiative designed to enhance **FAIR principles** with **AI-ready, machine-actionable metadata**. Our governance model ensures:
-- **Transparency** in decision-making.
-- **Inclusivity** in contributions.
-- **Sustainability** of the FAIR² standard over time.
-
-This document describes how FAIR² is governed, how decisions are made, and how you can participate.
+The governance model of **FAIR²** ensures that the development and evolution of the specification remains community-driven, inclusive, and sustainable. FAIR² enhances the original FAIR principles by enabling **AI-ready**, **context-rich**, and **machine-actionable** metadata standards. This document outlines how governance is structured, how decisions are made, and how contributors can participate.
 
 ---
 
-## 🚀 **Governance Structure**
+## Governance Structure
 
-FAIR² governance consists of the following **key groups**:
+FAIR² is overseen by four primary groups, each with a specific mandate:
 
-### 1️⃣ **Steering Committee**
-- Provides **strategic direction** for FAIR².
-- Ensures **alignment with ML Croissant, Schema.org, and GO FAIR**.
-- Reviews and approves major changes to the specification.
-- Oversees **certification and adoption efforts**.
+### 1. Steering Committee
 
-📩 Contact: **[info@fair2.ai](mailto:info@fair2.ai)**
+The Steering Committee provides high-level strategic direction for FAIR². Its responsibilities include:
 
----
+- Aligning FAIR² with major initiatives (e.g., ML Croissant, Schema.org, GO FAIR)
+- Reviewing and approving major changes to the specification
+- Overseeing FAIR² certification programs and adoption strategy
 
-### 2️⃣ **Technical Working Group (TWG)**
-- Develops and maintains the **FAIR² specification**.
-- Implements **SHACL validation, JSON-LD enhancements, and AI-specific metadata**.
-- Reviews **GitHub issues, pull requests, and schema updates**.
-- Ensures technical alignment with **FAIR, ML Croissant, and Linked Data standards**.
-
-📩 Contact: **[feedback@fair2.ai](mailto:feedback@fair2.ai)**  
-📂 Track progress: [FAIR² GitHub Issues](https://github.com/fair2-spec/issues)
+**Contact**: [info@fair2.ai](mailto:info@fair2.ai)
 
 ---
 
-### 3️⃣ **Certification & Adoption Board**
-- Defines **certification criteria** for datasets, repositories, and platforms.
-- Works with **organizations, institutions, and policymakers** for FAIR² adoption.
-- Ensures that **FAIR²-certified datasets** meet the highest metadata standards.
+### 2. Technical Working Group (TWG)
 
-📩 Contact: **[certification@fair2.ai](mailto:certification@fair2.ai)**
+The TWG is responsible for the development and maintenance of the technical components of FAIR². Its responsibilities include:
 
----
+- Developing and updating the FAIR² schema and documentation
+- Maintaining SHACL validation shapes and JSON-LD compatibility
+- Reviewing GitHub issues and pull requests
+- Ensuring interoperability with FAIR principles and linked data standards
 
-### 4️⃣ **Community & Outreach Team**
-- Engages with the **broader FAIR & AI research community**.
-- Organizes **workshops, webinars, and training sessions**.
-- Handles **media relations and public awareness campaigns**.
-
-📩 Media inquiries: **[media@fair2.ai](mailto:media@fair2.ai)**  
-📢 Help spread the word about FAIR²!
+**Contact**: [feedback@fair2.ai](mailto:feedback@fair2.ai)  
+**Track progress**: [FAIR² GitHub Issues](https://github.com/fair2-spec/issues)
 
 ---
 
-## 📌 **Decision-Making Process**
+### 3. Certification & Adoption Board
 
-FAIR² follows an **open, transparent, and consensus-driven** decision-making process:
+This group defines certification criteria for datasets, tools, and platforms that wish to be recognized as FAIR²-compliant. It also engages with institutions and policymakers to promote adoption.
 
-### 🔹 **Proposing Changes**
-- Anyone can propose a change via a **GitHub Issue** or **email to the TWG**.
-- Proposals should include:
-  - A clear **description** of the change.
-  - A **justification** explaining its importance.
-  - Any **technical or implementation considerations**.
+- Develops FAIR² certification processes
+- Verifies metadata quality and schema conformance
+- Supports organizations implementing FAIR² workflows
 
-### 🔹 **Review Process**
-- Minor changes (e.g., documentation updates) are reviewed by the **Technical Working Group**.
-- Major changes (e.g., new schema elements, breaking changes) require:
-  - **Public discussion** via GitHub or community meetings.
-  - **Approval by the Steering Committee**.
-  - **Final review before implementation**.
-
-### 🔹 **Voting & Consensus**
-- Decisions are made by **rough consensus**, prioritizing community input.
-- In case of disagreements, the **Steering Committee** makes the final call.
-- Votes are conducted for **major changes or governance updates**.
+**Contact**: [certification@fair2.ai](mailto:certification@fair2.ai)
 
 ---
 
-## 🏛 **Code of Conduct**
-All FAIR² participants are expected to adhere to our **[Code of Conduct](code-of-conduct.md)**, which ensures:
-✅ **Respectful communication** in discussions.  
-✅ **Inclusivity and open participation** for all contributors.  
-✅ **Constructive feedback** and collaboration.
+### 4. Community & Outreach Team
+
+The outreach team is responsible for growing and supporting the FAIR² community. This includes:
+
+- Coordinating workshops, webinars, and public events
+- Managing communications, including social media and press
+- Supporting education and community engagement initiatives
+
+**Contact**: [media@fair2.ai](mailto:media@fair2.ai)
 
 ---
 
+## Decision-Making Process
 
-## 🎯 **How You Can Get Involved**
-1️⃣ **Propose improvements** – Submit GitHub Issues or pull requests.  
-2️⃣ **Join discussions** – Engage in community meetings & working groups.  
-3️⃣ **Adopt FAIR²** – Implement it in your datasets and organizations.  
-4️⃣ **Contribute to outreach** – Help spread awareness through talks, blogs, and social media.  
+FAIR² follows an **open, transparent, and consensus-driven** approach:
 
-📩 Questions? Contact us:  
-- General inquiries: **[info@fair2.ai](mailto:info@fair2.ai)**  
-- Certification & adoption: **[certification@fair2.ai](mailto:certification@fair2.ai)**  
-- Technical feedback: **[feedback@fair2.ai](mailto:feedback@fair2.ai)**  
-- Media & outreach: **[media@fair2.ai](mailto:media@fair2.ai)**  
+### Proposing Changes
+
+Any community member can propose changes via:
+
+- A GitHub Issue with a description, rationale, and technical context
+- Direct communication with the TWG via [feedback@fair2.ai](mailto:feedback@fair2.ai)
+
+### Review and Approval
+
+- **Minor changes** (e.g., documentation fixes) are reviewed by the TWG
+- **Major changes** (e.g., new schema elements, semantic updates) require:
+  - Community discussion and visibility (via GitHub or working group meetings)
+  - Formal approval by the Steering Committee
+  - Final implementation following review
+
+### Voting and Consensus
+
+- Decisions aim for **rough consensus** with broad community support
+- In case of disagreement or deadlock, the Steering Committee acts as the final arbiter
+- Formal votes are used for major revisions and governance updates
 
 ---
 
-## 🚀 **Next Steps**
-🔗 **[Contribute to FAIR²](contributing.md)** – Learn how to get involved.  
-📂 **[Explore the FAIR² Specification](../specification/overview.md)** – Understand the technical details.  
-🔍 **[Join the discussion](https://github.com/fair2-spec/issues)** – Help shape the future of FAIR²!  
+## Code of Conduct
+
+All participants are expected to adhere to the [FAIR² Code of Conduct](code-of-conduct.md), which ensures:
+
+- Respectful and inclusive communication
+- Open participation and constructive feedback
+- Zero tolerance for harassment or discrimination
 
 ---
-_Last updated: [03/03/2025]_  
+
+## Getting Involved
+
+There are multiple ways to participate in the FAIR² governance process:
+
+1. **Propose improvements** via [GitHub Issues](https://github.com/fair2-spec/issues) or pull requests
+2. **Join discussions** in community meetings and working groups
+3. **Adopt FAIR²** in your datasets, platforms, or tools
+4. **Contribute to outreach** through workshops, writing, or speaking engagements
+
+### Contact Points
+
+- General inquiries: [info@fair2.ai](mailto:info@fair2.ai)
+- Certification and adoption: [certification@fair2.ai](mailto:certification@fair2.ai)
+- Technical feedback: [feedback@fair2.ai](mailto:feedback@fair2.ai)
+- Media and outreach: [media@fair2.ai](mailto:media@fair2.ai)
+
+---
+
+## Next Steps
+
+- [Contribute to FAIR²](contributing.md): Understand the contribution process
+- [Explore the Specification](../specification/overview.md): Learn the structure and key elements
+- [Join the Discussion](https://github.com/fair2-spec/issues): Help shape the future of FAIR²
+
+---
+
+_Last updated: 2025-03-03_

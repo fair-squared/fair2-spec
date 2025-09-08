@@ -1,64 +1,80 @@
-# FAIR² Roadmap 🚀
+# FAIR² Roadmap
 
-## 🎯 Vision & Goals
+## Vision and Objectives
 
-FAIR² (**FAIR Squared**) is evolving to become the **leading AI-ready FAIR data standard**,  
-ensuring that **datasets are machine-actionable, validated, and seamlessly integrated into AI/ML workflows**.
+The FAIR² (FAIR Squared) initiative aims to establish the leading specification for **AI-ready, FAIR-compliant, and machine-actionable datasets**. This roadmap outlines the development phases, milestones, and strategic goals that guide FAIR² through its technical evolution and community adoption.
 
-This roadmap outlines the key milestones for **FAIR² development, adoption, and certification**.
-
----
-
-## 📌 **Roadmap Overview**
-✅ **Phase 1 – Core Specification & Validation (2024 - Q2 2025)**   
-🔜 **Phase 2 – Certification & Industry Standards (2026 and beyond)**  
+FAIR² supports reproducibility, interoperability, and ethical data use in AI and machine learning pipelines, while extending the foundational FAIR principles through structured metadata and validation mechanisms.
 
 ---
 
-## 🚀 **Phase 1: Core Specification & Validation (2024 - Q2 2025)**  
-**Status: 🟢 In Progress**  
+## Development Phases
 
-### 🛠 **Milestones**  
-- ✅ **Develop FAIR² Core Schema** (JSON-LD, SHACL validation)  
-- ✅ **Align with ML Croissant & Schema.org**  
-- ✅ **Define Methodology & Data Article Metadata**  
-- 🟡 **Enhance SHACL validation rules** for stricter compliance  
-- 🟡 **Release v1.0 of FAIR² Specification** (official documentation)  
-- 🔜 **Set up FAIR² Validator (CLI & Web-based validation tool)**  
+The FAIR² roadmap is organized into two primary phases:
 
-📩 Feedback & contributions: **[feedback@fair2.ai](mailto:feedback@fair2.ai)**  
+- **Phase 1: Core Specification and Validation (2024 – Q2 2025)**
+- **Phase 2: Certification and Industry Standards (2026 and beyond)**
 
 ---
 
-## 🚀 **Phase 2: Certification & Industry Standards (2026 and beyond)**  
-**Status: 🔜 Future Development**  
+## Phase 1: Core Specification and Validation  
+**Timeline:** 2024 – Q2 2025  
+**Status:** *In Progress*
 
-### 🛠 **Milestones**  
-- 🔜 **Launch FAIR² Certification Program** (for datasets & repositories)  
-- 🔜 **Define FAIR² Compliance Criteria** (for research & enterprise adoption)  
-- 🔜 **Develop Machine-Readable FAIR² Certification Badges**  
-- 🔜 **Work with policymakers & organizations on data governance**  
-- 🔜 **Align FAIR² with ISO & Open Science standards**  
+This phase focuses on defining and stabilizing the FAIR² specification and its technical foundations.
 
-📩 Certification inquiries: **[certification@fair2.ai](mailto:certification@fair2.ai)**  
+### Key Milestones
 
----
+- ✅ Development of the FAIR² Core Schema (JSON-LD-based metadata)  
+- ✅ Integration with ML Croissant and Schema.org  
+- ✅ Introduction of structured Methodology and Data Article metadata patterns  
+- 🟡 Refinement and expansion of SHACL validation rules  
+- 🟡 Publication of version 1.0 of the FAIR² Specification  
+- 🔜 Development of the FAIR² Validator (CLI and web-based interfaces)  
 
-## 📌 **How You Can Contribute**
-💡 **Suggest improvements** – Submit GitHub Issues & Pull Requests.  
-🔬 **Test SHACL validation** – Help refine the FAIR² Validator.  
-📢 **Promote adoption** – Work with research & industry partners.  
-
-📩 General inquiries: **[info@fair2.ai](mailto:info@fair2.ai)**  
+**Feedback and contributions welcome:**  
+[feedback@fair2.ai](mailto:feedback@fair2.ai)
 
 ---
 
-## 📅 **Next Steps**
-📂 **[Explore the FAIR² Specification](../specification/overview.md)**  
-✅ **[Join the discussion](https://github.com/fair2-spec/issues)**  
-🚀 **[Contribute to FAIR²](contributing.md)**  
+## Phase 2: Certification and Industry Standards  
+**Timeline:** 2026 and beyond  
+**Status:** *Planned*
 
-Thank you for helping shape the future of FAIR²! 🚀  
+This phase focuses on formalizing adoption pathways and compliance verification mechanisms.
+
+### Planned Milestones
+
+- 🔜 Launch of the FAIR² Certification Program for datasets and platforms  
+- 🔜 Definition of FAIR² Compliance Criteria for research and enterprise use cases  
+- 🔜 Introduction of machine-readable FAIR² Certification Badges  
+- 🔜 Strategic engagement with policymakers and standards organizations  
+- 🔜 Alignment with ISO, Open Science, and responsible AI governance frameworks  
+
+**For certification inquiries:**  
+[certification@fair2.ai](mailto:certification@fair2.ai)
 
 ---
-_Last updated: [03/03/2025]_  
+
+## Community Involvement
+
+FAIR² is a collaborative project, and community input is essential to its evolution. You can contribute by:
+
+- Submitting feature proposals or revisions via [GitHub Issues](https://github.com/fair2-spec/issues)  
+- Assisting with SHACL rule testing and FAIR² Validator feedback  
+- Promoting adoption within academic, clinical, or industrial settings  
+
+**General contact:**  
+[info@fair2.ai](mailto:info@fair2.ai)
+
+---
+
+## Next Steps
+
+- [Explore the FAIR² Specification](../specification/overview.md)  
+- [Contribute to FAIR²](contributing.md)  
+- [Engage in ongoing discussions](https://github.com/fair2-spec/issues)
+
+---
+
+*Last updated: 2025-03-03*

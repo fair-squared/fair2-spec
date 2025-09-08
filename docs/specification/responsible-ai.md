@@ -1,22 +1,25 @@
 # Responsible AI in FAIR²
 
-## 🔍 Overview
+## Overview
 
-FAIR² incorporates the **Croissant RAI vocabulary** to align datasets with **Responsible AI (RAI) principles**. By documenting **ethical reviews, biases, and limitations**, FAIR² ensures datasets are **transparent, accountable, and suitable for ethical AI workflows**. Provenance metadata further enhances RAI alignment by providing **traceability and context for data generation**.
+FAIR² incorporates the Croissant Responsible AI (RAI) vocabulary to align dataset metadata with ethical and transparent data practices. This includes fields for documenting ethical review, known data biases, and dataset limitations. In addition, FAIR² leverages provenance standards from PROV-O to link data fields to their origin, enabling full traceability of how and when data were generated.
+
+This integration supports the use of FAIR²-compliant datasets in responsible machine learning and artificial intelligence applications.
 
 ---
 
-## 📑 Ethical Documentation
+## Ethical Review Documentation
 
-FAIR² integrates **Responsible AI metadata** using the **Croissant RAI vocabulary** to document:
+FAIR² allows for the inclusion of structured metadata describing the outcome and process of an ethics review.
 
-### 📗 **Ethics Review (`ethicsReview`)**
-Captures ethical assessments conducted during dataset creation, including:
-- **Reviewing body**
-- **Approval status**
-- **Date of approval**
+### Key Properties
 
-#### **Example: JSON-LD Ethics Review Metadata**
+- `ethicsReview.reviewedBy`: The name of the institutional review board or ethics authority
+- `ethicsReview.approvalStatus`: The decision or outcome of the review
+- `ethicsReview.reviewDate`: The date the review was finalized
+
+### Example
+
 ```json
 {
   "ethicsReview": {
@@ -29,28 +32,29 @@ Captures ethical assessments conducted during dataset creation, including:
 
 ---
 
-### 🔄 **Data Biases (`dataBiases`)**
-Documents potential biases in datasets, such as:
-- **Imbalances in representation**
-- **Sampling errors**
+## Data Biases and Limitations
 
-### 🔨 **Data Limitations (`dataLimitations`)**
-Identifies known constraints or deficiencies, such as:
-- **Seasonal data gaps**
-- **Measurement inaccuracies**
+### Biases (`dataBiases`)
+
+This property is used to document any known or suspected biases in the data, including sampling imbalances, underrepresented groups, or systematic measurement errors.
+
+### Limitations (`dataLimitations`)
+
+Used to describe known constraints of the dataset, such as temporal gaps, incomplete coverage, or methodological limitations that affect interpretation or reuse.
 
 ---
 
-## 📊 Provenance for Responsible AI
+## Provenance and Process Traceability
 
-### 🌍 **Provenance (`prov:wasGeneratedBy`)**
-FAIR² integrates **PROV-O metadata** to **link dataset variables to the methods, tools, and steps used to generate them**.
+FAIR² uses the `prov:wasGeneratedBy` property from the PROV-O ontology to link each data field or dataset to the process that created it.
 
-### ⚖️ **RAI Benefits of Provenance**
-- ✅ **Ensures traceability and accountability** by explicitly documenting how data was collected and processed.
-- ✅ **Enables fairness evaluations** by showing how data biases or limitations may have arisen during data generation.
+This enables:
 
-#### **Example: JSON-LD Provenance and Bias Documentation**
+- Reproducibility analysis by linking measurements to methods and tools
+- Bias assessments by examining the conditions of data generation
+
+### Example with Provenance and Bias
+
 ```json
 {
   "field": [
@@ -90,21 +94,27 @@ FAIR² integrates **PROV-O metadata** to **link dataset variables to the methods
 
 ---
 
-## 🔗 **Why Responsible AI Matters in FAIR²**
-| **FAIR² RAI Feature** | **Benefit** |
-|----------------|----------------------|
-| **Ethics Review (`ethicsReview`)** | Ensures datasets undergo ethical assessment. |
-| **Data Biases (`dataBiases`)** | Identifies potential biases for transparency. |
-| **Data Limitations (`dataLimitations`)** | Highlights dataset constraints and risks. |
-| **Provenance (`prov:wasGeneratedBy`)** | Provides full traceability of data generation. |
-| **RAI Metadata (Croissant RAI)** | Aligns datasets with Responsible AI frameworks. |
+## Summary of Responsible AI Metadata in FAIR²
+
+| Property               | Purpose                                                      |
+|------------------------|--------------------------------------------------------------|
+| `ethicsReview`         | Records ethical approval details                             |
+| `dataBiases`           | Documents sampling or methodological bias                    |
+| `dataLimitations`      | Notes any known constraints in data usability or interpretation |
+| `prov:wasGeneratedBy`  | Links data fields to their generation process                |
 
 ---
 
-## 🚀 **Next Steps**
-1. **[Explore FAIR² Schema](../specification/schema.md)** – Learn how RAI integrates with FAIR metadata.
-2. **[Learn about Croissant RAI](../integration/croissant-rai.md)** – Responsible AI integration details.
-3. **[Validate RAI Metadata](../specification/shacl-validation.md)** – Ensure compliance with ethical AI principles.
+## Implementation and Validation
 
-FAIR² ensures that datasets are **transparent, bias-aware, and aligned with Responsible AI best practices**! 🚀
+- The Responsible AI fields are validated using SHACL rules within the FAIR² schema
+- These fields are optional but recommended for high-quality, auditable datasets
+- Compatible with the Croissant RAI vocabulary and JSON-LD
 
+---
+
+## Next Steps
+
+1. Refer to the [FAIR² Schema](../specification/schema.md) for implementation details
+2. Explore [Croissant RAI integration](../integration/croissant-rai.md) for vocabulary definitions
+3. Use [SHACL validation](../specification/shacl-validation.md) to ensure metadata consistency

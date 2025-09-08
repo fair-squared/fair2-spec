@@ -1,12 +1,12 @@
 # FAIR² Schema
 
-## 📌 Overview
+## Overview
 
 The core of FAIR² is the **DatasetShape**, which extends existing metadata standards to support AI applications.
 
 ---
 
-## 🎯 Resource Types Covered in FAIR²
+## Resource Types Covered in FAIR²
 
 FAIR² supports a broad range of **research resources** to ensure **AI-ready, FAIR-compliant data management**. These include datasets, metadata records, methodology descriptions, and file structures.
 
@@ -29,10 +29,10 @@ FAIR² supports a broad range of **research resources** to ensure **AI-ready, FA
 
 ---
 
-## 📂 **Dataset Schema (`DatasetShape`)**
+## **Dataset Schema (`DatasetShape`)**
 The `DatasetShape` is the main schema used in FAIR² to describe datasets.
 
-### 🎯 Key Properties of FAIR² Datasets
+### Key Properties of FAIR² Datasets
 
 | **Property** | **Type** | **Description** | **Constraints** |
 |-------------|---------|----------------|----------------|
@@ -57,7 +57,7 @@ The `DatasetShape` is the main schema used in FAIR² to describe datasets.
 
 ---
 
-### 🎯 **Recommended Properties**
+### **Recommended Properties**
 | **Property** | **Type** | **Description** | **Constraints** |
 |-------------|---------|----------------|----------------|
 | `schema:keywords` | `xsd:string`, `URL`, `DefinedTerm` | Keywords or tags describing the dataset. | Recommended (min 1) |
@@ -68,7 +68,7 @@ The `DatasetShape` is the main schema used in FAIR² to describe datasets.
 
 ---
 
-### 🎯 **Optional Properties**
+### **Optional Properties**
 | **Property** | **Type** | **Description** | **Constraints** |
 |-------------|---------|----------------|----------------|
 | `fair2:dataArticle` | `fair2:DataArticle` | Metadata of a related data article. | Optional |
@@ -81,7 +81,7 @@ The `DatasetShape` is the main schema used in FAIR² to describe datasets.
 
 ---
 
-## 📂 **Dataset Distribution Schema**
+## **Dataset Distribution Schema**
 The **`schema:distribution`** property defines the dataset files.
 
 ### **Key Properties**
@@ -96,15 +96,15 @@ The **`schema:distribution`** property defines the dataset files.
 
 ---
 
-# 📂 Data Article Schema (`DataArticleShape`)
+# Data Article Schema (`DataArticleShape`)
 
-## 🎯 Overview
+## Overview
 The `DataArticleShape` extends **Schema.org’s `ScholarlyArticle`** to describe **a research article related to a dataset**.  
 This includes metadata about the article, **authorship, publication details, methodology, and citation relationships**.
 
 ---
 
-## 📌 **Key Properties**
+## **Key Properties**
 | **Property** | **Type** | **Description** | **Constraints** |
 |-------------|---------|----------------|----------------|
 | `schema:name` | `xsd:string` | The title of the article. | Required |
@@ -116,22 +116,22 @@ This includes metadata about the article, **authorship, publication details, met
 
 ---
 
-## 📌 **Publication Information**
+## **Publication Information**
 Since **articles are often part of journals, books, or conference proceedings**, `schema:isPartOf` allows linking the article to its **publication issue, volume, and periodical**.
 
-### 📂 **Publication Issue (`schema:PublicationIssue`)**
+### **Publication Issue (`schema:PublicationIssue`)**
 | **Property** | **Type** | **Description** | **Constraints** |
 |-------------|---------|----------------|----------------|
 | `schema:issueNumber` | `xsd:string` | The issue number where the article is published. | Optional |
 | `schema:isPartOf` | `schema:PublicationVolume` | The publication volume containing the issue. | Optional |
 
-### 📂 **Publication Volume (`schema:PublicationVolume`)**
+### **Publication Volume (`schema:PublicationVolume`)**
 | **Property** | **Type** | **Description** | **Constraints** |
 |-------------|---------|----------------|----------------|
 | `schema:volumeNumber` | `xsd:string` | The volume number where the article is published. | Optional |
 | `schema:isPartOf` | `schema:Periodical` | The periodical in which the volume is published. | Optional |
 
-### 📂 **Periodical (Journal, Conference, or Book Series) (`schema:Periodical`)**
+### **Periodical (Journal, Conference, or Book Series) (`schema:Periodical`)**
 | **Property** | **Type** | **Description** | **Constraints** |
 |-------------|---------|----------------|----------------|
 | `schema:name` | `xsd:string` | The name of the journal, book series, or conference. | Required |
@@ -140,7 +140,7 @@ Since **articles are often part of journals, books, or conference proceedings**,
 
 ---
 
-## 🔍 **Example: JSON-LD Representation of a Data Article**
+## **Example: JSON-LD Representation of a Data Article**
 ```json
 {
   "@context": [
@@ -182,7 +182,7 @@ Since **articles are often part of journals, books, or conference proceedings**,
 ```
 ---
 
-## 📂 **Methodology Schema (`MethodShape` & `StepShape`)**
+## **Methodology Schema (`MethodShape` & `StepShape`)**
 The **`MethodShape`** and **`StepShape`** document the dataset’s methodology.
 
 ### **MethodShape**
@@ -201,7 +201,7 @@ The **`MethodShape`** and **`StepShape`** document the dataset’s methodology.
 
 ---
 
-## 🎯 Resource Types: RecordSet, Field, and FileObject
+## Resource Types: RecordSet, Field, and FileObject
 
 FAIR² builds on **ML Croissant's metadata model**, integrating **structured representations** for **datasets, records, features, and file distributions**.
 
@@ -209,7 +209,7 @@ Below is a detailed breakdown of **key properties** for ML Croissant’s **`Reco
 
 ---
 
-## 📌 **RecordSet Properties (`cr:RecordSet`)**
+## **RecordSet Properties (`cr:RecordSet`)**
 
 A **`RecordSet`** represents structured data, such as tabular datasets, containing individual **data records**.
 
@@ -226,7 +226,7 @@ A **`RecordSet`** represents structured data, such as tabular datasets, containi
 
 ---
 
-## 📌 **Field Properties (`cr:Field`)**
+## **Field Properties (`cr:Field`)**
 
 A **`Field`** describes **an individual attribute/column** within a `RecordSet`, specifying **data types, descriptions, and relationships**.
 
@@ -245,7 +245,7 @@ A **`Field`** describes **an individual attribute/column** within a `RecordSet`,
 
 ---
 
-## 📌 **FileObject Properties (`cr:FileObject`)**
+## **FileObject Properties (`cr:FileObject`)**
 
 A **`FileObject`** represents **a file containing dataset records**, including its **format, location, and checksum validation**.
 
@@ -264,15 +264,15 @@ A **`FileObject`** represents **a file containing dataset records**, including i
 
 ---
 
-## 🎯 **Why Use FAIR² Schema?**
-✅ **Extends ML Croissant** – Built on a widely adopted AI metadata framework.  
-✅ **AI-Ready** – Structured metadata makes datasets easy to use in **PyTorch** & **TensorFlow**.  
-✅ **Validation with SHACL** – Ensures datasets meet compliance and interoperability standards.  
-✅ **Supports Research Integrity** – Includes metadata for **data articles and methodologies**.  
+## **Why Use FAIR² Schema?**
+**Extends ML Croissant** – Built on a widely adopted AI metadata framework.  
+**AI-Ready** – Structured metadata makes datasets easy to use in **PyTorch** & **TensorFlow**.  
+**Validation with SHACL** – Ensures datasets meet compliance and interoperability standards.  
+**Supports Research Integrity** – Includes metadata for **data articles and methodologies**.  
 
 ---
 
-## 🚀 **Next Steps**
+## **Next Steps**
 - **[Validate your dataset](shacl-validation.md)** with SHACL.
 - **[See dataset examples](examples.md)** to understand real-world usage.
 - **[Learn about JSON-LD & RDF](../technical/json-ld.md)** for AI-ready metadata.
