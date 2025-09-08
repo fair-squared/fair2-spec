@@ -1,7 +1,7 @@
 site_name: FAIR² Specification
 theme:
   name: material
-  logo: assets/logo.svg
+  logo: assets/FAIR2HankoStamp1.png
   favicon: assets/favicon.ico
 nav:
   - Home: index.md
