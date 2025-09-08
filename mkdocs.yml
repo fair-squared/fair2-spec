@@ -1,0 +1,29 @@
+site_name: FAIR² Specification
+theme:
+  name: material
+  logo: assets/logo.svg
+  favicon: assets/favicon.ico
+nav:
+  - Home: index.md
+  - Specification:
+      - Overview: specification/overview.md
+      - Schema: specification/schema.md
+      - SHACL Validation: specification/shacl-validation.md
+      - FAIR² Ontology: specification/ontology.md
+      - Methods: specification/methods.md
+      - Responsible AI: specification/responsible-ai.md
+      - Examples: specification/examples.md
+  - Integration:
+      - ML Croissant: integration/ml-croissant.md
+      - Schema.org: integration/schema-org.md
+      - PROV-O: integration/prov-o.md
+      - Units: integration/units-qudt-om.md
+      - Contributor Roles: integration/contributor-roles.md
+      - Croissant RAI: integration/croissant-rai.md
+      - Google Rich Search: integration/google-rich-search.md
+      - ODPS Integration: integration/odps.md
+  - Examples: examples/example-1/data.json
+  - Community:
+      - Contributing: community/contributing.md
+      - Governance: community/governance.md
+      - Roadmap: community/roadmap.md
