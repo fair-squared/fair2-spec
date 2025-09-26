@@ -88,7 +88,7 @@ https://fair2.ai/terms/AgreementLevels
 {
   "@context": {
     "schema": "https://schema.org/",
-    "fair2": "https://fair2.ai/terms/"
+    "fair2": "https://fair2.ai/ns/"
   },
   "@id": "fair2:AgreementLevel4",
   "@type": "DefinedTerm",
@@ -105,12 +105,12 @@ https://fair2.ai/terms/AgreementLevels
   "@context": {
     "schema": "https://schema.org/",
     "dct": "http://purl.org/dc/terms/",
-    "fair2": "https://fair2.ai/terms/"
+    "fair2": "https://fair2.ai/ns/"
   },
   "@type": "schema:Dataset",
   "schema:name": "Marine Biodiversity Dataset",
   "schema:license": "https://creativecommons.org/licenses/by/4.0/",
-  "dct:rights": "https://fair2.ai/terms/AgreementLevels/2",
+  "dct:rights": "https://fair2.ai/ns/AgreementLevels/2",
   "fair2:agreementLevel": { "@id": "fair2:AgreementLevel2" }
 }
 ```
