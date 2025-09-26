@@ -97,7 +97,7 @@ https://fair2.ai/terms/AgreementLevels
   "schema:url": "https://fair2.ai/ns/AgreementLevels/4"
 }
 ```
-See full list of Agreement Level Objects [here](../agreement-levels).
+See full list of Agreement Level Objects in our repository.
 
 ## Example: Dataset Metadata Referencing Agreement Level 2
 
@@ -111,6 +111,6 @@ See full list of Agreement Level Objects [here](../agreement-levels).
   "@type": "schema:Dataset",
   "schema:name": "Marine Biodiversity Dataset",
   "schema:license": "https://creativecommons.org/licenses/by/4.0/",
-  "dct:rights": "https://fair2.ai/ns/AgreementLevels/2"
+  "dct:accessRights": "https://fair2.ai/ns/AgreementLevels/2"
 }
 ```
