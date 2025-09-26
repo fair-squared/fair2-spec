@@ -1,8 +1,11 @@
 site_name: FAIR² Specification
 theme:
   name: material
-  logo: assets/FAIR2HankoStamp1.png
-  favicon: assets/favicon.ico
+  logo: assets/images/fair2-logo.png
+extra:
+  favicon: assets/images/favicon.ico
+extra_css:
+  - assets/css/overrides.css
 nav:
   - Home: index.md
   - Specification:
@@ -11,8 +14,9 @@ nav:
       - SHACL Validation: specification/shacl-validation.md
       - FAIR² Ontology: specification/ontology.md
       - Methods: specification/methods.md
+      - Access Agreements: specification/access-agreements.md
       - Responsible AI: specification/responsible-ai.md
-      - Examples: specification/examples.md
+      - Provenance and Citations: specification/provenance.md
   - Integration:
       - ML Croissant: integration/ml-croissant.md
       - Schema.org: integration/schema-org.md
@@ -26,4 +30,5 @@ nav:
   - Community:
       - Contributing: community/contributing.md
       - Governance: community/governance.md
+      - FAIR² Alliance: community/fair2-alliance.md
       - Roadmap: community/roadmap.md

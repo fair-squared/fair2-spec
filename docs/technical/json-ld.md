@@ -1,6 +1,6 @@
-# JSON-LD in FAIR²
+di# JSON-LD in FAIR²
 
-## 🔍 What is JSON-LD?
+##  What is JSON-LD?
 
 **JSON-LD (JavaScript Object Notation for Linked Data)** is a lightweight linked data format used in FAIR² to represent machine-readable metadata. It allows datasets to be:
 - **Interoperable** – Ensures compatibility with Schema.org, ML Croissant, and FAIR principles.
@@ -11,12 +11,12 @@ FAIR² uses **JSON-LD** to describe datasets in a way that both **humans and mac
 
 ---
 
-## 📌 Why JSON-LD for FAIR²?
+##  Why JSON-LD for FAIR²?
 
-✅ **Compatible with ML Croissant** – Works with AI dataset metadata standards.  
-✅ **Supports Schema.org** – Ensures datasets are discoverable by search engines.  
-✅ **Enhances FAIR principles** – Provides rich semantic metadata.  
-✅ **Machine-Actionable** – Facilitates AI & ML dataset integration.  
+ **Compatible with ML Croissant** – Works with AI dataset metadata standards.  
+ **Supports Schema.org** – Ensures datasets are discoverable by search engines.  
+ **Enhances FAIR principles** – Provides rich semantic metadata.  
+ **Machine-Actionable** – Facilitates AI & ML dataset integration.  
 
 ---
 
@@ -41,7 +41,7 @@ A **FAIR² dataset metadata file** (`fair2.json`) follows this structure:
 }
 ```
 
-## 📂 FAIR² JSON-LD Context (@context)
+##  FAIR² JSON-LD Context (@context)
 
 The @context defines how terms in the dataset metadata map to standardized vocabularies.
 
@@ -64,7 +64,7 @@ The @context defines how terms in the dataset metadata map to standardized vocab
 - mlc → Supports ML Croissant metadata (e.g., cr:citeAs).
 - fair2 → Defines FAIR²-specific extensions.
 
-## 📌 FAIR² Metadata Schema in JSON-LD
+##  FAIR² Metadata Schema in JSON-LD
 
 FAIR² extends Schema.org and ML Croissant to describe AI-ready datasets.
 
@@ -102,16 +102,16 @@ FAIR² extends Schema.org and ML Croissant to describe AI-ready datasets.
 
 ---
 
-## 🎯 Why JSON-LD Matters for FAIR²
+## Why JSON-LD Matters for FAIR²
 
-✅ Enhances dataset discoverability using Schema.org.
-✅ Ensures machine-actionable metadata for AI pipelines.
-✅ Supports FAIR principles by enabling structured linked data.
-✅ Facilitates interoperability with ML Croissant & SHACL validation.
+ Enhances dataset discoverability using Schema.org.
+ Ensures machine-actionable metadata for AI pipelines.
+ Supports FAIR principles by enabling structured linked data.
+ Facilitates interoperability with ML Croissant & SHACL validation.
 
 ---
-## 🚀 Next Steps
+## Next Steps
 
-1️⃣ Explore the [FAIR² Schema](../specification/schema.md) to structure datasets correctly.
-2️⃣ Validate JSON-LD using SHACL & RDF tools.
-3️⃣ [Learn about SHACL Validation](../specification/shacl-validation.md) for quality assurance.
+Explore the [FAIR² Schema](../specification/schema.md) to structure datasets correctly.
+Validate JSON-LD using SHACL & RDF tools.
+[Learn about SHACL Validation](../specification/shacl-validation.md) for quality assurance.

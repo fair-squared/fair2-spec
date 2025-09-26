@@ -21,7 +21,7 @@ FAIR² supports a broad range of **research resources** to ensure **AI-ready, FA
 | **Fields (`cr:Field`)** | Metadata describing **individual attributes/columns** in tabular datasets. | `cr:Field`, `schema:PropertyValue` |
 | **Files (`cr:FileObject`)** | Individual files within a dataset (e.g., CSV, images, logs). | `cr:FileObject`, `schema:MediaObject` |
 
-### 🔍 **How FAIR² Extends These Resource Types**
+###  **How FAIR² Extends These Resource Types**
 - **AI/ML Ready** – Ensures datasets, fields, and file objects are **structured for AI workflows**.
 - **Methodology Tracking** – Captures **research steps, data transformations, and provenance**.
 - **Visualization Support** – Enables **dataset interpretability with graphical outputs**.

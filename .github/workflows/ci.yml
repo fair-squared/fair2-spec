@@ -4,9 +4,15 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'docs/**'
+      - 'mkdocs.yml'
+      - 'assets/**'
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 jobs:
   deploy:

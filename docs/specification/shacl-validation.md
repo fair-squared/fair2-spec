@@ -1,6 +1,6 @@
 # SHACL Validation in FAIR²
 
-## 🔍 What is SHACL?
+##  What is SHACL?
 
 **SHACL (Shapes Constraint Language)** is a W3C standard for validating RDF data. FAIR² uses SHACL to ensure that datasets conform to structured metadata requirements, enabling:
 - **Schema compliance** – Ensuring datasets follow FAIR² metadata rules.
@@ -9,13 +9,13 @@
 
 ---
 
-## 📌 Why Validate with SHACL?
+##  Why Validate with SHACL?
 
 FAIR² uses SHACL to:
-✅ Ensure datasets **meet FAIR² schema constraints**.  
-✅ Detect **missing or incorrect metadata**.  
-✅ Standardize metadata across **ML Croissant & Schema.org**.  
-✅ Improve **dataset quality & machine-actionability**.  
+ Ensure datasets **meet FAIR² schema constraints**.  
+ Detect **missing or incorrect metadata**.  
+ Standardize metadata across **ML Croissant & Schema.org**.  
+ Improve **dataset quality & machine-actionability**.  
 
 ---
 
@@ -57,7 +57,7 @@ To validate against FAIR²’s SHACL constraints, run:
 pyshacl -s fair2-shapes.ttl -d fair2.jsonld
 ```
 
-✅ Valid dataset:
+ Valid dataset:
 ```plaintext
 Validation Report
 Conforms: True
@@ -70,11 +70,11 @@ Conforms: False
 Violation: Missing required property schema:license
 ```
 
-📂 FAIR² SHACL Rules
+ FAIR² SHACL Rules
 
 FAIR²’s SHACL rules ensure datasets comply with structured metadata requirements.
 
-## 📂 FAIR² SHACL Rules
+##  FAIR² SHACL Rules
 
 FAIR²’s SHACL rules ensure datasets comply with structured metadata requirements.
 
@@ -110,10 +110,10 @@ For a **detailed description** of these namespaces and their usage in the FAIR²
 
 ## 🎯 **Why SHACL is Essential for FAIR²**
 
-✅ **Guarantees dataset compliance** with FAIR² and ML Croissant.
-✅ Reduces metadata errors, improving **dataset usability**.
-✅ Ensures AI-ready metadata for machine learning pipelines.
-✅ Provides structured validation for **research integrity**.
+ **Guarantees dataset compliance** with FAIR² and ML Croissant.
+ Reduces metadata errors, improving **dataset usability**.
+ Ensures AI-ready metadata for machine learning pipelines.
+ Provides structured validation for **research integrity**.
 
 
 ## 🚀 **Next Steps**

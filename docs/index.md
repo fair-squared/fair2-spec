@@ -1,92 +1,73 @@
 # FAIR² Specification
 
-Welcome to the documentation for **FAIR² (FAIR Squared)**—a metadata specification that extends the FAIR principles to support context-rich, AI-ready, and ethically aligned datasets. This specification is designed to make datasets not only **Findable, Accessible, Interoperable, and Reusable**, but also **machine-actionable**, **provenance-aware**, and aligned with **Responsible AI** practices.
+Welcome to the official documentation for **FAIR² (FAIR Squared)** — the metadata specification that advances the FAIR principles for datasets requiring context-rich, AI-ready, and responsible reuse.
 
-## About FAIR²
+FAIR² makes datasets not only **Findable, Accessible, Interoperable, and Reusable**, but also:
 
-**FAIR²** builds upon the original FAIR principles with a focus on:
+- **Machine-Actionable** — compatible with automated workflows
+- **Provenance-Aware** — enriched with structured provenance and processing trails
+- **Responsibly Governed** — aligned with ethical, legal, and licensing requirements for AI use
 
-- **Context-Rich Metadata**  
-  Capturing detailed information about how datasets are created, processed, and validated, supporting reproducibility and transparency.
+## What is FAIR²?
 
-- **AI-Ready Compatibility**  
-  Structuring data for direct usability in modern AI and machine learning pipelines, including integration with formats like [ML Croissant](https://mlcommons.org/croissant/).
+**FAIR²** is a community-driven specification designed to meet the needs of modern research, government, and industry data ecosystems. It:
 
-- **Responsible AI Alignment**  
-  Incorporating ethical oversight, documentation of potential biases, data limitations, and transparent decision-making processes.
+- Structures metadata to be **useful in ML/AI workflows**
+- Supports **automated compliance checks**, access gating, and responsible reuse
+- Includes support for **computable licenses and policies** using ODRL
+- Extends **Schema.org** and aligns with **DCAT**, **DataCite**, and **ODPS**
 
-FAIR² is designed for interoperability and ecosystem alignment. It is fully compatible with:
+## Key Features
 
-- [ML Croissant](https://mlcommons.org/croissant/), a standard for AI-ready dataset packaging
-- [Schema.org](https://schema.org/) for structured data interoperability
-- [GO FAIR](https://www.go-fair.org/), a global initiative for FAIR data practices
-- SHACL shapes for schema validation and compliance
+- **Context-Rich Metadata**: Capture details on data generation, cleaning, validation, and ethical limitations
+- **AI-Ready Design**: Optimized for ML workflows, including descriptor integration and method linking
+- **Responsible AI Alignment**: Support for auditability, access control, and consent via access levels and policy layers
+- **Standard Compatibility**: Works with [ML Croissant](https://mlcommons.org/croissant/), [Schema.org](https://schema.org/), and other [GO FAIR](https://www.go-fair.org/) supported standards
 
----
+## Core Concepts
 
-## Getting Started
+FAIR² defines:
 
-To begin working with FAIR²:
+- **Dataset Shapes**: Metadata templates extending `schema:Dataset` with domain- and use-specific descriptors
+- **Method Structures**: Stepwise, provenance-aware method documentation (e.g., for computational workflows)
+- **Agreement Levels**: A 4-tier access control framework (Open → Secure) linked to machine-readable policies
+- **Provenance Trails**: Link datasets, methods, tools, and people via `prov:wasGeneratedBy`, `prov:used`, etc.
+- **ODRL Policy Integration**: Link or embed fine-grained permissions, prohibitions, and obligations
 
-1. Review the [Getting Started Guide](getting-started.md)
-2. Understand the [FAIR² Schema](specification/schema.md)
-3. Learn how to validate your data using [SHACL Shapes](specification/shacl-validation.md)
-4. Explore [Example Datasets](examples/example-1/data.json)
+## How to Use This Documentation
 
----
+Browse the documentation sections:
 
-## Documentation Structure
+- 📖 **[Specification](specification/)**: Detailed field definitions and reference models
+- 🧩 **[Integration Guides](integration/)**: Interoperability with standards like Schema.org, ODPS, and ML Croissant
+- ⚖️ **[Access & Policies](specification/access-agreements/)**: Using agreement levels and ODRL policies
+- 👥 **[Community](community/)**: Contribution guide, governance, and roadmap
 
-The FAIR² documentation is organized into the following sections:
+## FAIR² Alliance
 
-### Core Specification
+The **FAIR² Alliance** is a Swiss non-profit association that ensures the **community governance** of the FAIR² Open Specification. It safeguards:
 
-- **[Overview](specification/overview.md)**  
-  Introduction to the core principles, design goals, and scope of FAIR².
+- **Neutrality** in decision-making
+- **Openness** and transparency
+- **Trust and long-term stewardship** of the FAIR² standard
 
-- **[Method Representation](specification/methods.md)**  
-  Structured method encoding using `schema:HowToStep` and compatible extensions for machine-actionable protocols.
+The Alliance coordinates working groups, releases certified updates, and supports pilot adoption.
 
-- **[SHACL Validation](specification/shacl-validation.md)**  
-  Shape definitions and compliance rules for automated dataset validation.
+## Try It
 
-### Interoperability and Alignment
+To see examples of FAIR² metadata in use:
+- View annotated JSON-LD examples in the [technical](technical/) section
+- Try a FAIR² metadata template with live schema validation (coming soon)
 
-- **[ML Croissant Integration](integration/ml-croissant.md)**  
-  Guidance on aligning FAIR² packages with Croissant-compliant AI workflows.
+## Get Involved
 
-- **[Croissant RAI Vocabulary](integration/croissant-rai.md)**  
-  Documentation of how FAIR² integrates ethical reviews, limitations, and responsible AI principles.
+FAIR² is developed by the **FAIR² Alliance**, a neutral and open community.
 
-- **[PROV-O Integration](integration/prov-o.md)**  
-  Provenance modeling and how FAIR² supports `prov:Activity`, `prov:Agent`, and `prov:Entity` linkages.
+- Join working groups
+- Propose a pilot dataset
+- License the specification for certification or education
 
-- **[QUDT and Units](integration/qudt.md)**  
-  Use of standard unit vocabularies such as QUDT and OM for quantitative fields.
-
-- **[CRediT Roles](integration/credit.md)**  
-  Mapping contributor roles using the Contributor Role Ontology for scholarly publishing and metadata.
-
-### Technical Reference
-
-- **[JSON-LD and RDF Considerations](technical/json-ld.md)**  
-  Detailed notes on how FAIR² implements linked data using JSON-LD, including context definitions and namespace management.
-
-### Community and Governance
-
-- **[Contributing Guidelines](community/contributing.md)**  
-  How to contribute to FAIR², participate in specification development, and propose extensions.
-
-- **[Governance and Roadmap](community/roadmap.md)**  
-  Information on the FAIR² Alliance, release strategy, and plans for certification and adoption.
-
----
-
-## Community Involvement
-
-FAIR² is a community-driven specification. Contributions from the broader FAIR, AI, and data stewardship communities are encouraged. Please see the [Contributing Guide](community/contributing.md) to get involved.
-
----
+For contributions, see [Contributing](community/contributing.md).
 
 ## Roadmap
 

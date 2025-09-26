@@ -84,4 +84,4 @@ We are grateful for your support in building FAIR² into a trusted standard for 
 
 ---
 
-_Last updated: 2025-03-03_
+_Last updated: 2025-09-26_
