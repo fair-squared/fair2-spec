@@ -1,0 +1,12 @@
+{
+  "@context": {
+    "schema": "https://schema.org/",
+    "fair2": "https://fair2.ai/ns/"
+  },
+  "@id": "fair2:AgreementLevel4",
+  "@type": "schema:DefinedTerm",
+  "schema:name": "Secure Access",
+  "schema:description": "Accessible only in a controlled, cloud-based environment; requires a DUA, human data training, and ORCID-registered credential.",
+  "schema:text": "By requesting access, you confirm you have appropriate human data training credentials in your ORCID profile, accept the standard DUA, and will work only in the approved secure environment.",
+  "schema:url": "https://fair2.ai/ns/AgreementLevels/4"
+}

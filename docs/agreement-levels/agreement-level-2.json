@@ -1,0 +1,12 @@
+{
+  "@context": {
+    "schema": "https://schema.org/",
+    "fair2": "https://fair2.ai/ns/"
+  },
+  "@id": "fair2:AgreementLevel2",
+  "@type": "schema:DefinedTerm",
+  "schema:name": "Collaborative Access",
+  "schema:description": "Access requires users to acknowledge the data owner’s role and agree to consider collaboration, ensuring mutual benefit while maintaining broad reusability.",
+  "schema:text": "By downloading this dataset, you agree to properly attribute the data and to consider collaboration with the dataset owner(s) in any substantial research use.",
+  "schema:url": "https://fair2.ai/ns/AgreementLevels/2"
+}

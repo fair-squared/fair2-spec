@@ -78,7 +78,6 @@ https://fair2.ai/terms/AgreementLevels
 | `dct:accessRights`     | Reference to FAIR² Agreement Level (1–4)                               |
 | `usageInfo`            | Human-readable summary of use conditions                               |
 | `conditionsOfAccess`   | Explicit textual summary (Open / Collaborative / Trusted / Secure)     |
-| `fair2:agreementLevel` | DefinedTerm reference to a FAIR² Agreement Level                       |
 
 ---
 
@@ -94,9 +93,11 @@ https://fair2.ai/terms/AgreementLevels
   "@type": "DefinedTerm",
   "schema:name": "Secure Access",
   "schema:description": "Accessible only in a controlled, cloud-based environment; requires a DUA, human data training, and ORCID-registered credential.",
-  "schema:text": "By requesting access, you confirm you have appropriate human data training credentials in your ORCID profile, accept the standard DUA, and will work only in the approved secure environment."
+  "schema:text": "By requesting access, you confirm you have appropriate human data training credentials in your ORCID profile, accept the standard DUA, and will work only in the approved secure environment.",
+  "schema:url": "https://fair2.ai/ns/AgreementLevels/4"
 }
 ```
+See full list of Agreement Level Objects [here](../agreement-levels).
 
 ## Example: Dataset Metadata Referencing Agreement Level 2
 
@@ -110,7 +111,6 @@ https://fair2.ai/terms/AgreementLevels
   "@type": "schema:Dataset",
   "schema:name": "Marine Biodiversity Dataset",
   "schema:license": "https://creativecommons.org/licenses/by/4.0/",
-  "dct:rights": "https://fair2.ai/ns/AgreementLevels/2",
-  "fair2:agreementLevel": { "@id": "fair2:AgreementLevel2" }
+  "dct:rights": "https://fair2.ai/ns/AgreementLevels/2"
 }
 ```
