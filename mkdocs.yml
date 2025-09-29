@@ -26,7 +26,7 @@ nav:
       - Croissant RAI: integration/croissant-rai.md
       - Google Rich Search: integration/google-rich-search.md
       - ODPS Integration: integration/odps.md
-  - Examples: examples/example-1/data.json
+  - Examples: examples/example-walkthrough.md
   - Community:
       - Contributing: community/contributing.md
       - Governance: community/governance.md
