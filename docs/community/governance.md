@@ -1,21 +1,7 @@
 # FAIR² Governance Model
 
-The development and maintenance of the FAIR² Specification is overseen by the **FAIR² Alliance**, a Swiss non-profit association.
+The development and maintenance of the FAIR² Specification is overseen by the community. 
 
-The Alliance is responsible for:
-
-- Ensuring **neutral and transparent community governance**
-- Maintaining the integrity and evolution of the FAIR² standard
-- Overseeing working groups, technical proposals, and certification processes
-- Coordinating alignment with external standards such as Schema.org, ODPS, and ODRL
-
-## Specification Extensions
-
-The FAIR² Alliance manages the specification roadmap, including:
-
-- Addition of new metadata shapes and controlled vocabularies
-- Alignment with evolving interoperability standards
-- Support for new policy layers and enforcement mechanisms
 ## Code of Conduct
 
 All participants are expected to adhere to the [FAIR² Code of Conduct](code-of-conduct.md), which ensures:

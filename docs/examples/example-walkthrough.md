@@ -2,7 +2,7 @@
 
 This page walks through a real metadata file (`borja2025.json`) to illustrate how each component of the FAIR² specification is used in practice.
 
-> 🔗 You can [download the example here](https://raw.githubusercontent.com/fair-squared/fair2-spec/refs/heads/main/examples/example-1/borja2025.json)
+🔗 You can [download the example here](https://raw.githubusercontent.com/fair-squared/fair2-spec/refs/heads/main/examples/example-1/borja2025.json)
 
 ---
 
@@ -34,8 +34,8 @@ Multiple files are described using `schema:distribution`, each with:
 
 The file uses:
 
-- `schema:hasPart` with `schema:HowToSection`
-- Nested `schema:HowToStep`, `schema:HowToDirection`
+- `schema:hasPart` with `fair2:Method` (derived type from `schema:HowToSection`)
+- Nested `fair2:Step` (derived from `schema:HowToStep`)
 
 ➡️ Related Spec Section: [Methods](../specification/methods.md)
 

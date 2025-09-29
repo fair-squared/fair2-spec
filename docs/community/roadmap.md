@@ -10,10 +10,11 @@ FAIR² supports reproducibility, interoperability, and ethical data use in AI an
 
 ## Development Phases
 
-The FAIR² roadmap is organized into two primary phases:
+The FAIR² roadmap is organized into three primary phases:
 
 - **Phase 1: Core Specification and Validation (2024 – Q2 2025)**
-- **Phase 2: Certification and Industry Standards (2026 and beyond)**
+- **Phase 2: Community Feedback and Refinement (Q3–Q4 2025)**
+- **Phase 3: Certification and Industry Standards (2026 and beyond)**
 
 ---
 
@@ -37,7 +38,26 @@ This phase focuses on defining and stabilizing the FAIR² specification and its 
 
 ---
 
-## Phase 2: Certification and Industry Standards  
+## Phase 2: Community Feedback and Refinement  
+**Timeline:** Q3–Q4 2025  
+**Status:** *Planned*
+
+This phase invites the broader community to test, implement, and critique the FAIR² Specification prior to certification launch.
+
+### Key Milestones
+
+- 🔜 Release of FAIR² v1.0 with public GitHub repository and SHACL validator  
+- 🔜 Launch of FAIR² Pilot Projects and dataset showcases  
+- 🔜 Collection of feedback from academic, industrial, and publishing stakeholders  
+- 🔜 Iterative updates to ontology, validation rules, and documentation based on feedback  
+
+**Join the feedback process:**  
+[github.com/fair2-spec](https://github.com/fair2-spec)  
+[community@fair2.ai](mailto:community@fair2.ai)
+
+---
+
+## Phase 3: Certification and Industry Standards  
 **Timeline:** 2026 and beyond  
 **Status:** *Planned*
 
@@ -77,4 +97,4 @@ FAIR² is a collaborative project, and community input is essential to its evolu
 
 ---
 
-*Last updated: 2025-03-03*
+*Last updated: 2025-09-029*
