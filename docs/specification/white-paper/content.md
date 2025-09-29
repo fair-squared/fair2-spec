@@ -1,4 +1,4 @@
-# FAIR²: An Open Specification for AI-Ready, Responsible, and Reusable Research Data
+# FAIR²: An Open Specification for AI-Ready, Responsible, and Reusable Datasets
 
 ## Executive Summary
 
