@@ -1,3 +1,3 @@
 # FAIR² Specification License 
 
-FAIR2 and the FAIR2 Logo are registered trademarks and used under license.
+FAIR² and the FAIR² Logo are registered trademarks and used under license.
