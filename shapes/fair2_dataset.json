@@ -1,213 +1,175 @@
 {
-  "@context": [
-    "https://fair2.ai/spec/fair2_context",
-    "https://fair2.ai/spec/shacl_context"
-  ],
-  "imports": [
-    "http://mlcommons.org/croissant/DatasetShape",
-    "https://fair2.ai/shapes/AuthorShape",
-    "https://fair2.ai/shapes/OrganizationShape",
-    "https://fair2.ai/shapes/RecordSetShape",
-    "https://fair2.ai/shapes/DataArticleShape",
-    "https:schema.org/GrantShape"
-  ],
-  "@id": "fair2s:DatasetShape",
-  "node": "cr:DatasetShape",
-  "@type": "NodeShape",
-  "targetClass": "Dataset",
-  "property": [
+  "@context": {
+    "sh": "http://www.w3.org/ns/shacl#",
+    "schema": "https://schema.org/",
+    "dct": "http://purl.org/dc/terms/",
+    "prov": "http://www.w3.org/ns/prov#",
+    "cr": "http://mlcommons.org/croissant/",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "fair2": "https://fair2.ai/ns/",
+    "fair2s": "https://fair2.ai/shapes/"
+  },
+  "@graph": [
     {
-      "path": "schema:author",
-      "node": "fair2s:AuthorShape",
-      "minCount": 1,
-      "description": "The author of the dataset."
+      "@id": "fair2s:DatasetShape",
+      "@type": "sh:NodeShape",
+      "sh:targetClass": "schema:Dataset",
+
+      "sh:property": [
+        {
+          "sh:path": "schema:name",
+          "sh:datatype": "xsd:string",
+          "sh:minCount": 1,
+          "sh:message": "Dataset must include a name."
+        },
+        {
+          "sh:path": "schema:description",
+          "sh:datatype": "xsd:string",
+          "sh:minCount": 1,
+          "sh:message": "Dataset must include a description."
+        },
+        {
+          "sh:path": "schema:identifier",
+          "sh:minCount": 1,
+          "sh:message": "Dataset must include a unique identifier (e.g., DOI)."
+        },
+        {
+          "sh:path": "schema:version",
+          "sh:datatype": "xsd:string",
+          "sh:minCount": 1,
+          "sh:message": "Dataset must specify its version."
+        },
+        {
+          "sh:path": "schema:license",
+          "sh:nodeKind": "sh:IRI",
+          "sh:minCount": 1,
+          "sh:message": "Dataset must declare an open license IRI."
+        },
+        {
+          "sh:path": "schema:citation",
+          "sh:node": { "@id": "fair2s:DataArticleShape" },
+          "sh:minCount": 1,
+          "sh:message": "Dataset must include a citation to the related Data Article."
+        },
+        {
+          "sh:path": "fair2:citeAs",
+          "sh:datatype": "xsd:string",
+          "sh:minCount": 1,
+          "sh:message": "Dataset must include a full 'cite as' text citation."
+        },
+        {
+          "sh:path": "schema:citationKey",
+          "sh:datatype": "xsd:string",
+          "sh:minCount": 1,
+          "sh:message": "Dataset must provide a citationKey for internal referencing."
+        },
+        {
+          "sh:path": "schema:keywords",
+          "sh:datatype": "xsd:string",
+          "sh:minCount": 1,
+          "sh:message": "Dataset must include at least one keyword."
+        },
+        {
+          "sh:path": "schema:subjectOf",
+          "sh:node": { "@id": "fair2s:DomainShape" },
+          "sh:minCount": 1,
+          "sh:message": "Dataset must declare at least one domain or subject area."
+        },
+        {
+          "sh:path": "schema:author",
+          "sh:node": { "@id": "fair2s:AuthorShape" },
+          "sh:minCount": 1,
+          "sh:message": "Dataset must include at least one author."
+        },
+        {
+          "sh:path": "schema:contributor",
+          "sh:node": { "@id": "fair2s:ContributionShape" },
+          "sh:minCount": 1,
+          "sh:message": "Dataset must include contributor metadata and roles."
+        },
+        {
+          "sh:path": "schema:funder",
+          "sh:node": { "@id": "fair2s:FundingShape" },
+          "sh:message": "Dataset may include one or more funding entries."
+        },
+        {
+          "sh:path": "fair2:recordSet",
+          "sh:node": { "@id": "fair2s:RecordSetShape" },
+          "sh:minCount": 1,
+          "sh:message": "Dataset must include at least one RecordSet definition."
+        },
+        {
+          "sh:path": "fair2:method",
+          "sh:node": { "@id": "fair2s:MethodShape" },
+          "sh:minCount": 1,
+          "sh:message": "Dataset must include at least one MethodSection describing methodology."
+        },
+        {
+          "sh:path": "dct:accessRights",
+          "sh:node": { "@id": "fair2s:AccessRightsShape" },
+          "sh:minCount": 1,
+          "sh:message": "Dataset must specify access rights (e.g., FAIR² Agreement Level)."
+        },
+        {
+          "sh:path": "fair2:socialMedia",
+          "sh:node": { "@id": "fair2s:SocialMediaShape" },
+          "sh:message": "Dataset may include social media dissemination metadata."
+        },
+        {
+          "sh:path": "fair2:changeLog",
+          "sh:node": { "@id": "fair2s:ChangeLogShape" },
+          "sh:message": "Dataset may include a structured changelog for version history."
+        },
+        {
+          "sh:path": "schema:contentUrl",
+          "sh:nodeKind": "sh:IRI",
+          "sh:message": "Dataset may include a content URL for direct access."
+        },
+        {
+          "sh:path": "schema:dateCreated",
+          "sh:datatype": "xsd:date",
+          "sh:message": "Dataset may include its creation date."
+        },
+        {
+          "sh:path": "schema:dateUpdated",
+          "sh:datatype": "xsd:date",
+          "sh:message": "Dataset may include its last updated date."
+        },
+        {
+          "sh:path": "schema:datePublished",
+          "sh:datatype": "xsd:date",
+          "sh:message": "Dataset may include its publication date."
+        },
+        {
+          "sh:path": "schema:temporalCoverage",
+          "sh:datatype": "xsd:string",
+          "sh:message": "Dataset may specify the temporal coverage (e.g., 1995–2023)."
+        },
+        {
+          "sh:path": "schema:spatialCoverage",
+          "sh:node": { "@id": "fair2s:SpatialCoverageShape" },
+          "sh:message": "Dataset may specify spatial coverage information."
+        }
+      ]
     },
+
     {
-      "path": "schema:citation",
-      "datatype": "xsd:string",
-      "minCount": 1,
-      "description": "A citation or reference to another creative work, such as another publication, web page, scholarly article, etc."
-    },
-    {
-      "path": "cr:citeAs",
-      "datatype": "xsd:string",
-      "minCount": 1,
-      "maxCount": 1,
-      "description": "The preferred way to cite this dataset."
-    },
-    {
-      "path": "schema:conformsTo",
-      "datatype": "xsd:anyURI",
-      "minCount": 1,
-      "maxCount": 1,
-      "description": "An established standard to which the dataset conforms."
-    },
-    {
-      "path": "schema:contentUrl",
-      "datatype": "xsd:anyURI",
-      "minCount": 1,
-      "description": "A URL to the actual dataset file."
-    },
-    {
-      "path": "schema:datePublished",
-      "datatype": "xsd:date",
-      "minCount": 1,
-      "maxCount": 1,
-      "description": "The date on which the dataset was published."
-    },
-    {
-      "path": "schema:description",
-      "datatype": "xsd:string",
-      "minCount": 1,
-      "maxCount": 1,
-      "description": "A description of the dataset."
-    },
-    {
-      "path": "schema:distribution",
-      "node": {
-        "@type": "NodeShape",
-        "property": [
-          {
-            "path": "schema:contentSize",
-            "datatype": "xsd:integer",
-            "description": "The size of the dataset file in bytes."
-          },
-          {
-            "path": "schema:contentUrl",
-            "datatype": "xsd:anyURI",
-            "description": "A URL to the dataset file."
-          },
-          {
-            "path": "schema:description",
-            "datatype": "xsd:string",
-            "description": "A description of the dataset file."
-          },
-          {
-            "path": "schema:encodingFormat",
-            "datatype": "xsd:string",
-            "description": "The file format of the dataset file."
-          },
-          {
-            "path": "schema:name",
-            "datatype": "xsd:string",
-            "description": "The name of the dataset file."
-          },
-          {
-            "path": "cr:sha256",
-            "datatype": "xsd:string",
-            "description": "The SHA-256 hash of the dataset file."
-          }
-        ],
-        "minCount": 1,
-        "description": "Details about the distribution of the dataset."
-      }
-    },
-    {
-      "path": "schema:funding",
-      "node": "schema:GrantShape",
-      "minCount": 1
-    },
-    {
-      "path": "schema:identifier",
-      "datatype": "xsd:anyURI",
-      "minCount": 1,
-      "description": "A unique identifier for the dataset."
-    },
-    {
-      "path": "schema:keywords",
-      "datatype": "xsd:string",
-      "minCount": 1,
-      "description": "Keywords or tags used to describe the dataset."
-    },
-    {
-      "path": "schema:license",
-      "datatype": "xsd:anyURI",
-      "minCount": 1,
-      "description": "The license under which the dataset is published."
-    },
-    {
-      "path": "schema:name",
-      "datatype": "xsd:string",
-      "minCount": 1,
-      "description": "The name of the dataset."
-    },
-    {
-      "path": "fair2:dataArticle",
-      "node": "fair2s:DataArticleShape",
-      "description": "Holds the metadata of a related data article." 
-    },
-    {
-      "path": "cr:recordSet",
-      "node": "mls:RecordSetShape",
-      "minCount": 1
-    },
-    {
-      "path": "schema:version",
-      "datatype": "xsd:string",
-      "minCount": 1,
-      "description": "The version of the dataset."
-    },
-    {
-      "path": "schema:dateCreated",
-      "datatype": "xsd:date",
-      "minCount": 1,
-      "maxCount": 1,
-      "description": "The date on which the dataset was created."
-    },
-    {
-      "path": "schema:dateModified",
-      "datatype": "xsd:date",
-      "minCount": 1,
-      "maxCount": 1,
-      "description": "The date on which the dataset was last modified."
-    },
-    {
-      "path": "fair2:isLiveDataset",
-      "datatype": "xsd:boolean",
-      "minCount": 1,
-      "maxCount": 1,
-      "description": "Indicates whether the dataset is live."
-    }
-    ,
-    {
-      "path": "rai:ethicsReview",
-      "node": {
-        "@type": "NodeShape",
-        "property": [
-          {
-        "path": "rai:reviewedBy",
-        "datatype": "xsd:string",
-        "description": "The entity that reviewed the dataset for ethical considerations."
-          },
-          {
-        "path": "rai:approvalStatus",
-        "datatype": "xsd:string",
-        "description": "The approval status of the ethics review."
-          },
-          {
-        "path": "rai:reviewDate",
-        "datatype": "xsd:date",
-        "description": "The date on which the ethics review was conducted."
-          }
-        ]
-      },
-      "datatype": "xsd:string",
-      "description": "Information about the ethics review process for the dataset."
-    },
-    {
-      "path": "rai:dataBiases",
-      "datatype": "xsd:string",
-      "description": "Information about any known biases in the dataset."
-    },
-    {
-      "path": "rai:dataLimitations",
-      "datatype": "xsd:string",
-      "description": "Information about any limitations of the dataset."
-    },
-    {
-      "path": "fair2:method",
-      "node": "fair2s:MethodShape",
-      "description": "The methods used to generate the dataset."
+      "@id": "fair2s:SpatialCoverageShape",
+      "@type": "sh:NodeShape",
+      "sh:targetClass": "schema:Place",
+      "sh:property": [
+        {
+          "sh:path": "schema:name",
+          "sh:datatype": "xsd:string",
+          "sh:minCount": 1,
+          "sh:message": "Spatial coverage must include a place name."
+        },
+        {
+          "sh:path": "schema:geo",
+          "sh:nodeKind": "sh:BlankNodeOrIRI",
+          "sh:message": "Spatial coverage may include a geo reference."
+        }
+      ]
     }
   ]
 }

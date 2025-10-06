@@ -1,0 +1,51 @@
+{
+  "@context": {
+    "sh": "http://www.w3.org/ns/shacl#",
+    "schema": "https://schema.org/",
+    "fair2": "https://fair2.ai/ns/",
+    "fair2s": "https://fair2.ai/shapes/"
+  },
+  "@graph": [
+    {
+      "@id": "fair2s:SocialMediaShape",
+      "@type": "sh:NodeShape",
+      "sh:targetClass": "schema:SocialMediaPosting",
+      "sh:property": [
+        {
+          "sh:path": "schema:identifier",
+          "sh:datatype": "xsd:string",
+          "sh:minCount": 1,
+          "sh:message": "Each social media entry must have a platform identifier (e.g., 'twitter', 'linkedin')."
+        },
+        {
+          "sh:path": "schema:accountServiceHomePage",
+          "sh:nodeKind": "sh:IRI",
+          "sh:minCount": 1,
+          "sh:message": "Each entry must specify the social media service homepage as an IRI (e.g., 'https://twitter.com/')."
+        },
+        {
+          "sh:path": "schema:articleBody",
+          "sh:datatype": "xsd:string",
+          "sh:minCount": 1,
+          "sh:message": "Each entry must include the message text or post body."
+        },
+        {
+          "sh:path": "schema:keywords",
+          "sh:datatype": "xsd:string",
+          "sh:minCount": 1,
+          "sh:message": "Each entry must list at least one keyword or tag describing its content."
+        },
+        {
+          "sh:path": "schema:url",
+          "sh:nodeKind": "sh:IRI",
+          "sh:message": "Optionally, entries may include a direct URL to the social post or related resource."
+        },
+        {
+          "sh:path": "schema:datePublished",
+          "sh:datatype": "xsd:date",
+          "sh:message": "Optionally, entries may record the publication date of the social media post."
+        }
+      ]
+    }
+  ]
+}

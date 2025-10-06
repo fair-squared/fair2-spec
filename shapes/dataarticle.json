@@ -1,24 +1,74 @@
 {
-    "@context": [
-        "https://fair2.ai/spec/shacl_context",
+  "@context": {
+    "sh": "http://www.w3.org/ns/shacl#",
+    "schema": "https://schema.org/",
+    "prov": "http://www.w3.org/ns/prov#",
+    "fair2": "https://fair2.ai/ns/",
+    "fair2s": "https://fair2.ai/shapes/"
+  },
+  "@graph": [
+    {
+      "@id": "fair2s:DataArticleShape",
+      "@type": "sh:NodeShape",
+      "sh:targetClass": "schema:ScholarlyArticle",
+      "sh:property": [
         {
-            "schema": "http://schema.org/",
-            "xsd": "http://www.w3.org/2001/XMLSchema#"
-        }
-    ],
-    "imports": [
-        "https://schema.org/ScholarlyArticleShape",
-        "https://fair2.ai/ns/MethodSectionShape"
-    ],
-    "@id": "https://fair2.ai/spec/DataArticleShape",
-    "@type": "sh:NodeShape",
-    "node": "https://schema.org/ScholarlyArticleShape",
-    "targetClass": "schema:ScholarlyArticle",
-    "property": [
+          "sh:path": "schema:name",
+          "sh:datatype": "xsd:string",
+          "sh:minCount": 1,
+          "sh:message": "Data article must include a title."
+        },
         {
-            "path": "fair2:methodSection",
-            "node": "https://fair2.ai/spec/MethodSectionShape",
-            "minCount": 1
+          "sh:path": "schema:publisher",
+          "sh:node": { "@id": "fair2s:PublisherShape" },
+          "sh:minCount": 1,
+          "sh:message": "Data article must specify a publisher organization."
+        },
+        {
+          "sh:path": "schema:publication",
+          "sh:node": { "@id": "fair2s:PublicationShape" },
+          "sh:minCount": 1,
+          "sh:message": "Data article must reference a publication (journal or periodical)."
+        },
+        {
+          "sh:path": "schema:datePublished",
+          "sh:datatype": "xsd:date",
+          "sh:minCount": 1,
+          "sh:message": "Data article must have a publication date."
+        },
+        {
+          "sh:path": "prov:wasDerivedFrom",
+          "sh:nodeKind": "sh:IRI",
+          "sh:minCount": 1,
+          "sh:message": "Data article must reference the dataset DOI or persistent identifier."
         }
-    ]
+      ]
+    },
+    {
+      "@id": "fair2s:PublisherShape",
+      "@type": "sh:NodeShape",
+      "sh:targetClass": "schema:Organization",
+      "sh:property": [
+        {
+          "sh:path": "schema:name",
+          "sh:datatype": "xsd:string",
+          "sh:minCount": 1,
+          "sh:message": "Publisher organization must include a name."
+        }
+      ]
+    },
+    {
+      "@id": "fair2s:PublicationShape",
+      "@type": "sh:NodeShape",
+      "sh:targetClass": "schema:Periodical",
+      "sh:property": [
+        {
+          "sh:path": "schema:name",
+          "sh:datatype": "xsd:string",
+          "sh:minCount": 1,
+          "sh:message": "Publication must include a name (journal or periodical title)."
+        }
+      ]
+    }
+  ]
 }
