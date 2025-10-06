@@ -1,0 +1,18 @@
+{
+  "@context": {
+    "fair2s": "https://fair2.ai/shapes/"
+  },
+  "@graph": [
+    { "@id": "fair2s:DatasetShape", "url": "https://raw.githubusercontent.com/fair-squared/fair2-spec/main/shapes/DatasetShape.json" },
+    { "@id": "fair2s:AuthorShape", "url": "https://raw.githubusercontent.com/fair-squared/fair2-spec/main/shapes/AuthorShape.json" },
+    { "@id": "fair2s:ContributionShape", "url": "https://raw.githubusercontent.com/fair-squared/fair2-spec/main/shapes/ContributionShape.json" },
+    { "@id": "fair2s:FundingShape", "url": "https://raw.githubusercontent.com/fair-squared/fair2-spec/main/shapes/FundingShape.json" },
+    { "@id": "fair2s:DataArticleShape", "url": "https://raw.githubusercontent.com/fair-squared/fair2-spec/main/shapes/DataArticleShape.json" },
+    { "@id": "fair2s:DomainShape", "url": "https://raw.githubusercontent.com/fair-squared/fair2-spec/main/shapes/DomainShape.json" },
+    { "@id": "fair2s:MethodShape", "url": "https://raw.githubusercontent.com/fair-squared/fair2-spec/main/shapes/MethodShape.json" },
+    { "@id": "fair2s:RecordSetShape", "url": "https://raw.githubusercontent.com/fair-squared/fair2-spec/main/shapes/RecordSetShape.json" },
+    { "@id": "fair2s:AccessRightsShape", "url": "https://raw.githubusercontent.com/fair-squared/fair2-spec/main/shapes/AccessRightsShape.json" },
+    { "@id": "fair2s:SocialMediaShape", "url": "https://raw.githubusercontent.com/fair-squared/fair2-spec/main/shapes/SocialMediaShape.json" },
+    { "@id": "fair2s:ChangeLogShape", "url": "https://raw.githubusercontent.com/fair-squared/fair2-spec/main/shapes/ChangeLogShape.json" }
+  ]
+}

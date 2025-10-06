@@ -1647,7 +1647,7 @@
     "skos:note": "By accessing this dataset, you acknowledge that it is made openly available under the stated license. You may use, share, and build upon it in accordance with the license terms, provided that you give appropriate attribution.",
     "url": "https://fair2.ai/spec/AgreementLevels/1"
   },
-  "methodSection": [
+  "method": [
     {
       "@type": "MethodSection",
       "@id": "method-sections/4bd9f204-fd04-4c4c-9740-b530cdd9667f",
