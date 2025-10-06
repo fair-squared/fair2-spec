@@ -14,11 +14,20 @@ As AI becomes central to research workflows, datasets must be more than just FAI
 
 FAIR² addresses this by introducing a layered specification for AI-ready data certification, combining schema.org-based metadata, method representations, responsible AI descriptors, and access agreements.
 
+! Experience with heterogeneous data, having detailed prov, context - we know the needs, to combine/integrate datasets 
+! make it validatable ?
+! use of data not only within domains, but also between domains - to share and reuse across communities 
+! by humans and machines - not only computable with the context, meaningful to reuse the data
+(common computable representation of data, that providees the substrate for integrating data within and across domains)
+! Tha it is extensible, we can support multiple domain specific vocabularies
+
 ⸻
 
 ## 2. Positioning FAIR² Within the Metadata Ecosystem
 
-FAIR² is not a replacement, but an extension:
+FAIR² is not a replacement, but an extension: ! intentionally chose to start with something that fits the requirements, a complete/rich model for computable/human readable of data, in all forms, all domains 
+(all data in all domains, not only scientific, require this level of detail to produce meaninful analysis, reuse, etc.)
+
 	•	Builds on the FAIR Principles (Wilkinson et al.)
 	•	Implements ML-Schema/Croissant for structured data
 	•	Uses Schema.org as a base vocabulary
@@ -44,9 +53,9 @@ FAIR² also introduces its own terms (fair2: namespace), SHACL shapes for compli
 	•	Metadata templates for Croissant, Hugging Face, and Google SD
 
 ### 3.3 Responsible AI Alignment
-	•	Agreement levels (1–4) with clear reuse conditions
 	•	Optional inclusion of rai: metadata for intended use, bias, and restrictions
 	•	Emphasis on ethical, transparent, and pseudonymized data use
+
 
 ⸻
 
@@ -76,6 +85,7 @@ FAIR² certification involves:
 	•	SHACL validation of metadata
 	•	Alignment with AI-readiness and responsible reuse
 	•	Optional AI agent evaluation (e.g., Senscience)
+    Agreement levels (1–4) with clear reuse conditions
 
 ⸻
 
@@ -88,9 +98,16 @@ The borja2025.json metadata file illustrates FAIR² compliance:
 	•	Open access agreement (Level 1)
 
 See: Specification Example Walkthrough
+-- fair2.py mention github repo and tools, maybe code block example
 
 ⸻
 
-## 7. References
+
+## 7. Road map
+
+what is the plan, dates, links, community ..
+
+
+## 8. References
 
 (Placeholder for Wilkinson et al., Schema.org, PROV-O, ML Croissant, ODPS, etc.)

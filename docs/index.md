@@ -32,7 +32,6 @@ FAIR² defines:
 - **Method Structures**: Stepwise, provenance-aware method documentation (e.g., for computational workflows)
 - **Agreement Levels**: A 4-tier access control framework (Open → Secure) linked to machine-readable policies
 - **Provenance Trails**: Link datasets, methods, tools, and people via `prov:wasGeneratedBy`, `prov:used`, etc.
-- **ODRL Policy Integration**: Link or embed fine-grained permissions, prohibitions, and obligations
 
 ## How to Use This Documentation
 
