@@ -7,13 +7,17 @@
     "cr": "http://mlcommons.org/croissant/",
     "skos": "http://www.w3.org/2004/02/skos/core#",
     "fair2": "https://fair2.ai/ns/",
-    "fair2s": "https://fair2.ai/shapes/"
+    "fair2s": "https://fair2.ai/shapes/",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
   },
   "@graph": [
     {
       "@id": "fair2s:DatasetShape",
       "@type": "sh:NodeShape",
       "sh:targetClass": "schema:Dataset",
+      "sh:targetSubjectsOf": { "@id": "rdf:type" },
+      "sh:targetObjectsOf": { "@id": "rdf:type" },
 
       "sh:property": [
         {
@@ -30,6 +34,7 @@
         },
         {
           "sh:path": "schema:identifier",
+          "sh:datatype": "xsd:string",
           "sh:minCount": 1,
           "sh:message": "Dataset must include a unique identifier (e.g., DOI)."
         },
@@ -152,7 +157,6 @@
         }
       ]
     },
-
     {
       "@id": "fair2s:SpatialCoverageShape",
       "@type": "sh:NodeShape",
