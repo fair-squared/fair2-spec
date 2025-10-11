@@ -12,7 +12,7 @@ nav:
       - Overview: specification/overview.md
       - Schema: specification/schema.md
       - SHACL Validation: specification/shacl-validation.md
-      - FAIR² Ontology: specification/ontology.md
+      - FAIR² Ontology: specification/fair2-ontology.md
       - Methods: specification/methods.md
       - Access Agreements: specification/access-agreements.md
       - Responsible AI: specification/responsible-ai.md

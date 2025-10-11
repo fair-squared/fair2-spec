@@ -65,8 +65,3 @@ Development of FAIR² is guided by both technical milestones and community feedb
 ---
 
 For additional information and technical resources, please explore the full documentation via the navigation menu or the links above.
-
-
-Prompt:
-
-Update this index to accordingly
