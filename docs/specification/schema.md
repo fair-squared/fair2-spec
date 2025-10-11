@@ -1,281 +1,530 @@
 # FAIR² Schema
 
-## Overview
-
-The core of FAIR² is the **DatasetShape**, which extends existing metadata standards to support AI applications.
-
 ---
 
-## Resource Types Covered in FAIR²
+## cr1:DatasetShape
+*Targets:* `cr:Dataset`
 
-FAIR² supports a broad range of **research resources** to ensure **AI-ready, FAIR-compliant data management**. These include datasets, metadata records, methodology descriptions, and file structures.
+| Property | Type | Cardinality | Mandatory |
+|---|---|---|---|
+| `cr:distribution` | `<n5160d95bcf0945ce97d8b59353d1f018b3>` | `[1..∞]` | Yes |
+| `cr:recordSet` | `<n5160d95bcf0945ce97d8b59353d1f018b11>` | `[1..∞]` | Yes |
+| `schema:description` | `xsd:string` | `[1..∞]` | Yes |
+| `schema:license` | `xsd:anyURI` | `[1..∞]` | Yes |
+| `schema:name` | `xsd:string` | `[1..∞]` | Yes |
+| `schema:url` | `xsd:anyURI` | `[1..∞]` | Yes |
 
+<details><summary>Constraint notes</summary>
 
-| **Resource Type** | **Description** | **Schema Mapping** |
-|------------------|---------------|--------------------|
-| **Datasets (`schema:Dataset`)** | Primary research datasets, including structured and unstructured data files. | `schema:Dataset`, `cr:DatasetShape` |
-| **Scholarly Articles (`schema:ScholarlyArticle`)** | Research publications describing datasets, methodologies, or findings. | `schema:ScholarlyArticle`, `fair2s:DataArticleShape` |
-| **Methodology & Workflows (`fair2:Method`)** | Descriptions of methods used in research, including computational workflows. | `fair2s:MethodShape`, `fair2s:StepShape` |
-| **Visualizations (`fair2:Visualization`)** | Graphs, plots, and interactive visual representations of datasets. | `fair2:Visualization`, `schema:ImageObject` |
-| **Data Records (`cr:RecordSet`)** | Individual data points, records, or observations within datasets. | `cr:RecordSet`, `fair2s:RecordSetShape` |
-| **Fields (`cr:Field`)** | Metadata describing **individual attributes/columns** in tabular datasets. | `cr:Field`, `schema:PropertyValue` |
-| **Files (`cr:FileObject`)** | Individual files within a dataset (e.g., CSV, images, logs). | `cr:FileObject`, `schema:MediaObject` |
+- **cr:distribution**: A dataset must have at least one distribution.
+- **cr:recordSet**: A dataset must have at least one record set.
+- **schema:description**: A dataset must have a description.
+- **schema:license**: A dataset must have a license.
+- **schema:name**: A dataset must have a name.
+- **schema:url**: A dataset must have a URL.
 
-###  **How FAIR² Extends These Resource Types**
-- **AI/ML Ready** – Ensures datasets, fields, and file objects are **structured for AI workflows**.
-- **Methodology Tracking** – Captures **research steps, data transformations, and provenance**.
-- **Visualization Support** – Enables **dataset interpretability with graphical outputs**.
-- **SHACL Validation** – Ensures **schema consistency across datasets**.
-
----
-
-## **Dataset Schema (`DatasetShape`)**
-The `DatasetShape` is the main schema used in FAIR² to describe datasets.
-
-### Key Properties of FAIR² Datasets
-
-| **Property** | **Type** | **Description** | **Constraints** |
-|-------------|---------|----------------|----------------|
-| `@context` | `URL` | JSON-LD context definitions for metadata. | Required (exactly 1) |
-| `@type` | `Text` | Declares the type of dataset (e.g., `schema:Dataset`). | Required (exactly 1) |
-| `dct:conformsTo` | `URL` | Declares conformance to FAIR² and ML Croissant specifications. | Required (min 1) |
-| `schema:name` | `xsd:string` | The name of the dataset. | Required (exactly 1) |
-| `schema:description` | `xsd:string` | A short textual description of the dataset. | Required (exactly 1) |
-| `schema:version` | `xsd:string` | Version identifier for the dataset. | Required (exactly 1) |
-| `schema:distribution` | `cr:FileObject` or `cr:FileSet` | Describes the dataset’s distribution resources. | Required (min 1) |
-| `schema:author` | `fair2:Author` | The author(s) of the dataset. | Required (min 1) |
-| `schema:creator` | `schema:Person` or `schema:Organization` | Identifies dataset creators (with CRediT roles). | Required (min 1) |
-| `fair2:method` | `fair2:Method` | Details the methods used to generate the dataset. | Required (min 1) |
-| `cr:recordSet` | `cr:RecordSet` | Represents structured data in the dataset. | Required (min 1) |
-| `schema:funding` | `schema:Grant` | Funding information for the dataset. | Required (min 1) |
-| `schema:datePublished` | `xsd:date` | Date the dataset was published. | Required (exactly 1) |
-| `schema:identifier` | `xsd:anyURI` | A unique identifier for the dataset (DOI, URL, etc.). | Required (min 1) |
-| `schema:license` | `xsd:anyURI` | The dataset's license. | Required (min 1) |
-| `schema:citation` | `xsd:string` | A reference to another creative work citing this dataset. | Required (min 1) |
-| `cr:citeAs` | `xsd:string` | The preferred way to cite this dataset. | Required (min 1, max 1) |
-| `schema:conformsTo` | `xsd:anyURI` | The standard the dataset conforms to. | Required (min 1, max 1) |
-
----
-
-### **Recommended Properties**
-| **Property** | **Type** | **Description** | **Constraints** |
-|-------------|---------|----------------|----------------|
-| `schema:keywords` | `xsd:string`, `URL`, `DefinedTerm` | Keywords or tags describing the dataset. | Recommended (min 1) |
-| `schema:publisher` | `schema:Person` or `schema:Organization` | Entity responsible for publishing the dataset. | Recommended (min 1) |
-| `schema:dateCreated` | `xsd:date` | The date the dataset was first created. | Recommended (exactly 1) |
-| `schema:dateModified` | `xsd:date` | The date the dataset was last modified. | Recommended (exactly 1) |
-| `schema:sameAs` | `xsd:anyURI` | URL of another resource representing the same dataset. | Recommended (min 1) |
-
----
-
-### **Optional Properties**
-| **Property** | **Type** | **Description** | **Constraints** |
-|-------------|---------|----------------|----------------|
-| `fair2:dataArticle` | `fair2:DataArticle` | Metadata of a related data article. | Optional |
-| `rai:ethicsReview` | `xsd:string` | Ethical assessments related to the dataset. | Optional (min 1) |
-| `rai:dataBiases` | `xsd:string` | Documents known biases in the dataset. | Optional (min 1) |
-| `rai:dataLimitations` | `xsd:string` | Specifies known limitations or constraints of the dataset. | Optional (min 1) |
-| `cr:citeAs` | `xsd:string` | Citation for the dataset, ideally in BibTeX format. | Optional (exactly 1) |
-| `fair2:isLiveDataset` | `xsd:boolean` | Indicates whether the dataset is live and subject to updates. | Optional (exactly 1) |
+</details>
 
 
----
+## fair2s:DatasetShape
+*Targets:* `schema:Dataset`
 
-## **Dataset Distribution Schema**
-The **`schema:distribution`** property defines the dataset files.
+| Property | Type | Cardinality | Mandatory |
+|---|---|---|---|
+| `dct:accessRights` | `fair2s:AccessRightsShape` | `[1..∞]` | Yes |
+| `fair2:changeLog` | `fair2s:ChangeLogShape` | `[0..∞]` | No |
+| `fair2:citeAs` | `xsd:string` | `[1..∞]` | Yes |
+| `fair2:method` | `fair2s:MethodShape` | `[1..∞]` | Yes |
+| `fair2:recordSet` | `fair2s:RecordSetShape` | `[1..∞]` | Yes |
+| `fair2:socialMedia` | `fair2s:SocialMediaShape` | `[0..∞]` | No |
+| `schema:author` | `fair2s:AuthorShape` | `[1..∞]` | Yes |
+| `schema:citation` | `fair2s:DataArticleShape` | `[1..∞]` | Yes |
+| `schema:citationKey` | `xsd:string` | `[1..∞]` | Yes |
+| `schema:contentUrl` | `sh:IRI` | `[0..∞]` | No |
+| `schema:contributor` | `fair2s:ContributionShape` | `[1..∞]` | Yes |
+| `schema:dateCreated` | `xsd:date` | `[0..∞]` | No |
+| `schema:datePublished` | `xsd:date` | `[0..∞]` | No |
+| `schema:dateUpdated` | `xsd:date` | `[0..∞]` | No |
+| `schema:description` | `xsd:string` | `[1..∞]` | Yes |
+| `schema:funder` | `fair2s:FundingShape` | `[0..∞]` | No |
+| `schema:identifier` | `xsd:string` | `[1..∞]` | Yes |
+| `schema:keywords` | `xsd:string` | `[1..∞]` | Yes |
+| `schema:license` | `sh:IRI` | `[1..∞]` | Yes |
+| `schema:name` | `xsd:string` | `[1..∞]` | Yes |
+| `schema:spatialCoverage` | `fair2s:SpatialCoverageShape` | `[0..∞]` | No |
+| `schema:subjectOf` | `fair2s:DomainShape` | `[1..∞]` | Yes |
+| `schema:temporalCoverage` | `xsd:string` | `[0..∞]` | No |
+| `schema:version` | `xsd:string` | `[1..∞]` | Yes |
 
-### **Key Properties**
-| Property | Type | Description |
-|----------|------|-------------|
-| `schema:contentSize` | `xsd:integer` | File size in bytes. |
-| `schema:contentUrl` | `xsd:anyURI` | URL to download the file. |
-| `schema:description` | `xsd:string` | A description of the dataset file. |
-| `schema:encodingFormat` | `xsd:string` | The file format (e.g., CSV, JSON). |
-| `schema:name` | `xsd:string` | The name of the dataset file. |
-| `cr:sha256` | `xsd:string` | SHA-256 hash for data integrity. |
+<details><summary>Constraint notes</summary>
 
----
+- **dct:accessRights**: Dataset must specify access rights (e.g., FAIR² Agreement Level).
+- **fair2:changeLog**: Dataset may include a structured changelog for version history.
+- **fair2:citeAs**: Dataset must include a full 'cite as' text citation.
+- **fair2:method**: Dataset must include at least one MethodSection describing methodology.
+- **fair2:recordSet**: Dataset must include at least one RecordSet definition.
+- **fair2:socialMedia**: Dataset may include social media dissemination metadata.
+- **schema:author**: Dataset must include at least one author.
+- **schema:citation**: Dataset must include a citation to the related Data Article.
+- **schema:citationKey**: Dataset must provide a citationKey for internal referencing.
+- **schema:contentUrl**: Dataset may include a content URL for direct access.
+- **schema:contributor**: Dataset must include contributor metadata and roles.
+- **schema:dateCreated**: Dataset may include its creation date.
+- **schema:datePublished**: Dataset may include its publication date.
+- **schema:dateUpdated**: Dataset may include its last updated date.
+- **schema:description**: Dataset must include a description.
+- **schema:funder**: Dataset may include one or more funding entries.
+- **schema:identifier**: Dataset must include a unique identifier (e.g., DOI).
+- **schema:keywords**: Dataset must include at least one keyword.
+- **schema:license**: Dataset must declare an open license IRI.
+- **schema:name**: Dataset must include a name.
+- **schema:spatialCoverage**: Dataset may specify spatial coverage information.
+- **schema:subjectOf**: Dataset must declare at least one domain or subject area.
+- **schema:temporalCoverage**: Dataset may specify the temporal coverage (e.g., 1995–2023).
+- **schema:version**: Dataset must specify its version.
 
-# Data Article Schema (`DataArticleShape`)
+</details>
 
-## Overview
-The `DataArticleShape` extends **Schema.org’s `ScholarlyArticle`** to describe **a research article related to a dataset**.  
-This includes metadata about the article, **authorship, publication details, methodology, and citation relationships**.
 
----
+## <n5160d95bcf0945ce97d8b59353d1f018b11>
+| Property | Type | Cardinality | Mandatory |
+|---|---|---|---|
+| `cr:field` | `<n5160d95bcf0945ce97d8b59353d1f018b14>` | `[1..∞]` | Yes |
+| `schema:name` | `xsd:string` | `[1..∞]` | Yes |
 
-## **Key Properties**
-| **Property** | **Type** | **Description** | **Constraints** |
-|-------------|---------|----------------|----------------|
-| `schema:name` | `xsd:string` | The title of the article. | Required |
-| `schema:headline` | `xsd:string` | The headline or key summary of the article. | Optional |
-| `schema:abstract` | `xsd:string` | A textual abstract summarizing the article. | Optional |
-| `schema:author` | `schema:Person` or `schema:Organization` | The author(s) of the article. | Required (min 1) |
-| `schema:datePublished` | `xsd:date` | The publication date of the article. | Required (exactly 1) |
-| `schema:isPartOf` | `schema:PublicationIssue` | The issue in which the article was published. | Optional |
+<details><summary>Constraint notes</summary>
 
----
+- **cr:field**: Each record set must have at least one field.
+- **schema:name**: Each record set must have a name.
 
-## **Publication Information**
-Since **articles are often part of journals, books, or conference proceedings**, `schema:isPartOf` allows linking the article to its **publication issue, volume, and periodical**.
+</details>
 
-### **Publication Issue (`schema:PublicationIssue`)**
-| **Property** | **Type** | **Description** | **Constraints** |
-|-------------|---------|----------------|----------------|
-| `schema:issueNumber` | `xsd:string` | The issue number where the article is published. | Optional |
-| `schema:isPartOf` | `schema:PublicationVolume` | The publication volume containing the issue. | Optional |
 
-### **Publication Volume (`schema:PublicationVolume`)**
-| **Property** | **Type** | **Description** | **Constraints** |
-|-------------|---------|----------------|----------------|
-| `schema:volumeNumber` | `xsd:string` | The volume number where the article is published. | Optional |
-| `schema:isPartOf` | `schema:Periodical` | The periodical in which the volume is published. | Optional |
+## <n5160d95bcf0945ce97d8b59353d1f018b14>
+| Property | Type | Cardinality | Mandatory |
+|---|---|---|---|
+| `schema:dataType` | `xsd:string` | `[1..∞]` | Yes |
+| `schema:description` | `xsd:string` | `[1..∞]` | Yes |
+| `schema:name` | `xsd:string` | `[1..∞]` | Yes |
 
-### **Periodical (Journal, Conference, or Book Series) (`schema:Periodical`)**
-| **Property** | **Type** | **Description** | **Constraints** |
-|-------------|---------|----------------|----------------|
-| `schema:name` | `xsd:string` | The name of the journal, book series, or conference. | Required |
-| `schema:issn` | `xsd:string` | The ISSN of the journal (if applicable). | Optional |
-| `schema:publisher` | `schema:Organization` | The entity responsible for publishing the periodical. | Optional |
+<details><summary>Constraint notes</summary>
 
----
+- **schema:dataType**: Each field must specify a data type.
+- **schema:description**: Each field must have a description.
+- **schema:name**: Each field must have a name.
 
-## **Example: JSON-LD Representation of a Data Article**
-```json
-{
-  "@context": [
-    "https://schema.org/",
-    "https://fair2.ai/ns/"
-  ],
-  "@type": "ScholarlyArticle",
-  "name": "AI-driven Data Processing Techniques",
-  "headline": "A novel approach to AI-enhanced data curation.",
-  "abstract": "This paper explores AI-driven methodologies for large-scale data curation...",
-  "author": {
-    "@type": "Person",
-    "name": "Dr. Jane Doe",
-    "affiliation": {
-      "@type": "Organization",
-      "name": "AI Research Lab"
-    }
-  },
-  "datePublished": "2025-03-01",
-  "isPartOf": {
-    "@type": "PublicationIssue",
-    "issueNumber": "4",
-    "isPartOf": {
-      "@type": "PublicationVolume",
-      "volumeNumber": "15",
-      "isPartOf": {
-        "@type": "Periodical",
-        "name": "Journal of Machine Learning",
-        "issn": "1234-5678",
-        "publisher": {
-          "@type": "Organization",
-          "name": "ML Publications",
-          "url": "https://mlpublications.org"
-        }
-      }
-    }
-  }
-}
-```
----
+</details>
 
-## **Methodology Schema (`MethodShape` & `StepShape`)**
-The **`MethodShape`** and **`StepShape`** document the dataset’s methodology.
 
-### **MethodShape**
-| Property | Type | Description | Constraints |
-|----------|------|-------------|-------------|
-| `schema:name` | `xsd:string` | Section title. | Required |
-| `fair2:step` | `StepShape` | Steps in the methodology. | Required (min 1) |
+## <n5160d95bcf0945ce97d8b59353d1f018b3>
+| Property | Type | Cardinality | Mandatory |
+|---|---|---|---|
+| `cr:sha256` | `xsd:string` | `[1..∞]` | Yes |
+| `schema:contentUrl` | `xsd:anyURI` | `[1..∞]` | Yes |
+| `schema:encodingFormat` | `xsd:string` | `[1..∞]` | Yes |
 
-### **StepShape**
-| Property | Type | Description | Constraints |
-|----------|------|-------------|-------------|
-| `schema:name` | `xsd:string` | Step title. | Required |
-| `schema:description` | `xsd:string` | Step details. | Required |
-| `schema:nextItem` | `IRI` | Reference to the next step. | Optional |
-| `fair2:substep` | `StepShape` | Reference to a sub-step. | Optional |
+<details><summary>Constraint notes</summary>
 
----
+- **cr:sha256**: Each distribution must have a SHA-256 checksum.
+- **schema:contentUrl**: Each distribution must have a content URL.
+- **schema:encodingFormat**: Each distribution must specify its encoding format.
 
-## Resource Types: RecordSet, Field, and FileObject
+</details>
 
-FAIR² builds on **ML Croissant's metadata model**, integrating **structured representations** for **datasets, records, features, and file distributions**.
 
-Below is a detailed breakdown of **key properties** for ML Croissant’s **`RecordSet`**, **`Field`**, and **`FileObject`** resources.
+## fair2s:AccessRightsShape
+*Targets:* `schema:DefinedTerm`
 
----
+| Property | Type | Cardinality | Mandatory |
+|---|---|---|---|
+| `@id` | `sh:IRI` | `[0..∞]` | No |
+| `schema:name` | `xsd:string` | `[1..∞]` | Yes |
+| `schema:url` | `sh:IRI` | `[0..∞]` | No |
+| `skos:definition` | `xsd:string` | `[1..∞]` | Yes |
+| `skos:note` | `xsd:string` | `[0..∞]` | No |
 
-## **RecordSet Properties (`cr:RecordSet`)**
+<details><summary>Constraint notes</summary>
 
-A **`RecordSet`** represents structured data, such as tabular datasets, containing individual **data records**.
+- **@id**: AccessRights @id should be a FAIR² AgreementLevels URI.
+- **schema:name**: AccessRights must have a name (e.g., 'Open Access').
+- **schema:url**: AccessRights URL must point to a FAIR² Agreement Level definition (1–4).
+- **skos:definition**: AccessRights must provide a definition describing the access conditions.
+- **skos:note**: AccessRights may include a note clarifying additional access information.
 
-| **Property** | **Type** | **Description** | **Constraints** |
-|-------------|---------|----------------|----------------|
-| `@context` | `URL` | JSON-LD context definitions for metadata. | Required (exactly 1) |
-| `@type` | `Text` | Declares the type as `cr:RecordSet`. | Required (exactly 1) |
-| `schema:name` | `xsd:string` | The name of the record set. | Required (exactly 1) |
-| `schema:description` | `xsd:string` | A textual description of the record set. | Required (exactly 1) |
-| `cr:fields` | `cr:Field` | The list of fields (columns) in the record set. | Required (min 1) |
-| `schema:identifier` | `xsd:anyURI` | A unique identifier for the record set. | Recommended (min 1) |
-| `schema:keywords` | `xsd:string`, `URL`, `DefinedTerm` | Keywords describing the record set. | Recommended (min 1) |
-| `cr:source` | `cr:FileObject` | Reference to the data file containing the record set. | Recommended (min 1) |
+</details>
 
----
 
-## **Field Properties (`cr:Field`)**
+## fair2s:AuthorShape
+*Targets:* `schema:Person`
 
-A **`Field`** describes **an individual attribute/column** within a `RecordSet`, specifying **data types, descriptions, and relationships**.
+| Property | Type | Cardinality | Mandatory |
+|---|---|---|---|
+| `schema:affiliation` | `fair2s:OrganizationShape` | `[1..∞]` | Yes |
+| `schema:identifier` | `` | `[1..∞]` | Yes |
+| `schema:name` | `xsd:string` | `[1..∞]` | Yes |
 
-| **Property** | **Type** | **Description** | **Constraints** |
-|-------------|---------|----------------|----------------|
-| `@context` | `URL` | JSON-LD context definitions for metadata. | Required (exactly 1) |
-| `@type` | `Text` | Declares the type as `cr:Field`. | Required (exactly 1) |
-| `schema:name` | `xsd:string` | The name of the field. | Required (exactly 1) |
-| `schema:description` | `xsd:string` | A description of what the field represents. | Required (exactly 1) |
-| `cr:dataType` | `Text` | Data type of the field (e.g., `Integer`, `String`, `Boolean`). | Required (exactly 1) |
-| `cr:example` | `Any` | Example values demonstrating typical field content. | Recommended (min 1) |
-| `cr:unitCode` | `Text` | The unit of measurement (if applicable). | Optional |
-| `cr:format` | `Text` | The expected format of the data (e.g., `ISO-8601`, `float`). | Optional |
-| `cr:isRequired` | `Boolean` | Indicates if the field is mandatory. | Optional |
-| `cr:hasCategory` | `URL` | Link to an external vocabulary defining field values. | Optional |
+<details><summary>Constraint notes</summary>
 
----
+- **schema:affiliation**: Each author must be affiliated with at least one organization.
+- **schema:identifier**: Each author must include an identifier, preferably an ORCID.
+- **schema:name**: Each author must have a name.
 
-## **FileObject Properties (`cr:FileObject`)**
+</details>
 
-A **`FileObject`** represents **a file containing dataset records**, including its **format, location, and checksum validation**.
 
-| **Property** | **Type** | **Description** | **Constraints** |
-|-------------|---------|----------------|----------------|
-| `@context` | `URL` | JSON-LD context definitions for metadata. | Required (exactly 1) |
-| `@type` | `Text` | Declares the type as `cr:FileObject`. | Required (exactly 1) |
-| `schema:name` | `xsd:string` | The name of the file. | Required (exactly 1) |
-| `schema:description` | `xsd:string` | A textual description of the file contents. | Required (exactly 1) |
-| `schema:contentUrl` | `xsd:anyURI` | The URL or file path where the file can be accessed. | Required (exactly 1) |
-| `schema:encodingFormat` | `xsd:string` | File format (e.g., `text/csv`, `application/json`). | Required (exactly 1) |
-| `cr:sha256` | `xsd:string` | SHA-256 hash of the file for integrity verification. | Recommended (exactly 1) |
-| `schema:contentSize` | `xsd:integer` | Size of the file in bytes. | Recommended (exactly 1) |
-| `schema:dateCreated` | `xsd:date` | The date the file was created. | Optional |
-| `schema:dateModified` | `xsd:date` | The date the file was last modified. | Optional |
+## fair2s:ChangeDescriptionShape
+| Property | Type | Cardinality | Mandatory |
+|---|---|---|---|
+| `fair2:bugFixes` | `xsd:string` | `[0..∞]` | No |
+| `fair2:improvements` | `xsd:string` | `[0..∞]` | No |
+| `fair2:newFeatures` | `xsd:string` | `[0..∞]` | No |
+| `fair2:otherInformation` | `xsd:string` | `[0..∞]` | No |
 
----
+<details><summary>Constraint notes</summary>
 
-## **Why Use FAIR² Schema?**
-**Extends ML Croissant** – Built on a widely adopted AI metadata framework.  
-**AI-Ready** – Structured metadata makes datasets easy to use in **PyTorch** & **TensorFlow**.  
-**Validation with SHACL** – Ensures datasets meet compliance and interoperability standards.  
-**Supports Research Integrity** – Includes metadata for **data articles and methodologies**.  
+- **fair2:bugFixes**: Description may include bugFixes as a list of strings.
+- **fair2:improvements**: Description may include improvements as a list of strings.
+- **fair2:newFeatures**: Description may include newFeatures as a list of strings.
+- **fair2:otherInformation**: Description may include otherInformation such as version notes or license changes.
 
----
+</details>
 
-## **Next Steps**
-- **[Validate your dataset](shacl-validation.md)** with SHACL.
-- **[See dataset examples](examples.md)** to understand real-world usage.
-- **[Learn about JSON-LD & RDF](../technical/json-ld.md)** for AI-ready metadata.
 
----
-_Last updated: [03/03/2025]_  
+## fair2s:ChangeLogShape
+*Targets:* `schema:UpdateAction`
+
+| Property | Type | Cardinality | Mandatory |
+|---|---|---|---|
+| `prov:wasRevisionOf` | `fair2s:RevisionShape` | `[0..∞]` | No |
+| `schema:datePublished` | `xsd:date` | `[1..∞]` | Yes |
+| `schema:description` | `fair2s:ChangeDescriptionShape` | `[1..∞]` | Yes |
+
+<details><summary>Constraint notes</summary>
+
+- **prov:wasRevisionOf**: Each changelog entry may reference the previous dataset version using prov:wasRevisionOf.
+- **schema:datePublished**: Each changelog entry must include a publication date.
+- **schema:description**: Each changelog entry must include a structured description of changes.
+
+</details>
+
+
+## fair2s:ContributionShape
+*Targets:* `schema:Contribution`
+
+| Property | Type | Cardinality | Mandatory |
+|---|---|---|---|
+| `prov:agent` | `fair2s:AuthorShape` | `[1..∞]` | Yes |
+| `prov:hadRole` | `fair2s:ContributorRoleShape` | `[1..∞]` | Yes |
+
+<details><summary>Constraint notes</summary>
+
+- **prov:agent**: Each contribution must reference at least one agent (Person or Organization).
+- **prov:hadRole**: Each contribution must include at least one role.
+
+</details>
+
+
+## fair2s:ContributorRoleShape
+| Property | Type | Cardinality | Mandatory |
+|---|---|---|---|
+| `@id` | `sh:IRI` | `[1..∞]` | Yes |
+| `rdfs:label` | `xsd:string` | `[1..∞]` | Yes |
+
+<details><summary>Constraint notes</summary>
+
+- **@id**: Each role must have an IRI identifier, typically from CRO or FAIR² namespace.
+- **rdfs:label**: Each role must have a human-readable label (e.g., DataCuration, Supervision).
+
+</details>
+
+
+## fair2s:DataArticleShape
+*Targets:* `schema:ScholarlyArticle`
+
+| Property | Type | Cardinality | Mandatory |
+|---|---|---|---|
+| `prov:wasDerivedFrom` | `sh:IRI` | `[1..∞]` | Yes |
+| `schema:datePublished` | `xsd:date` | `[1..∞]` | Yes |
+| `schema:name` | `xsd:string` | `[1..∞]` | Yes |
+| `schema:publication` | `fair2s:PublicationShape` | `[1..∞]` | Yes |
+| `schema:publisher` | `fair2s:PublisherShape` | `[1..∞]` | Yes |
+
+<details><summary>Constraint notes</summary>
+
+- **prov:wasDerivedFrom**: Data article must reference the dataset DOI or persistent identifier.
+- **schema:datePublished**: Data article must have a publication date.
+- **schema:name**: Data article must include a title.
+- **schema:publication**: Data article must reference a publication (journal or periodical).
+- **schema:publisher**: Data article must specify a publisher organization.
+
+</details>
+
+
+## fair2s:DomainShape
+*Targets:* `schema:Thing`
+
+| Property | Type | Cardinality | Mandatory |
+|---|---|---|---|
+| `@id` | `sh:IRI` | `[0..∞]` | No |
+| `prov:wasAttributedTo` | `fair2s:AuthorShape` | `[1..∞]` | Yes |
+| `schema:name` | `xsd:string` | `[1..∞]` | Yes |
+
+<details><summary>Constraint notes</summary>
+
+- **@id**: Domain entries should ideally reference a controlled vocabulary (e.g., Wikidata).
+- **prov:wasAttributedTo**: Each domain should be attributed to at least one Person (creator or expert).
+- **schema:name**: Each domain entry must include a name (e.g., 'Marine Biology').
+
+</details>
+
+
+## fair2s:FieldShape
+*Targets:* `cr:Field`
+
+| Property | Type | Cardinality | Mandatory |
+|---|---|---|---|
+| `cr:dataType` | `` | `[1..∞]` | Yes |
+| `fair2:statistics` | `` | `[1..∞]` | Yes |
+| `fair2:unit` | `` | `[1..∞]` | Yes |
+| `schema:description` | `xsd:string` | `[1..∞]` | Yes |
+| `schema:name` | `xsd:string` | `[1..∞]` | Yes |
+
+<details><summary>Constraint notes</summary>
+
+- **cr:dataType**: Each Field must specify a dataType (e.g., Text, Integer, Float, Date).
+- **fair2:statistics**: Each Field should include descriptive statistics (count, missing values, etc.).
+- **fair2:unit**: Each Field should specify a measurement unit, using QUDT or equivalent controlled vocabulary.
+- **schema:description**: Each Field must include a human-readable description.
+- **schema:name**: Each Field must have a name.
+
+</details>
+
+
+## fair2s:FundingOrganizationShape
+*Targets:* `schema:Organization`
+
+| Property | Type | Cardinality | Mandatory |
+|---|---|---|---|
+| `schema:identifier` | `` | `[1..∞]` | Yes |
+| `schema:name` | `xsd:string` | `[1..∞]` | Yes |
+
+<details><summary>Constraint notes</summary>
+
+- **schema:identifier**: Funding organization should include an identifier (e.g., ROR ID).
+- **schema:name**: Funding organization must include a name.
+
+</details>
+
+
+## fair2s:FundingSchemeShape
+*Targets:* `schema:FundingScheme`
+
+| Property | Type | Cardinality | Mandatory |
+|---|---|---|---|
+| `schema:identifier` | `` | `[1..∞]` | Yes |
+| `schema:name` | `xsd:string` | `[1..∞]` | Yes |
+
+<details><summary>Constraint notes</summary>
+
+- **schema:identifier**: Funding scheme must include an identifier (e.g., Horizon Europe code).
+- **schema:name**: Funding scheme must include a name.
+
+</details>
+
+
+## fair2s:FundingShape
+*Targets:* `schema:Grant`
+
+| Property | Type | Cardinality | Mandatory |
+|---|---|---|---|
+| `schema:funder` | `fair2s:FundingOrganizationShape` | `[1..∞]` | Yes |
+| `schema:fundingScheme` | `fair2s:FundingSchemeShape` | `[0..1]` | No |
+| `schema:name` | `xsd:string` | `[1..∞]` | Yes |
+| `schema:url` | `sh:IRI` | `[0..1]` | No |
+
+<details><summary>Constraint notes</summary>
+
+- **schema:funder**: Each funding entry must specify at least one funder organization.
+- **schema:fundingScheme**: If provided, fundingScheme must contain valid scheme metadata.
+- **schema:name**: Each funding entry must include a grant name or title.
+- **schema:url**: Funding entries may optionally include a URL (e.g., project page).
+
+</details>
+
+
+## fair2s:MethodShape
+*Targets:* `fair2:MethodSection`
+
+| Property | Type | Cardinality | Mandatory |
+|---|---|---|---|
+| `fair2:step` | `fair2s:StepShape` | `[1..∞]` | Yes |
+| `schema:description` | `xsd:string` | `[0..∞]` | No |
+| `schema:name` | `xsd:string` | `[1..∞]` | Yes |
+
+<details><summary>Constraint notes</summary>
+
+- **fair2:step**: Each MethodSection must contain at least one Step.
+- **schema:description**: Each MethodSection may include a description summarizing the methodological context.
+- **schema:name**: Each MethodSection must include a section name.
+
+</details>
+
+
+## fair2s:OrganizationShape
+*Targets:* `schema:Organization`
+
+| Property | Type | Cardinality | Mandatory |
+|---|---|---|---|
+| `schema:address` | `xsd:string` | `[1..∞]` | Yes |
+| `schema:identifier` | `` | `[1..∞]` | Yes |
+| `schema:name` | `xsd:string` | `[1..∞]` | Yes |
+
+<details><summary>Constraint notes</summary>
+
+- **schema:address**: Organization should include a postal address.
+- **schema:identifier**: Organization should include a persistent identifier (e.g., ROR).
+- **schema:name**: Organization must have a name.
+
+</details>
+
+
+## fair2s:PublicationShape
+*Targets:* `schema:Periodical`
+
+| Property | Type | Cardinality | Mandatory |
+|---|---|---|---|
+| `schema:name` | `xsd:string` | `[1..∞]` | Yes |
+
+<details><summary>Constraint notes</summary>
+
+- **schema:name**: Publication must include a name (journal or periodical title).
+
+</details>
+
+
+## fair2s:PublisherShape
+*Targets:* `schema:Organization`
+
+| Property | Type | Cardinality | Mandatory |
+|---|---|---|---|
+| `schema:name` | `xsd:string` | `[1..∞]` | Yes |
+
+<details><summary>Constraint notes</summary>
+
+- **schema:name**: Publisher organization must include a name.
+
+</details>
+
+
+## fair2s:RecordSetShape
+*Targets:* `cr:RecordSet`
+
+| Property | Type | Cardinality | Mandatory |
+|---|---|---|---|
+| `cr:field` | `fair2s:FieldShape` | `[1..∞]` | Yes |
+| `schema:description` | `xsd:string` | `[1..∞]` | Yes |
+| `schema:name` | `xsd:string` | `[1..∞]` | Yes |
+
+<details><summary>Constraint notes</summary>
+
+- **cr:field**: Each RecordSet must define at least one Field.
+- **schema:description**: Each RecordSet must include a description.
+- **schema:name**: Each RecordSet must have a name (e.g., 'WATER', 'SEDIMENTS').
+
+</details>
+
+
+## fair2s:RevisionShape
+*Targets:* `schema:Dataset`
+
+| Property | Type | Cardinality | Mandatory |
+|---|---|---|---|
+| `schema:identifier` | `sh:IRI` | `[1..∞]` | Yes |
+| `schema:version` | `xsd:string` | `[1..∞]` | Yes |
+
+<details><summary>Constraint notes</summary>
+
+- **schema:identifier**: Revision reference must include a persistent identifier (e.g., DOI).
+- **schema:version**: Revision reference must include a version label.
+
+</details>
+
+
+## fair2s:SocialMediaShape
+*Targets:* `schema:SocialMediaPosting`
+
+| Property | Type | Cardinality | Mandatory |
+|---|---|---|---|
+| `schema:accountServiceHomePage` | `sh:IRI` | `[1..∞]` | Yes |
+| `schema:articleBody` | `xsd:string` | `[1..∞]` | Yes |
+| `schema:datePublished` | `xsd:date` | `[0..∞]` | No |
+| `schema:identifier` | `xsd:string` | `[1..∞]` | Yes |
+| `schema:keywords` | `xsd:string` | `[1..∞]` | Yes |
+| `schema:url` | `sh:IRI` | `[0..∞]` | No |
+
+<details><summary>Constraint notes</summary>
+
+- **schema:accountServiceHomePage**: Each entry must specify the social media service homepage as an IRI (e.g., 'https://twitter.com/').
+- **schema:articleBody**: Each entry must include the message text or post body.
+- **schema:datePublished**: Optionally, entries may record the publication date of the social media post.
+- **schema:identifier**: Each social media entry must have a platform identifier (e.g., 'twitter', 'linkedin').
+- **schema:keywords**: Each entry must list at least one keyword or tag describing its content.
+- **schema:url**: Optionally, entries may include a direct URL to the social post or related resource.
+
+</details>
+
+
+## fair2s:SpatialCoverageShape
+*Targets:* `schema:Place`
+
+| Property | Type | Cardinality | Mandatory |
+|---|---|---|---|
+| `schema:geo` | `sh:BlankNodeOrIRI` | `[0..∞]` | No |
+| `schema:name` | `xsd:string` | `[1..∞]` | Yes |
+
+<details><summary>Constraint notes</summary>
+
+- **schema:geo**: Spatial coverage may include a geo reference.
+- **schema:name**: Spatial coverage must include a place name.
+
+</details>
+
+
+## fair2s:StepShape
+*Targets:* `fair2:Step`
+
+| Property | Type | Cardinality | Mandatory |
+|---|---|---|---|
+| `fair2:generated` | `sh:IRI` | `[0..∞]` | No |
+| `fair2:next` | `sh:IRI` | `[0..∞]` | No |
+| `fair2:substep` | `fair2s:SubStepShape` | `[0..∞]` | No |
+| `schema:description` | `xsd:string` | `[0..∞]` | No |
+| `schema:name` | `xsd:string` | `[1..∞]` | Yes |
+
+<details><summary>Constraint notes</summary>
+
+- **fair2:generated**: If provided, 'generated' should reference produced data elements (e.g., fields, recordSets).
+- **fair2:next**: If provided, 'next' should reference the following step using an IRI.
+- **fair2:substep**: Substeps may be defined as nested procedural components.
+- **schema:description**: Each Step may include a description detailing actions or parameters.
+- **schema:name**: Each Step must include a name.
+
+</details>
+
+
+## fair2s:SubStepShape
+*Targets:* `fair2:Substep`
+
+| Property | Type | Cardinality | Mandatory |
+|---|---|---|---|
+| `fair2:next` | `sh:IRI` | `[0..∞]` | No |
+| `schema:description` | `xsd:string` | `[0..∞]` | No |
+| `schema:name` | `xsd:string` | `[1..∞]` | Yes |
+
+<details><summary>Constraint notes</summary>
+
+- **fair2:next**: If provided, 'next' should reference the subsequent substep.
+- **schema:description**: Each Substep may include a descriptive text.
+- **schema:name**: Each Substep must include a name.
+
+</details>

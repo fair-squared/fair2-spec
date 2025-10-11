@@ -134,3 +134,8 @@ Once you have created and validated your FAIR² metadata file, you can:
 ---
 
 FAIR² is actively evolving. For updates, please refer to the [project roadmap](community/roadmap.md) and join the community discussions on specification development.
+
+
+Prompt:
+
+Update this getting-started documentation based on new content and the fair2.py examples. 

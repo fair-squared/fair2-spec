@@ -114,11 +114,11 @@ To adopt the FAIR² specification:
 
 1. Review the [Getting Started Guide](../getting-started.md)
 2. Explore the [FAIR² Schema](schema.md)
-3. Examine [Example Datasets](examples.md)
+3. Examine [A full Example Dataset](../examples/example-walkthrough.md)
 4. Learn about [Responsible AI Integration](./responsible-ai.md)
 
 To contribute to the specification or share feedback, see [Contributing](../community/contributing.md).
 
 ---
 
-_Last updated: 2025-03-04_
+_Last updated: 2025-10-10_

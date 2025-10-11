@@ -73,7 +73,7 @@ FAIR² extends Schema.org and ML Croissant to describe AI-ready datasets.
 ```json
 {
   "@context": [
-    "https://fair2.ai/spec/fair2_json",
+    "https://fair2.ai/spec/fair2_context",
   ],
   "@type": "Dataset",
   "name": "FAIR² AI Dataset",
@@ -115,3 +115,11 @@ FAIR² extends Schema.org and ML Croissant to describe AI-ready datasets.
 Explore the [FAIR² Schema](../specification/schema.md) to structure datasets correctly.
 Validate JSON-LD using SHACL & RDF tools.
 [Learn about SHACL Validation](../specification/shacl-validation.md) for quality assurance.
+
+## Conversion of JSON-LD Schemas to Turtle Format
+
+FAIR² maintains both **JSON-LD** and **Turtle (TTL)** representations of its schema and ontology files.
+During the continuous integration and deployment (CI/CD) process, these files are automatically converted
+and synchronized using the script located at `ontologies/jsonld_to_turtle.py`.
+This ensures consistency between formats and guarantees that both human-readable (Turtle) and
+machine-actionable (JSON-LD) versions are always up to date when new releases are published.

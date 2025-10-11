@@ -1,136 +1,107 @@
-@prefix : <https://fair2.ai/ns/> .
 @prefix schema: <https://schema.org/> .
-@prefix cr: <https://mlcommons.org/croissant#> .
-@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix cr: <https://credit.niso.org/contributor-roles/> .
+@prefix fair2: <https://fair2.ai/ns/> .
+@prefix fair2s: <https://fair2.ai/shapes/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-:Dataset a rdfs:Class ;
-    rdfs:subClassOf schema:Dataset ;
-    rdfs:label "FAIR-Squared Dataset" ;
-    rdfs:comment "A dataset that adheres to the FAIR2 principles, integrating context-rich metadata, AI-readiness, and responsible AI alignment." .
+# FAIR2 Ontology — 2025-10-11T15:58:06.286748Z
+# Includes only terms used in published datasets.
 
-:hasMetadata a rdf:Property ;
-    rdfs:label "Has Metadata" ;
-    rdfs:comment "Links a dataset to its metadata." ;
-    rdfs:domain :Dataset ;
-    rdfs:range :Metadata .
+fair2:OpenDataArticle a rdfs:Class ;
+  rdfs:label "OpenDataArticle" ;
+  rdfs:comment "Scholarly work describing and linking an open dataset with methods and reuse guidance." ;
+  rdfs:subClassOf schema:ScholarlyArticle .
 
-:hasProvenance a rdf:Property ;
-    rdfs:label "Has Provenance" ;
-    rdfs:comment "Links metadata to provenance details." ;
-    rdfs:domain :Metadata ;
-    rdfs:range :Provenance .
+fair2:MethodSection a rdfs:Class ;
+  rdfs:label "MethodSection" ;
+  rdfs:comment "Structured section grouping procedural steps for a method." ;
+  rdfs:subClassOf schema:HowToSection .
 
-:isAIReady a rdf:Property ;
-    rdfs:label "Is AI Ready" ;
-    rdfs:comment "Indicates AI compatibility of a dataset." ;
-    rdfs:domain :Dataset ;
-    rdfs:range :AIReadiness .
+fair2:Step a rdfs:Class ;
+  rdfs:label "Step" ;
+  rdfs:comment "Atomic procedural instruction within a method." ;
+  rdfs:subClassOf schema:HowToStep .
 
-:hasBiasAssessment a rdf:Property ;
-    rdfs:label "Has Bias Assessment" ;
-    rdfs:comment "Links a dataset to its bias assessment report." ;
-    rdfs:domain :Dataset ;
-    rdfs:range :ResponsibleAI .
+fair2:Substep a rdfs:Class ;
+  rdfs:label "Substep" ;
+  rdfs:comment "Subordinate procedural instruction nested under a Step." ;
+  rdfs:subClassOf schema:HowToStep .
 
-:Method a rdfs:Class ;
-    rdfs:label "FAIR2 Method" ;
-    rdfs:comment "A method used to generate, process, or analyze a dataset." .
+fair2:RecordSet a rdfs:Class ;
+  rdfs:label "RecordSet" ;
+  rdfs:comment "A coherent subset of a dataset used for analysis or curation." ;
+  rdfs:subClassOf schema:Dataset .
 
-:Step a rdfs:Class ;
-    rdfs:label "FAIR2 Step" ;
-    rdfs:comment "A step within a method that describes a specific action in the dataset generation process." .
+fair2:Visualization a rdfs:Class ;
+  rdfs:label "Visualization" ;
+  rdfs:comment "A visual artifact (plot, figure, dashboard) derived from the dataset." ;
+  rdfs:subClassOf schema:CreativeWork .
 
-:hasMethod a rdf:Property ;
-    rdfs:label "Has Method" ;
-    rdfs:comment "Links a dataset to the methods used in its creation." ;
-    rdfs:domain :Dataset ;
-    rdfs:range :Method .
+fair2:DescriptiveStatistics a rdfs:Class ;
+  rdfs:label "DescriptiveStatistics" ;
+  rdfs:comment "Summary statistics computed over a RecordSet or Dataset." ;
+  rdfs:subClassOf schema:Dataset .
 
-:step a rdf:Property ;
-    rdfs:label "Step" ;
-    rdfs:comment "Links a method to the steps it includes." ;
-    rdfs:domain :Method ;
-    rdfs:range :Step .
+fair2:Submission a rdfs:Class ;
+  rdfs:label "Submission" ;
+  rdfs:comment "Submission package that groups dataset, article, and supporting materials for review." ;
+  rdfs:subClassOf schema:CreativeWork .
 
-schema:name a rdf:Property ;
-    rdfs:label "Name" ;
-    rdfs:comment "The name of an entity, such as a method or step." ;
-    rdfs:range xsd:string .
+fair2:activities a rdf:Property ;
+  rdfs:label "activities" ;
+  rdfs:comment "Groups workflow or provenance activities related to an entity." .
 
-schema:description a rdf:Property ;
-    rdfs:label "Description" ;
-    rdfs:comment "A textual description of an entity." ;
-    rdfs:domain :Step ;
-    rdfs:range xsd:string .
+fair2:attachment a rdf:Property ;
+  rdfs:label "attachment" ;
+  rdfs:comment "Points to a supporting file or supplemental material." .
 
-schema:nextItem a rdf:Property ;
-    rdfs:label "Next Item" ;
-    rdfs:comment "Indicates the next step in a sequence." ;
-    rdfs:domain :Step ;
-    rdfs:range :Step .
+fair2:builds a rdf:Property ;
+  rdfs:label "builds" ;
+  rdfs:comment "Indicates that one artifact is built from or extends another artifact." .
 
-:substep a rdf:Property ;
-    rdfs:label "Substep" ;
-    rdfs:comment "Defines a substep within a larger step." ;
-    rdfs:domain :Step ;
-    rdfs:range :Step .
+fair2:contributorRole a rdf:Property ;
+  rdfs:label "contributorRole" ;
+  rdfs:comment "Links a contribution to a contributor role term." .
 
-:method a rdf:Property ;
-    rdfs:label "Method" ;
-    rdfs:comment "Describes the methods used to generate the dataset." ;
-    rdfs:domain :Dataset ;
-    rdfs:range :Method .
+fair2:dataArticle a rdf:Property ;
+  rdfs:label "dataArticle" ;
+  rdfs:comment "Links a dataset or submission to its associated scholarly data article." .
 
-cr:isLiveDataset a rdf:Property ;
-    rdfs:label "Is Live Dataset" ;
-    rdfs:comment "Indicates whether the dataset is live." ;
-    rdfs:domain :Dataset ;
-    rdfs:range xsd:boolean .
+fair2:dataset a rdf:Property ;
+  rdfs:label "dataset" ;
+  rdfs:comment "References the dataset resource associated with the entity." .
 
-rai:ethicsReview a rdf:Property ;
-    rdfs:label "Ethics Review" ;
-    rdfs:comment "Information about the ethics review process for the dataset." ;
-    rdfs:domain :Dataset ;
-    rdfs:range rai:EthicsReview .
+fair2:digest a rdf:Property ;
+  rdfs:label "digest" ;
+  rdfs:comment "Provides a short textual or hash-based digest for quick identification." .
 
-rai:EthicsReview a rdfs:Class ;
-    rdfs:label "Ethics Review" ;
-    rdfs:comment "Details about ethical review processes for the dataset." .
+fair2:manuscript a rdf:Property ;
+  rdfs:label "manuscript" ;
+  rdfs:comment "References a manuscript file associated with the submission." .
 
-rai:reviewedBy a rdf:Property ;
-    rdfs:label "Reviewed By" ;
-    rdfs:comment "The entity that reviewed the dataset for ethical considerations." ;
-    rdfs:domain rai:EthicsReview ;
-    rdfs:range xsd:string .
+fair2:roleName a rdf:Property ;
+  rdfs:label "roleName" ;
+  rdfs:comment "Human-readable label for a contributor role." .
 
-rai:approvalStatus a rdf:Property ;
-    rdfs:label "Approval Status" ;
-    rdfs:comment "The approval status of the ethics review." ;
-    rdfs:domain rai:EthicsReview ;
-    rdfs:range xsd:string .
+fair2:statistics a rdf:Property ;
+  rdfs:label "statistics" ;
+  rdfs:comment "Links to computed descriptive statistics." .
 
-rai:reviewDate a rdf:Property ;
-    rdfs:label "Review Date" ;
-    rdfs:comment "The date on which the ethics review was conducted." ;
-    rdfs:domain rai:EthicsReview ;
-    rdfs:range xsd:date .
+fair2:step a rdf:Property ;
+  rdfs:label "step" ;
+  rdfs:comment "Connects a MethodSection with its constituent Step items." .
 
-rai:dataBiases a rdf:Property ;
-    rdfs:label "Data Biases" ;
-    rdfs:comment "Information about any known biases in the dataset." ;
-    rdfs:domain :Dataset ;
-    rdfs:range xsd:string .
+fair2:store a rdf:Property ;
+  rdfs:label "store" ;
+  rdfs:comment "Indicates the storage location or repository endpoint for an asset." .
 
-rai:dataLimitations a rdf:Property ;
-    rdfs:label "Data Limitations" ;
-    rdfs:comment "Information about any limitations of the dataset." ;
-    rdfs:domain :Dataset ;
-    rdfs:range xsd:string .
+fair2:variables a rdf:Property ;
+  rdfs:label "variables" ;
+  rdfs:comment "Lists variable or feature definitions referenced by an analysis or record set." .
 
-cr:citeAs a rdf:Property ;
-    rdfs:label "Cite As" ;
-    rdfs:comment "The preferred way to cite this dataset." ;
-    rdfs:domain :Dataset ;
-    rdfs:range xsd:string .
+fair2:visualization a rdf:Property ;
+  rdfs:label "visualization" ;
+  rdfs:comment "Links to a visualization derived from the dataset or record set." .

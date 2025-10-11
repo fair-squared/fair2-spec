@@ -72,12 +72,11 @@ https://fair2.ai/terms/AgreementLevels
 
 | Property               | Description                                                            |
 |------------------------|------------------------------------------------------------------------|
-| `odrl:hasPolicy`       | Points to a machine-readable policy (permissions, prohibitions, duties)|
 | `dct:license`          | Canonical license URI                                                  |
-| `dct:rights`           | Terms of Use or human-readable policy URI                              |
 | `dct:accessRights`     | Reference to FAIR² Agreement Level (1–4)                               |
-| `usageInfo`            | Human-readable summary of use conditions                               |
 | `conditionsOfAccess`   | Explicit textual summary (Open / Collaborative / Trusted / Secure)     |
+| `odrl:hasPolicy`       | Points to a machine-readable policy (permissions, prohibitions, duties)|
+
 
 ---
 
@@ -92,8 +91,8 @@ https://fair2.ai/terms/AgreementLevels
   "@id": "fair2:AgreementLevel4",
   "@type": "DefinedTerm",
   "schema:name": "Secure Access",
-  "schema:description": "Accessible only in a controlled, cloud-based environment; requires a DUA, human data training, and ORCID-registered credential.",
-  "schema:text": "By requesting access, you confirm you have appropriate human data training credentials in your ORCID profile, accept the standard DUA, and will work only in the approved secure environment.",
+  "skos:definition": "Accessible only in a controlled, cloud-based environment; requires a DUA, human data training, and ORCID-registered credential.",
+  "skos:note": "By requesting access, you confirm you have appropriate human data training credentials in your ORCID profile, accept the standard DUA, and will work only in the approved secure environment.",
   "schema:url": "https://fair2.ai/ns/AgreementLevels/4"
 }
 ```
@@ -110,7 +109,14 @@ See full list of Agreement Level Objects in our repository.
   },
   "@type": "schema:Dataset",
   "schema:name": "Marine Biodiversity Dataset",
-  "schema:license": "https://creativecommons.org/licenses/by/4.0/",
-  "dct:accessRights": "https://fair2.ai/ns/AgreementLevels/2"
+  "dct:license": "https://creativecommons.org/licenses/by/4.0/",
+  "dct:accessRights": {
+    "@id": "https://fair2.ai/ns/AgreementLevels1",
+    "@type": "schema:DefinedTerm",
+    "schema:name": "Open Access",
+    "skos:definition": "Anyone can access the dataset without registration or identification. No additional agreement is required.",
+    "skos:note": "By accessing this dataset, you acknowledge that it is made openly available under the stated license. You may use, share, and build upon it in accordance with the license terms, provided that you give appropriate attribution.",
+    "schema:url": "https://fair2.ai/spec/AgreementLevels/1"
+  } 
 }
 ```

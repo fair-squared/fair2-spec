@@ -6,10 +6,10 @@ This document defines how FAIR² expresses detailed methods using structured, ma
 
 Method descriptions in FAIR² are structured hierarchically using the following types:
 
-- **`schema:HowToSection`** (aliased as `dv:Section`)
-- **`schema:HowToStep`** (aliased as `dv:Step`)
-- **`schema:HowToStep`** (aliased as `dv:Substep`)
-- **`schema:HowToStep`** (aliased as `dv:StepCase`)
+- **`fair2:Section`** derived from `schema:HowToSection`
+- **`fair2:Step`** derived from `schema:HowToStep`
+- **`fair2:Substep`** derived from `schema:HowToStep`
+- **`fair2:StepCase`** derived from `schema:HowToStep`
 
 Each level extends or specializes the [`schema.org/HowToStep`](https://schema.org/HowToStep) pattern, enabling context-rich and modular method representation.
 
@@ -17,7 +17,7 @@ Each level extends or specializes the [`schema.org/HowToStep`](https://schema.or
 
 ## Structure and Semantics
 
-### Section (`dv:Section` = `schema:HowToSection`)
+### Section (`fair2:Section` = `schema:HowToSection`)
 
 A major methodological unit (e.g., "Structure Prediction", "Binding Assays").
 
@@ -32,7 +32,7 @@ A major methodological unit (e.g., "Structure Prediction", "Binding Assays").
 
 ---
 
-### Step (`dv:Step` = `schema:HowToStep`)
+### Step (`fair2:Step` = `schema:HowToStep`)
 
 Primary procedural element. Must contain `text`, and can include substeps or conditions.
 
@@ -48,7 +48,7 @@ Primary procedural element. Must contain `text`, and can include substeps or con
 
 ---
 
-### Substep (`dv:Substep` = `schema:HowToStep`)
+### Substep (`fair2:Substep` = `schema:HowToStep`)
 
 A finer-grained instruction within a `Step`.
 
@@ -62,7 +62,7 @@ A finer-grained instruction within a `Step`.
 
 ---
 
-### StepCase (`dv:StepCase` = `schema:HowToStep`)
+### StepCase (`fair2:StepCase` = `schema:HowToStep`)
 
 Used to capture conditional logic (e.g., environment-dependent, tool-specific alternatives).
 
@@ -79,7 +79,7 @@ Used to capture conditional logic (e.g., environment-dependent, tool-specific al
 
 ## Ontological Alignment
 
-Each element inherits from `schema:HowToStep`, but is semantically specialized via `dv:` namespace identifiers. This ensures compatibility with:
+Each element inherits from `schema:HowToStep`, but is semantically specialized via `fair2:` namespace identifiers. This ensures compatibility with:
 
 - **schema.org-based search indexing**
 - **Croissant `Method` constructs**
@@ -105,19 +105,19 @@ Steps may link to provenance-aware `prov:Activity` elements for detailed trackin
 
 ```json
 {
-  "@type": "HowToSection",
+  "@type": "fair2:Section",
   "name": "Structure Prediction",
   "steps": [
     {
-      "@type": "HowToStep",
+      "@type": "fair2:Step",
       "text": "Run AlphaFold prediction.",
       "substeps": [
-        { "@type": "HowToStep", "text": "Prepare FASTA sequence input." },
-        { "@type": "HowToStep", "text": "Launch ColabFold and upload sequence." }
+        { "@type": "fair2:Substep", "text": "Prepare FASTA sequence input." },
+        { "@type": "fair2:Substep", "text": "Launch ColabFold and upload sequence." }
       ],
       "conditions": [
-        { "@type": "HowToStep", "name": "GPU available", "text": "Use full-db AlphaFold." },
-        { "@type": "HowToStep", "name": "CPU only", "text": "Use reduced-db fallback mode." }
+        { "@type": "fair2:StepCase", "name": "GPU available", "text": "Use full-db AlphaFold." },
+        { "@type": "fair2:StepCase", "name": "CPU only", "text": "Use reduced-db fallback mode." }
       ]
     }
   ]

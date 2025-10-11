@@ -42,16 +42,6 @@ Browse the documentation sections:
 - ⚖️ **[Access & Policies](specification/access-agreements/)**: Using agreement levels and ODRL policies
 - 👥 **[Community](community/)**: Contribution guide, governance, and roadmap
 
-## FAIR² Alliance
-
-The **FAIR² Alliance** is a Swiss non-profit association that ensures the **community governance** of the FAIR² Open Specification. It safeguards:
-
-- **Neutrality** in decision-making
-- **Openness** and transparency
-- **Trust and long-term stewardship** of the FAIR² standard
-
-The Alliance coordinates working groups, releases certified updates, and supports pilot adoption.
-
 ## Try It
 
 To see examples of FAIR² metadata in use:
@@ -75,3 +65,8 @@ Development of FAIR² is guided by both technical milestones and community feedb
 ---
 
 For additional information and technical resources, please explore the full documentation via the navigation menu or the links above.
+
+
+Prompt:
+
+Update this index to accordingly

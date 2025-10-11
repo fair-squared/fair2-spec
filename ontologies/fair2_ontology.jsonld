@@ -1,0 +1,158 @@
+{
+  "@context": {
+    "schema": "https://schema.org/",
+    "prov": "http://www.w3.org/ns/prov#",
+    "cr": "https://credit.niso.org/contributor-roles/",
+    "fair2": "https://fair2.ai/ns/",
+    "fair2s": "https://fair2.ai/shapes/",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "@vocab": "https://fair2.ai/ns/"
+  },
+  "@graph": [
+    {
+      "@id": "fair2:OpenDataArticle",
+      "@type": "rdfs:Class",
+      "rdfs:label": "OpenDataArticle",
+      "rdfs:comment": "Scholarly work describing and linking an open dataset with methods and reuse guidance.",
+      "rdfs:subClassOf": "schema:ScholarlyArticle"
+    },
+    {
+      "@id": "fair2:MethodSection",
+      "@type": "rdfs:Class",
+      "rdfs:label": "MethodSection",
+      "rdfs:comment": "Structured section grouping procedural steps for a method.",
+      "rdfs:subClassOf": "schema:HowToSection"
+    },
+    {
+      "@id": "fair2:Step",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Step",
+      "rdfs:comment": "Atomic procedural instruction within a method.",
+      "rdfs:subClassOf": "schema:HowToStep"
+    },
+    {
+      "@id": "fair2:Substep",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Substep",
+      "rdfs:comment": "Subordinate procedural instruction nested under a Step.",
+      "rdfs:subClassOf": "schema:HowToStep"
+    },
+    {
+      "@id": "fair2:RecordSet",
+      "@type": "rdfs:Class",
+      "rdfs:label": "RecordSet",
+      "rdfs:comment": "A coherent subset of a dataset used for analysis or curation.",
+      "rdfs:subClassOf": "schema:Dataset"
+    },
+    {
+      "@id": "fair2:Visualization",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Visualization",
+      "rdfs:comment": "A visual artifact (plot, figure, dashboard) derived from the dataset.",
+      "rdfs:subClassOf": "schema:CreativeWork"
+    },
+    {
+      "@id": "fair2:DescriptiveStatistics",
+      "@type": "rdfs:Class",
+      "rdfs:label": "DescriptiveStatistics",
+      "rdfs:comment": "Summary statistics computed over a RecordSet or Dataset.",
+      "rdfs:subClassOf": "schema:Dataset"
+    },
+    {
+      "@id": "fair2:Submission",
+      "@type": "rdfs:Class",
+      "rdfs:label": "Submission",
+      "rdfs:comment": "Submission package that groups dataset, article, and supporting materials for review.",
+      "rdfs:subClassOf": "schema:CreativeWork"
+    },
+    {
+      "@id": "fair2:activities",
+      "@type": "rdf:Property",
+      "rdfs:label": "activities",
+      "rdfs:comment": "Groups workflow or provenance activities related to an entity."
+    },
+    {
+      "@id": "fair2:attachment",
+      "@type": "rdf:Property",
+      "rdfs:label": "attachment",
+      "rdfs:comment": "Points to a supporting file or supplemental material."
+    },
+    {
+      "@id": "fair2:builds",
+      "@type": "rdf:Property",
+      "rdfs:label": "builds",
+      "rdfs:comment": "Indicates that one artifact is built from or extends another artifact."
+    },
+    {
+      "@id": "fair2:contributorRole",
+      "@type": "rdf:Property",
+      "rdfs:label": "contributorRole",
+      "rdfs:comment": "Links a contribution to a contributor role term."
+    },
+    {
+      "@id": "fair2:dataArticle",
+      "@type": "rdf:Property",
+      "rdfs:label": "dataArticle",
+      "rdfs:comment": "Links a dataset or submission to its associated scholarly data article."
+    },
+    {
+      "@id": "fair2:dataset",
+      "@type": "rdf:Property",
+      "rdfs:label": "dataset",
+      "rdfs:comment": "References the dataset resource associated with the entity."
+    },
+    {
+      "@id": "fair2:digest",
+      "@type": "rdf:Property",
+      "rdfs:label": "digest",
+      "rdfs:comment": "Provides a short textual or hash-based digest for quick identification."
+    },
+    {
+      "@id": "fair2:manuscript",
+      "@type": "rdf:Property",
+      "rdfs:label": "manuscript",
+      "rdfs:comment": "References a manuscript file associated with the submission."
+    },
+    {
+      "@id": "fair2:roleName",
+      "@type": "rdf:Property",
+      "rdfs:label": "roleName",
+      "rdfs:comment": "Human-readable label for a contributor role."
+    },
+    {
+      "@id": "fair2:statistics",
+      "@type": "rdf:Property",
+      "rdfs:label": "statistics",
+      "rdfs:comment": "Links to computed descriptive statistics."
+    },
+    {
+      "@id": "fair2:step",
+      "@type": "rdf:Property",
+      "rdfs:label": "step",
+      "rdfs:comment": "Connects a MethodSection with its constituent Step items."
+    },
+    {
+      "@id": "fair2:store",
+      "@type": "rdf:Property",
+      "rdfs:label": "store",
+      "rdfs:comment": "Indicates the storage location or repository endpoint for an asset."
+    },
+    {
+      "@id": "fair2:variables",
+      "@type": "rdf:Property",
+      "rdfs:label": "variables",
+      "rdfs:comment": "Lists variable or feature definitions referenced by an analysis or record set."
+    },
+    {
+      "@id": "fair2:visualization",
+      "@type": "rdf:Property",
+      "rdfs:label": "visualization",
+      "rdfs:comment": "Links to a visualization derived from the dataset or record set."
+    }
+  ],
+  "rdfs:comment": "FAIR2 ontology subset defining only classes and properties actually used in published FAIR2 datasets.",
+  "schema:version": "0.3",
+  "schema:dateModified": "2025-10-11T15:58:06.282239Z"
+}
