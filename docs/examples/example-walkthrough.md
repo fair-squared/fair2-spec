@@ -17,7 +17,7 @@ The submission represents the root entity linking the dataset, its methods, and 
   "schema:name": "Structure-Based Prediction of SARS-CoV-2 Variant Properties Using Machine Learning on Mutational Neighborhoods",
   "fair2:dataArticle": {
     "@id": "https://doi.org/10.3389/focsu.2024.1528837",
-    "@type": "fair2:OpenDataArticle"
+    "@type": "fair2:DataArticle"
   },
   "fair2:dataset": {
     "@id": "https://zenodo.org/record/10850318/files/fair2.json",
@@ -30,7 +30,7 @@ The submission represents the root entity linking the dataset, its methods, and 
 }
 ```
 
-This example shows how a FAIR² Submission aggregates its associated `Dataset`, `OpenDataArticle`, and `MethodSection` through clearly defined FAIR² linking properties.
+This example shows how a FAIR² Submission aggregates its associated `Dataset`, `DataArticle`, and `MethodSection` through clearly defined FAIR² linking properties.
 
 ---
 
@@ -129,23 +129,13 @@ FAIR² datasets include RecordSets linked to computed statistics and variable de
 ```json
 {
   "@id": "https://fair2.ai/examples/borja2025#recordset",
-  "@type": "fair2:RecordSet",
+  "@type": "cr:RecordSet",
   "schema:name": "RBD Variant Features",
   "fair2:statistics": {
     "@type": "fair2:DescriptiveStatistics",
     "schema:name": "Feature Distribution Statistics",
     "schema:description": "Summary of Bio2Byte feature distributions across variants."
   },
-  "fair2:variables": [
-    {
-      "schema:name": "RMSD",
-      "schema:description": "Root-mean-square deviation between predicted and experimental structures."
-    },
-    {
-      "schema:name": "TM-score",
-      "schema:description": "Template modeling score for structural alignment."
-    }
-  ]
 }
 ```
 

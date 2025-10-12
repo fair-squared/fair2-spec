@@ -2,26 +2,28 @@
 
 ---
 
-## cr1:DatasetShape
-*Targets:* `cr:Dataset`
+## schema:DatasetShape
+*Targets:* `schema:Dataset`
 
 | Property | Type | Cardinality | Mandatory |
 |---|---|---|---|
-| `cr:distribution` | `<n5160d95bcf0945ce97d8b59353d1f018b3>` | `[1..∞]` | Yes |
-| `cr:recordSet` | `<n5160d95bcf0945ce97d8b59353d1f018b11>` | `[1..∞]` | Yes |
+| `schema:distribution` | `schema:DataDownload`/`schema:FileObject` | `[1..∞]` | Yes |
+| `cr:recordSet` | `RecordSet` | `[1..∞]` | Yes |
 | `schema:description` | `xsd:string` | `[1..∞]` | Yes |
 | `schema:license` | `xsd:anyURI` | `[1..∞]` | Yes |
 | `schema:name` | `xsd:string` | `[1..∞]` | Yes |
 | `schema:url` | `xsd:anyURI` | `[1..∞]` | Yes |
+| `cr:conformsTo` | `xsd:boolean` | `[1..∞]` | Yes |
 
 <details><summary>Constraint notes</summary>
 
-- **cr:distribution**: A dataset must have at least one distribution.
+- **schema:distribution**: A dataset must have at least one distribution.
 - **cr:recordSet**: A dataset must have at least one record set.
 - **schema:description**: A dataset must have a description.
 - **schema:license**: A dataset must have a license.
 - **schema:name**: A dataset must have a name.
 - **schema:url**: A dataset must have a URL.
+- **cr:conformsTo**: A dataset must conform to an specification version.
 
 </details>
 
@@ -42,11 +44,12 @@
 | `schema:citationKey` | `xsd:string` | `[1..∞]` | Yes |
 | `schema:contentUrl` | `sh:IRI` | `[0..∞]` | No |
 | `schema:contributor` | `fair2s:ContributionShape` | `[1..∞]` | Yes |
+| `schema:dataArticle` | `schema:ScholarlyArticle` | `1` | No |
 | `schema:dateCreated` | `xsd:date` | `[0..∞]` | No |
 | `schema:datePublished` | `xsd:date` | `[0..∞]` | No |
 | `schema:dateUpdated` | `xsd:date` | `[0..∞]` | No |
 | `schema:description` | `xsd:string` | `[1..∞]` | Yes |
-| `schema:funder` | `fair2s:FundingShape` | `[0..∞]` | No |
+| `schema:funding` | `fair2s:FundingShape` | `[0..∞]` | No |
 | `schema:identifier` | `xsd:string` | `[1..∞]` | Yes |
 | `schema:keywords` | `xsd:string` | `[1..∞]` | Yes |
 | `schema:license` | `sh:IRI` | `[1..∞]` | Yes |
@@ -69,6 +72,7 @@
 - **schema:citationKey**: Dataset must provide a citationKey for internal referencing.
 - **schema:contentUrl**: Dataset may include a content URL for direct access.
 - **schema:contributor**: Dataset must include contributor metadata and roles.
+- **schema:dataArticle**: Dataset may be linked to a Data Article (Scholarly Article) object.
 - **schema:dateCreated**: Dataset may include its creation date.
 - **schema:datePublished**: Dataset may include its publication date.
 - **schema:dateUpdated**: Dataset may include its last updated date.
@@ -86,37 +90,8 @@
 </details>
 
 
-## <n5160d95bcf0945ce97d8b59353d1f018b11>
-| Property | Type | Cardinality | Mandatory |
-|---|---|---|---|
-| `cr:field` | `<n5160d95bcf0945ce97d8b59353d1f018b14>` | `[1..∞]` | Yes |
-| `schema:name` | `xsd:string` | `[1..∞]` | Yes |
 
-<details><summary>Constraint notes</summary>
-
-- **cr:field**: Each record set must have at least one field.
-- **schema:name**: Each record set must have a name.
-
-</details>
-
-
-## <n5160d95bcf0945ce97d8b59353d1f018b14>
-| Property | Type | Cardinality | Mandatory |
-|---|---|---|---|
-| `schema:dataType` | `xsd:string` | `[1..∞]` | Yes |
-| `schema:description` | `xsd:string` | `[1..∞]` | Yes |
-| `schema:name` | `xsd:string` | `[1..∞]` | Yes |
-
-<details><summary>Constraint notes</summary>
-
-- **schema:dataType**: Each field must specify a data type.
-- **schema:description**: Each field must have a description.
-- **schema:name**: Each field must have a name.
-
-</details>
-
-
-## <n5160d95bcf0945ce97d8b59353d1f018b3>
+## fair2s:DistributionShape
 | Property | Type | Cardinality | Mandatory |
 |---|---|---|---|
 | `cr:sha256` | `xsd:string` | `[1..∞]` | Yes |

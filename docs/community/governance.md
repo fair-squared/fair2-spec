@@ -16,7 +16,7 @@ All participants are expected to adhere to the [FAIR² Code of Conduct](code-of-
 
 There are multiple ways to participate in the FAIR² governance process:
 
-1. **Propose improvements** via [GitHub Issues](https://github.com/fair2-spec/issues) or pull requests
+1. **Propose improvements** via [GitHub Issues](https://github.com/fair2-spec) or pull requests
 2. **Join discussions** in community meetings and working groups
 3. **Adopt FAIR²** in your datasets, platforms, or tools
 4. **Contribute to outreach** through workshops, writing, or speaking engagements
@@ -24,9 +24,7 @@ There are multiple ways to participate in the FAIR² governance process:
 ### Contact Points
 
 - General inquiries: [info@fair2.ai](mailto:info@fair2.ai)
-- Certification and adoption: [certification@fair2.ai](mailto:certification@fair2.ai)
 - Technical feedback: [feedback@fair2.ai](mailto:feedback@fair2.ai)
-- Media and outreach: [media@fair2.ai](mailto:media@fair2.ai)
 
 ---
 
@@ -34,8 +32,8 @@ There are multiple ways to participate in the FAIR² governance process:
 
 - [Contribute to FAIR²](contributing.md): Understand the contribution process
 - [Explore the Specification](../specification/overview.md): Learn the structure and key elements
-- [Join the Discussion](https://github.com/fair2-spec/issues): Help shape the future of FAIR²
+- [Join the Discussion](https://www.fair2.ai/get-involved): Help shape the future of FAIR²
 
 ---
 
-_Last updated: 2025-03-03_
+_Last updated: 2025-10-12_
