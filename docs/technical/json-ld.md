@@ -96,7 +96,7 @@ FAIR² extends Schema.org and ML Croissant to describe AI-ready datasets.
     }
   ],
   "cr:citeAs": "Doe, J. FAIR² AI Dataset (2025)",
-  "schema:conformsTo": "https://fair2.ai/spec/"
+  "dct:conformsTo": "https://fair2.ai/spec/"
 }
 ```
 

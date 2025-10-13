@@ -2096,7 +2096,7 @@
     {
       "@type": "MethodSection",
       "@id": "method-sections/eba6da7c-055a-4ade-8842-c56e0a028a26",
-      "description": null,
+      "description": "The study was designed ...",
       "name": "Data Processing and Analysis",
       "next": {
         "@id": "method-sections/3559fdd4-df90-4c25-bb7b-ce3fde9c648c"
