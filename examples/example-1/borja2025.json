@@ -58,8 +58,8 @@
     "Location": {
       "@id": "schema:Location"
     },
-    "MethodSection": {
-      "@id": "fair2:MethodSection",
+    "Section": {
+      "@id": "fair2:Section",
       "@type": "schema:HowToSection"
     },
     "Number": {
@@ -277,7 +277,7 @@
     "manuscript": {
       "@id": "fair2:manuscript"
     },
-    "methodSection": {
+    "Section": {
       "@id": "fair2:mnethodSection"
     },
     "name": {
@@ -1649,9 +1649,9 @@
   },
   "method": [
     {
-      "@type": "MethodSection",
+      "@type": "Section",
       "@id": "method-sections/4bd9f204-fd04-4c4c-9740-b530cdd9667f",
-      "description": null,
+      "description": "The study was designed to monitor and analyze long-term environmental trends in the Basque Country's marine ecosystems, focusing on water quality, sediment characteristics, and biological communities. The approach involved systematic sampling across multiple sites and taxa groups, employing standardized protocols to ensure data consistency and reliability over the nearly three-decade period. This methodology facilitated the assessment of anthropogenic impacts and the effectiveness of management interventions, providing a comprehensive understanding of ecosystem dynamics in response to both human activities and natural variability.",
       "name": "Research Design and Approach",
       "next": {
         "@id": "method-sections/005c2a80-a71f-4130-a64a-f36ed85045f2"
@@ -1676,7 +1676,7 @@
       ]
     },
     {
-      "@type": "MethodSection",
+      "@type": "Section",
       "@id": "method-sections/005c2a80-a71f-4130-a64a-f36ed85045f2",
       "description": null,
       "name": "Instrumentation and Sample Preparation",
@@ -1898,7 +1898,7 @@
       ]
     },
     {
-      "@type": "MethodSection",
+      "@type": "Section",
       "@id": "method-sections/590e846d-9b12-44c2-a399-deab7b1386ba",
       "description": null,
       "name": "Data Collection",
@@ -2094,9 +2094,9 @@
       ]
     },
     {
-      "@type": "MethodSection",
+      "@type": "Section",
       "@id": "method-sections/eba6da7c-055a-4ade-8842-c56e0a028a26",
-      "description": "The study was designed ...",
+      "description": null,
       "name": "Data Processing and Analysis",
       "next": {
         "@id": "method-sections/3559fdd4-df90-4c25-bb7b-ce3fde9c648c"
@@ -2186,7 +2186,7 @@
       ]
     },
     {
-      "@type": "MethodSection",
+      "@type": "Section",
       "@id": "method-sections/3559fdd4-df90-4c25-bb7b-ce3fde9c648c",
       "description": null,
       "name": "Quality Assurance and Validation",

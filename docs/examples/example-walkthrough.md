@@ -6,34 +6,6 @@ All examples are truncated to 1–2 representative instances for clarity.
 
 ---
 
-## Submission
-
-The submission represents the root entity linking the dataset, its methods, and the published data article.
-
-```json
-{
-  "@id": "https://doi.org/10.5281/zenodo.10850318",
-  "@type": "fair2:Submission",
-  "schema:name": "Structure-Based Prediction of SARS-CoV-2 Variant Properties Using Machine Learning on Mutational Neighborhoods",
-  "fair2:dataArticle": {
-    "@id": "https://doi.org/10.3389/focsu.2024.1528837",
-    "@type": "fair2:DataArticle"
-  },
-  "fair2:dataset": {
-    "@id": "https://zenodo.org/record/10850318/files/fair2.json",
-    "@type": "schema:Dataset"
-  },
-  "fair2:method": {
-    "@id": "https://fair2.ai/examples/borja2025#method",
-    "@type": "fair2:MethodSection"
-  }
-}
-```
-
-This example shows how a FAIR² Submission aggregates its associated `Dataset`, `DataArticle`, and `MethodSection` through clearly defined FAIR² linking properties.
-
----
-
 ## Data Article
 
 The FAIR² Data Article describes the dataset and its scientific context.
@@ -41,7 +13,7 @@ The FAIR² Data Article describes the dataset and its scientific context.
 ```json
 {
   "@id": "https://doi.org/10.3389/focsu.2024.1528837",
-  "@type": "fair2:OpenDataArticle",
+  "@type": "fair2:DataArticle",
   "schema:name": "Structure-Based Prediction of SARS-CoV-2 Variant Properties Using Machine Learning on Mutational Neighborhoods",
   "schema:publisher": {
     "@type": "schema:Organization",
@@ -60,18 +32,18 @@ The FAIR² Data Article describes the dataset and its scientific context.
 }
 ```
 
-This JSON-LD fragment illustrates how a `fair2:OpenDataArticle` aligns with `schema:ScholarlyArticle` while referencing real contributors.
+This JSON-LD fragment illustrates how a `fair2:DataArticle` aligns with `schema:ScholarlyArticle` while referencing real contributors.
 
 ---
 
 ## Method
 
-Methods in FAIR² are structured hierarchically as `fair2:MethodSection` objects containing ordered `fair2:Step` and `fair2:Substep` items.
+Methods in FAIR² are structured hierarchically as `fair2:Section` objects containing ordered `fair2:Step` and `fair2:Substep` items.
 
 ```json
 {
   "@id": "https://fair2.ai/examples/borja2025#method",
-  "@type": "fair2:MethodSection",
+  "@type": "fair2:Section",
   "schema:name": "Machine Learning Workflow",
   "fair2:step": [
     {
@@ -103,15 +75,24 @@ Contributor information in FAIR² uses `schema:Contribution` entities enriched w
   "@type": "schema:Contribution",
   "schema:agent": {
     "@type": "schema:Person",
-    "schema:name": "Efren Borja"
+    "schema:name": "Efren Borja",
+    "schema:identifier": {
+      "@type": "PropertyValue",
+      "propertyID": "ORCID",
+      "value": "https://orcid.org/0000-0002-1825-0097"
+    },
+    "schema:affiliation": {
+      "@type": "schema:Organization",
+      "schema:name": "Frontiers"
+    }
   },
   "prov:hadRole": [
     {
-      "@id": "cr:data-curation",
+      "@id": "https://credit.niso.org/contributor-roles/data-curation/",
       "rdfs:label": "Data Curation"
     },
     {
-      "@id": "cr:formal-analysis",
+      "@id": "https://credit.niso.org/contributor-roles/formal-analysis/",
       "rdfs:label": "Formal Analysis"
     }
   ]
@@ -131,11 +112,17 @@ FAIR² datasets include RecordSets linked to computed statistics and variable de
   "@id": "https://fair2.ai/examples/borja2025#recordset",
   "@type": "cr:RecordSet",
   "schema:name": "RBD Variant Features",
-  "fair2:statistics": {
-    "@type": "fair2:DescriptiveStatistics",
-    "schema:name": "Feature Distribution Statistics",
-    "schema:description": "Summary of Bio2Byte feature distributions across variants."
-  },
+  "field": [
+    {
+      "@id": "https://fair2.ai/examples/borja2025#field",
+      "@type": "cr:Field",
+      "description": "Variant name",
+      "dataType": "schema:Text",
+      "fair2:statistics": {
+        ...
+      }
+    }
+  ]
 }
 ```
 
@@ -145,19 +132,19 @@ This section exemplifies how FAIR² captures analytical data products, linking t
 
 ## Visualization
 
-Visual outputs are represented as `fair2:Visualization` entities linked to the RecordSet or dataset.
+Access conditions for datasets or records are expressed using the `schema:accessRights` property.
+This property provides human- and machine-readable information about who can access the data and under what conditions, ensuring transparency and compliance with repository and licensing policies.
 
 ```json
-{
-  "@id": "https://fair2.ai/examples/borja2025#visualization",
-  "@type": "fair2:Visualization",
-  "schema:name": "RMSD Distribution Plot",
-  "schema:encodingFormat": "image/png",
-  "schema:contentUrl": "https://fair2.ai/examples/borja2025/rmsd_distribution.png"
-}
+"dct:accessRights": {
+    "@id": "https://fair2.ai/ns/AgreementLevels1",
+    "@type": "schema:DefinedTerm",
+    "name": "Open Access",
+    "skos:definition": "Anyone can access the dataset without registration or identification. No additional agreement is required.",
+    "skos:note": "By accessing this dataset, you acknowledge that it is made openly available under the stated license. You may use, share, and build upon it in accordance with the license terms, provided that you give appropriate attribution.",
+    "url": "https://fair2.ai/spec/AgreementLevels/1"
+  }
 ```
-
-This final example shows how visualization artifacts are incorporated as linked digital objects following Schema.org’s `MediaObject` pattern while preserving FAIR² semantic traceability.
 
 ---
 
