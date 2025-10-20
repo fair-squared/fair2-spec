@@ -35,12 +35,6 @@
           "sh:nodeKind": "sh:IRI",
           "sh:pattern": "https://fair2.ai/spec/AgreementLevels/",
           "sh:message": "AccessRights URL must point to a FAIR² Agreement Level definition (1–4)."
-        },
-        {
-          "sh:path": "@id",
-          "sh:nodeKind": "sh:IRI",
-          "sh:pattern": "https://fair2.ai/ns/AgreementLevels",
-          "sh:message": "AccessRights @id should be a FAIR² AgreementLevels URI."
         }
       ]
     }

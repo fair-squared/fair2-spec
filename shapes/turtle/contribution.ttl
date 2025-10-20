@@ -32,6 +32,6 @@ fair2s:ContributorRoleShape a sh:NodeShape ;
     sh:property [ sh:datatype xsd:string ;
             sh:message "Each role must have a human-readable label (e.g., DataCuration, Supervision)." ;
             sh:minCount 1 ;
-            sh:path rdfs:label ],
+            sh:path rdfs:label ] ;
     sh:targetSubjectsOf prov:hadRole .
 

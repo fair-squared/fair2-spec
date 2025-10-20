@@ -19,11 +19,6 @@
           "sh:message": "Each domain entry must include a name (e.g., 'Marine Biology')."
         },
         {
-          "sh:path": "@id",
-          "sh:nodeKind": "sh:IRI",
-          "sh:message": "Domain entries should ideally reference a controlled vocabulary (e.g., Wikidata)."
-        },
-        {
           "sh:path": "prov:wasAttributedTo",
           "sh:node": { "@id": "fair2s:AuthorShape" },
           "sh:minCount": 1,
