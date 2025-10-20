@@ -1,0 +1,54 @@
+@prefix fair2s: <https://fair2.ai/shapes/> .
+@prefix fair2:  <https://fair2.ai/ns/> .
+@prefix sh:     <http://www.w3.org/ns/shacl#> .
+@prefix schema: <https://schema.org/> .
+@prefix cr:     <http://mlcommons.org/croissant/> .
+@prefix prov:   <http://www.w3.org/ns/prov#> .
+@prefix skos:   <http://www.w3.org/2004/02/skos/core#> .
+@prefix dct:    <http://purl.org/dc/terms/> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+
+@prefix cr: <http://mlcommons.org/croissant/> .
+@prefix fair2: <https://fair2.ai/ns/> .
+@prefix fair2s: <https://fair2.ai/shapes/> .
+@prefix schema: <https://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+fair2s:RecordSetShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:message "Each RecordSet must include a description." ;
+            sh:minCount 1 ;
+            sh:path schema:description ],
+        [ sh:datatype xsd:string ;
+            sh:message "Each RecordSet must have a name (e.g., 'WATER', 'SEDIMENTS')." ;
+            sh:minCount 1 ;
+            sh:path schema:name ],
+        [ sh:message "Each RecordSet must define at least one Field." ;
+            sh:minCount 1 ;
+            sh:node fair2s:FieldShape ;
+            sh:path cr:field ] ;
+    sh:targetClass cr:RecordSet .
+
+fair2s:FieldShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:message "Each Field must have a name." ;
+            sh:minCount 1 ;
+            sh:path schema:name ],
+        [ sh:message "Each Field should specify a measurement unit, using QUDT or equivalent controlled vocabulary." ;
+            sh:minCount 1 ;
+            sh:path fair2:unit ],
+        [ sh:message "Each Field must specify a dataType (e.g., Text, Integer, Float, Date)." ;
+            sh:minCount 1 ;
+            sh:path cr:dataType ],
+        [ sh:message "Each Field should include descriptive statistics (count, missing values, etc.)." ;
+            sh:minCount 1 ;
+            sh:path fair2:statistics ],
+        [ sh:datatype xsd:string ;
+            sh:message "Each Field must include a human-readable description." ;
+            sh:minCount 1 ;
+            sh:path schema:description ] ;
+    sh:targetClass cr:Field .
+

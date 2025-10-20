@@ -1,0 +1,59 @@
+@prefix fair2s: <https://fair2.ai/shapes/> .
+@prefix fair2:  <https://fair2.ai/ns/> .
+@prefix sh:     <http://www.w3.org/ns/shacl#> .
+@prefix schema: <https://schema.org/> .
+@prefix cr:     <http://mlcommons.org/croissant/> .
+@prefix prov:   <http://www.w3.org/ns/prov#> .
+@prefix skos:   <http://www.w3.org/2004/02/skos/core#> .
+@prefix dct:    <http://purl.org/dc/terms/> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+
+@prefix fair2: <https://fair2.ai/ns/> .
+@prefix fair2s: <https://fair2.ai/shapes/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix schema: <https://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+fair2s:ChangeLogShape a sh:NodeShape ;
+    sh:property [ sh:message "Each changelog entry must include a structured description of changes." ;
+            sh:minCount 1 ;
+            sh:node fair2s:ChangeDescriptionShape ;
+            sh:path schema:description ],
+        [ sh:message "Each changelog entry may reference the previous dataset version using prov:wasRevisionOf." ;
+            sh:node fair2s:RevisionShape ;
+            sh:path prov:wasRevisionOf ],
+        [ sh:datatype xsd:date ;
+            sh:message "Each changelog entry must include a publication date." ;
+            sh:minCount 1 ;
+            sh:path schema:datePublished ] ;
+    sh:targetClass schema:UpdateAction .
+
+fair2s:ChangeDescriptionShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:message "Description may include otherInformation such as version notes or license changes." ;
+            sh:path fair2:otherInformation ],
+        [ sh:datatype xsd:string ;
+            sh:message "Description may include improvements as a list of strings." ;
+            sh:path fair2:improvements ],
+        [ sh:datatype xsd:string ;
+            sh:message "Description may include bugFixes as a list of strings." ;
+            sh:path fair2:bugFixes ],
+        [ sh:datatype xsd:string ;
+            sh:message "Description may include newFeatures as a list of strings." ;
+            sh:path fair2:newFeatures ] ;
+    sh:targetSubjectsOf schema:description .
+
+fair2s:RevisionShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:message "Revision reference must include a version label." ;
+            sh:minCount 1 ;
+            sh:path schema:version ],
+        [ sh:message "Revision reference must include a persistent identifier (e.g., DOI)." ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:path schema:identifier ] ;
+    sh:targetClass schema:Dataset .
+

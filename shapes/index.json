@@ -1,0 +1,13 @@
+[
+    "https://raw.githubusercontent.com/fair-squared/fair2-spec/.main/shapes/turtlefair2_dataset.ttl",
+    "https://raw.githubusercontent.com/fair-squared/fair2-spec/.main/shapes/turtleauthor.ttl",
+    "https://raw.githubusercontent.com/fair-squared/fair2-spec/.main/shapes/turtlecontribution.ttl",
+    "https://raw.githubusercontent.com/fair-squared/fair2-spec/.main/shapes/turtlefunding.ttl",
+    "https://raw.githubusercontent.com/fair-squared/fair2-spec/.main/shapes/turtledataarticle.ttl",
+    "https://raw.githubusercontent.com/fair-squared/fair2-spec/.main/shapes/turtledomain.ttl",
+    "https://raw.githubusercontent.com/fair-squared/fair2-spec/.main/shapes/turtlemethod.ttl",
+    "https://raw.githubusercontent.com/fair-squared/fair2-spec/.main/shapes/turtlerecordset.ttl",
+    "https://raw.githubusercontent.com/fair-squared/fair2-spec/.main/shapes/turtleaccessrights.ttl",
+    "https://raw.githubusercontent.com/fair-squared/fair2-spec/.main/shapes/turtlesocialmedia.ttl",
+    "https://raw.githubusercontent.com/fair-squared/fair2-spec/.main/shapes/turtlechangelog.ttl"
+]

@@ -1,0 +1,70 @@
+{
+  "@context": {
+    "sh": "http://www.w3.org/ns/shacl#",
+    "schema": "https://schema.org/",
+    "cr": "http://mlcommons.org/croissant/",
+    "fair2": "https://fair2.ai/ns/",
+    "fair2s": "https://fair2.ai/shapes/"
+  },
+  "@graph": [
+    {
+      "@id": "fair2s:RecordSetShape",
+      "@type": "sh:NodeShape",
+      "sh:targetClass": "cr:RecordSet",
+      "sh:property": [
+        {
+          "sh:path": "schema:name",
+          "sh:datatype": "xsd:string",
+          "sh:minCount": 1,
+          "sh:message": "Each RecordSet must have a name (e.g., 'WATER', 'SEDIMENTS')."
+        },
+        {
+          "sh:path": "schema:description",
+          "sh:datatype": "xsd:string",
+          "sh:minCount": 1,
+          "sh:message": "Each RecordSet must include a description."
+        },
+        {
+          "sh:path": "cr:field",
+          "sh:node": { "@id": "fair2s:FieldShape" },
+          "sh:minCount": 1,
+          "sh:message": "Each RecordSet must define at least one Field."
+        }
+      ]
+    },
+    {
+      "@id": "fair2s:FieldShape",
+      "@type": "sh:NodeShape",
+      "sh:targetClass": "cr:Field",
+      "sh:property": [
+        {
+          "sh:path": "schema:name",
+          "sh:datatype": "xsd:string",
+          "sh:minCount": 1,
+          "sh:message": "Each Field must have a name."
+        },
+        {
+          "sh:path": "schema:description",
+          "sh:datatype": "xsd:string",
+          "sh:minCount": 1,
+          "sh:message": "Each Field must include a human-readable description."
+        },
+        {
+          "sh:path": "cr:dataType",
+          "sh:minCount": 1,
+          "sh:message": "Each Field must specify a dataType (e.g., Text, Integer, Float, Date)."
+        },
+        {
+          "sh:path": "fair2:statistics",
+          "sh:minCount": 1,
+          "sh:message": "Each Field should include descriptive statistics (count, missing values, etc.)."
+        },
+        {
+          "sh:path": "fair2:unit",
+          "sh:minCount": 1,
+          "sh:message": "Each Field should specify a measurement unit, using QUDT or equivalent controlled vocabulary."
+        }
+      ]
+    }
+  ]
+}

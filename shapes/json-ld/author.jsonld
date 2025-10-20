@@ -1,0 +1,61 @@
+{
+  "@context": {
+    "sh": "http://www.w3.org/ns/shacl#",
+    "schema": "https://schema.org/",
+    "fair2s": "https://fair2.ai/shapes/",
+    "fair2": "https://fair2.ai/ns/"
+  },
+  "@graph": [
+    {
+      "@id": "fair2s:AuthorShape",
+      "@type": "sh:NodeShape",
+      "sh:targetClass": "schema:Person",
+      "sh:property": [
+        {
+          "sh:path": "schema:name",
+          "sh:datatype": "xsd:string",
+          "sh:minCount": 1,
+          "sh:message": "Each author must have a name."
+        },
+        {
+          "sh:path": "schema:identifier",
+          "sh:minCount": 1,
+          "sh:message": "Each author must include an identifier, preferably an ORCID."
+        },
+        {
+          "sh:path": "schema:affiliation",
+          "sh:node": {
+            "@id": "fair2s:OrganizationShape"
+          },
+          "sh:minCount": 1,
+          "sh:message": "Each author must be affiliated with at least one organization."
+        }
+      ]
+    },
+
+    {
+      "@id": "fair2s:OrganizationShape",
+      "@type": "sh:NodeShape",
+      "sh:targetClass": "schema:Organization",
+      "sh:property": [
+        {
+          "sh:path": "schema:name",
+          "sh:datatype": "xsd:string",
+          "sh:minCount": 1,
+          "sh:message": "Organization must have a name."
+        },
+        {
+          "sh:path": "schema:address",
+          "sh:datatype": "xsd:string",
+          "sh:minCount": 1,
+          "sh:message": "Organization should include a postal address."
+        },
+        {
+          "sh:path": "schema:identifier",
+          "sh:minCount": 1,
+          "sh:message": "Organization should include a persistent identifier (e.g., ROR)."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+@prefix fair2s: <https://fair2.ai/shapes/> .
+@prefix fair2:  <https://fair2.ai/ns/> .
+@prefix sh:     <http://www.w3.org/ns/shacl#> .
+@prefix schema: <https://schema.org/> .
+@prefix cr:     <http://mlcommons.org/croissant/> .
+@prefix prov:   <http://www.w3.org/ns/prov#> .
+@prefix skos:   <http://www.w3.org/2004/02/skos/core#> .
+@prefix dct:    <http://purl.org/dc/terms/> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+
+@prefix fair2s: <https://fair2.ai/shapes/> .
+@prefix schema: <https://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+fair2s:SocialMediaShape a sh:NodeShape ;
+    sh:property [ sh:message "Each entry must specify the social media service homepage as an IRI (e.g., 'https://twitter.com/')." ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:path schema:accountServiceHomePage ],
+        [ sh:datatype xsd:string ;
+            sh:message "Each entry must include the message text or post body." ;
+            sh:minCount 1 ;
+            sh:path schema:articleBody ],
+        [ sh:datatype xsd:string ;
+            sh:message "Each entry must list at least one keyword or tag describing its content." ;
+            sh:minCount 1 ;
+            sh:path schema:keywords ],
+        [ sh:datatype xsd:string ;
+            sh:message "Each social media entry must have a platform identifier (e.g., 'twitter', 'linkedin')." ;
+            sh:minCount 1 ;
+            sh:path schema:identifier ],
+        [ sh:message "Optionally, entries may include a direct URL to the social post or related resource." ;
+            sh:nodeKind sh:IRI ;
+            sh:path schema:url ],
+        [ sh:datatype xsd:date ;
+            sh:message "Optionally, entries may record the publication date of the social media post." ;
+            sh:path schema:datePublished ] ;
+    sh:targetClass schema:SocialMediaPosting .
+

@@ -1,0 +1,78 @@
+{
+  "@context": {
+    "sh": "http://www.w3.org/ns/shacl#",
+    "schema": "https://schema.org/",
+    "fair2": "https://fair2.ai/ns/",
+    "fair2s": "https://fair2.ai/shapes/"
+  },
+  "@graph": [
+    {
+      "@id": "fair2s:FundingShape",
+      "@type": "sh:NodeShape",
+      "sh:targetClass": "schema:Grant",
+      "sh:property": [
+        {
+          "sh:path": "schema:name",
+          "sh:datatype": "xsd:string",
+          "sh:minCount": 1,
+          "sh:message": "Each funding entry must include a grant name or title."
+        },
+        {
+          "sh:path": "schema:funder",
+          "sh:node": { "@id": "fair2s:FundingOrganizationShape" },
+          "sh:minCount": 1,
+          "sh:message": "Each funding entry must specify at least one funder organization."
+        },
+        {
+          "sh:path": "schema:fundingScheme",
+          "sh:node": { "@id": "fair2s:FundingSchemeShape" },
+          "sh:maxCount": 1,
+          "sh:message": "If provided, fundingScheme must contain valid scheme metadata."
+        },
+        {
+          "sh:path": "schema:url",
+          "sh:nodeKind": "sh:IRI",
+          "sh:maxCount": 1,
+          "sh:message": "Funding entries may optionally include a URL (e.g., project page)."
+        }
+      ]
+    },
+
+    {
+      "@id": "fair2s:FundingOrganizationShape",
+      "@type": "sh:NodeShape",
+      "sh:targetClass": "schema:Organization",
+      "sh:property": [
+        {
+          "sh:path": "schema:name",
+          "sh:datatype": "xsd:string",
+          "sh:minCount": 1,
+          "sh:message": "Funding organization must include a name."
+        },
+        {
+          "sh:path": "schema:identifier",
+          "sh:minCount": 1,
+          "sh:message": "Funding organization should include an identifier (e.g., ROR ID)."
+        }
+      ]
+    },
+    {
+      "@id": "fair2s:FundingSchemeShape",
+      "@type": "sh:NodeShape",
+      "sh:targetClass": "schema:FundingScheme",
+      "sh:property": [
+        {
+          "sh:path": "schema:name",
+          "sh:datatype": "xsd:string",
+          "sh:minCount": 1,
+          "sh:message": "Funding scheme must include a name."
+        },
+        {
+          "sh:path": "schema:identifier",
+          "sh:minCount": 1,
+          "sh:message": "Funding scheme must include an identifier (e.g., Horizon Europe code)."
+        }
+      ]
+    }
+  ]
+}
