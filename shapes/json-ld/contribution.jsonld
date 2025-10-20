@@ -15,7 +15,7 @@
       "sh:property": [
         {
           "sh:path": "prov:agent",
-          "sh:node": { "@id": "fair2s:AuthorShape" },
+          "sh:nodeKind": "sh:BlankNodeOrIRI",
           "sh:minCount": 1,
           "sh:message": "Each contribution must reference at least one agent (Person or Organization)."
         },
@@ -37,12 +37,6 @@
           "sh:datatype": "xsd:string",
           "sh:minCount": 1,
           "sh:message": "Each role must have a human-readable label (e.g., DataCuration, Supervision)."
-        },
-        {
-          "sh:path": "@id",
-          "sh:nodeKind": "sh:IRI",
-          "sh:minCount": 1,
-          "sh:message": "Each role must have an IRI identifier, typically from CRO or FAIR² namespace."
         }
       ]
     }

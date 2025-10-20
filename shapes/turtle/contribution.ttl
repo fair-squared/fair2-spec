@@ -24,7 +24,7 @@ fair2s:ContributionShape a sh:NodeShape ;
             sh:path prov:hadRole ],
         [ sh:message "Each contribution must reference at least one agent (Person or Organization)." ;
             sh:minCount 1 ;
-            sh:node fair2s:AuthorShape ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
             sh:path prov:agent ] ;
     sh:targetClass schema:Contribution .
 
@@ -33,9 +33,5 @@ fair2s:ContributorRoleShape a sh:NodeShape ;
             sh:message "Each role must have a human-readable label (e.g., DataCuration, Supervision)." ;
             sh:minCount 1 ;
             sh:path rdfs:label ],
-        [ sh:message "Each role must have an IRI identifier, typically from CRO or FAIR² namespace." ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:path "@id" ] ;
     sh:targetSubjectsOf prov:hadRole .
 
