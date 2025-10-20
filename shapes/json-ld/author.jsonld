@@ -19,7 +19,6 @@
         },
         {
           "sh:path": "schema:identifier",
-          "sh:minCount": 1,
           "sh:message": "Each author must include an identifier, preferably an ORCID."
         },
         {
@@ -27,12 +26,10 @@
           "sh:node": {
             "@id": "fair2s:OrganizationShape"
           },
-          "sh:minCount": 1,
           "sh:message": "Each author must be affiliated with at least one organization."
         }
       ]
     },
-
     {
       "@id": "fair2s:OrganizationShape",
       "@type": "sh:NodeShape",
@@ -52,7 +49,6 @@
         },
         {
           "sh:path": "schema:identifier",
-          "sh:minCount": 1,
           "sh:message": "Organization should include a persistent identifier (e.g., ROR)."
         }
       ]

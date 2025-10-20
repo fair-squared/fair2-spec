@@ -10,8 +10,7 @@
 @prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
 
-@prefix cr: <https://mlcommons.org/croissant/> .
-@prefix cr1: <http://mlcommons.org/croissant/> .
+@prefix cr: <http://mlcommons.org/croissant/> .
 @prefix schema: <https://schema.org/> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -27,7 +26,7 @@ cr:DatasetShape a sh:NodeShape ;
                     sh:property [ sh:datatype xsd:string ;
                             sh:message "Each distribution must have a SHA-256 checksum." ;
                             sh:minCount 1 ;
-                            sh:path cr1:sha256 ],
+                            sh:path cr:sha256 ],
                         [ sh:datatype xsd:string ;
                             sh:message "Each distribution must specify its encoding format." ;
                             sh:minCount 1 ;
@@ -36,7 +35,7 @@ cr:DatasetShape a sh:NodeShape ;
                             sh:message "Each distribution must have a content URL." ;
                             sh:minCount 1 ;
                             sh:path schema:contentUrl ] ] ;
-            sh:path cr1:distribution ],
+            sh:path schema:distribution ],
         [ sh:datatype xsd:anyURI ;
             sh:message "A dataset must have a license." ;
             sh:minCount 1 ;
@@ -71,7 +70,7 @@ cr:DatasetShape a sh:NodeShape ;
                                             sh:message "Each field must have a description." ;
                                             sh:minCount 1 ;
                                             sh:path schema:description ] ] ;
-                            sh:path cr1:field ] ] ;
-            sh:path cr1:recordSet ] ;
-    sh:targetClass cr1:Dataset .
+                            sh:path cr:field ] ] ;
+            sh:path cr:recordSet ] ;
+    sh:targetClass schema:Dataset .
 

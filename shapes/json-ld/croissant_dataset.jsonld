@@ -2,12 +2,12 @@
     "@context": {
       "sh": "http://www.w3.org/ns/shacl#",
       "schema": "https://schema.org/",
-      "cr": "https://mlcommons.org/croissant/",
+      "cr": "http://mlcommons.org/croissant/",
       "xsd": "http://www.w3.org/2001/XMLSchema#"
     },
     "@id": "cr:DatasetShape",
     "@type": "sh:NodeShape",
-    "sh:targetClass": "cr:Dataset",
+    "sh:targetClass": "schema:Dataset",
     "sh:property": [
       {
         "sh:path": "schema:name",
@@ -34,7 +34,7 @@
         "sh:message": "A dataset must have a URL." 
       },
       {
-        "sh:path": "cr:distribution",
+        "sh:path": "schema:distribution",
         "sh:node": {
           "@type": "sh:NodeShape",
           "sh:property": [
