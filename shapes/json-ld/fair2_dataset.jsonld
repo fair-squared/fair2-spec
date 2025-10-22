@@ -87,7 +87,7 @@
           "sh:message": "Dataset must include at least one author."
         },
         {
-          "sh:path": "schema:contributor",
+          "sh:path": "schema:contribution",
           "sh:node": { "@id": "fair2s:ContributionShape" },
           "sh:minCount": 1,
           "sh:message": "Dataset must include contributor metadata and roles."
