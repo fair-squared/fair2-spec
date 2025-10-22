@@ -82,4 +82,4 @@ To include provenance metadata using PROV-O in FAIR²:
 1. Refer to the [FAIR² Schema](../specification/schema.md) for relevant properties.
 2. Incorporate PROV-O terms into your dataset JSON-LD metadata.
 3. Validate using [SHACL rules](../specification/shacl-validation.md).
-4. Contribute examples or feedback via [GitHub Issues](https://github.com/fair2-spec/issues) or [feedback@fair2.ai](mailto:feedback@fair2.ai).
+4. Contribute examples or feedback via [GitHub Issues](https://github.com/fair-squared/fair2-spec/issues) or [feedback@fair2.ai](mailto:feedback@fair2.ai).

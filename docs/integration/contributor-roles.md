@@ -147,7 +147,7 @@ To begin using contributor roles in FAIR²:
 1. Review the [Getting Started Guide](../getting-started.md)
 2. Examine the [FAIR² Schema](../specification/schema.md) for contribution properties
 3. Validate contributor metadata using [SHACL rules](../specification/shacl-validation.md)
-4. Join ongoing discussions on extending role support via [GitHub Issues](https://github.com/fair2-spec/issues)
+4. Join ongoing discussions on extending role support via [GitHub Issues](https://github.com/fair-squared/fair2-spec/issues)
 
 For contribution-related inquiries or suggestions, please contact:  
 📩 [feedback@fair2.ai](mailto:feedback@fair2.ai)

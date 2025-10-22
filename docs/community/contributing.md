@@ -8,8 +8,8 @@ Thank you for your interest in contributing to **FAIR²**—a community-driven s
 
 We welcome contributors from diverse backgrounds and expertise. To stay informed and connected:
 
-- Follow [FAIR² on GitHub](https://github.com/fair2-spec) for repositories and updates.
-- Track development via [issues](https://github.com/fair2-spec/issues) and [pull requests](https://github.com/fair2-spec/pulls).
+- Follow [FAIR² on GitHub](https://github.com/fair-squared/fair2-spec) for repositories and updates.
+- Track development via [issues](https://github.com/fair-squared/fair2-spec/issues) and [pull requests](https://github.com/fair-squared/fair2-spec/pulls).
 - Join the mailing list (coming soon) for community discussions.
 - For general inquiries, contact [info@fair2.ai](mailto:info@fair2.ai).
 
@@ -33,13 +33,13 @@ If you have suggestions or proposals, please reach out to [feedback@fair2.ai](ma
 
 To propose changes to the specification, schema, or documentation:
 
-1. **Fork the repository** at [github.com/fair2-spec](https://github.com/fair2-spec).
+1. **Fork the repository** at [github.com/fair-squared/fair2-spec](https://github.com/fair-squared/fair2-spec).
 2. **Create a feature branch** for your proposed changes.
 3. **Write clear and descriptive commit messages**.
 4. **Submit a pull request (PR)** with a concise summary of the changes.
 5. **Engage with reviewers** to refine and finalize the submission.
 
-Please review the [Contributor Guidelines](https://github.com/fair2-spec/CONTRIBUTING.md) before submitting a pull request.
+Please review the [Contributor Guidelines](https://github.com/fair-squared/fair2-spec/CONTRIBUTING.md) before submitting a pull request.
 
 ---
 
@@ -76,8 +76,8 @@ All contributors and participants are expected to adhere to the [FAIR² Code of 
 
 To begin contributing:
 
-- Browse and comment on open [GitHub issues](https://github.com/fair2-spec/issues).
-- Share feedback via [feedback@fair2.ai](mailto:feedback@fair2.ai).
+- Browse and comment on open [GitHub issues](https://github.com/fair-squared/fair2-spec/issues).
+- Share feedback via [feedback@fair-squared/fair2.ai](mailto:feedback@fair2.ai).
 - Join our upcoming community discussions and working groups (details coming soon).
 
 We are grateful for your support in building FAIR² into a trusted standard for machine-actionable, AI-ready FAIR data.
