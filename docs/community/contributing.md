@@ -77,7 +77,7 @@ All contributors and participants are expected to adhere to the [FAIR² Code of 
 To begin contributing:
 
 - Browse and comment on open [GitHub issues](https://github.com/fair-squared/fair2-spec/issues).
-- Share feedback via [feedback@fair-squared/fair2.ai](mailto:feedback@fair2.ai).
+- Share feedback via [feedback@fair2.ai](mailto:feedback@fair2.ai).
 - Join our upcoming community discussions and working groups (details coming soon).
 
 We are grateful for your support in building FAIR² into a trusted standard for machine-actionable, AI-ready FAIR data.
