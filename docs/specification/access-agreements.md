@@ -1,86 +1,180 @@
-
-# FAIR² Access Agreement Levels
+# FAIR² Access Agreement Levels 
 
 ## Overview
 
-FAIR² introduces four standardized levels of access agreements to govern dataset use, aligned with FAIR principles, Responsible AI, and scalable governance. These levels reflect increasing levels of control, ethical scrutiny, and technical enforcement. Each level includes human-readable and machine-readable metadata support.
+FAIR² defines six standardized Access Agreement Levels (0–5) to govern dataset use, extending the FAIR principles with Responsible AI, modern governance requirements, and machine-actionable policies. These levels span from embargoed early-visibility records to secure/federated environments for sensitive data. Each level includes human-readable obligations and machine-readable metadata expressions (JSON-LD, ODRL, PROV-O, schema.org).
+
+The Access Agreement Levels ensure:
+
+- Early discoverability without premature disclosure  
+- Reusability aligned with community norms, governance structures, and sovereignty  
+- Responsible AI considerations where datasets may train or inform ML systems  
+- Enforceable conditions of access across federated repositories  
+- Full traceability and accountability through provenance and access logging  
+
+---
 
 ## Agreement Levels
 
+### Level 0 – Embargoed Access
+
+**Definition**  
+Metadata are publicly visible; the dataset itself is inaccessible until a specified release date (e.g., pending publication or peer review). Enables discoverability and citation without exposing data prematurely.
+
+**Agreement Text**  
+By viewing this dataset record, you agree to:
+
+- Cite and acknowledge the dataset and its creators.  
+- Respect the embargo period and refrain from downloading or redistributing data prior to release.  
+- Preserve metadata and provenance when referencing this record.  
+
+The dataset will be released under **ODC-BY 1.0** and the **FAIR² sDUA v1.0** on the date specified in the metadata.
+
+---
+
 ### Level 1 – Open Access
 
-**Definition:**  
-Anyone can access the dataset without registration or identification; aligned with FAIR² principles of maximum reuse and transparency.
+**Definition**  
+Anyone may access and reuse the dataset without registration or identification. Aligns with FAIR² principles of maximum reuse, transparency, and interoperability.
 
-**Agreement Text:**  
-By accessing this dataset, you acknowledge that it is made openly available under the stated license. No additional agreement is required. You may use, share, and build upon the dataset in accordance with the license terms, provided that you give appropriate attribution.
+**Agreement Text**  
+By accessing this dataset, you acknowledge that it is openly available under **ODC-BY 1.0**.  
+You may use, share, and build upon the data, provided that you:
+
+- Attribute the dataset and its creators.  
+- Preserve contextual metadata and provenance.  
+- Avoid redistribution or transfer of data outside the FAIR² or sovereign hosting environment; link to the canonical FAIR² record for reuse.
 
 ---
 
 ### Level 2 – Collaborative Access
 
-**Definition:**  
-Access requires users to acknowledge the data owner’s role and agree to consider collaboration, ensuring mutual benefit while maintaining broad reusability.
+**Definition**  
+Access remains open but encourages engagement with dataset owners or contributors. Suitable for contextual, community-generated, or complex datasets where reciprocal communication is beneficial.
 
-**Agreement Text:**  
-By downloading this dataset, you agree to properly attribute the data and to consider collaboration with the dataset owner(s) in any substantial research use.
+**Agreement Text**  
+By downloading or using this dataset, you agree to:
+
+- Cite and acknowledge the dataset and its creators.  
+- Preserve contextual metadata and provenance.  
+- Consider collaboration or consultation with dataset owners for substantial reuse or derivative research.  
+- Communicate significant results or derived outputs back to the creators.  
+- Avoid redistribution or transfer of data outside the FAIR² or sovereign hosting environment.
 
 ---
 
 ### Level 3 – Trusted Access
 
-**Definition:**  
-Access requires researcher identification (e.g., ORCID) and agreement to terms of responsible use, balancing openness with accountability and usage tracking.
+**Definition**  
+Access requires verified researcher identity (e.g., ORCID) and acceptance of a Responsible Use Agreement (RUA). Enables accountability through access logging.
 
-**Agreement Text:**  
-By accessing this dataset, you confirm that you are a qualified researcher and agree to use the data responsibly, not attempt re-identification, and handle the data securely. Access may be logged and monitored to ensure compliance.
+**Agreement Text**  
+By requesting access to this dataset, you agree to:
+
+- Authenticate via ORCID or institutional credentials.  
+- Use the data responsibly and ethically, aligned with FAIR² and Responsible AI principles.  
+- Handle data securely; do not attempt re-identification or unauthorized dataset linkage.  
+- Permit access logging for compliance and reproducibility.  
+- Cite and acknowledge the dataset and its creators.  
+- Preserve contextual metadata and provenance.  
+- Avoid redistribution or transfer outside the FAIR² or sovereign hosting environment; share only derived or aggregated results.
+
+**Repository Requirement**  
+Repositories implementing Level 3 must log ORCID-authenticated access and provide auditable reuse metrics.
 
 ---
 
-### Level 4 – Secure Access
+### Level 4 – Community-Governed Access (CARE)
 
-**Definition:**  
-Accessible only in a controlled, cloud-based environment; requires a formal Data Use Agreement (DUA), verified human data training, and credentials registered in the researcher’s ORCID profile. No local downloads permitted.
+**Definition**  
+For datasets governed by recognized communities under CARE Principles (Collective Benefit, Authority to Control, Responsibility, Ethics). Discoverable under ODC-BY 1.0, but substantial reuse requires community consultation and adherence to governance protocols.
 
-**Agreement Text:**  
-By requesting access to this dataset, you agree to:  
-• Have up-to-date human data handling training credentials registered in your ORCID profile  
-• Accept and comply with the standard Data Use Agreement (DUA) provided by the data owner  
-• Work only within the approved secure environment; direct downloads and external storage are not permitted  
-• Not attempt to re-identify individuals, share the data, or use it beyond the approved scope
+**Agreement Text**  
+By accessing this dataset, you agree to:
+
+- Use data responsibly and ethically in alignment with FAIR² and CARE Principles.  
+- Acknowledge the dataset, its creators, and its governing community.  
+- Preserve contextual metadata and provenance.  
+- Consult the designated community authority before substantial reuse, derivative research, or commercial application.  
+- Respect cultural, ethical, or spiritual restrictions specified by the community.  
+- Communicate outcomes and benefits back to the community.  
+- Avoid redistribution outside the FAIR² or sovereign hosting environment or beyond the community’s jurisdiction.
+
+**Metadata Requirement**  
+Level 4 datasets must include a **Community Governance Protocol** URI describing consultation processes and contact details.
+
+---
+
+### Level 5 – Secure / Federated Access
+
+**Definition**  
+For sensitive, human-derived, or legally regulated data. Access occurs only within a controlled, audited, or federated environment. Raw data cannot be downloaded. Requires a formal DUA and verified human-data handling credentials.
+
+**Agreement Text**  
+By requesting access to this dataset, you agree to:
+
+- Hold verified human-data or ethics credentials linked to your ORCID profile.  
+- Accept and comply with the FAIR² Data Use Agreement (DUA).  
+- Work solely within the approved secure or federated environment; downloads are prohibited.  
+- Not attempt re-identification, extraction, or redistribution of raw data.  
+- Permit comprehensive audit logging for compliance and reproducibility.  
+- Cite and acknowledge the dataset and its creators.  
+- Preserve contextual metadata and provenance.  
+- Avoid redistribution or transfer of data outside the FAIR² or sovereign hosting environment.
+
+Only aggregated or anonymized outputs may leave the secure environment.
+
+---
+
+## AI-Specific and Responsible Reuse Metadata Extensions
+
+FAIR² supports optional AI-specific attributes to ensure compliance with Responsible AI:
+
+| Property | Description |
+|---------|-------------|
+| **fair2:AItrainingPermitted** | Indicates whether the dataset may be used for ML/AI training (`true`/`false`). |
+| **fair2:AIethicalUse** | Describes Responsible AI expectations, including limitations, bias-mitigation duties, and attribution expectations for model cards. |
+| **fair2:reuseLogging** | States whether the repository logs and reports reuse events automatically. |
 
 ---
 
 ## Standards Alignment
 
-FAIR² access levels build on the following standards:
+FAIR² Access Levels align with:
 
-- `schema.org`
-- `DCAT` / `DCTERMS`
-- `DataCite Metadata Schema`
-- `ODRL` (optional for expressiveness)
+- **schema.org**  
+- **DCAT / DCTERMS**  
+- **DataCite Metadata Schema**  
+- **ODRL**  
+- **CARE Principles**  
+- Controlled vocabularies for `conditionsOfAccess` and `sovereignLocationType`
 
-## Controlled Vocabulary (Machine-Readable)
+---
 
-The FAIR² agreement levels are published as a JSON-LD vocabulary at:
+## Key Vocabulary Terms
+
+| Property | Description |
+|----------|-------------|
+| `dct:license` | Canonical license URI (e.g., ODC-BY 1.0) |
+| `dct:accessRights` | Reference to FAIR² Agreement Level (0–5) |
+| `fair2:conditionsOfAccess` | Text summary (Embargoed / Open / Collaborative / Trusted / Community-Governed / Secure) |
+| `odrl:hasPolicy` | Machine-readable obligations and permissions |
+| `fair2:sovereignLocation` | Sovereign hosting environment URI |
+| `fair2:AItrainingPermitted` | Indicates whether dataset can be used for AI training |
+| `fair2:governanceProtocol` | Link to governance policy |
+| `fair2:redistributionPolicy` | Rules restricting transfer outside FAIR² environments |
+
+---
+
+## Vocabulary Publication
 
 ```
 https://fair2.ai/terms/AgreementLevels
 ```
 
-### Key Vocabulary Terms
-
-| Property               | Description                                                            |
-|------------------------|------------------------------------------------------------------------|
-| `dct:license`          | Canonical license URI                                                  |
-| `dct:accessRights`     | Reference to FAIR² Agreement Level (1–4)                               |
-| `conditionsOfAccess`   | Explicit textual summary (Open / Collaborative / Trusted / Secure)     |
-| `odrl:hasPolicy`       | Points to a machine-readable policy (permissions, prohibitions, duties)|
-
-
 ---
 
-## Example: Level 4 Agreement Term (DefinedTerm)
+## Example: Level 4 – Community-Governed Access (DefinedTerm)
 
 ```json
 {
@@ -90,13 +184,14 @@ https://fair2.ai/terms/AgreementLevels
   },
   "@id": "fair2:AgreementLevel4",
   "@type": "DefinedTerm",
-  "schema:name": "Secure Access",
-  "skos:definition": "Accessible only in a controlled, cloud-based environment; requires a DUA, human data training, and ORCID-registered credential.",
-  "skos:note": "By requesting access, you confirm you have appropriate human data training credentials in your ORCID profile, accept the standard DUA, and will work only in the approved secure environment.",
+  "schema:name": "Community-Governed Access (CARE)",
+  "skos:definition": "Governed by a recognized community under CARE Principles. Consultation required before reuse. Redistribution beyond FAIR² or sovereign hosting is prohibited.",
+  "skos:note": "By accessing this dataset, you confirm adherence to FAIR² and CARE principles, including consultation and collective acknowledgment before substantial reuse.",
   "schema:url": "https://fair2.ai/ns/AgreementLevels/4"
 }
 ```
-See full list of Agreement Level Objects in our repository.
+
+---
 
 ## Example: Dataset Metadata Referencing Agreement Level 2
 
@@ -109,14 +204,16 @@ See full list of Agreement Level Objects in our repository.
   },
   "@type": "schema:Dataset",
   "schema:name": "Marine Biodiversity Dataset",
-  "dct:license": "https://creativecommons.org/licenses/by/4.0/",
+  "dct:license": "https://opendatacommons.org/licenses/by/1-0/",
   "dct:accessRights": {
-    "@id": "https://fair2.ai/ns/AgreementLevels1",
+    "@id": "https://fair2.ai/ns/AgreementLevels2",
     "@type": "schema:DefinedTerm",
-    "schema:name": "Open Access",
-    "skos:definition": "Anyone can access the dataset without registration or identification. No additional agreement is required.",
-    "skos:note": "By accessing this dataset, you acknowledge that it is made openly available under the stated license. You may use, share, and build upon it in accordance with the license terms, provided that you give appropriate attribution.",
-    "schema:url": "https://fair2.ai/spec/AgreementLevels/1"
-  } 
+    "schema:name": "Collaborative Access",
+    "skos:definition": "Access requires acknowledgment of data owners and encourages collaboration while maintaining broad reusability.",
+    "skos:note": "By downloading this dataset, you agree to attribute the data, preserve context, and consider collaboration with the dataset owners in any substantial reuse.",
+    "schema:url": "https://fair2.ai/spec/AgreementLevels/2"
+  },
+  "fair2:sovereignLocation": "https://datarepository.example.org",
+  "fair2:AItrainingPermitted": true
 }
 ```

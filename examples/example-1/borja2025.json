@@ -1,19 +1,26 @@
 {
   "@context": {
     "@base": "https://sen.science/doi/10.71728/r1rj-f947/",
-    "@vocab": "http://senscience.ai/",
+    "@vocab": "https://fair2.ai/ns/",
     "@language": "en",
     "Audience": {
       "@id": "fair2:Audience"
     },
+    "AuthorRole": {
+      "@id": "fair2:AuthorRole"
+    },
     "Boolean": {
       "@id": "schema:Boolean"
+    },
+    "ContributorRole": {
+      "@id": "fair2:ContributorRole"
     },
     "CreativeWork": {
       "@id": "schema:CreativeWork"
     },
-    "Date": {
-      "@id": "schema:Date"
+    "DataArticle": {
+      "@id": "fair2:DataArticle",
+      "@type": "schema:ScholarlyArticle"
     },
     "DataDownload": {
       "@id": "schema:DataDownload"
@@ -21,8 +28,14 @@
     "Dataset": {
       "@id": "schema:Dataset"
     },
+    "Date": {
+      "@id": "schema:Date"
+    },
     "DateTime": {
       "@id": "schema:DateTime"
+    },
+    "DefinedTerm": {
+      "@id": "schema:DefinedTerm"
     },
     "DescriptiveStatistics": {
       "@id": "fair2:DescriptiveStatistics"
@@ -43,6 +56,9 @@
     "Float": {
       "@id": "schema:Float"
     },
+    "GeoShape": {
+      "@id": "schema:GeoShape"
+    },
     "HowTo": {
       "@id": "schema:HowTo"
     },
@@ -58,20 +74,8 @@
     "Location": {
       "@id": "schema:Location"
     },
-    "Section": {
-      "@id": "fair2:Section",
-      "@type": "schema:HowToSection"
-    },
     "Number": {
       "@id": "schema:Number"
-    },
-    "OpenDataArticle": {
-      "@id": "fair2:OpenDataArticle",
-      "@type": "schema:ScholarlyArticle"
-    },
-    "OpenDataArticleSection": {
-      "@id": "fair2:OpenDataArticleSection",
-      "@type": "schema:Text"
     },
     "Organization": {
       "@id": "schema:Organization"
@@ -81,6 +85,9 @@
     },
     "Person": {
       "@id": "schema:Person"
+    },
+    "Place": {
+      "@id": "schema:Place"
     },
     "PropertyValue": {
       "@id": "schema:PropertyValue"
@@ -108,13 +115,17 @@
       "@id": "fair2:Substep"
     },
     "Section": {
-      "@id": "fair2:Section"
+      "@id": "fair2:Section",
+      "@type": "schema:HowToSection"
     },
     "Text": {
       "@id": "schema:Text"
     },
     "Visualization": {
       "@id": "fair2:Visualization"
+    },
+    "accessRights": {
+      "@id": "dct:accessRights"
     },
     "activities": {
       "@id": "fair2:activities"
@@ -139,6 +150,9 @@
     },
     "author": {
       "@id": "schema:author"
+    },
+    "box": {
+      "@id": "schema:box"
     },
     "builds": {
       "@id": "fair2:builds"
@@ -231,6 +245,9 @@
       "@id": "schema:datePublished"
     },
     "dct": "http://purl.org/dc/terms/",
+    "definition": {
+      "@id": "skos:definition"
+    },
     "description": {
       "@id": "schema:description"
     },
@@ -252,7 +269,7 @@
     "extract": {
       "@id": "cr:extract"
     },
-    "fair2": "https://fair2.ai/spec/fair2_context",
+    "fair2": "https://fair2.ai/ns/",
     "field": {
       "@id": "cr:field"
     },
@@ -262,11 +279,20 @@
     "funding": {
       "@id": "schema:funding"
     },
+    "geo": {
+      "@id": "schema:geo"
+    },
+    "hadRole": {
+      "@id": "prov:hadRole"
+    },
     "hasPart": {
       "@id": "schema:hasPart"
     },
     "isBasedOn": {
       "@id": "schema:isBasedOn"
+    },
+    "label": {
+      "@id": "label"
     },
     "license": {
       "@id": "schema:license"
@@ -277,11 +303,11 @@
     "manuscript": {
       "@id": "fair2:manuscript"
     },
-    "Section": {
-      "@id": "fair2:mnethodSection"
-    },
     "name": {
       "@id": "schema:name"
+    },
+    "note": {
+      "@id": "skos:note"
     },
     "personalSensitiveInformation": {
       "@id": "rai:personalSensitiveInformation"
@@ -294,11 +320,9 @@
       "@id": "schema:publisher"
     },
     "rai": "http://mlcommons.org/croissant/RAI/",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     "recordSet": {
       "@id": "cr:recordSet"
-    },
-    "roleName": {
-      "@id": "fair2:roleName"
     },
     "schema": "https://schema.org/",
     "sh": "http://www.w3.org/ns/shacl#",
@@ -309,6 +333,9 @@
     "source": {
       "@id": "cr:source"
     },
+    "spatialCoverage": {
+      "@id": "schema:spatialCoverage"
+    },
     "statistics": {
       "@id": "fair2:statistics"
     },
@@ -317,6 +344,12 @@
     },
     "store": {
       "@id": "fair2:store"
+    },
+    "temporalCoverage": {
+      "@id": "schema:temporalCoverage"
+    },
+    "unit": {
+      "@id": "fair2:unit"
     },
     "unitCode": {
       "@id": "schema:unitCode"
@@ -333,6 +366,12 @@
     },
     "version": {
       "@id": "schema:version"
+    },
+    "wasDerivedFrom": {
+      "@id": "prov:wasDerivedFrom"
+    },
+    "wasRevisionOf": {
+      "@id": "prov:wasRevisionOf"
     }
   },
   "@id": "https://sen.science/doi/10.71728/r1rj-f947",
@@ -357,6 +396,12 @@
         "@id": "https://orcid.org/0000-0003-1601-2025",
         "propertyID": "ORCID"
       },
+      "hadRole": [
+        {
+          "@type": "AuthorRole",
+          "name": "Corresponding Author"
+        }
+      ],
       "name": "Ángel Borja"
     },
     {
@@ -821,7 +866,7 @@
     {
       "@type": "schema:UpdateAction",
       "datePublished": "2025-03-12",
-      "prov:wasRevisionOf": {
+      "wasRevisionOf": {
         "@type": "Dataset",
         "identifier": "https://sen.science/doi/10.71728/r1rj-f947",
         "version": "1.0"
@@ -837,6 +882,28 @@
         ],
         "otherInformation": []
       }
+    },
+    {
+      "@type": "schema:UpdateAction",
+      "datePublished": "2025-11-19",
+      "wasRevisionOf": {
+        "@type": "Dataset",
+        "identifier": "https://sen.science/doi/10.71728/r1rj-f947",
+        "version": "1.1"
+      },
+      "schema:description": {
+        "newFeatures": [],
+        "improvements": [
+          "Updated schema structure to better align with the latest version of the FAIR² specifications",
+          "Enhanced spatial and temporal coverage details for Google Dataset Search compliance",
+          "Added DUA metadata"
+        ],
+        "bugFixes": [
+          "Include @language in the @context to comply with new Croissant requirements.",
+          "Use FAIR² namespace for all FAIR² specific properties."
+        ],
+        "otherInformation": []
+      }
     }
   ],
   "citation": "https://doi.org/10.3389/focsu.2024.1528837",
@@ -844,569 +911,582 @@
   "citationKey": "Borja2024a",
   "conformsTo": "http://mlcommons.org/croissant/1.0",
   "contentUrl": "fair2.json",
-  "contribution": [
+  "contributor": [
     {
-      "@type": "schema:Contribution",
-      "schema:agent": {
-        "@type": "schema:Person",
-        "@id": "/authors/c1b96691-fbbf-4157-a2c5-e8fb78c799f1",
-        "schema:name": "Ángel Borja"
-      },
-      "prov:hadRole": [
+      "@type": "schema:Person",
+      "@id": "/authors/c1b96691-fbbf-4157-a2c5-e8fb78c799f1",
+      "schema:name": "Ángel Borja",
+      "hadRole": [
         {
           "@id": "http://purl.obolibrary.org/obo/CRO_0000039",
-          "rdfs:label": "Conceptualization"
+          "@type": "ContributorRole",
+          "label": "Conceptualization"
         },
         {
           "@id": "https://fair2.ai/ns/contributor-roles/DataIntegration",
-          "rdfs:label": "DataIntegration"
+          "@type": "ContributorRole",
+          "label": "DataIntegration"
         },
         {
           "@id": "http://purl.obolibrary.org/obo/CRO_0000027",
-          "rdfs:label": "Supervision"
+          "@type": "ContributorRole",
+          "label": "Supervision"
         },
         {
           "@id": "http://purl.obolibrary.org/obo/CRO_0000034",
-          "rdfs:label": "WritingOriginalDraft"
+          "@type": "ContributorRole",
+          "label": "WritingOriginalDraft"
         },
         {
           "@id": "http://purl.obolibrary.org/obo/CRO_0000026",
-          "rdfs:label": "ProjectAdministration"
+          "@type": "ContributorRole",
+          "label": "ProjectAdministration"
         }
       ]
     },
     {
-      "@type": "schema:Contribution",
-      "schema:agent": {
-        "@type": "schema:Person",
-        "@id": "/authors/ec8f02fa-21f5-40ed-a7ba-9cbd0f31badd",
-        "schema:name": "José Germán Rodríguez"
-      },
-      "prov:hadRole": [
+      "@type": "schema:Person",
+      "@id": "/authors/ec8f02fa-21f5-40ed-a7ba-9cbd0f31badd",
+      "schema:name": "José Germán Rodríguez",
+      "hadRole": [
         {
           "@id": "http://purl.obolibrary.org/obo/CRO_0000001",
-          "rdfs:label": "DataCuration"
+          "@type": "ContributorRole",
+          "label": "DataCuration"
         },
         {
           "@id": "http://purl.obolibrary.org/obo/CRO_0000005",
-          "rdfs:label": "FormalAnalysis"
+          "@type": "ContributorRole",
+          "label": "FormalAnalysis"
         },
         {
           "@id": "http://purl.obolibrary.org/obo/CRO_0000035",
-          "rdfs:label": "WritingReviewEditing"
+          "@type": "ContributorRole",
+          "label": "WritingReviewEditing"
         }
       ]
     },
     {
-      "@type": "schema:Contribution",
-      "schema:agent": {
-        "@type": "schema:Person",
-        "@id": "/authors/7ab2eeaa-ccf2-4da5-b5bc-aae5610a07b6",
-        "schema:name": "Juan Bald"
-      },
-      "prov:hadRole": [
+      "@type": "schema:Person",
+      "@id": "/authors/7ab2eeaa-ccf2-4da5-b5bc-aae5610a07b6",
+      "schema:name": "Juan Bald",
+      "hadRole": [
         {
           "@id": "http://purl.obolibrary.org/obo/CRO_0000001",
-          "rdfs:label": "DataCuration"
+          "@type": "ContributorRole",
+          "label": "DataCuration"
         },
         {
           "@id": "https://fair2.ai/ns/contributor-roles/GeospatialAnalysis",
-          "rdfs:label": "GeospatialAnalysis"
+          "@type": "ContributorRole",
+          "label": "GeospatialAnalysis"
         },
         {
           "@id": "http://purl.obolibrary.org/obo/CRO_0000033",
-          "rdfs:label": "Visualization"
+          "@type": "ContributorRole",
+          "label": "Visualization"
         },
         {
           "@id": "http://purl.obolibrary.org/obo/CRO_0000035",
-          "rdfs:label": "WritingReviewEditing"
+          "@type": "ContributorRole",
+          "label": "WritingReviewEditing"
         }
       ]
     },
     {
-      "@type": "schema:Contribution",
-      "schema:agent": {
-        "@type": "schema:Person",
-        "@id": "/authors/fc0f0feb-7c90-467d-b0f5-a8ff04d1b86a",
-        "schema:name": "Mª. Jesús Belzunce-Segarra"
-      },
-      "prov:hadRole": [
+      "@type": "schema:Person",
+      "@id": "/authors/fc0f0feb-7c90-467d-b0f5-a8ff04d1b86a",
+      "schema:name": "Mª. Jesús Belzunce-Segarra",
+      "hadRole": [
         {
           "@id": "http://purl.obolibrary.org/obo/CRO_0000001",
-          "rdfs:label": "DataCuration"
+          "@type": "ContributorRole",
+          "label": "DataCuration"
         },
         {
           "@id": "http://purl.obolibrary.org/obo/CRO_0000005",
-          "rdfs:label": "FormalAnalysis"
+          "@type": "ContributorRole",
+          "label": "FormalAnalysis"
         },
         {
           "@id": "http://purl.obolibrary.org/obo/CRO_0000035",
-          "rdfs:label": "WritingReviewEditing"
+          "@type": "ContributorRole",
+          "label": "WritingReviewEditing"
         }
       ]
     },
     {
-      "@type": "schema:Contribution",
-      "schema:agent": {
-        "@type": "schema:Person",
-        "@id": "/authors/58edc419-f85a-4b7c-a420-212433a30d77",
-        "schema:name": "Javier Franco"
-      },
-      "prov:hadRole": [
+      "@type": "schema:Person",
+      "@id": "/authors/58edc419-f85a-4b7c-a420-212433a30d77",
+      "schema:name": "Javier Franco",
+      "hadRole": [
         {
           "@id": "http://purl.obolibrary.org/obo/CRO_0000023",
-          "rdfs:label": "Methodology"
+          "@type": "ContributorRole",
+          "label": "Methodology"
         },
         {
           "@id": "https://fair2.ai/ns/contributor-roles/StatisticalAnalysis",
-          "rdfs:label": "StatisticalAnalysis"
+          "@type": "ContributorRole",
+          "label": "StatisticalAnalysis"
         },
         {
           "@id": "http://purl.obolibrary.org/obo/CRO_0000001",
-          "rdfs:label": "DataCuration"
+          "@type": "ContributorRole",
+          "label": "DataCuration"
         },
         {
           "@id": "http://purl.obolibrary.org/obo/CRO_0000029",
-          "rdfs:label": "FigurePreparation"
+          "@type": "ContributorRole",
+          "label": "FigurePreparation"
         },
         {
           "@id": "http://purl.obolibrary.org/obo/CRO_0000035",
-          "rdfs:label": "WritingReviewEditing"
+          "@type": "ContributorRole",
+          "label": "WritingReviewEditing"
         }
       ]
     },
     {
-      "@type": "schema:Contribution",
-      "schema:agent": {
-        "@type": "schema:Person",
-        "@id": "/authors/70d18870-7f86-47cc-9cdd-a107fc020865",
-        "schema:name": "Joxe Mikel Garmendia"
-      },
-      "prov:hadRole": [
+      "@type": "schema:Person",
+      "@id": "/authors/70d18870-7f86-47cc-9cdd-a107fc020865",
+      "schema:name": "Joxe Mikel Garmendia",
+      "hadRole": [
         {
           "@id": "http://purl.obolibrary.org/obo/CRO_0000001",
-          "rdfs:label": "DataCuration"
+          "@type": "ContributorRole",
+          "label": "DataCuration"
         },
         {
           "@id": "https://fair2.ai/ns/contributor-roles/DataPreprocessing",
-          "rdfs:label": "DataPreprocessing"
+          "@type": "ContributorRole",
+          "label": "DataPreprocessing"
         },
         {
           "@id": "https://fair2.ai/ns/contributor-roles/MethodologyDevelopment",
-          "rdfs:label": "MethodologyDevelopment"
+          "@type": "ContributorRole",
+          "label": "MethodologyDevelopment"
         },
         {
           "@id": "http://purl.obolibrary.org/obo/CRO_0000035",
-          "rdfs:label": "WritingReviewEditing"
+          "@type": "ContributorRole",
+          "label": "WritingReviewEditing"
         }
       ]
     },
     {
-      "@type": "schema:Contribution",
-      "schema:agent": {
-        "@type": "schema:Person",
-        "@id": "/authors/755ab500-40f0-4642-976b-740f22f719ff",
-        "schema:name": "Joana Larreta"
+      "@type": "schema:Person",
+      "@id": "/authors/755ab500-40f0-4642-976b-740f22f719ff",
+      "schema:name": "Joana Larreta",
+      "hadRole": [
+      {
+        "@id": "https://fair2.ai/ns/contributor-roles/DataAnalysis",
+        "@type": "ContributorRole",
+        "label": "DataAnalysis"
       },
-      "prov:hadRole": [
-        {
-          "@id": "https://fair2.ai/ns/contributor-roles/DataAnalysis",
-          "rdfs:label": "DataAnalysis"
-        },
-        {
-          "@id": "http://purl.obolibrary.org/obo/CRO_0000001",
-          "rdfs:label": "DataCuration"
-        },
-        {
-          "@id": "https://fair2.ai/ns/contributor-roles/DataPreprocessing",
-          "rdfs:label": "DataPreprocessing"
-        },
-        {
-          "@id": "http://purl.obolibrary.org/obo/CRO_0000034",
-          "rdfs:label": "WritingOriginalDraft"
-        },
-        {
-          "@id": "http://purl.obolibrary.org/obo/CRO_0000035",
-          "rdfs:label": "WritingReviewEditing"
-        }
+      {
+        "@id": "http://purl.obolibrary.org/obo/CRO_0000001",
+        "@type": "ContributorRole",
+        "label": "DataCuration"
+      },
+      {
+        "@id": "https://fair2.ai/ns/contributor-roles/DataPreprocessing",
+        "@type": "ContributorRole",
+        "label": "DataPreprocessing"
+      },
+      {
+        "@id": "http://purl.obolibrary.org/obo/CRO_0000034",
+        "@type": "ContributorRole",
+        "label": "WritingOriginalDraft"
+      },
+      {
+        "@id": "http://purl.obolibrary.org/obo/CRO_0000035",
+        "@type": "ContributorRole",
+        "label": "WritingReviewEditing"
+      }
       ]
     },
     {
-      "@type": "schema:Contribution",
-      "schema:agent": {
-        "@type": "schema:Person",
-        "@id": "/authors/2b106118-927a-49c0-af90-17b2b0a5c5c7",
-        "schema:name": "Iratxe Menchaca"
+      "@type": "schema:Person",
+      "@id": "/authors/2b106118-927a-49c0-af90-17b2b0a5c5c7",
+      "schema:name": "Iratxe Menchaca",
+      "hadRole": [
+      {
+        "@id": "https://fair2.ai/ns/contributor-roles/DataCollection",
+        "@type": "ContributorRole",
+        "label": "DataCollection"
       },
-      "prov:hadRole": [
-        {
-          "@id": "https://fair2.ai/ns/contributor-roles/DataCollection",
-          "rdfs:label": "DataCollection"
-        },
-        {
-          "@id": "http://purl.obolibrary.org/obo/CRO_0000005",
-          "rdfs:label": "FormalAnalysis"
-        },
-        {
-          "@id": "http://purl.obolibrary.org/obo/CRO_0000035",
-          "rdfs:label": "WritingReviewEditing"
-        }
+      {
+        "@id": "http://purl.obolibrary.org/obo/CRO_0000005",
+        "@type": "ContributorRole",
+        "label": "FormalAnalysis"
+      },
+      {
+        "@id": "http://purl.obolibrary.org/obo/CRO_0000035",
+        "@type": "ContributorRole",
+        "label": "WritingReviewEditing"
+      }
       ]
     },
     {
-      "@type": "schema:Contribution",
-      "schema:agent": {
-        "@type": "schema:Person",
-        "@id": "/authors/9fab328f-b9b4-4884-acc2-73292114c42f",
-        "schema:name": "Iñigo Muxika"
+      "@type": "schema:Person",
+      "@id": "/authors/9fab328f-b9b4-4884-acc2-73292114c42f",
+      "schema:name": "Iñigo Muxika",
+      "hadRole": [
+      {
+        "@id": "https://fair2.ai/ns/contributor-roles/StatisticalAnalysis",
+        "@type": "ContributorRole",
+        "label": "StatisticalAnalysis"
       },
-      "prov:hadRole": [
-        {
-          "@id": "https://fair2.ai/ns/contributor-roles/StatisticalAnalysis",
-          "rdfs:label": "StatisticalAnalysis"
-        },
-        {
-          "@id": "http://purl.obolibrary.org/obo/CRO_0000033",
-          "rdfs:label": "Visualization"
-        },
-        {
-          "@id": "http://purl.obolibrary.org/obo/CRO_0000035",
-          "rdfs:label": "WritingReviewEditing"
-        }
+      {
+        "@id": "http://purl.obolibrary.org/obo/CRO_0000033",
+        "@type": "ContributorRole",
+        "label": "Visualization"
+      },
+      {
+        "@id": "http://purl.obolibrary.org/obo/CRO_0000035",
+        "@type": "ContributorRole",
+        "label": "WritingReviewEditing"
+      }
       ]
     },
     {
-      "@type": "schema:Contribution",
-      "schema:agent": {
-        "@type": "schema:Person",
-        "@id": "/authors/94f55faa-5c10-4448-b647-4468cf829c57",
-        "schema:name": "Sarai Pouso"
+      "@type": "schema:Person",
+      "@id": "/authors/94f55faa-5c10-4448-b647-4468cf829c57",
+      "schema:name": "Sarai Pouso",
+      "hadRole": [
+      {
+        "@id": "https://fair2.ai/ns/contributor-roles/DataIntegration",
+        "@type": "ContributorRole",
+        "label": "DataIntegration"
       },
-      "prov:hadRole": [
-        {
-          "@id": "https://fair2.ai/ns/contributor-roles/DataIntegration",
-          "rdfs:label": "DataIntegration"
-        },
-        {
-          "@id": "http://purl.obolibrary.org/obo/CRO_0000035",
-          "rdfs:label": "WritingReviewEditing"
-        }
+      {
+        "@id": "http://purl.obolibrary.org/obo/CRO_0000035",
+        "@type": "ContributorRole",
+        "label": "WritingReviewEditing"
+      }
       ]
     },
     {
-      "@type": "schema:Contribution",
-      "schema:agent": {
-        "@type": "schema:Person",
-        "@id": "/authors/e559b4d8-6872-44b0-bbad-bef503ce2669",
-        "schema:name": "Yolanda Sagarmínaga"
+      "@type": "schema:Person",
+      "@id": "/authors/e559b4d8-6872-44b0-bbad-bef503ce2669",
+      "schema:name": "Yolanda Sagarmínaga",
+      "hadRole": [
+      {
+        "@id": "http://purl.obolibrary.org/obo/CRO_0000005",
+        "@type": "ContributorRole",
+        "label": "FormalAnalysis"
       },
-      "prov:hadRole": [
-        {
-          "@id": "http://purl.obolibrary.org/obo/CRO_0000005",
-          "rdfs:label": "FormalAnalysis"
-        },
-        {
-          "@id": "http://purl.obolibrary.org/obo/CRO_0000035",
-          "rdfs:label": "WritingReviewEditing"
-        }
+      {
+        "@id": "http://purl.obolibrary.org/obo/CRO_0000035",
+        "@type": "ContributorRole",
+        "label": "WritingReviewEditing"
+      }
       ]
     },
     {
-      "@type": "schema:Contribution",
-      "schema:agent": {
-        "@type": "schema:Person",
-        "@id": "/authors/a4a62167-b607-453c-be6b-41c9a848f862",
-        "schema:name": "Oihana Solaun"
+      "@type": "schema:Person",
+      "@id": "/authors/a4a62167-b607-453c-be6b-41c9a848f862",
+      "schema:name": "Oihana Solaun",
+      "hadRole": [
+      {
+        "@id": "https://fair2.ai/ns/contributor-roles/DataCollection",
+        "@type": "ContributorRole",
+        "label": "DataCollection"
       },
-      "prov:hadRole": [
-        {
-          "@id": "https://fair2.ai/ns/contributor-roles/DataCollection",
-          "rdfs:label": "DataCollection"
-        },
-        {
-          "@id": "http://purl.obolibrary.org/obo/CRO_0000005",
-          "rdfs:label": "FormalAnalysis"
-        },
-        {
-          "@id": "http://purl.obolibrary.org/obo/CRO_0000035",
-          "rdfs:label": "WritingReviewEditing"
-        }
+      {
+        "@id": "http://purl.obolibrary.org/obo/CRO_0000005",
+        "@type": "ContributorRole",
+        "label": "FormalAnalysis"
+      },
+      {
+        "@id": "http://purl.obolibrary.org/obo/CRO_0000035",
+        "@type": "ContributorRole",
+        "label": "WritingReviewEditing"
+      }
       ]
     },
     {
-      "@type": "schema:Contribution",
-      "schema:agent": {
-        "@type": "schema:Person",
-        "@id": "/authors/6c4bb5d1-01c9-45c7-82ba-84406e31f072",
-        "schema:name": "Marta Revilla"
+      "@type": "schema:Person",
+      "@id": "/authors/6c4bb5d1-01c9-45c7-82ba-84406e31f072",
+      "schema:name": "Marta Revilla",
+      "hadRole": [
+      {
+        "@id": "https://fair2.ai/ns/contributor-roles/DataCollection",
+        "@type": "ContributorRole",
+        "label": "DataCollection"
       },
-      "prov:hadRole": [
-        {
-          "@id": "https://fair2.ai/ns/contributor-roles/DataCollection",
-          "rdfs:label": "DataCollection"
-        },
-        {
-          "@id": "http://purl.obolibrary.org/obo/CRO_0000033",
-          "rdfs:label": "Visualization"
-        },
-        {
-          "@id": "http://purl.obolibrary.org/obo/CRO_0000005",
-          "rdfs:label": "FormalAnalysis"
-        },
-        {
-          "@id": "http://purl.obolibrary.org/obo/CRO_0000035",
-          "rdfs:label": "WritingReviewEditing"
-        }
+      {
+        "@id": "http://purl.obolibrary.org/obo/CRO_0000033",
+        "@type": "ContributorRole",
+        "label": "Visualization"
+      },
+      {
+        "@id": "http://purl.obolibrary.org/obo/CRO_0000005",
+        "@type": "ContributorRole",
+        "label": "FormalAnalysis"
+      },
+      {
+        "@id": "http://purl.obolibrary.org/obo/CRO_0000035",
+        "@type": "ContributorRole",
+        "label": "WritingReviewEditing"
+      }
       ]
     },
     {
-      "@type": "schema:Contribution",
-      "schema:agent": {
-        "@type": "schema:Person",
-        "@id": "/authors/ad100bf0-903f-456e-aa08-32765cda3f72",
-        "schema:name": "Alberto Manzanos"
+      "@type": "schema:Person",
+      "@id": "/authors/ad100bf0-903f-456e-aa08-32765cda3f72",
+      "schema:name": "Alberto Manzanos",
+      "hadRole": [
+      {
+        "@id": "http://purl.obolibrary.org/obo/CRO_0000001",
+        "@type": "ContributorRole",
+        "label": "DataCuration"
       },
-      "prov:hadRole": [
-        {
-          "@id": "http://purl.obolibrary.org/obo/CRO_0000001",
-          "rdfs:label": "DataCuration"
-        },
-        {
-          "@id": "https://fair2.ai/ns/contributor-roles/QualityControl",
-          "rdfs:label": "QualityControl"
-        },
-        {
-          "@id": "http://purl.obolibrary.org/obo/CRO_0000026",
-          "rdfs:label": "ProjectAdministration"
-        }
+      {
+        "@id": "https://fair2.ai/ns/contributor-roles/QualityControl",
+        "@type": "ContributorRole",
+        "label": "QualityControl"
+      },
+      {
+        "@id": "http://purl.obolibrary.org/obo/CRO_0000026",
+        "@type": "ContributorRole",
+        "label": "ProjectAdministration"
+      }
       ]
     },
     {
-      "@type": "schema:Contribution",
-      "schema:agent": {
-        "@type": "schema:Person",
-        "@id": "/authors/f1d6bf5e-4952-40ee-b071-6a0311d0dbb4",
-        "schema:name": "Inma Martín"
+      "@type": "schema:Person",
+      "@id": "/authors/f1d6bf5e-4952-40ee-b071-6a0311d0dbb4",
+      "schema:name": "Inma Martín",
+      "hadRole": [
+      {
+        "@id": "http://purl.obolibrary.org/obo/CRO_0000001",
+        "@type": "ContributorRole",
+        "label": "DataCuration"
       },
-      "prov:hadRole": [
-        {
-          "@id": "http://purl.obolibrary.org/obo/CRO_0000001",
-          "rdfs:label": "DataCuration"
-        },
-        {
-          "@id": "https://fair2.ai/ns/contributor-roles/QualityControl",
-          "rdfs:label": "QualityControl"
-        }
+      {
+        "@id": "https://fair2.ai/ns/contributor-roles/QualityControl",
+        "@type": "ContributorRole",
+        "label": "QualityControl"
+      }
       ]
     },
     {
-      "@type": "schema:Contribution",
-      "schema:agent": {
-        "@type": "schema:Person",
-        "@id": "/authors/0b2c265b-cbbb-4a84-a6e0-8561a03f7617",
-        "schema:name": "Ainhize Uriarte"
+      "@type": "schema:Person",
+      "@id": "/authors/0b2c265b-cbbb-4a84-a6e0-8561a03f7617",
+      "schema:name": "Ainhize Uriarte",
+      "hadRole": [
+      {
+        "@id": "https://fair2.ai/terms/contributor-roles/DataCollection",
+        "@type": "ContributorRole",
+        "label": "DataCollection"
       },
-      "prov:hadRole": [
-        {
-          "@id": "https://fair2.ai/terms/contributor-roles/DataCollection",
-          "rdfs:label": "DataCollection"
-        },
-        {
-          "@id": "https://fair2.ai/ns/contributor-roles/EnvironmentalAnalysis",
-          "rdfs:label": "EnvironmentalAnalysis"
-        },
-        {
-          "@id": "http://purl.obolibrary.org/obo/CRO_0000033",
-          "rdfs:label": "Visualization"
-        },
-        {
-          "@id": "http://purl.obolibrary.org/obo/CRO_0000035",
-          "rdfs:label": "WritingReviewEditing"
-        }
+      {
+        "@id": "https://fair2.ai/ns/contributor-roles/EnvironmentalAnalysis",
+        "@type": "ContributorRole",
+        "label": "EnvironmentalAnalysis"
+      },
+      {
+        "@id": "http://purl.obolibrary.org/obo/CRO_0000033",
+        "@type": "ContributorRole",
+        "label": "Visualization"
+      },
+      {
+        "@id": "http://purl.obolibrary.org/obo/CRO_0000035",
+        "@type": "ContributorRole",
+        "label": "WritingReviewEditing"
+      }
       ]
     },
     {
-      "@type": "schema:Contribution",
-      "schema:agent": {
-        "@type": "schema:Person",
-        "@id": "/authors/558ed9d2-2e21-4016-9f93-474fbec7260b",
-        "schema:name": "Izaskun Zorita"
+      "@type": "schema:Person",
+      "@id": "/authors/558ed9d2-2e21-4016-9f93-474fbec7260b",
+      "schema:name": "Izaskun Zorita",
+      "hadRole": [
+      {
+        "@id": "https://fair2.ai/ns/contributor-roles/TechnicalOversight",
+        "@type": "ContributorRole",
+        "label": "TechnicalOversight"
       },
-      "prov:hadRole": [
-        {
-          "@id": "https://fair2.ai/ns/contributor-roles/TechnicalOversight",
-          "rdfs:label": "TechnicalOversight"
-        },
-        {
-          "@id": "https://fair2.ai/terms/contributor-roles/DataProcessing",
-          "rdfs:label": "DataProcessing"
-        },
-        {
-          "@id": "https://fair2.ai/terms/contributor-roles/MethodologyDevelopment",
-          "rdfs:label": "MethodologyDevelopment"
-        },
-        {
-          "@id": "http://purl.obolibrary.org/obo/CRO_0000029",
-          "rdfs:label": "FigurePreparation"
-        },
-        {
-          "@id": "http://purl.obolibrary.org/obo/CRO_0000035",
-          "rdfs:label": "WritingReviewEditing"
-        }
+      {
+        "@id": "https://fair2.ai/terms/contributor-roles/DataProcessing",
+        "@type": "ContributorRole",
+        "label": "DataProcessing"
+      },
+      {
+        "@id": "https://fair2.ai/terms/contributor-roles/MethodologyDevelopment",
+        "@type": "ContributorRole",
+        "label": "MethodologyDevelopment"
+      },
+      {
+        "@id": "http://purl.obolibrary.org/obo/CRO_0000029",
+        "@type": "ContributorRole",
+        "label": "FigurePreparation"
+      },
+      {
+        "@id": "http://purl.obolibrary.org/obo/CRO_0000035",
+        "@type": "ContributorRole",
+        "label": "WritingReviewEditing"
+      }
       ]
     },
     {
-      "@type": "schema:Contribution",
-      "schema:agent": {
-        "@type": "schema:Person",
-        "@id": "/authors/2ad3ba9b-5a32-4f97-b9ff-02b3ace52a05",
-        "schema:name": "Idoia Adarraga"
+      "@type": "schema:Person",
+      "@id": "/authors/2ad3ba9b-5a32-4f97-b9ff-02b3ace52a05",
+      "schema:name": "Idoia Adarraga",
+      "hadRole": [
+      {
+        "@id": "https://fair2.ai/ns/contributor-roles/MacroalgaeSampling",
+        "@type": "ContributorRole",
+        "label": "MacroalgaeSampling"
       },
-      "prov:hadRole": [
-        {
-          "@id": "https://fair2.ai/ns/contributor-roles/MacroalgaeSampling",
-          "rdfs:label": "MacroalgaeSampling"
-        },
-        {
-          "@id": "https://fair2.ai/ns/contributor-roles/SpeciesIdentification",
-          "rdfs:label": "SpeciesIdentification"
-        },
-        {
-          "@id": "https://fair2.ai/ns/contributor-roles/DataPreprocessing",
-          "rdfs:label": "DataPreprocessing"
-        },
-        {
-          "@id": "http://purl.obolibrary.org/obo/CRO_0000035",
-          "rdfs:label": "WritingReviewEditing"
-        }
+      {
+        "@id": "https://fair2.ai/ns/contributor-roles/SpeciesIdentification",
+        "@type": "ContributorRole",
+        "label": "SpeciesIdentification"
+      },
+      {
+        "@id": "https://fair2.ai/ns/contributor-roles/DataPreprocessing",
+        "@type": "ContributorRole",
+        "label": "DataPreprocessing"
+      },
+      {
+        "@id": "http://purl.obolibrary.org/obo/CRO_0000035",
+        "@type": "ContributorRole",
+        "label": "WritingReviewEditing"
+      }
       ]
     },
     {
-      "@type": "schema:Contribution",
-      "schema:agent": {
-        "@type": "schema:Person",
-        "@id": "/authors/b1e7e1cf-b184-4c1c-be77-3ea77a96571d",
-        "schema:name": "Igor Cruz"
+      "@type": "schema:Person",
+      "@id": "/authors/b1e7e1cf-b184-4c1c-be77-3ea77a96571d",
+      "schema:name": "Igor Cruz",
+      "hadRole": [
+      {
+        "@id": "https://fair2.ai/ns/contributor-roles/MacroalgaeSampling",
+        "@type": "ContributorRole",
+        "label": "MacroalgaeSampling"
       },
-      "prov:hadRole": [
-        {
-          "@id": "https://fair2.ai/ns/contributor-roles/MacroalgaeSampling",
-          "rdfs:label": "MacroalgaeSampling"
-        },
-        {
-          "@id": "https://fair2.ai/ns/contributor-roles/SpeciesIdentification",
-          "rdfs:label": "SpeciesIdentification"
-        },
-        {
-          "@id": "https://fair2.ai/ns/contributor-roles/DataPreprocessing",
-          "rdfs:label": "DataPreprocessing"
-        },
-        {
-          "@id": "http://purl.obolibrary.org/obo/CRO_0000035",
-          "rdfs:label": "WritingReviewEditing"
-        }
+      {
+        "@id": "https://fair2.ai/ns/contributor-roles/SpeciesIdentification",
+        "@type": "ContributorRole",
+        "label": "SpeciesIdentification"
+      },
+      {
+        "@id": "https://fair2.ai/ns/contributor-roles/DataPreprocessing",
+        "@type": "ContributorRole",
+        "label": "DataPreprocessing"
+      },
+      {
+        "@id": "http://purl.obolibrary.org/obo/CRO_0000035",
+        "@type": "ContributorRole",
+        "label": "WritingReviewEditing"
+      }
       ]
     },
     {
-      "@type": "schema:Contribution",
-      "schema:agent": {
-        "@type": "schema:Person",
-        "@id": "/authors/5f79751e-828f-4b79-8e4f-6c7afdd97ed1",
-        "schema:name": "Mikel A. Marquiegui"
+      "@type": "schema:Person",
+      "@id": "/authors/5f79751e-828f-4b79-8e4f-6c7afdd97ed1",
+      "schema:name": "Mikel A. Marquiegui",
+      "hadRole": [
+      {
+        "@id": "https://fair2.ai/ns/contributor-roles/MacroalgaeSampling",
+        "@type": "ContributorRole",
+        "label": "MacroalgaeSampling"
       },
-      "prov:hadRole": [
-        {
-          "@id": "https://fair2.ai/ns/contributor-roles/MacroalgaeSampling",
-          "rdfs:label": "MacroalgaeSampling"
-        },
-        {
-          "@id": "https://fair2.ai/ns/contributor-roles/SpeciesIdentification",
-          "rdfs:label": "SpeciesIdentification"
-        },
-        {
-          "@id": "https://fair2.ai/ns/contributor-roles/DataPreprocessing",
-          "rdfs:label": "DataPreprocessing"
-        },
-        {
-          "@id": "http://purl.obolibrary.org/obo/CRO_0000035",
-          "rdfs:label": "WritingReviewEditing"
-        }
+      {
+        "@id": "https://fair2.ai/ns/contributor-roles/SpeciesIdentification",
+        "@type": "ContributorRole",
+        "label": "SpeciesIdentification"
+      },
+      {
+        "@id": "https://fair2.ai/ns/contributor-roles/DataPreprocessing",
+        "@type": "ContributorRole",
+        "label": "DataPreprocessing"
+      },
+      {
+        "@id": "http://purl.obolibrary.org/obo/CRO_0000035",
+        "@type": "ContributorRole",
+        "label": "WritingReviewEditing"
+      }
       ]
     },
     {
-      "@type": "schema:Contribution",
-      "schema:agent": {
-        "@type": "schema:Person",
-        "@id": "/authors/a40420ba-c7e4-4cfe-8cde-721c943b3b9e",
-        "schema:name": "Julián Martínez"
+      "@type": "schema:Person",
+      "@id": "/authors/a40420ba-c7e4-4cfe-8cde-721c943b3b9e",
+      "schema:name": "Julián Martínez",
+      "hadRole": [
+      {
+        "@id": "https://fair2.ai/ns/contributor-roles/MacroalgaeSampling",
+        "@type": "ContributorRole",
+        "label": "MacroalgaeSampling"
       },
-      "prov:hadRole": [
-        {
-          "@id": "https://fair2.ai/ns/contributor-roles/MacroalgaeSampling",
-          "rdfs:label": "MacroalgaeSampling"
-        },
-        {
-          "@id": "https://fair2.ai/ns/contributor-roles/SpeciesIdentification",
-          "rdfs:label": "SpeciesIdentification"
-        },
-        {
-          "@id": "https://fair2.ai/ns/contributor-roles/DataPreprocessing",
-          "rdfs:label": "DataPreprocessing"
-        },
-        {
-          "@id": "http://purl.obolibrary.org/obo/CRO_0000035",
-          "rdfs:label": "WritingReviewEditing"
-        }
+      {
+        "@id": "https://fair2.ai/ns/contributor-roles/SpeciesIdentification",
+        "@type": "ContributorRole",
+        "label": "SpeciesIdentification"
+      },
+      {
+        "@id": "https://fair2.ai/ns/contributor-roles/DataPreprocessing",
+        "@type": "ContributorRole",
+        "label": "DataPreprocessing"
+      },
+      {
+        "@id": "http://purl.obolibrary.org/obo/CRO_0000035",
+        "@type": "ContributorRole",
+        "label": "WritingReviewEditing"
+      }
       ]
     },
     {
-      "@type": "schema:Contribution",
-      "schema:agent": {
-        "@type": "schema:Person",
-        "@id": "/authors/68615f53-707a-40f7-b37f-beaef70a3aec",
-        "schema:name": "Jose María Ruiz"
+      "@type": "schema:Person",
+      "@id": "/authors/68615f53-707a-40f7-b37f-beaef70a3aec",
+      "schema:name": "Jose María Ruiz",
+      "hadRole": [
+      {
+        "@id": "https://fair2.ai/ns/contributor-roles/MacroalgaeSampling",
+        "@type": "ContributorRole",
+        "label": "MacroalgaeSampling"
       },
-      "prov:hadRole": [
-        {
-          "@id": "https://fair2.ai/ns/contributor-roles/MacroalgaeSampling",
-          "rdfs:label": "MacroalgaeSampling"
-        },
-        {
-          "@id": "https://fair2.ai/ns/contributor-roles/SpeciesIdentification",
-          "rdfs:label": "SpeciesIdentification"
-        },
-        {
-          "@id": "https://fair2.ai/ns/contributor-roles/DataPreprocessing",
-          "rdfs:label": "DataPreprocessing"
-        },
-        {
-          "@id": "http://purl.obolibrary.org/obo/CRO_0000035",
-          "rdfs:label": "WritingReviewEditing"
-        }
+      {
+        "@id": "https://fair2.ai/ns/contributor-roles/SpeciesIdentification",
+        "@type": "ContributorRole",
+        "label": "SpeciesIdentification"
+      },
+      {
+        "@id": "https://fair2.ai/ns/contributor-roles/DataPreprocessing",
+        "@type": "ContributorRole",
+        "label": "DataPreprocessing"
+      },
+      {
+        "@id": "http://purl.obolibrary.org/obo/CRO_0000035",
+        "@type": "ContributorRole",
+        "label": "WritingReviewEditing"
+      }
       ]
     },
     {
-      "@type": "schema:Contribution",
-      "schema:agent": {
-        "@type": "schema:Person",
-        "@id": "authors/89ab5c4a-78d5-4646-9893-dce79501c391",
-        "schema:name": "Aitor Laza-Martínez"
+      "@type": "schema:Person",
+      "@id": "authors/89ab5c4a-78d5-4646-9893-dce79501c391",
+      "schema:name": "Aitor Laza-Martínez",
+      "hadRole": [
+      {
+        "@id": "https://fair2.ai/ns/contributor-roles/PhytoplanktonIdentification",
+        "@type": "ContributorRole",
+        "label": "PhytoplanktonIdentification"
       },
-      "prov:hadRole": [
-        {
-          "@id": "https://fair2.ai/ns/contributor-roles/PhytoplanktonIdentification",
-          "rdfs:label": "PhytoplanktonIdentification"
-        },
-        {
-          "@id": "http://purl.obolibrary.org/obo/CRO_0000035",
-          "rdfs:label": "WritingReviewEditing"
-        }
+      {
+        "@id": "http://purl.obolibrary.org/obo/CRO_0000035",
+        "@type": "ContributorRole",
+        "label": "WritingReviewEditing"
+      }
       ]
     }
   ],
   "dateCreated": "2025-02-05",
   "datePublished": "2025-03-03",
-  "dateUpdated": "2025-03-12",
+  "dateUpdated": "2025-11-19",
   "description": "This dataset provides 28 years of environmental monitoring data (1995–2023) from 51 stations in the estuaries and coastal areas of the Basque Country in the Bay of Biscay. Covering 130 variables across water, sediments, and biota, it includes detailed records of phytoplankton, macroalgae, macroinvertebrates, and fish. Compiled in collaboration with the Basque Water Agency (URA), the dataset supports analysis of environmental responses to human pressures and management interventions, identifying patterns of environmental quality improvement within a context of natural variability. Provided in a FAIR² Data Package, the dataset is structured to ensure Findability, Accessibility, Interoperability, Reusability, and Artificial Intelligence-readiness, facilitated by structured metadata and Application Programming Interface access. This resource is intended for researchers and policymakers examining anthropogenic and natural influences on aquatic ecosystems, contributing to sustainable management, conservation practices, and alignment with European directives, including the Water Framework Directive.",
   "distribution": [
     {
@@ -1607,7 +1687,7 @@
   "name": "Borja_2025_Marine_Biodiversity_and_Environmental_Data_Dataset",
   "dataArticle": {
     "@id": "https://doi.org/10.3389/focsu.2024.1528837",
-    "@type": "ScholarlyArticle",
+    "@type": "DataArticle",
     "name": "Marine biodiversity and environmental data: an AI-ready, open dataset from the long term (1995–2023) monitoring network",
     "publisher": {
       "@type": "Organization",
@@ -1617,8 +1697,8 @@
       "@type": "Periodical",
       "name": "Frontiers in Ocean Sustainability"
     },
-    "schema:datePublished": "2025-02-17",
-    "prov:wasDerivedFrom": "https://sen.science/doi/10.71728/r1rj-f947"
+    "datePublished": "2025-02-17",
+    "wasDerivedFrom": "https://sen.science/doi/10.71728/r1rj-f947"
   },
   "domain": {
     "@id": "https://www.wikidata.org/wiki/Q7173",
@@ -1630,21 +1710,21 @@
       "name": "Ángel Borja"
     }
   },
-  "schema:temporalCoverage": "1995/2023",
-  "schema:spatialCoverage": {
-    "@type": "schema:Place",
-    "schema:name": "Bay of Biscay, Spain",
-    "schema:geo": {
-      "@type": "schema:GeoShape",
-      "schema:box": "43.2652775 -3.146574 43.5000106 -1.7620755"
+  "temporalCoverage": "1995/2023",
+  "spatialCoverage": {
+    "@type": "Place",
+    "name": "Bay of Biscay, Spain",
+    "geo": {
+      "@type": "GeoShape",
+      "box": "43.2652775 -3.146574 43.5000106 -1.7620755"
     }
   },
-  "dct:accessRights": {
+  "accessRights": {
     "@id": "https://fair2.ai/ns/AgreementLevels1",
-    "@type": "schema:DefinedTerm",
+    "@type": "DefinedTerm",
     "name": "Open Access",
-    "skos:definition": "Anyone can access the dataset without registration or identification. No additional agreement is required.",
-    "skos:note": "By accessing this dataset, you acknowledge that it is made openly available under the stated license. You may use, share, and build upon it in accordance with the license terms, provided that you give appropriate attribution.",
+    "definition": "Anyone can access the dataset without registration or identification. No additional agreement is required.",
+    "note": "By accessing this dataset, you acknowledge that it is made openly available under the stated license. You may use, share, and build upon it in accordance with the license terms, provided that you give appropriate attribution.",
     "url": "https://fair2.ai/spec/AgreementLevels/1"
   },
   "method": [
@@ -11738,5 +11818,5 @@
     "name": "FAIR-Squared Specification",
     "url": "http://fair2.ai/spec/0.1.0-beta"
   },
-  "version": "1.0"
+  "version": "1.2"
 }
