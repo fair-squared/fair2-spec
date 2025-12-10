@@ -31,3 +31,11 @@ nav:
       - Contributing: community/contributing.md
       - Governance: community/governance.md
       - Roadmap: community/roadmap.md
+  - Agreement Levels:
+      - Level 0: agreement-levels/Level0.md
+      - Level 1: agreement-levels/Level1.md
+      - Level 2: agreement-levels/Level2.md
+      - Level 3: agreement-levels/Level3.md
+      - Level 4: agreement-levels/Level4.md
+      - Level 5: agreement-levels/Level5.md
+      - Level 6: agreement-levels/Level6.md
