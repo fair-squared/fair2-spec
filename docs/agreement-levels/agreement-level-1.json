@@ -7,6 +7,6 @@
   "@type": "schema:DefinedTerm",
   "schema:name": "Open Access",
   "schema:description": "Anyone can access the dataset without registration or identification; aligned with FAIR² principles of maximum reuse and transparency.",
-  "schema:text": "By accessing this dataset, you acknowledge that it is made openly available under the stated license. No additional agreement is required. You may use, share, and build upon the dataset in accordance with the license terms, provided that you give appropriate attribution.",
+  "schema:text": "By accessing this dataset, you acknowledge that it is made openly available under the stated license. No additional agreement is required. You may use, share, and build upon the dataset in accordance with the license terms, provided that you give appropriate attribution and preserve metadata and provenance.",
   "schema:url": "https://fair2.ai/ns/AgreementLevels/1"
 }

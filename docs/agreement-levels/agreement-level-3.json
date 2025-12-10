@@ -6,7 +6,7 @@
   "@id": "fair2:AgreementLevel3",
   "@type": "schema:DefinedTerm",
   "schema:name": "Trusted Access",
-  "schema:description": "Access requires researcher identification (e.g., ORCID) and agreement to terms of responsible use, balancing openness with accountability and usage tracking.",
-  "schema:text": "By accessing this dataset, you confirm that you are a qualified researcher and agree to use the data responsibly, not attempt re-identification, and handle the data securely. Access may be logged and monitored to ensure compliance.",
+  "schema:description": "Access requires verified researcher identification and agreement to responsible use terms. Balances openness with accountability through access logging.",
+  "schema:text": "By requesting access to this dataset, you agree to authenticate using ORCID or institutional credentials, use the data responsibly and ethically according to FAIR² and Responsible AI principles, refrain from attempting re-identification or unauthorized linkage, permit access logging for compliance and reproducibility, cite and acknowledge the dataset and its creators, preserve metadata and provenance, and avoid redistribution outside the FAIR² or sovereign hosting environment except for aggregated or derived results.",
   "schema:url": "https://fair2.ai/ns/AgreementLevels/3"
 }
