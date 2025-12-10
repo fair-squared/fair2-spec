@@ -1,4 +1,4 @@
-# FAIR² Access Agreement Levels — Master Index
+# FAIR² Access Agreement Levels
 
 The FAIR² Access Agreement Levels define a structured, interoperable framework for governing dataset availability, reuse conditions, Responsible AI constraints, and sovereignty protections.
 
@@ -26,6 +26,9 @@ Each level builds on earlier ones, adding stronger governance, identity, environ
 | **Level 5** | Secure / Controlled Environment | Sensitive data; secure environments; no raw downloads; strict audit logging. |
 | **Level 6** | Federated Compute-to-Data | Algorithms visit data; no raw access; only aggregates/derived outputs permitted. |
 
+![FAIR² Access Agreement Levels diagram](../images/access-levels-diagram.png)
+
+
 ---
 
 # **Documentation Index**
@@ -33,43 +36,43 @@ Each level builds on earlier ones, adding stronger governance, identity, environ
 Each level has a dedicated page:
 
 ### **Access Level 0 — Embargoed Access**  
-👉 **[Level0.md](../agreement-levels/Level0.md)**  
+👉 **[Level 0](../agreement-levels/Level0.md)**  
 Metadata open, dataset under embargo; early discoverability and citation.
 
 ---
 
 ### **Access Level 1 — Open Access**  
-👉 **[Level1.md](../agreement-levels/Level1.md)**  
+👉 **[Level 1](../agreement-levels/Level1.md)**  
 Dataset is openly available; may include specific reuse constraints (AI training, export limitations, consultation).
 
 ---
 
 ### **Access Level 2 — Collaborative Access**  
-👉 **[Level2.md](../agreement-levels/Level2.md)**  
+👉 **[Level 2](../agreement-levels/Level2.md)**  
 Open reuse with expectations of reciprocity, collaboration, and communication of results.
 
 ---
 
 ### **Access Level 3 — Trusted Access**  
-👉 **[Level3.md](../agreement-levels/Level3.md)**  
+👉 **[Level 3](../agreement-levels/Level3.md)**  
 Identity verification (ORCID or institutional), RUA acceptance, access logging.
 
 ---
 
 ### **Access Level 4 — Community-Governed (CARE)**  
-👉 **[Level4.md](../agreement-levels/Level4.md)**  
+👉 **[Level 4](../agreement-levels/Level4.md)**  
 Governed under CARE Principles; cultural/ethical protocols; community consultation or approval.
 
 ---
 
 ### **Access Level 5 — Secure / Controlled Environment**  
-👉 **[Level5.md](../agreement-levels/Level5.md)**  
+👉 **[Level 5](../agreement-levels/Level5.md)**  
 Sensitive human-derived or regulated data; accessible only in secure infrastructure.
 
 ---
 
 ### **Access Level 6 — Federated Compute-to-Data**  
-👉 **[Level6.md](../agreement-levels/Level6.md)**  
+👉 **[Level 6](../agreement-levels/Level6.md)**  
 No raw access; analytics via federated compute; strict export limitations.
 
 ---
