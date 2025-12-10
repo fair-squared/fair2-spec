@@ -26,7 +26,7 @@ Each level builds on earlier ones, adding stronger governance, identity, environ
 | **Level 5** | Secure / Controlled Environment | Sensitive data; secure environments; no raw downloads; strict audit logging. |
 | **Level 6** | Federated Compute-to-Data | Algorithms visit data; no raw access; only aggregates/derived outputs permitted. |
 
-![FAIR² Access Agreement Levels diagram](../images/access-levels-diagram.png)
+![FAIR² Access Agreement Levels diagram](../assets/images/access-levels-diagram.png)
 
 
 ---
