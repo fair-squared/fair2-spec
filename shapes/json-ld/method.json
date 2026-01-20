@@ -1,0 +1,43 @@
+{
+    "@context": {
+        "sh": "http://www.w3.org/ns/shacl#",
+        "schema": "https://schema.org/",
+        "fair2": "https://fair2.ai/ns/",
+        "fair2s": "https://fair2.ai/shapes/",
+        "xsd": "http://www.w3.org/2001/XMLSchema#"
+    },
+    "@id": "fair2s:MethodSectionShape",
+    "type": "sh:NodeShape",
+    "sh:targetClass": "fair2:Section",
+    "sh:nodeKind": "sh:IRI",
+    "sh:description": "Validates the high-level sections of the methodology (e.g., Research Design).",
+    "sh:property": [
+        {
+            "sh:path": "schema:name",
+            "sh:minCount": 1,
+            "sh:node": "fair2s:TextShape"
+        },
+        {
+            "sh:path": "schema:description",
+            "sh:node": "fair2s:TextShape"
+        },
+        {
+            "sh:path": "fair2:next",
+            "sh:nodeKind": "sh:IRI",
+            "sh:description": "The section following this one."
+        },
+        {
+            "sh:path": "fair2:step",
+            "sh:minCount": 0,
+            "sh:or": [
+                {
+                    "sh:node": "fair2s:MethodStepShape"
+                },
+                {
+                    "sh:node": "fair2s:StepCaseShape"
+                }
+            ],
+            "sh:description": "The discrete operations within this section."
+        }
+    ]
+}

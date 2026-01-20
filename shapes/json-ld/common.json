@@ -1,0 +1,19 @@
+{
+    "@context": {
+        "sh": "http://www.w3.org/ns/shacl#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "fair2s": "https://fair2.ai/shapes/"
+    },
+    "@id": "fair2s:TextShape",
+    "@type": "sh:NodeShape",
+    "sh:or": [
+        {
+            "sh:datatype": "xsd:string"
+        },
+        {
+            "sh:datatype": "rdf:langString"
+        }
+    ],
+    "sh:message": "Value must be a plain string (xsd:string) or a language-tagged string (rdf:langString)."
+}

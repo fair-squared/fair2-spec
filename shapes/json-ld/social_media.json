@@ -1,0 +1,29 @@
+{
+    "@context": {
+        "sh": "http://www.w3.org/ns/shacl#",
+        "schema": "https://schema.org/",
+        "fair2s": "https://fair2.ai/shapes/"
+    },
+    "@id": "fair2s:SocialMediaShape",
+    "sh:property": [
+        {
+            "sh:path": "schema:identifier",
+            "sh:node": "fair2s:IdentifierShape",
+            "sh:minCount": 1
+        },
+        {
+            "sh:path": "fair2s:accountServiceHomePage",
+            "sh:nodeKind": "sh:IRI",
+            "sh:minCount": 1
+        },
+        {
+            "sh:path": "schema:articleBody",
+            "sh:node": "fair2s:TextShape",
+            "sh:minCount": 1
+        },
+        {
+            "sh:path": "schema:keywords",
+            "sh:node": "fair2s:TextShape"
+        }
+    ]
+}

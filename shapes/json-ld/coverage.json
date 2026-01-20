@@ -1,0 +1,31 @@
+{
+    "@context": {
+        "sh": "http://www.w3.org/ns/shacl#",
+        "schema": "https://schema.org/",
+        "xsd": "http://www.w3.org/2001/XMLSchema#"
+    },
+    "@id": "schema:PlaceShape",
+    "type": "sh:NodeShape",
+    "sh:property": [
+        {
+            "sh:path": "schema:geo",
+            "sh:minCount": 1,
+            "sh:node": {
+                "@id": "schema:GeoCoordinatesShape",
+                "type": "sh:NodeShape",
+                "sh:property": [
+                    {
+                        "sh:path": "schema:latitude",
+                        "sh:minCount": 1,
+                        "sh:datatype": "xsd:float"
+                    },
+                    {
+                        "sh:path": "schema:longitude",
+                        "sh:minCount": 1,
+                        "sh:datatype": "xsd:float"
+                    }
+                ]
+            }
+        }
+    ]
+}

@@ -1,92 +1,66 @@
+import os
 import json
-import re
 from pathlib import Path
-import rdflib
-from rdflib.namespace import NamespaceManager
+from openai import OpenAI
 
-# Configuration
+# 1. Configuration
 INPUT_DIR = Path("./turtle")
 OUTPUT_DIR = Path("./json-ld")
-FAIR2S_NS = rdflib.Namespace("https://fair2.ai/shapes/")
+MODEL = "gpt-4o"  # Use gpt-4o for complex reasoning about RDF nesting
 
-def suggest_prefix(uri_base, count):
-    """
-    Tries to guess a short prefix from the URI path. 
-    If it's too complex, falls back to ns{count}.
-    """
-    # Try to take the last word from the URI (e.g., 'ontology' or 'terms')
-    match = re.search(r'([a-zA-Z0-9]+)[/#]$', uri_base)
-    if match:
-        suggestion = match.group(1).lower()
-        if len(suggestion) > 2:
-            return f"{suggestion}_{count}"
-    return f"ns{count}"
+client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
 
-def discover_and_bind_namespaces(graph):
-    """
-    Scans the graph for URIs and binds a prefix to any namespace
-    that is not currently covered.
-    """
-    existing_namespaces = {str(ns) for _, ns in graph.namespaces()}
-    
-    # Ensure fair2s is always covered as requested
-    if str(FAIR2S_NS) not in existing_namespaces:
-        graph.bind("fair2s", FAIR2S_NS)
-        existing_namespaces.add(str(FAIR2S_NS))
+# 2. The Specialized "FAIR² Architect" Prompt
+SYSTEM_PROMPT = """
+You are a senior RDF and JSON-LD Architect. Your task is to transform Turtle (TTL) into Compact, Nested JSON-LD.
+Follow these rules strictly:
+1. CONTEXT: Only define prefixes that are explicitly present in the provided Turtle file.
+2. NESTING: Properties (sh:property) must be nested as an array of anonymous objects. 
+3. NO BLANK NODE IDs: Do not use identifiers like "_:n..." for property shapes or internal nodes.
+4. SIMPLIFICATION: Simplify single-value ID objects. e.g., "sh:nodeKind": { "@id": "sh:IRI" } should become "sh:nodeKind": "sh:IRI".
+5. ROOT: The output should be a single JSON object with the Main Shape's @id at the top level. Do not use @graph.
+6. COMPACTION: Use the shortest possible keys defined in the @context.
+7. STRICTNESS: Output ONLY the JSON-LD. No explanation or markdown code blocks.
+"""
 
-    uncovered_count = 0
-    
-    # Iterate through all triples (subject, predicate, object)
-    for s, p, o in graph:
-        for node in (s, p, o):
-            if isinstance(node, rdflib.URIRef):
-                uri_str = str(node)
-                # Find the base of the URI (everything before the last # or /)
-                if "#" in uri_str:
-                    base = uri_str.rsplit("#", 1)[0] + "#"
-                elif "/" in uri_str:
-                    base = uri_str.rsplit("/", 1)[0] + "/"
-                else:
-                    continue
+def transform_file_with_ai(ttl_content):
+    response = client.chat.completions.create(
+        model=MODEL,
+        messages=[
+            {"role": "system", "content": SYSTEM_PROMPT},
+            {"role": "user", "content": f"Transform this Turtle into clean JSON-LD:\n\n{ttl_content}"}
+        ],
+        response_format={ "type": "json_object" } # Ensures valid JSON output
+    )
+    return json.loads(response.choices[0].message.content)
 
-                if base not in existing_namespaces:
-                    uncovered_count += 1
-                    prefix = suggest_prefix(base, uncovered_count)
-                    graph.bind(prefix, rdflib.Namespace(base))
-                    existing_namespaces.add(base)
-                    print(f"    [*] Discovered & defined: {prefix} -> {base}")
-
-def batch_transform():
+def batch_ai_transform():
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-    print(f"🚀 Batch Processing with Dynamic Discovery: {INPUT_DIR} ➔ {OUTPUT_DIR}")
+    print(f"🚀 AI Agent starting transformation: {INPUT_DIR} ➔ {OUTPUT_DIR}")
 
     ttl_files = list(INPUT_DIR.glob("*.ttl"))
     for ttl_path in ttl_files:
         try:
-            g = rdflib.Graph()
-            g.parse(str(ttl_path), format="turtle")
-
-            # 🔥 DYNAMIC STEP: Discover unknown namespaces
-            discover_and_bind_namespaces(g)
-
-            # Build context from ALL bound prefixes (old and discovered)
-            dynamic_context = {prefix: str(ns) for prefix, ns in g.namespaces() if prefix}
-            dynamic_context["@language"] = "en"
-
-            jsonld_data = g.serialize(
-                format="json-ld", 
-                context=dynamic_context, 
-                indent=4
-            )
+            print(f"  [→] Processing: {ttl_path.name}...")
             
+            with open(ttl_path, "r", encoding="utf-8") as f:
+                ttl_content = f.read()
+
+            # Call AI Agent
+            jsonld_data = transform_file_with_ai(ttl_content)
+
+            # Save Output
             output_path = OUTPUT_DIR / ttl_path.with_suffix(".json").name
             with open(output_path, "w", encoding="utf-8") as f:
-                f.write(jsonld_data)
+                json.dump(jsonld_data, f, indent=4)
 
-            print(f"  [+] Converted: {ttl_path.name}")
+            print(f"  [✓] Successfully nested: {output_path.name}")
 
         except Exception as e:
-            print(f"  [!] Error: {ttl_path.name} -> {e}")
+            print(f"  [!] Failed {ttl_path.name}: {e}")
 
 if __name__ == "__main__":
-    batch_transform()
+    if not os.environ.get("OPENAI_API_KEY"):
+        print("❌ Error: Please set the OPENAI_API_KEY environment variable.")
+    else:
+        batch_ai_transform()

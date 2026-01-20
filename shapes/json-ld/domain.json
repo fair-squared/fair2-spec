@@ -1,0 +1,24 @@
+{
+    "@context": {
+        "sh": "http://www.w3.org/ns/shacl#",
+        "schema": "https://schema.org/",
+        "prov": "http://www.w3.org/ns/prov#",
+        "fair2s": "https://fair2.ai/shapes/"
+    },
+    "@id": "fair2s:DomainShape",
+    "type": "sh:NodeShape",
+    "sh:nodeKind": "sh:IRI",
+    "sh:property": [
+        {
+            "sh:targetClass": "schema:Thing",
+            "sh:path": "schema:name",
+            "sh:minCount": 1,
+            "sh:node": "fair2s:TextShape"
+        },
+        {
+            "sh:path": "prov:wasAttributedTo",
+            "sh:node": "fair2s:ContactShape",
+            "sh:description": "The expert or authority who classified this dataset."
+        }
+    ]
+}

@@ -1,0 +1,88 @@
+{
+    "@context": {
+        "sh": "http://www.w3.org/ns/shacl#",
+        "schema": "https://schema.org/",
+        "cr": "http://mlcommons.org/croissant/",
+        "fair2s": "https://fair2.ai/shapes/"
+    },
+    "@id": "fair2s:RecordSetShape",
+    "type": "sh:NodeShape",
+    "sh:targetClass": "cr:RecordSet",
+    "sh:nodeKind": "sh:IRI",
+    "sh:property": [
+        {
+            "sh:path": "schema:name",
+            "sh:minCount": 1,
+            "sh:node": "fair2s:TextShape",
+            "sh:message": "Name must be a string or a language-tagged string."
+        },
+        {
+            "sh:path": "schema:description",
+            "sh:minCount": 1,
+            "sh:node": "fair2s:TextShape",
+            "sh:message": "Name must be a string or a language-tagged string."
+        },
+        {
+            "sh:path": "cr:field",
+            "sh:minCount": 1,
+            "sh:node": {
+                "@id": "fair2s:FieldShape",
+                "type": "sh:NodeShape",
+                "sh:targetClass": "cr:Field",
+                "sh:nodeKind": "sh:IRI",
+                "sh:property": [
+                    {
+                        "sh:path": "schema:name",
+                        "sh:minCount": 1,
+                        "sh:node": "fair2s:TextShape",
+                        "sh:message": "Name must be a string or a language-tagged string."
+                    },
+                    {
+                        "sh:path": "schema:description",
+                        "sh:minCount": 1,
+                        "sh:node": "fair2s:TextShape",
+                        "sh:message": "Name must be a string or a language-tagged string."
+                    },
+                    {
+                        "sh:path": "cr:dataType",
+                        "sh:minCount": 1,
+                        "sh:nodeKind": "sh:IRI",
+                        "sh:description": "The semantic type of the data (e.g., schema:Float)."
+                    },
+                    {
+                        "sh:path": "cr:source",
+                        "sh:minCount": 1,
+                        "sh:node": {
+                            "@id": "fair2s:SourceShape",
+                            "type": "sh:NodeShape",
+                            "sh:nodeKind": "sh:BlankNodeOrIRI",
+                            "sh:property": [
+                                {
+                                    "sh:path": "cr:fileObject",
+                                    "sh:minCount": 1,
+                                    "sh:nodeKind": "sh:IRI",
+                                    "sh:description": "The @id of the FileObject this field is extracted from."
+                                },
+                                {
+                                    "sh:path": "cr:extract",
+                                    "sh:node": {
+                                        "sh:property": [
+                                            {
+                                                "sh:path": "cr:column",
+                                                "sh:minCount": 1,
+                                                "sh:node": "fair2s:TextShape"
+                                            }
+                                        ]
+                                    },
+                                    "sh:description": "The physical column name in the source file."
+                                }
+                            ]
+                        },
+                        "sh:description": "The mapping to the physical file and column."
+                    }
+                ]
+            },
+            "sh:description": "The columns/attributes defined within this record set."
+        }
+    ]
+}

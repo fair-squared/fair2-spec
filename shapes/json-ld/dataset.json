@@ -1,0 +1,132 @@
+{
+    "@context": {
+        "sh": "http://www.w3.org/ns/shacl#",
+        "dct": "http://purl.org/dc/terms/",
+        "schema": "https://schema.org/",
+        "cr": "http://mlcommons.org/croissant/",
+        "fair2": "https://fair2.ai/ns/",
+        "fair2s": "https://fair2.ai/shapes/",
+        "xsd": "http://www.w3.org/2001/XMLSchema#"
+    },
+    "@id": "fair2s:DatasetShape",
+    "type": "sh:NodeShape",
+    "sh:targetClass": "schema:Dataset",
+    "sh:nodeKind": "sh:IRI",
+    "sh:property": [
+        {
+            "sh:path": "schema:name",
+            "sh:node": "fair2s:TextShape",
+            "sh:minCount": 1,
+            "sh:message": "Name must be a string or a language-tagged string."
+        },
+        {
+            "sh:path": "schema:description",
+            "sh:minCount": 1,
+            "sh:node": "fair2s:TextShape"
+        },
+        {
+            "sh:path": "schema:identifier",
+            "sh:minCount": 1,
+            "sh:node": "fair2s:IdentifierShape"
+        },
+        {
+            "sh:path": "schema:version",
+            "sh:minCount": 1,
+            "sh:node": "fair2s:TextShape"
+        },
+        {
+            "sh:path": "schema:license",
+            "sh:minCount": 1,
+            "sh:node": "fair2s:IdentifierShape"
+        },
+        {
+            "sh:path": "schema:keywords",
+            "sh:minCount": 1,
+            "sh:node": "fair2s:TextShape"
+        },
+        {
+            "sh:path": "dct:conformsTo",
+            "sh:minCount": 1,
+            "sh:node": "fair2s:IdentifierShape"
+        },
+        {
+            "sh:path": "cr:citeAs",
+            "sh:node": "fair2s:TextShape"
+        },
+        {
+            "sh:path": "fair2:methodSection",
+            "sh:node": "fair2s:MethodSectionShape"
+        },
+        {
+            "sh:path": "cr:recordSet",
+            "sh:node": "fair2s:RecordSetShape"
+        },
+        {
+            "sh:path": "schema:author",
+            "sh:minCount": 1,
+            "sh:node": "fair2s:PersonOrOrganizationShape"
+        },
+        {
+            "sh:path": "schema:contributor",
+            "sh:node": "fair2s:ContributorShape"
+        },
+        {
+            "sh:path": "schema:funding",
+            "sh:node": "fair2s:GrantShape"
+        },
+        {
+            "sh:path": "schema:temporalCoverage",
+            "sh:node": "fair2s:TextShape"
+        },
+        {
+            "sh:path": "schema:spatialCoverage",
+            "sh:node": "fair2s:SpatialCoverageShape"
+        },
+        {
+            "sh:path": "schema:distribution",
+            "sh:minCount": 1,
+            "sh:node": "fair2s:DistributionShape"
+        },
+        {
+            "sh:path": "schema:dateCreated",
+            "sh:datatype": "xsd:date"
+        },
+        {
+            "sh:path": "schema:datePublished",
+            "sh:datatype": "xsd:date"
+        },
+        {
+            "sh:path": "schema:dateUpdated",
+            "sh:datatype": "xsd:date"
+        },
+        {
+            "sh:path": "fair2:changelog",
+            "sh:node": "fair2s:UpdateActionShape"
+        },
+        {
+            "sh:path": "schema:subjectOf",
+            "sh:node": "fair2s:CreativeWorkShape"
+        },
+        {
+            "sh:path": "fair2:domain",
+            "sh:node": "fair2s:DomainShape"
+        },
+        {
+            "sh:path": "fair2s:changelog",
+            "sh:node": "fair2s:UpdateActionShape"
+        },
+        {
+            "sh:path": "fair2s:socialMedia",
+            "sh:node": "fair2s:SocialMediaShape"
+        },
+        {
+            "sh:path": "schema:accessRights",
+            "sh:node": "fair2s:AccessRightsShape"
+        },
+        {
+            "sh:path": "fair2:dataArticle",
+            "sh:minCount": 1,
+            "sh:node": "fair2s:ArticleShape"
+        }
+    ]
+}

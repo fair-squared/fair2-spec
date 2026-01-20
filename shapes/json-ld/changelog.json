@@ -1,0 +1,62 @@
+{
+    "@context": {
+        "sh": "http://www.w3.org/ns/shacl#",
+        "schema": "https://schema.org/",
+        "fair2s": "https://fair2.ai/shapes/",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "prov": "http://www.w3.org/ns/prov#"
+    },
+    "@id": "fair2s:UpdateActionShape",
+    "@type": "sh:NodeShape",
+    "sh:targetClass": "schema:UpdateAction",
+    "sh:property": [
+        {
+            "sh:path": "schema:datePublished",
+            "sh:datatype": "xsd:date",
+            "sh:minCount": 1
+        },
+        {
+            "sh:path": "schema:description",
+            "sh:minCount": 1,
+            "sh:node": {
+                "@id": "fair2s:UpdateDescriptionShape",
+                "@type": "sh:NodeShape",
+                "sh:property": [
+                    {
+                        "sh:path": "fair2s:newFeatures",
+                        "sh:node": "fair2s:TextShape"
+                    },
+                    {
+                        "sh:path": "fair2s:improvements",
+                        "sh:node": "fair2s:TextShape"
+                    },
+                    {
+                        "sh:path": "fair2s:bugFixes",
+                        "sh:node": "fair2s:TextShape"
+                    },
+                    {
+                        "sh:path": "fair2s:otherInformation",
+                        "sh:node": "fair2s:TextShape"
+                    }
+                ]
+            }
+        },
+        {
+            "sh:path": "prov:wasRevisionOf",
+            "sh:node": {
+                "@id": "fair2s:VersionReferenceShape",
+                "@type": "sh:NodeShape",
+                "sh:property": [
+                    {
+                        "sh:path": "schema:identifier",
+                        "sh:node": "fair2s:IdentifierShape"
+                    },
+                    {
+                        "sh:path": "schema:version",
+                        "sh:node": "fair2s:TextShape"
+                    }
+                ]
+            }
+        }
+    ]
+}

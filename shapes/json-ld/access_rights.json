@@ -1,0 +1,31 @@
+{
+    "@context": {
+        "sh": "http://www.w3.org/ns/shacl#",
+        "schema": "https://schema.org/",
+        "fair2s": "https://fair2.ai/shapes/"
+    },
+    "@id": "fair2s:AccessRightsShape",
+    "type": "sh:NodeShape",
+    "sh:targetClass": "schema:DefinedTerm",
+    "sh:nodeKind": "sh:IRI",
+    "sh:property": [
+        {
+            "sh:path": "schema:name",
+            "sh:node": "fair2s:TextShape",
+            "sh:minCount": 1
+        },
+        {
+            "sh:path": "schema:definition",
+            "sh:node": "fair2s:TextShape",
+            "sh:minCount": 1
+        },
+        {
+            "sh:path": "schema:note",
+            "sh:node": "fair2s:TextShape"
+        },
+        {
+            "sh:path": "schema:url",
+            "sh:nodeKind": "sh:IRI"
+        }
+    ]
+}

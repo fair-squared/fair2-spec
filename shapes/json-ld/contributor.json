@@ -1,0 +1,50 @@
+{
+    "@context": {
+        "sh": "http://www.w3.org/ns/shacl#",
+        "schema": "https://schema.org/",
+        "fair2s": "https://fair2.ai/shapes/",
+        "fair2": "https://fair2.ai/ns/"
+    },
+    "@id": "fair2s:PersonOrOrganizationShape",
+    "type": "sh:NodeShape",
+    "sh:nodeKind": "sh:BlankNodeOrIRI",
+    "sh:property": [
+        {
+            "sh:path": "schema:name",
+            "sh:minCount": 1,
+            "sh:node": "fair2s:TextShape"
+        },
+        {
+            "sh:path": "schema:affiliation",
+            "sh:node": "fair2s:OrganizationShape"
+        }
+    ],
+    "fair2s:OrganizationShape": {
+        "type": "sh:NodeShape",
+        "sh:property": [
+            {
+                "sh:path": "schema:name",
+                "sh:minCount": 1,
+                "sh:node": "fair2s:TextShape"
+            }
+        ]
+    },
+    "fair2s:ContributorShape": {
+        "type": "sh:NodeShape",
+        "sh:node": "fair2s:PersonOrOrganizationShape",
+        "sh:property": [
+            {
+                "sh:path": "fair2:hadRole",
+                "sh:minCount": 1,
+                "sh:node": {
+                    "sh:property": [
+                        {
+                            "sh:path": "schema:name",
+                            "sh:minCount": 1
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}

@@ -1,0 +1,39 @@
+{
+    "@context": {
+        "sh": "http://www.w3.org/ns/shacl#",
+        "schema": "https://schema.org/",
+        "cr": "http://mlcommons.org/croissant/",
+        "fair2s": "https://fair2.ai/shapes/"
+    },
+    "@id": "schema:DistributionShape",
+    "type": "sh:NodeShape",
+    "sh:targetClass": "cr:FileObject",
+    "sh:nodeKind": "sh:IRI",
+    "sh:property": [
+        {
+            "sh:path": "schema:name",
+            "sh:node": "fair2s:TextShape",
+            "sh:minCount": 1
+        },
+        {
+            "sh:path": "schema:contentUrl",
+            "sh:node": "fair2s:IdentifierShape",
+            "sh:minCount": 1
+        },
+        {
+            "sh:path": "schema:encodingFormat",
+            "sh:node": "fair2s:TextShape",
+            "sh:minCount": 1
+        },
+        {
+            "sh:path": "schema:contentSize",
+            "sh:node": "fair2s:TextShape",
+            "sh:minCount": 1
+        },
+        {
+            "sh:path": "schema:sha256",
+            "sh:node": "fair2s:TextShape",
+            "sh:minCount": 1
+        }
+    ]
+}
