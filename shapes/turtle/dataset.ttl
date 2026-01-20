@@ -1,0 +1,98 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix schema: <https://schema.org/> .
+@prefix cr: <http://mlcommons.org/croissant/> .
+@prefix fair2: <https://fair2.ai/ns/> .
+@prefix fair2s: <https://fair2.ai/shapes/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+fair2s:DatasetShape
+    a sh:NodeShape ;
+    sh:targetClass schema:Dataset ;
+    sh:nodeKind sh:IRI ;
+
+    # --- Standard Identity & Metadata ---
+    sh:property [ 
+        sh:path schema:name ; 
+        sh:node fair2s:TextShape ;
+        sh:minCount 1 ; 
+        sh:message "Name must be a string or a language-tagged string."
+    ] ;
+    sh:property [ sh:path schema:description ; sh:minCount 1 ; sh:node fair2s:TextShape ] ;
+    sh:property [ sh:path schema:identifier ; sh:minCount 1 ; sh:node fair2s:IdentifierShape ] ;
+    sh:property [ sh:path schema:version ; sh:minCount 1 ; sh:node fair2s:TextShape ] ;
+    sh:property [ sh:path schema:license ; sh:minCount 1 ; sh:node fair2s:IdentifierShape ] ;
+    sh:property [ sh:path schema:keywords ; sh:minCount 1 ; sh:node fair2s:TextShape ] ;
+
+    # --- Croissant (cr) Properties ---
+    sh:property [ sh:path dct:conformsTo ; sh:minCount 1 ; sh:node fair2s:IdentifierShape] ;
+    sh:property [ sh:path cr:citeAs ; sh:node fair2s:TextShape ] ;
+
+    # --- FAIR² & Methodological Properties ---
+    sh:property [ 
+        sh:path fair2:methodSection ; 
+        sh:node fair2s:MethodSectionShape
+    ] ;
+    sh:property [ 
+        sh:path cr:recordSet ; 
+        sh:node fair2s:RecordSetShape
+    ] ;
+
+    # --- Roles & Participants ---
+    sh:property [ 
+        sh:path schema:author ; 
+        sh:minCount 1 ; 
+        sh:node fair2s:PersonOrOrganizationShape 
+    ] ;
+    sh:property [ 
+        sh:path schema:contributor ; 
+        sh:node fair2s:ContributorShape 
+    ] ;
+    sh:property [ 
+        sh:path schema:funding ; 
+        sh:node fair2s:GrantShape 
+    ] ;
+
+    # --- Coverage & Distribution ---
+    sh:property [ sh:path schema:temporalCoverage ; sh:node fair2s:TextShape ] ;
+    sh:property [ 
+        sh:path schema:spatialCoverage ; 
+        sh:node fair2s:SpatialCoverageShape 
+    ] ;
+    sh:property [ 
+        sh:path schema:distribution ; 
+        sh:minCount 1 ; 
+        sh:node fair2s:DistributionShape 
+    ] ;
+
+    # --- Life Cycle & Context ---
+    sh:property [ sh:path schema:dateCreated ; sh:datatype xsd:date ] ;
+    sh:property [ sh:path schema:datePublished ; sh:datatype xsd:date ] ;
+    sh:property [ sh:path schema:dateUpdated ; sh:datatype xsd:date ] ;
+    sh:property [ sh:path fair2:changelog ; sh:node fair2s:UpdateActionShape ] ;
+    sh:property [ sh:path schema:subjectOf ; sh:node fair2s:CreativeWorkShape ] ;
+    sh:property [ sh:path fair2:domain ; sh:node fair2s:DomainShape ] ;
+    # Add these to fair2s:DatasetShape
+    sh:property [ 
+        sh:path fair2s:changelog ; 
+        sh:node fair2s:UpdateActionShape 
+    ] ;
+
+    sh:property [ 
+        sh:path fair2s:socialMedia ; 
+        sh:node fair2s:SocialMediaShape 
+    ] ;
+
+    sh:property [ 
+        sh:path schema:accessRights ; 
+        sh:node fair2s:AccessRightsShape 
+    ] ;
+
+    # --- Link to Data Paper (Article) ---
+    sh:property [ 
+        sh:path fair2:dataArticle ; 
+        sh:minCount 1 ; 
+        sh:node fair2s:ArticleShape 
+    ] .

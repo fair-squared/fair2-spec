@@ -1,47 +1,89 @@
-@prefix fair2s: <https://fair2.ai/shapes/> .
-@prefix fair2:  <https://fair2.ai/ns/> .
-@prefix sh:     <http://www.w3.org/ns/shacl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix schema: <https://schema.org/> .
-@prefix cr:     <http://mlcommons.org/croissant/> .
-@prefix prov:   <http://www.w3.org/ns/prov#> .
-@prefix skos:   <http://www.w3.org/2004/02/skos/core#> .
-@prefix dct:    <http://purl.org/dc/terms/> .
-@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix cr: <http://mlcommons.org/croissant/> .
+@prefix fair2s: <https://fair2.ai/shapes/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
-fair2s:RecordSetShape a sh:NodeShape ;
-    sh:property [ sh:datatype xsd:string ;
-            sh:message "Each RecordSet must include a description." ;
-            sh:minCount 1 ;
-            sh:path schema:description ],
-        [ sh:datatype xsd:string ;
-            sh:message "Each RecordSet must have a name (e.g., 'WATER', 'SEDIMENTS')." ;
-            sh:minCount 1 ;
-            sh:path schema:name ],
-        [ sh:message "Each RecordSet must define at least one Field." ;
-            sh:minCount 1 ;
-            sh:node fair2s:FieldShape ;
-            sh:path cr:field ] ;
-    sh:targetClass cr:RecordSet .
+# --- RECORDSET SHAPE ---
+fair2s:RecordSetShape
+    a sh:NodeShape ;
+    sh:targetClass cr:RecordSet ;
+    sh:nodeKind sh:IRI ;
 
-fair2s:FieldShape a sh:NodeShape ;
-    sh:property [ sh:datatype xsd:string ;
-            sh:message "Each Field must have a name." ;
-            sh:minCount 1 ;
-            sh:path schema:name ],
-        [ sh:message "Each Field should specify a measurement unit, using QUDT or equivalent controlled vocabulary." ;
-            sh:minCount 1 ;
-            sh:path fair2:unit ],
-        [ sh:message "Each Field must specify a dataType (e.g., Text, Integer, Float, Date)." ;
-            sh:minCount 1 ;
-            sh:path cr:dataType ],
-        [ sh:message "Each Field should include descriptive statistics (count, missing values, etc.)." ;
-            sh:minCount 1 ;
-            sh:path fair2:statistics ],
-        [ sh:datatype xsd:string ;
-            sh:message "Each Field must include a human-readable description." ;
-            sh:minCount 1 ;
-            sh:path schema:description ] ;
-    sh:targetClass cr:Field .
+    sh:property [ 
+        sh:path schema:name ; 
+        sh:minCount 1 ; 
+        sh:node fair2s:TextShape ;
+        sh:message "Name must be a string or a language-tagged string."
+    ] ; 
+    sh:property [ 
+        sh:path schema:description ; 
+        sh:minCount 1 ; 
+        sh:node fair2s:TextShape ;
+        sh:message "Name must be a string or a language-tagged string."
+    ] ;
+    
+    # Croissant requirement: A RecordSet must have fields
+    sh:property [ 
+        sh:path cr:field ; 
+        sh:minCount 1 ; 
+        sh:node fair2s:FieldShape ;
+        sh:description "The columns/attributes defined within this record set."
+    ] .
 
+# --- FIELD SHAPE ---
+fair2s:FieldShape
+    a sh:NodeShape ;
+    sh:targetClass cr:Field ;
+    sh:nodeKind sh:IRI ;
+
+    sh:property [ 
+        sh:path schema:name ; 
+        sh:minCount 1 ; 
+        sh:node fair2s:TextShape ;
+        sh:message "Name must be a string or a language-tagged string."
+    ] ;
+    sh:property [ 
+        sh:path schema:description ; 
+        sh:minCount 1 ; 
+        sh:node fair2s:TextShape ;
+        sh:message "Name must be a string or a language-tagged string."
+    ] ;
+    # Croissant requirement: dataType (must be a URL like schema:Text or schema:Integer)
+    sh:property [ 
+        sh:path cr:dataType ; 
+        sh:minCount 1 ; 
+        sh:nodeKind sh:IRI ;
+        sh:description "The semantic type of the data (e.g., schema:Float)."
+    ] ;
+
+    # Croissant requirement: source (tells the library how to extract the data)
+    sh:property [ 
+        sh:path cr:source ; 
+        sh:minCount 1 ; 
+        sh:node fair2s:SourceShape ;
+        sh:description "The mapping to the physical file and column."
+    ] .
+
+# --- SOURCE SHAPE ---
+fair2s:SourceShape
+    a sh:NodeShape ;
+    sh:nodeKind sh:BlankNodeOrIRI ;
+
+    # Pointing to the @id of the FileObject (DataDownload)
+    sh:property [ 
+        sh:path cr:fileObject ; 
+        sh:minCount 1 ; 
+        sh:nodeKind sh:IRI ;
+        sh:description "The @id of the FileObject this field is extracted from."
+    ] ;
+
+    # The specific column name or JSON path
+    sh:property [ 
+        sh:path cr:extract ; 
+        sh:node [
+            sh:property [ sh:path cr:column ; sh:minCount 1 ; sh:node fair2s:TextShape ]
+        ] ;
+        sh:description "The physical column name in the source file."
+    ] .

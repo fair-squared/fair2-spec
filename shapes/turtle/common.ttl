@@ -1,0 +1,23 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix fair2s: <https://fair2.ai/shapes/> .
+
+# This is a reusable validator for the VALUE of a property
+fair2s:TextShape
+    a sh:NodeShape ;
+    sh:or (
+        [ sh:datatype xsd:string ]
+        [ sh:datatype rdf:langString ]
+    ) ;
+    sh:message "Value must be a plain string (xsd:string) or a language-tagged string (rdf:langString)." .
+
+# Reusable shape for identifiers (DOIs, ORCIDs, RORs, URLs)
+fair2s:IdentifierShape
+    a sh:NodeShape ;
+    sh:or (
+        [ sh:nodeKind sh:IRI ]
+        [ sh:datatype xsd:string ]
+        [ sh:datatype rdf:langString ]
+    ) ;
+    sh:message "Identifier must be a valid IRI (URL) or a text string." .
