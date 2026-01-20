@@ -23,7 +23,7 @@ A major methodological unit (e.g., "Structure Prediction", "Binding Assays").
 
 ```json
 {
-  "@type": "HowToSection",
+  "@type": "fair2",
   "@id": "#section-structure-prediction",
   "name": "Structure Prediction",
   "steps": [ ... ]
