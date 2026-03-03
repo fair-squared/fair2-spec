@@ -14,6 +14,7 @@ nav:
       - SHACL Validation: specification/shacl-validation.md
       - FAIR² Ontology: specification/fair2-ontology.md
       - Methods: specification/methods.md
+      - FAIR² Data Dictionary: specification/data-dictionary.md
       - Access Agreements: specification/access-agreements.md
       - Responsible AI: specification/responsible-ai.md
       - Provenance and Citations: specification/provenance.md

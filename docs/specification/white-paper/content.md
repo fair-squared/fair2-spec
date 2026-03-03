@@ -61,7 +61,7 @@ FAIR² also introduces its own terms (fair2: namespace), SHACL shapes for compli
 
 ## 4. Specification Components
 
-### 4.2 Controlled Terms
+### 4.1 Controlled Terms
 	•	FAIR² builds on well-established controlled vocabularies and ontologies:
         -   Schema.org for core metadata types like Dataset, Person, and Distribution
         -   PROV-O for provenance modeling (prov:agent, prov:hadRole)
@@ -72,10 +72,12 @@ FAIR² also introduces its own terms (fair2: namespace), SHACL shapes for compli
 	•	Available in JSON-LD and Turtle formats via the FAIR² GitHub repository
 	•	FAIR²-specific terms are provided through the FAIR² Ontology (fair2: namespace)
 
-### 4.3 Validation and Shapes
-	•	SHACL validation using JSON-LD
+### 4.2 Schema
 	•	Shapes cover minimum compliance and certification tiers
 	•	Tools are available in the fair-square/fair2py GitHub repository to validate FAIR² datasets
+
+### 4.3 Validation and Shapes
+	•	SHACL validation using JSON-LD
 
 ⸻
 
