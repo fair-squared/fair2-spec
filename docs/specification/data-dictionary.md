@@ -76,9 +76,9 @@ schema:variableMeasured
 | `schema:identifier` | schema.org | Technical name |
 | `schema:name` | schema.org | Human label |
 | `skos:definition` | SKOS | Semantic definition |
-| `fair2:valueType` | FAIR² | Primitive data type |
+| `cr:dataType` | ML Croissant | Primitive data type |
 | `prov:wasGeneratedBy` | PROV-O | Method step provenance |
-| `fair2:unit` | FAIR² | Human unit label |
+| `qudt:unit` | QUDT | Unit of measurement (IRI reference) |
 | `schema:unitCode` | schema.org | Unit symbol/code |
 
 ### 4.2 Strongly Recommended (FAIR²-Core+)
@@ -109,7 +109,7 @@ Statistics are represented as a `schema:DescriptiveStatistics` object attached t
 
 ```jsonld
 "fair2:statistics": {
-  "@type": "schema:DescriptiveStatistics",
+  "@type": "fair2:DescriptiveStatistics",
   "schema:variableMeasured": [
     { "@type": "schema:PropertyValue", "schema:name": "count", "schema:value": 4 },
     { "@type": "schema:PropertyValue", "schema:name": "unique", "schema:value": 4 },
@@ -154,13 +154,23 @@ Statistics MUST be exported as a **separate long-form table**.
 
 ```jsonld
 {
+  "@context": {
+    "schema": "https://schema.org/",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "fair2": "https://fair2.ai/ns/",
+    "cr": "http://mlcommons.org/croissant/",
+    "qudt": "http://qudt.org/schema/qudt/",
+    "unit": "http://qudt.org/vocab/unit/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
   "@id": "fair2:var:rmsd",
   "@type": ["fair2:Variable", "skos:Concept", "prov:Entity"],
   "schema:identifier": "rmsd",
   "schema:name": "RMSD",
   "skos:definition": "Root-mean-square deviation between two aligned molecular structures.",
-  "fair2:valueType": "xsd:double",
-  "fair2:unit": "Å",
+  "cr:dataType": {"@id": "xsd:double"},
+  "qudt:unit": {"@id": "unit:Angstrom"},
   "schema:unitCode": "A",
   "prov:wasGeneratedBy": "fair2:method:step3"
 }
@@ -176,9 +186,9 @@ Statistics MUST be exported as a **separate long-form table**.
 | technical_name | `schema:identifier` |
 | human_label | `schema:name` |
 | definition | `skos:definition` |
-| value_type | `fair2:valueType` |
+| value_type | `cr:dataType` |
 | format | `fair2:format` |
-| unit | `fair2:unit` |
+| unit | `qudt:unit` |
 | unit_code | `schema:unitCode` |
 | method_step_id | `prov:wasGeneratedBy` |
 
@@ -200,6 +210,8 @@ Statistics MUST be exported as a **separate long-form table**.
 - Technical identifiers MUST use `schema:identifier`
 - Human labels MUST use `schema:name`
 - Semantic definitions MUST use `skos:definition`
+- Data types MUST use `cr:dataType` (ML Croissant)
+- Units MUST use `qudt:unit` with a QUDT unit IRI
 - FAIR² properties MUST be singular
 - Statistics MUST be optional and provenance-bearing
 

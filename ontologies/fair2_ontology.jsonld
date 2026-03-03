@@ -2,7 +2,10 @@
   "@context": {
     "schema": "https://schema.org/",
     "prov": "http://www.w3.org/ns/prov#",
-    "cr": "https://credit.niso.org/contributor-roles/",
+    "cr": "http://mlcommons.org/croissant/",
+    "credit": "https://credit.niso.org/contributor-roles/",
+    "qudt": "http://qudt.org/schema/qudt/",
+    "unit": "http://qudt.org/vocab/unit/",
     "fair2": "https://fair2.ai/ns/",
     "fair2s": "https://fair2.ai/shapes/",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
