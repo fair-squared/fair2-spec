@@ -27,7 +27,7 @@ Each **variable** is treated as a first-class entity that has:
 2. A **human-readable name**
 3. A **semantic definition**
 4. A **data type and optional value domain**
-5. A **provenance link** to the method step that produced it
+5. **Provenance links** to the method step(s) that produced it
 6. Optional **descriptive statistics** with provenance
 
 Variables are attached to a dataset using the standard Schema.org property:
@@ -77,7 +77,7 @@ schema:variableMeasured
 | `schema:name` | schema.org | Human label |
 | `skos:definition` | SKOS | Semantic definition |
 | `cr:dataType` | ML Croissant | Primitive data type |
-| `prov:wasGeneratedBy` | PROV-O | Method step provenance |
+| `prov:wasGeneratedBy` | PROV-O | Method step(s) provenance (one or more) |
 | `qudt:unit` | QUDT | Unit of measurement (IRI reference) |
 | `schema:unitCode` | schema.org | Unit symbol/code |
 
@@ -172,7 +172,10 @@ Statistics MUST be exported as a **separate long-form table**.
   "cr:dataType": {"@id": "xsd:double"},
   "qudt:unit": {"@id": "unit:Angstrom"},
   "schema:unitCode": "A",
-  "prov:wasGeneratedBy": "fair2:method:step3"
+  "prov:wasGeneratedBy": [
+    {"@id": "fair2:method:step2", "schema:name": "Structure alignment"},
+    {"@id": "fair2:method:step3", "schema:name": "RMSD calculation"}
+  ]
 }
 ```
 
@@ -190,7 +193,7 @@ Statistics MUST be exported as a **separate long-form table**.
 | format | `fair2:format` |
 | unit | `qudt:unit` |
 | unit_code | `schema:unitCode` |
-| method_step_id | `prov:wasGeneratedBy` |
+| method_step_ids | `prov:wasGeneratedBy` (semicolon-delimited if multiple) |
 
 ---
 
@@ -212,6 +215,7 @@ Statistics MUST be exported as a **separate long-form table**.
 - Semantic definitions MUST use `skos:definition`
 - Data types MUST use `cr:dataType` (ML Croissant)
 - Units MUST use `qudt:unit` with a QUDT unit IRI
+- Provenance MUST use `prov:wasGeneratedBy` and MAY reference one or more method steps
 - FAIR² properties MUST be singular
 - Statistics MUST be optional and provenance-bearing
 
