@@ -17,61 +17,100 @@ Each level extends or specializes the [`schema.org/HowToStep`](https://schema.or
 
 ## Structure and Semantics
 
-### Section (`fair2:Section` = `schema:HowToSection`)
+### Section (`fair2:Section`)
 
 A major methodological unit (e.g., "Structure Prediction", "Binding Assays").
 
-```json
+| Property | Vocabulary | Required | Description |
+|---|---|---|---|
+| `schema:name` | schema.org | Yes | Section title |
+| `schema:description` | schema.org | No | Narrative description |
+| `fair2:step` | FAIR² | No | Steps or StepCases within this section |
+| `fair2:next` | FAIR² | No | IRI of the following section |
+
+```jsonld
 {
-  "@type": "fair2",
-  "@id": "#section-structure-prediction",
-  "name": "Structure Prediction",
-  "steps": [ ... ]
+  "@type": "fair2:Section",
+  "@id": "fair2:method:section-structure-prediction",
+  "schema:name": "Structure Prediction",
+  "schema:description": "Computational prediction of 3D protein structures.",
+  "fair2:step": [ ... ],
+  "fair2:next": { "@id": "fair2:method:section-binding-assays" }
 }
 ```
 
 ---
 
-### Step (`fair2:Step` = `schema:HowToStep`)
+### Step (`fair2:Step`)
 
-Primary procedural element. Must contain `text`, and can include substeps or conditions.
+Primary procedural element within a Section. May contain substeps and link to produced variables.
 
-```json
+| Property | Vocabulary | Required | Description |
+|---|---|---|---|
+| `schema:name` | schema.org | Yes | Step title |
+| `schema:description` | schema.org | No | Step instructions |
+| `fair2:substep` | FAIR² | No | Nested substeps |
+| `fair2:next` | FAIR² | No | IRI of the following step |
+| `fair2:generated` | FAIR² | No | IRI(s) of RecordSet fields produced by this step |
+
+```jsonld
 {
-  "@type": "HowToStep",
-  "@id": "#step-alphafold",
-  "text": "Run AlphaFold prediction using ColabFold pipeline.",
-  "substeps": [ ... ],
-  "conditions": [ ... ]
+  "@type": "fair2:Step",
+  "@id": "fair2:method:step-alphafold",
+  "schema:name": "AlphaFold Prediction",
+  "schema:description": "Run AlphaFold prediction using ColabFold pipeline.",
+  "fair2:substep": [ ... ],
+  "fair2:next": { "@id": "fair2:method:step-rmsd" },
+  "fair2:generated": [
+    { "@id": "fair2:var:rmsd" },
+    { "@id": "fair2:var:plddt" }
+  ]
 }
 ```
 
 ---
 
-### Substep (`fair2:Substep` = `schema:HowToStep`)
+### Substep (`fair2:Substep`)
 
-A finer-grained instruction within a `Step`.
+A finer-grained instruction nested within a `fair2:Step`.
 
-```json
+| Property | Vocabulary | Required | Description |
+|---|---|---|---|
+| `schema:name` | schema.org | Yes | Substep title |
+| `schema:description` | schema.org | No | Substep instructions |
+| `fair2:next` | FAIR² | No | IRI of the following substep |
+
+```jsonld
 {
-  "@type": "HowToStep",
-  "@id": "#substep-prepare-input",
-  "text": "Prepare FASTA input and validate sequence."
+  "@type": "fair2:Substep",
+  "@id": "fair2:method:substep-prepare-input",
+  "schema:name": "Prepare FASTA input",
+  "schema:description": "Prepare FASTA input and validate sequence.",
+  "fair2:next": { "@id": "fair2:method:substep-launch-colabfold" }
 }
 ```
 
 ---
 
-### StepCase (`fair2:StepCase` = `schema:HowToStep`)
+### StepCase (`fair2:StepCase`)
 
-Used to capture conditional logic (e.g., environment-dependent, tool-specific alternatives).
+Used to capture conditional logic (e.g., environment-dependent or tool-specific alternatives). StepCase items are placed in the same `fair2:step` array as regular Steps.
 
-```json
+| Property | Vocabulary | Required | Description |
+|---|---|---|---|
+| `schema:name` | schema.org | Yes | Condition label |
+| `fair2:qualifiedUsage` | FAIR² | Yes | The `if` condition string |
+| `fair2:nextTrue` | FAIR² | Yes | IRI of the path taken if the condition is met |
+| `fair2:next` | FAIR² | No | IRI of the default `else` / fallthrough path |
+
+```jsonld
 {
-  "@type": "HowToStep",
-  "@id": "#stepcase-gpu",
-  "name": "If GPU is available",
-  "text": "Run full-db AlphaFold with GPU acceleration."
+  "@type": "fair2:StepCase",
+  "@id": "fair2:method:stepcase-gpu",
+  "schema:name": "GPU available",
+  "fair2:qualifiedUsage": "hardware.gpu == true",
+  "fair2:nextTrue": { "@id": "fair2:method:step-alphafold-full-db" },
+  "fair2:next": { "@id": "fair2:method:step-alphafold-reduced-db" }
 }
 ```
 
@@ -87,15 +126,18 @@ Each element inherits from `schema:HowToStep`, but is semantically specialized v
 
 ---
 
-## Integration with Activities
+## Integration with Variable Lineage
 
-Steps may link to provenance-aware `prov:Activity` elements for detailed tracking:
+Steps link to the RecordSet fields/variables they produce via `fair2:generated`. This is the step-side provenance property; variables reference back to steps via the inverse `prov:wasGeneratedBy`.
 
-```json
-"wasGeneratedBy": {
-  "@type": "prov:Activity",
-  "type": "Prediction",
-  "wasAssociatedWith": { "@type": "prov:Agent", "name": "AlphaFold v2.3" }
+```jsonld
+{
+  "@type": "fair2:Step",
+  "@id": "fair2:method:step-rmsd",
+  "schema:name": "RMSD Calculation",
+  "fair2:generated": [
+    { "@id": "fair2:var:rmsd" }
+  ]
 }
 ```
 
@@ -103,22 +145,43 @@ Steps may link to provenance-aware `prov:Activity` elements for detailed trackin
 
 ## Example JSON-LD Block
 
-```json
+```jsonld
 {
   "@type": "fair2:Section",
-  "name": "Structure Prediction",
-  "steps": [
+  "@id": "fair2:method:section-structure-prediction",
+  "schema:name": "Structure Prediction",
+  "schema:description": "End-to-end structure prediction pipeline.",
+  "fair2:step": [
     {
       "@type": "fair2:Step",
-      "text": "Run AlphaFold prediction.",
-      "substeps": [
-        { "@type": "fair2:Substep", "text": "Prepare FASTA sequence input." },
-        { "@type": "fair2:Substep", "text": "Launch ColabFold and upload sequence." }
+      "@id": "fair2:method:step-alphafold",
+      "schema:name": "AlphaFold Prediction",
+      "schema:description": "Run AlphaFold prediction using ColabFold pipeline.",
+      "fair2:substep": [
+        {
+          "@type": "fair2:Substep",
+          "@id": "fair2:method:substep-prepare-input",
+          "schema:name": "Prepare FASTA input",
+          "schema:description": "Prepare FASTA input and validate sequence."
+        },
+        {
+          "@type": "fair2:Substep",
+          "@id": "fair2:method:substep-launch-colabfold",
+          "schema:name": "Launch ColabFold",
+          "schema:description": "Upload sequence and launch ColabFold."
+        }
       ],
-      "conditions": [
-        { "@type": "fair2:StepCase", "name": "GPU available", "text": "Use full-db AlphaFold." },
-        { "@type": "fair2:StepCase", "name": "CPU only", "text": "Use reduced-db fallback mode." }
+      "fair2:generated": [
+        { "@id": "fair2:var:plddt" }
       ]
+    },
+    {
+      "@type": "fair2:StepCase",
+      "@id": "fair2:method:stepcase-gpu",
+      "schema:name": "GPU available",
+      "fair2:qualifiedUsage": "hardware.gpu == true",
+      "fair2:nextTrue": { "@id": "fair2:method:step-alphafold-full-db" },
+      "fair2:next": { "@id": "fair2:method:step-alphafold-reduced-db" }
     }
   ]
 }
@@ -128,11 +191,14 @@ Steps may link to provenance-aware `prov:Activity` elements for detailed trackin
 
 ## SHACL Compliance
 
-All method representations must conform to the `MethodShape` defined in FAIR² SHACL:
+All method representations must conform to the shapes defined in `shapes/turtle/method.ttl`:
 
-- `@type` must be `schema:HowToSection` or `schema:HowToStep`
-- `steps` must be an array of `schema:HowToStep`
-- `text` is mandatory for all procedural steps
+| Shape | Target class | Required properties |
+|---|---|---|
+| `MethodSectionShape` | `fair2:Section` | `schema:name` |
+| `MethodStepShape` | `fair2:Step` | `schema:name` |
+| `MethodSubstepShape` | `fair2:Substep` | `schema:name` |
+| `StepCaseShape` | `fair2:StepCase` | `schema:name`, `fair2:qualifiedUsage`, `fair2:nextTrue` |
 
 ---
 
@@ -140,7 +206,8 @@ All method representations must conform to the `MethodShape` defined in FAIR² S
 
 - This pattern allows nesting to arbitrary depth.
 - Textual content can be multilingual using `@language` tags.
-- Conditions and substeps are optional but recommended for clarity and modularity.
+- `fair2:substep` and `fair2:generated` are optional but recommended for clarity and provenance.
+- `fair2:next` enables sequential ordering of sections, steps, and substeps without relying on array index.
 
 ---
 
