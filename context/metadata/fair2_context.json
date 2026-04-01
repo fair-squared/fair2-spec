@@ -74,6 +74,24 @@
             "Submission": {
             "@id": "fair2:Submission"
             },
+            "DataPortal": {
+            "@id": "fair2:DataPortal"
+            },
+            "DataArchive": {
+            "@id": "fair2:DataArchive"
+            },
+            "DigitalDocument": {
+            "@id": "schema:DigitalDocument"
+            },
+            "SoftwareSourceCode": {
+            "@id": "schema:SoftwareSourceCode"
+            },
+            "Activity": {
+            "@id": "prov:Activity"
+            },
+            "SoftwareAgent": {
+            "@id": "prov:SoftwareAgent"
+            },
             "Substep": {
             "@id": "fair2:Substep"
             },
@@ -182,6 +200,34 @@
             },
             "dataset": {
             "@id": "fair2:dataset"
+            },
+            "dataPortal": {
+            "@id": "fair2:dataPortal"
+            },
+            "dataArchive": {
+            "@id": "fair2:dataArchive"
+            },
+            "used": {
+            "@id": "prov:used",
+            "@type": "@id"
+            },
+            "wasAssociatedWith": {
+            "@id": "prov:wasAssociatedWith"
+            },
+            "wasGeneratedBy": {
+            "@id": "prov:wasGeneratedBy"
+            },
+            "softwareVersion": {
+            "@id": "schema:softwareVersion"
+            },
+            "programmingLanguage": {
+            "@id": "schema:programmingLanguage"
+            },
+            "runtimePlatform": {
+            "@id": "schema:runtimePlatform"
+            },
+            "pagination": {
+            "@id": "schema:pagination"
             },
             "datePublished": {
             "@id": "schema:datePublished"

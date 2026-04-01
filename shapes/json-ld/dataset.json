@@ -112,10 +112,6 @@
             "sh:node": "fair2s:DomainShape"
         },
         {
-            "sh:path": "fair2s:changelog",
-            "sh:node": "fair2s:UpdateActionShape"
-        },
-        {
             "sh:path": "fair2s:socialMedia",
             "sh:node": "fair2s:SocialMediaShape"
         },
@@ -127,6 +123,14 @@
             "sh:path": "fair2:dataArticle",
             "sh:minCount": 1,
             "sh:node": "fair2s:ArticleShape"
+        },
+        {
+            "sh:path": "fair2:dataPortal",
+            "sh:node": "fair2s:DataPortalShape"
+        },
+        {
+            "sh:path": "fair2:dataArchive",
+            "sh:node": "fair2s:DataArchiveShape"
         }
     ]
 }

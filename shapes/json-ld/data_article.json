@@ -3,6 +3,7 @@
         "sh": "http://www.w3.org/ns/shacl#",
         "schema": "https://schema.org/",
         "prov": "http://www.w3.org/ns/prov#",
+        "fair2": "https://fair2.ai/ns/",
         "fair2s": "https://fair2.ai/shapes/"
     },
     "@id": "fair2s:ArticleShape",
@@ -26,6 +27,15 @@
             "sh:path": "prov:wasDerivedFrom",
             "sh:minCount": 1,
             "sh:node": "fair2s:IdentifierShape"
+        },
+        {
+            "sh:path": "schema:version",
+            "sh:minCount": 1,
+            "sh:node": "fair2s:TextShape"
+        },
+        {
+            "sh:path": "fair2:changelog",
+            "sh:node": "fair2s:UpdateActionShape"
         }
     ]
 }

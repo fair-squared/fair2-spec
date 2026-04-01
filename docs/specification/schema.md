@@ -44,7 +44,9 @@
 | `schema:citationKey` | `xsd:string` | `[1..∞]` | Yes |
 | `schema:contentUrl` | `sh:IRI` | `[0..∞]` | No |
 | `schema:contributor` | `fair2s:ContributionShape` | `[1..∞]` | Yes |
-| `schema:dataArticle` | `schema:ScholarlyArticle` | `1` | No |
+| `fair2:dataArticle` | `fair2s:ArticleShape` | `[1..1]` | Yes |
+| `fair2:dataPortal` | `fair2s:DataPortalShape` | `[0..∞]` | No |
+| `fair2:dataArchive` | `fair2s:DataArchiveShape` | `[0..∞]` | No |
 | `schema:dateCreated` | `xsd:date` | `[0..∞]` | No |
 | `schema:datePublished` | `xsd:date` | `[0..∞]` | No |
 | `schema:dateUpdated` | `xsd:date` | `[0..∞]` | No |
@@ -72,7 +74,9 @@
 - **schema:citationKey**: Dataset must provide a citationKey for internal referencing.
 - **schema:contentUrl**: Dataset may include a content URL for direct access.
 - **schema:contributor**: Dataset must include contributor metadata and roles.
-- **schema:dataArticle**: Dataset may be linked to a Data Article (Scholarly Article) object.
+- **fair2:dataArticle**: Dataset must be linked to a Data Article (Scholarly Article) object.
+- **fair2:dataPortal**: Dataset may be linked to one or more Data Portals providing access to the data.
+- **fair2:dataArchive**: Dataset may be linked to one or more Data Archives for long-term preservation.
 - **schema:dateCreated**: Dataset may include its creation date.
 - **schema:datePublished**: Dataset may include its publication date.
 - **schema:dateUpdated**: Dataset may include its last updated date.
@@ -223,6 +227,8 @@
 | `schema:name` | `xsd:string` | `[1..∞]` | Yes |
 | `schema:publication` | `fair2s:PublicationShape` | `[1..∞]` | Yes |
 | `schema:publisher` | `fair2s:PublisherShape` | `[1..∞]` | Yes |
+| `schema:version` | `xsd:string` | `[1..∞]` | Yes |
+| `fair2:changelog` | `fair2s:UpdateActionShape` | `[0..∞]` | No |
 
 <details><summary>Constraint notes</summary>
 
@@ -231,6 +237,80 @@
 - **schema:name**: Data article must include a title.
 - **schema:publication**: Data article must reference a publication (journal or periodical).
 - **schema:publisher**: Data article must specify a publisher organization.
+- **schema:version**: Data article must specify its version (e.g., '1.0').
+- **fair2:changelog**: Data article may include a structured changelog for version history.
+
+</details>
+
+
+## fair2s:DataPortalShape
+*Targets:* `fair2:DataPortal`
+
+| Property | Type | Cardinality | Mandatory |
+|---|---|---|---|
+| `schema:name` | `xsd:string` | `[1..∞]` | Yes |
+| `schema:description` | `xsd:string` | `[1..∞]` | Yes |
+| `schema:identifier` | `fair2s:IdentifierShape` | `[1..∞]` | Yes |
+| `schema:version` | `xsd:string` | `[1..∞]` | Yes |
+| `schema:url` | `sh:IRI` | `[1..∞]` | Yes |
+| `schema:keywords` | `xsd:string` | `[1..∞]` | Yes |
+| `schema:author` | `fair2s:PersonOrOrganizationShape` | `[1..∞]` | Yes |
+| `schema:dateCreated` | `xsd:date` | `[0..∞]` | No |
+| `schema:datePublished` | `xsd:date` | `[0..∞]` | No |
+| `schema:dateUpdated` | `xsd:date` | `[0..∞]` | No |
+| `fair2:changelog` | `fair2s:UpdateActionShape` | `[0..∞]` | No |
+| `fair2:dataset` | `fair2s:IdentifierShape` | `[0..∞]` | No |
+
+<details><summary>Constraint notes</summary>
+
+- **schema:name**: Data portal must include a name.
+- **schema:description**: Data portal must include a description.
+- **schema:identifier**: Data portal must include a persistent identifier (e.g., URL or DOI).
+- **schema:version**: Data portal must specify its version.
+- **schema:url**: Data portal must include a URL pointing to the portal's web address.
+- **schema:keywords**: Data portal must include at least one keyword.
+- **schema:author**: Data portal must include at least one author or maintaining organization.
+- **schema:dateCreated**: Data portal may include its creation date.
+- **schema:datePublished**: Data portal may include its publication date.
+- **schema:dateUpdated**: Data portal may include its last updated date.
+- **fair2:changelog**: Data portal may include a structured changelog for version history.
+- **fair2:dataset**: Data portal may reference the dataset(s) it provides access to.
+
+</details>
+
+
+## fair2s:DataArchiveShape
+*Targets:* `fair2:DataArchive`
+
+| Property | Type | Cardinality | Mandatory |
+|---|---|---|---|
+| `schema:name` | `xsd:string` | `[1..∞]` | Yes |
+| `schema:description` | `xsd:string` | `[1..∞]` | Yes |
+| `schema:identifier` | `fair2s:IdentifierShape` | `[1..∞]` | Yes |
+| `schema:version` | `xsd:string` | `[1..∞]` | Yes |
+| `schema:keywords` | `xsd:string` | `[1..∞]` | Yes |
+| `schema:holdingArchive` | `fair2s:IdentifierShape` | `[1..∞]` | Yes |
+| `schema:author` | `fair2s:PersonOrOrganizationShape` | `[1..∞]` | Yes |
+| `schema:dateCreated` | `xsd:date` | `[0..∞]` | No |
+| `schema:datePublished` | `xsd:date` | `[0..∞]` | No |
+| `schema:dateUpdated` | `xsd:date` | `[0..∞]` | No |
+| `fair2:changelog` | `fair2s:UpdateActionShape` | `[0..∞]` | No |
+| `fair2:dataset` | `fair2s:IdentifierShape` | `[0..∞]` | No |
+
+<details><summary>Constraint notes</summary>
+
+- **schema:name**: Data archive must include a name.
+- **schema:description**: Data archive must include a description.
+- **schema:identifier**: Data archive must include a persistent identifier (e.g., DOI or URL).
+- **schema:version**: Data archive must specify its version.
+- **schema:keywords**: Data archive must include at least one keyword.
+- **schema:holdingArchive**: Data archive must reference the institution responsible for holding the archive (e.g., Zenodo, SEANOE).
+- **schema:author**: Data archive must include at least one author or responsible organization.
+- **schema:dateCreated**: Data archive may include its creation date.
+- **schema:datePublished**: Data archive may include its publication date.
+- **schema:dateUpdated**: Data archive may include its last updated date.
+- **fair2:changelog**: Data archive may include a structured changelog for version history.
+- **fair2:dataset**: Data archive may reference the dataset(s) it stores.
 
 </details>
 
@@ -335,12 +415,16 @@
 | `fair2:step` | `fair2s:StepShape` | `[1..∞]` | Yes |
 | `schema:description` | `xsd:string` | `[0..∞]` | No |
 | `schema:name` | `xsd:string` | `[1..∞]` | Yes |
+| `fair2:next` | `sh:IRI` | `[0..1]` | No |
+| `prov:used` | `sh:IRI` | `[0..∞]` | No |
 
 <details><summary>Constraint notes</summary>
 
 - **fair2:step**: Each MethodSection must contain at least one Step.
 - **schema:description**: Each MethodSection may include a description summarizing the methodological context.
 - **schema:name**: Each MethodSection must include a section name.
+- **fair2:next**: MethodSection may reference the next section by IRI.
+- **prov:used**: MethodSection may reference source documents or scripts (DigitalDocument or SoftwareSourceCode nodes) that were consulted during this section.
 
 </details>
 
@@ -473,14 +557,16 @@
 | `fair2:generated` | `sh:IRI` | `[0..∞]` | No |
 | `fair2:next` | `sh:IRI` | `[0..∞]` | No |
 | `fair2:substep` | `fair2s:SubStepShape` | `[0..∞]` | No |
+| `prov:used` | `sh:IRI` | `[0..∞]` | No |
 | `schema:description` | `xsd:string` | `[0..∞]` | No |
 | `schema:name` | `xsd:string` | `[1..∞]` | Yes |
 
 <details><summary>Constraint notes</summary>
 
-- **fair2:generated**: If provided, 'generated' should reference produced data elements (e.g., fields, recordSets).
+- **fair2:generated**: If provided, 'generated' should reference produced data elements (e.g., fields, recordSets) by IRI.
 - **fair2:next**: If provided, 'next' should reference the following step using an IRI.
 - **fair2:substep**: Substeps may be defined as nested procedural components.
+- **prov:used**: Step may reference source documents or scripts (DigitalDocument or SoftwareSourceCode nodes) that were used as inputs for this step.
 - **schema:description**: Each Step may include a description detailing actions or parameters.
 - **schema:name**: Each Step must include a name.
 
@@ -493,13 +579,107 @@
 | Property | Type | Cardinality | Mandatory |
 |---|---|---|---|
 | `fair2:next` | `sh:IRI` | `[0..∞]` | No |
+| `prov:used` | `sh:IRI` | `[0..∞]` | No |
 | `schema:description` | `xsd:string` | `[0..∞]` | No |
 | `schema:name` | `xsd:string` | `[1..∞]` | Yes |
 
 <details><summary>Constraint notes</summary>
 
 - **fair2:next**: If provided, 'next' should reference the subsequent substep.
+- **prov:used**: Substep may reference source documents or scripts used as inputs.
 - **schema:description**: Each Substep may include a descriptive text.
 - **schema:name**: Each Substep must include a name.
+
+</details>
+
+
+## fair2s:DigitalDocumentShape
+*Targets:* `schema:DigitalDocument`
+
+Source documents referenced via `prov:used` in method sections and steps (e.g., READMEs, data dictionaries, protocol specifications).
+
+| Property | Type | Cardinality | Mandatory |
+|---|---|---|---|
+| `schema:name` | `xsd:string` | `[1..∞]` | Yes |
+| `schema:pagination` | `xsd:string` | `[0..∞]` | No |
+| `schema:encodingFormat` | `xsd:string` | `[0..∞]` | No |
+| `schema:url` | `sh:IRI` | `[0..1]` | No |
+
+<details><summary>Constraint notes</summary>
+
+- **schema:name**: Document must have a human-readable name.
+- **schema:pagination**: Relative file path to the document within the dataset package (repurposed from schema.org).
+- **schema:encodingFormat**: MIME type of the document (e.g., `text/markdown`, `text/csv`).
+- **schema:url**: Optionally, a persistent URL for the document.
+
+</details>
+
+
+## fair2s:SoftwareSourceCodeShape
+*Targets:* `schema:SoftwareSourceCode`
+
+Scripts and code files used or produced by method steps, referenced via `prov:used` or `fair2:generated`.
+
+| Property | Type | Cardinality | Mandatory |
+|---|---|---|---|
+| `schema:name` | `xsd:string` | `[1..∞]` | Yes |
+| `schema:identifier` | `xsd:string` | `[0..∞]` | No |
+| `schema:encodingFormat` | `xsd:string` | `[0..∞]` | No |
+| `schema:url` | `sh:IRI` | `[0..1]` | No |
+| `schema:programmingLanguage` | `xsd:string` | `[0..∞]` | No |
+| `schema:runtimePlatform` | `xsd:string` | `[0..∞]` | No |
+
+<details><summary>Constraint notes</summary>
+
+- **schema:name**: Script must have a human-readable name (e.g., filename).
+- **schema:identifier**: Relative path or persistent identifier for the script.
+- **schema:encodingFormat**: MIME type of the source file (e.g., `text/x-python`).
+- **schema:url**: Optionally, a URL pointing to the script.
+- **schema:programmingLanguage**: Programming language used (e.g., `Python`, `R`).
+- **schema:runtimePlatform**: Runtime environment (e.g., `Python 3.11`, `R 4.3`).
+
+</details>
+
+
+## fair2s:ActivityShape
+*Targets:* `prov:Activity`
+
+A computational or manual activity that uses inputs and produces outputs. Activities link agents to the data they generate.
+
+| Property | Type | Cardinality | Mandatory |
+|---|---|---|---|
+| `rdfs:label` | `xsd:string` | `[1..∞]` | Yes |
+| `prov:wasAssociatedWith` | `sh:IRI` | `[0..∞]` | No |
+| `schema:startTime` | `xsd:dateTime` | `[0..1]` | No |
+| `schema:endTime` | `xsd:dateTime` | `[0..1]` | No |
+
+<details><summary>Constraint notes</summary>
+
+- **rdfs:label**: Activity must have a human-readable name describing the computation or process.
+- **prov:wasAssociatedWith**: Activity may reference one or more responsible agents (SoftwareAgent, Person, Organization).
+- **schema:startTime**: Activity may record when it began.
+- **schema:endTime**: Activity may record when it completed.
+
+</details>
+
+
+## fair2s:SoftwareAgentShape
+*Targets:* `prov:SoftwareAgent`
+
+A software tool or application that performed an activity. Software agents are responsible for automated data processing, extraction, and transformation steps.
+
+| Property | Type | Cardinality | Mandatory |
+|---|---|---|---|
+| `schema:name` | `xsd:string` | `[1..∞]` | Yes |
+| `schema:identifier` | `fair2s:IdentifierShape` | `[0..∞]` | No |
+| `schema:softwareVersion` | `xsd:string` | `[0..∞]` | No |
+| `schema:programmingLanguage` | `xsd:string` | `[0..∞]` | No |
+
+<details><summary>Constraint notes</summary>
+
+- **schema:name**: Software agent must have a name (e.g., `Pandas`, `R`, `CESM2.2`).
+- **schema:identifier**: Software agent may include a persistent identifier or homepage URL.
+- **schema:softwareVersion**: Software agent may specify its version (e.g., `2.1.1`).
+- **schema:programmingLanguage**: Software agent may specify its implementation language.
 
 </details>

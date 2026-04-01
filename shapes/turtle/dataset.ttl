@@ -74,25 +74,15 @@ fair2s:DatasetShape
     sh:property [ sh:path fair2:changelog ; sh:node fair2s:UpdateActionShape ] ;
     sh:property [ sh:path schema:subjectOf ; sh:node fair2s:CreativeWorkShape ] ;
     sh:property [ sh:path fair2:domain ; sh:node fair2s:DomainShape ] ;
-    # Add these to fair2s:DatasetShape
-    sh:property [ 
-        sh:path fair2s:changelog ; 
-        sh:node fair2s:UpdateActionShape 
-    ] ;
 
-    sh:property [ 
-        sh:path fair2s:socialMedia ; 
-        sh:node fair2s:SocialMediaShape 
-    ] ;
+    sh:property [ sh:path fair2s:socialMedia ; sh:node fair2s:SocialMediaShape ] ;
+    sh:property [ sh:path schema:accessRights ; sh:node fair2s:AccessRightsShape ] ;
 
-    sh:property [ 
-        sh:path schema:accessRights ; 
-        sh:node fair2s:AccessRightsShape 
+    # --- Links to Other Publication Products ---
+    sh:property [
+        sh:path fair2:dataArticle ;
+        sh:minCount 1 ;
+        sh:node fair2s:ArticleShape
     ] ;
-
-    # --- Link to Data Paper (Article) ---
-    sh:property [ 
-        sh:path fair2:dataArticle ; 
-        sh:minCount 1 ; 
-        sh:node fair2s:ArticleShape 
-    ] .
+    sh:property [ sh:path fair2:dataPortal ; sh:node fair2s:DataPortalShape ] ;
+    sh:property [ sh:path fair2:dataArchive ; sh:node fair2s:DataArchiveShape ] .

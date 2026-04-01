@@ -1,5 +1,6 @@
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix schema: <https://schema.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix fair2: <https://fair2.ai/ns/> .
 @prefix fair2s: <https://fair2.ai/shapes/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -20,13 +21,18 @@ fair2s:MethodSectionShape
         sh:path schema:description ; 
         sh:node fair2s:TextShape
     ] ;
-    sh:property [ 
-        sh:path fair2:next ; 
+    sh:property [
+        sh:path fair2:next ;
         sh:nodeKind sh:IRI ;
         sh:description "The section following this one."
     ] ;
-    sh:property [ 
-        sh:path fair2:step ; 
+    sh:property [
+        sh:path prov:used ;
+        sh:nodeKind sh:IRI ;
+        sh:description "Source documents or scripts referenced during this section."
+    ] ;
+    sh:property [
+        sh:path fair2:step ;
         sh:minCount 0 ;
         # Steps can be either a standard Step or a conditional StepCase
         sh:or (
@@ -54,8 +60,13 @@ fair2s:MethodStepShape
     ] ;
 
     sh:property [ sh:path fair2:next ; sh:nodeKind sh:IRI ] ;
-    sh:property [ 
-        sh:path fair2:generated ; 
+    sh:property [
+        sh:path prov:used ;
+        sh:nodeKind sh:IRI ;
+        sh:description "Source documents or scripts used in this step."
+    ] ;
+    sh:property [
+        sh:path fair2:generated ;
         sh:nodeKind sh:IRI ;
         sh:description "Lineage link to RecordSet fields."
     ] .
@@ -93,4 +104,9 @@ fair2s:MethodSubstepShape
     
     sh:property [ sh:path schema:name ; sh:minCount 1 ] ;
     sh:property [ sh:path schema:description ; sh:node fair2s:TextShape ] ;
-    sh:property [ sh:path fair2:next ; sh:nodeKind sh:IRI ] .
+    sh:property [ sh:path fair2:next ; sh:nodeKind sh:IRI ] ;
+    sh:property [
+        sh:path prov:used ;
+        sh:nodeKind sh:IRI ;
+        sh:description "Source documents or scripts used in this substep."
+    ] .

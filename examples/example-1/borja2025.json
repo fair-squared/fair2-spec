@@ -186,6 +186,42 @@
     "dataArticle": {
       "@id": "fair2:dataArticle"
     },
+    "dataPortal": {
+      "@id": "fair2:dataPortal"
+    },
+    "dataArchive": {
+      "@id": "fair2:dataArchive"
+    },
+    "DataPortal": {
+      "@id": "fair2:DataPortal"
+    },
+    "DataArchive": {
+      "@id": "fair2:DataArchive"
+    },
+    "DigitalDocument": {
+      "@id": "schema:DigitalDocument"
+    },
+    "SoftwareSourceCode": {
+      "@id": "schema:SoftwareSourceCode"
+    },
+    "Activity": {
+      "@id": "prov:Activity"
+    },
+    "SoftwareAgent": {
+      "@id": "prov:SoftwareAgent"
+    },
+    "softwareVersion": {
+      "@id": "schema:softwareVersion"
+    },
+    "programmingLanguage": {
+      "@id": "schema:programmingLanguage"
+    },
+    "runtimePlatform": {
+      "@id": "schema:runtimePlatform"
+    },
+    "pagination": {
+      "@id": "schema:pagination"
+    },
     "dataAnnotationAnalysis": {
       "@id": "rai:dataAnnotationAnalysis"
     },
@@ -374,6 +410,8 @@
       "@id": "prov:wasRevisionOf"
     }
   },
+  "@graph": [
+  {
   "@id": "https://sen.science/doi/10.71728/r1rj-f947",
   "@type": "Dataset",
   "author": [
@@ -1685,21 +1723,9 @@
   ],
   "license": "http://opendatacommons.org/licenses/by/1-0/",
   "name": "Borja_2025_Marine_Biodiversity_and_Environmental_Data_Dataset",
-  "dataArticle": {
-    "@id": "https://doi.org/10.3389/focsu.2024.1528837",
-    "@type": "DataArticle",
-    "name": "Marine biodiversity and environmental data: an AI-ready, open dataset from the long term (1995–2023) monitoring network",
-    "publisher": {
-      "@type": "Organization",
-      "name": "Frontiers Media SA"
-    },
-    "publication": {
-      "@type": "Periodical",
-      "name": "Frontiers in Ocean Sustainability"
-    },
-    "datePublished": "2025-02-17",
-    "wasDerivedFrom": "https://sen.science/doi/10.71728/r1rj-f947"
-  },
+  "dataArticle": { "@id": "https://doi.org/10.3389/focsu.2024.1528837" },
+  "dataPortal": { "@id": "https://sen.science" },
+  "dataArchive": { "@id": "https://zenodo.org/communities/fair2-borja2025" },
   "domain": {
     "@id": "https://www.wikidata.org/wiki/Q7173",
     "@type": "schema:Thing",
@@ -1731,11 +1757,15 @@
     {
       "@type": "Section",
       "@id": "method-sections/4bd9f204-fd04-4c4c-9740-b530cdd9667f",
-      "description": "The study was designed to monitor and analyze long-term environmental trends in the Basque Country's marine ecosystems, focusing on water quality, sediment characteristics, and biological communities. The approach involved systematic sampling across multiple sites and taxa groups, employing standardized protocols to ensure data consistency and reliability over the nearly three-decade period. This methodology facilitated the assessment of anthropogenic impacts and the effectiveness of management interventions, providing a comprehensive understanding of ecosystem dynamics in response to both human activities and natural variability.",
+      "description": "The study was designed to monitor and analyze long-term environmental trends in the Basque Country’s marine ecosystems, focusing on water quality, sediment characteristics, and biological communities. The approach involved systematic sampling across multiple sites and taxa groups, employing standardized protocols to ensure data consistency and reliability over the nearly three-decade period. This methodology facilitated the assessment of anthropogenic impacts and the effectiveness of management interventions, providing a comprehensive understanding of ecosystem dynamics in response to both human activities and natural variability.",
       "name": "Research Design and Approach",
       "next": {
         "@id": "method-sections/005c2a80-a71f-4130-a64a-f36ed85045f2"
       },
+      "prov:used": [
+        { "@id": "source/readme" },
+        { "@id": "source/data_dictionary" }
+      ],
       "step": [
         {
           "@type": "Step",
@@ -1744,6 +1774,9 @@
           "next": {
             "@id": "steps/93e1e4e5-cb75-43ce-bb8b-ebcfd3c5b05d"
           },
+          "prov:used": [
+            { "@id": "source/readme" }
+          ],
           "description": "The primary objective of this study was to assess environmental quality trends in the Basque Country’s marine ecosystems using long-term monitoring data from 1995 to 2023. Key areas of interest include examining water, sediment, and biological components to understand the impact of human pressures, such as industrial and urban discharges, as well as the effectiveness of management actions, like wastewater treatment. This dataset, gathered from 70 sampling stations across the Bay of Biscay, provides insights into environmental changes, supporting the overarching hypothesis that implemented management actions yield positive ecological effects."
         },
         {
@@ -11819,4 +11852,104 @@
     "url": "http://fair2.ai/spec/0.1.0-beta"
   },
   "version": "1.2"
+  },
+  {
+    "@type": "DigitalDocument",
+    "@id": "source/readme",
+    "name": "Borja 2025 Dataset README",
+    "pagination": "README.md",
+    "encodingFormat": "text/markdown"
+  },
+  {
+    "@type": "DigitalDocument",
+    "@id": "source/data_dictionary",
+    "name": "Data Dictionary",
+    "pagination": "data_dictionary.csv",
+    "encodingFormat": "text/csv"
+  },
+  {
+    "@type": "SoftwareSourceCode",
+    "@id": "source/extract_script",
+    "name": "data_extraction.py",
+    "pagination": "scripts/data_extraction.py",
+    "encodingFormat": "text/x-python",
+    "programmingLanguage": "Python"
+  },
+  {
+    "@type": "Activity",
+    "@id": "activity/statistics-computation",
+    "rdfs:label": "Descriptive statistics computation",
+    "prov:wasAssociatedWith": { "@id": "agent/pandas" }
+  },
+  {
+    "@type": "SoftwareAgent",
+    "@id": "agent/pandas",
+    "name": "Pandas",
+    "identifier": { "@id": "https://pandas.pydata.org/", "propertyID": "URL" },
+    "softwareVersion": "2.1.1",
+    "programmingLanguage": "Python"
+  },
+  {
+    "@id": "https://doi.org/10.3389/focsu.2024.1528837",
+    "@type": "DataArticle",
+    "name": "Marine biodiversity and environmental data: an AI-ready, open dataset from the long term (1995–2023) monitoring network",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Frontiers Media SA"
+    },
+    "publication": {
+      "@type": "Periodical",
+      "name": "Frontiers in Ocean Sustainability"
+    },
+    "datePublished": "2025-02-17",
+    "wasDerivedFrom": "https://sen.science/doi/10.71728/r1rj-f947",
+    "version": "1.0",
+    "changelog": []
+  },
+  {
+    "@id": "https://sen.science",
+    "@type": "DataPortal",
+    "name": "SEN.Science Open Data Portal",
+    "description": "Open data portal providing access to FAIR² compliant marine and environmental datasets.",
+    "identifier": {
+      "@id": "https://sen.science",
+      "propertyID": "URL"
+    },
+    "url": "https://sen.science",
+    "keywords": ["open data", "marine science", "FAIR²"],
+    "author": {
+      "@id": "/organizations/0d6a7bd5-95ee-4b5a-9ea9-35747624b353",
+      "@type": "Organization",
+      "name": "AZTI, Marine Research, Basque Research and Technology Alliance (BRTA)"
+    },
+    "version": "1.0",
+    "datePublished": "2025-02-17",
+    "dataset": { "@id": "https://sen.science/doi/10.71728/r1rj-f947" },
+    "changelog": []
+  },
+  {
+    "@id": "https://zenodo.org/communities/fair2-borja2025",
+    "@type": "DataArchive",
+    "name": "Borja 2025 — Marine Biodiversity and Environmental Data Archive",
+    "description": "Long-term archive of the FAIR² marine biodiversity and environmental dataset published by AZTI.",
+    "identifier": {
+      "@id": "https://zenodo.org/communities/fair2-borja2025",
+      "propertyID": "URL"
+    },
+    "keywords": ["marine biology", "environmental monitoring", "Basque Country"],
+    "holdingArchive": {
+      "@id": "https://zenodo.org",
+      "name": "Zenodo"
+    },
+    "author": {
+      "@id": "/authors/c1b96691-fbbf-4157-a2c5-e8fb78c799f1",
+      "@type": "Person",
+      "name": "Ángel Borja"
+    },
+    "version": "1.2",
+    "datePublished": "2025-02-17",
+    "dataset": { "@id": "https://sen.science/doi/10.71728/r1rj-f947" },
+    "changelog": []
+  }
+  ]
 }

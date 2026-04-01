@@ -71,6 +71,20 @@
       "rdfs:subClassOf": "schema:CreativeWork"
     },
     {
+      "@id": "fair2:DataPortal",
+      "@type": "rdfs:Class",
+      "rdfs:label": "DataPortal",
+      "rdfs:comment": "A web portal that provides access to and discovery of FAIR² datasets.",
+      "rdfs:subClassOf": "schema:CreativeWork"
+    },
+    {
+      "@id": "fair2:DataArchive",
+      "@type": "rdfs:Class",
+      "rdfs:label": "DataArchive",
+      "rdfs:comment": "An archive component that stores and preserves datasets for long-term access.",
+      "rdfs:subClassOf": "schema:ArchiveComponent"
+    },
+    {
       "@id": "fair2:activities",
       "@type": "rdf:Property",
       "rdfs:label": "activities",
@@ -153,9 +167,27 @@
       "@type": "rdf:Property",
       "rdfs:label": "visualization",
       "rdfs:comment": "Links to a visualization derived from the dataset or record set."
+    },
+    {
+      "@id": "fair2:dataPortal",
+      "@type": "rdf:Property",
+      "rdfs:label": "dataPortal",
+      "rdfs:comment": "Links a dataset to an associated data portal."
+    },
+    {
+      "@id": "fair2:dataArchive",
+      "@type": "rdf:Property",
+      "rdfs:label": "dataArchive",
+      "rdfs:comment": "Links a dataset to an associated data archive."
+    },
+    {
+      "@id": "fair2:generated",
+      "@type": "rdf:Property",
+      "rdfs:label": "generated",
+      "rdfs:comment": "Links a method step to the RecordSet fields or artifacts it produced (lineage)."
     }
   ],
   "rdfs:comment": "FAIR2 ontology subset defining only classes and properties actually used in published FAIR2 datasets.",
-  "schema:version": "0.3",
-  "schema:dateModified": "2025-10-11T15:58:06.282239Z"
+  "schema:version": "0.5",
+  "schema:dateModified": "2026-03-30T12:00:00.000000Z"
 }

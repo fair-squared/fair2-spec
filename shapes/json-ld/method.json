@@ -2,6 +2,7 @@
     "@context": {
         "sh": "http://www.w3.org/ns/shacl#",
         "schema": "https://schema.org/",
+        "prov": "http://www.w3.org/ns/prov#",
         "fair2": "https://fair2.ai/ns/",
         "fair2s": "https://fair2.ai/shapes/",
         "xsd": "http://www.w3.org/2001/XMLSchema#"
@@ -25,6 +26,11 @@
             "sh:path": "fair2:next",
             "sh:nodeKind": "sh:IRI",
             "sh:description": "The section following this one."
+        },
+        {
+            "sh:path": "prov:used",
+            "sh:nodeKind": "sh:IRI",
+            "sh:description": "Source documents or scripts referenced during this section."
         },
         {
             "sh:path": "fair2:step",

@@ -10,7 +10,7 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-# FAIR2 Ontology — 2025-10-11T15:58:06.286748Z
+# FAIR2 Ontology — 2026-03-30T12:00:00.000000Z
 # Includes only terms used in published datasets.
 
 fair2:OpenDataArticle a rdfs:Class ;
@@ -52,6 +52,16 @@ fair2:Submission a rdfs:Class ;
   rdfs:label "Submission" ;
   rdfs:comment "Submission package that groups dataset, article, and supporting materials for review." ;
   rdfs:subClassOf schema:CreativeWork .
+
+fair2:DataPortal a rdfs:Class ;
+  rdfs:label "DataPortal" ;
+  rdfs:comment "A web portal that provides access to and discovery of FAIR² datasets." ;
+  rdfs:subClassOf schema:CreativeWork .
+
+fair2:DataArchive a rdfs:Class ;
+  rdfs:label "DataArchive" ;
+  rdfs:comment "An archive component that stores and preserves datasets for long-term access." ;
+  rdfs:subClassOf schema:ArchiveComponent .
 
 fair2:activities a rdf:Property ;
   rdfs:label "activities" ;
@@ -108,3 +118,15 @@ fair2:variables a rdf:Property ;
 fair2:visualization a rdf:Property ;
   rdfs:label "visualization" ;
   rdfs:comment "Links to a visualization derived from the dataset or record set." .
+
+fair2:dataPortal a rdf:Property ;
+  rdfs:label "dataPortal" ;
+  rdfs:comment "Links a dataset to an associated data portal." .
+
+fair2:dataArchive a rdf:Property ;
+  rdfs:label "dataArchive" ;
+  rdfs:comment "Links a dataset to an associated data archive." .
+
+fair2:generated a rdf:Property ;
+  rdfs:label "generated" ;
+  rdfs:comment "Links a method step to the RecordSet fields or artifacts it produced (lineage)." .
