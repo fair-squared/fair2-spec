@@ -125,6 +125,21 @@
             "author": {
             "@id": "schema:author"
             },
+            "Certification": {
+            "@id": "fair2:Certification"
+            },
+            "certificationDocument": {
+            "@id": "fair2:certificationDocument"
+            },
+            "certificationScope": {
+            "@id": "fair2:certificationScope"
+            },
+            "certifiedBy": {
+            "@id": "fair2:certifiedBy"
+            },
+            "creator": {
+            "@id": "schema:creator"
+            },
             "brand": {
             "@id": "schema:brand"
             },
@@ -133,6 +148,9 @@
             },
             "citeAs": {
             "@id": "cr:citeAs"
+            },
+            "changeLog": {
+            "@id": "fair2:changeLog"
             },
             "column": {
             "@id": "cr:column"
@@ -229,8 +247,17 @@
             "pagination": {
             "@id": "schema:pagination"
             },
+            "dateIssued": {
+            "@id": "fair2:dateIssued"
+            },
             "datePublished": {
             "@id": "schema:datePublished"
+            },
+            "fair2ComplianceLevel": {
+            "@id": "fair2:fair2ComplianceLevel"
+            },
+            "verificationEndpoint": {
+            "@id": "fair2:verificationEndpoint"
             },
             "dct": "http://purl.org/dc/terms/",
             "description": {
@@ -261,6 +288,9 @@
             },
             "givenName": {
             "@id": "schema:givenName"
+            },
+            "hadRole": {
+            "@id": "prov:hadRole"
             },
             "headline": {
             "@id": "schema:headline"

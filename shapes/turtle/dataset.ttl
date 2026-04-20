@@ -24,6 +24,7 @@ fair2s:DatasetShape
     sh:property [ sh:path schema:identifier ; sh:minCount 1 ; sh:node fair2s:IdentifierShape ] ;
     sh:property [ sh:path schema:version ; sh:minCount 1 ; sh:node fair2s:TextShape ] ;
     sh:property [ sh:path schema:license ; sh:minCount 1 ; sh:node fair2s:IdentifierShape ] ;
+    sh:property [ sh:path schema:url ; sh:minCount 1 ; sh:node fair2s:IdentifierShape ] ;
     sh:property [ sh:path schema:keywords ; sh:minCount 1 ; sh:node fair2s:TextShape ] ;
 
     # --- Croissant (cr) Properties ---
@@ -41,10 +42,10 @@ fair2s:DatasetShape
     ] ;
 
     # --- Roles & Participants ---
-    sh:property [ 
-        sh:path schema:author ; 
-        sh:minCount 1 ; 
-        sh:node fair2s:PersonOrOrganizationShape 
+    sh:property [
+        sh:path schema:creator ;
+        sh:minCount 1 ;
+        sh:node fair2s:PersonOrOrganizationShape
     ] ;
     sh:property [ 
         sh:path schema:contributor ; 
@@ -71,7 +72,7 @@ fair2s:DatasetShape
     sh:property [ sh:path schema:dateCreated ; sh:datatype xsd:date ] ;
     sh:property [ sh:path schema:datePublished ; sh:datatype xsd:date ] ;
     sh:property [ sh:path schema:dateUpdated ; sh:datatype xsd:date ] ;
-    sh:property [ sh:path fair2:changelog ; sh:node fair2s:UpdateActionShape ] ;
+    sh:property [ sh:path fair2:changeLog ; sh:node fair2s:UpdateActionShape ] ;
     sh:property [ sh:path schema:subjectOf ; sh:node fair2s:CreativeWorkShape ] ;
     sh:property [ sh:path fair2:domain ; sh:node fair2s:DomainShape ] ;
 

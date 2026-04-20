@@ -148,6 +148,64 @@ Typical validation errors and solutions:
 
 ---
 
+## Compatibility Rules
+
+FAIR² metadata files MUST satisfy the rules below in order to load cleanly
+with the `mlcroissant` Python library. These rules were established by
+validating real FAIR² packages against `mlcroissant`'s JSON-LD processor and
+identifying reproducible crash modes.
+
+### Rule 1 — No shared-node `@id` references
+
+A node whose `@id` appears as a top-level `@graph` member MUST NOT be
+referenced from more than one other place via a bare `{"@id": "X"}` object.
+The `mlcroissant` traversal function visits shared nodes twice and raises a
+`KeyError`. To describe the same entity at multiple points in the graph,
+embed it as a fresh blank-node object without `@id` at each usage site
+(see Rule 4).
+
+### Rule 2 — No `"@type": "@id"` on cross-graph properties
+
+Properties whose values reference other `@graph` entries MUST NOT carry
+`"@type": "@id"` in the `@context`. The underlying `rdflib` JSON-LD parser
+silently converts string values with this coercion back into bare
+`{"@id": "..."}` dicts, reintroducing the shared-node crash described in
+Rule 1. Affected properties include `citation`, `dataArticle`, `dataPortal`,
+`dataArchive`, `dataset`, `wasAssociatedWith`, `wasGeneratedBy`,
+`wasDerivedFrom`, `wasRevisionOf`, `generated`, `next`, and `url`.
+
+### Rule 3 — No circular self-references via `@id`
+
+A Dataset node MUST NOT reference its own `@id` as the value of any of its
+own properties. In particular, `changeLog[].wasRevisionOf["@id"]` MUST NOT
+equal the Dataset's `@id`. To represent a revision that chains back to the
+same logical entity without the cycle, embed the revision target as an
+object without an `@id`, or omit the cross-reference entirely.
+
+### Rule 4 — Repeated entities MUST be blank nodes
+
+When the same logical entity (an author, an organization, a software agent)
+appears in multiple locations in the graph, each occurrence MUST be a fresh
+object without `@id`. This is the corollary of Rule 1: without an `@id`,
+the JSON-LD processor treats each occurrence as a distinct blank node and
+the shared-node crash cannot be triggered.
+
+### Rule 5 — Distribution `@id` MUST match FileObject source exactly
+
+The `@id` value of each `distribution[]` entry MUST exactly match the value
+used in `recordSet[].field[].source.fileObject["@id"]`. Any mismatch causes
+`mlcroissant` to silently drop the source mapping; the RecordSet will be
+unloadable without any validation error.
+
+### Rule 6 — FileObject `@type` MUST be `cr:FileObject`
+
+Distribution entries MUST declare `"@type": "cr:FileObject"` (which resolves
+to `http://mlcommons.org/croissant/FileObject`). Legacy types such as
+`schema:DataDownload` or `sc:FileObject` are silently ignored by
+`mlcroissant` and the distribution will not be indexed.
+
+---
+
 ## Summary
 
 FAIR² provides the following enhancements to ML Croissant:

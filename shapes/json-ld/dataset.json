@@ -40,6 +40,11 @@
             "sh:node": "fair2s:IdentifierShape"
         },
         {
+            "sh:path": "schema:url",
+            "sh:minCount": 1,
+            "sh:node": "fair2s:IdentifierShape"
+        },
+        {
             "sh:path": "schema:keywords",
             "sh:minCount": 1,
             "sh:node": "fair2s:TextShape"
@@ -62,7 +67,7 @@
             "sh:node": "fair2s:RecordSetShape"
         },
         {
-            "sh:path": "schema:author",
+            "sh:path": "schema:creator",
             "sh:minCount": 1,
             "sh:node": "fair2s:PersonOrOrganizationShape"
         },
@@ -100,7 +105,7 @@
             "sh:datatype": "xsd:date"
         },
         {
-            "sh:path": "fair2:changelog",
+            "sh:path": "fair2:changeLog",
             "sh:node": "fair2s:UpdateActionShape"
         },
         {

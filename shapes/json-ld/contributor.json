@@ -3,7 +3,8 @@
         "sh": "http://www.w3.org/ns/shacl#",
         "schema": "https://schema.org/",
         "fair2s": "https://fair2.ai/shapes/",
-        "fair2": "https://fair2.ai/ns/"
+        "fair2": "https://fair2.ai/ns/",
+        "prov": "http://www.w3.org/ns/prov#"
     },
     "@id": "fair2s:PersonOrOrganizationShape",
     "type": "sh:NodeShape",
@@ -29,21 +30,38 @@
             }
         ]
     },
+    "fair2s:ContributorRoleShape": {
+        "type": "sh:NodeShape",
+        "sh:nodeKind": "sh:BlankNodeOrIRI",
+        "sh:or": [
+            {
+                "sh:property": [
+                    {
+                        "sh:path": "schema:name",
+                        "sh:minCount": 1,
+                        "sh:node": "fair2s:TextShape"
+                    }
+                ]
+            },
+            {
+                "sh:property": [
+                    {
+                        "sh:path": "schema:propertyID",
+                        "sh:minCount": 1,
+                        "sh:node": "fair2s:TextShape"
+                    }
+                ]
+            }
+        ]
+    },
     "fair2s:ContributorShape": {
         "type": "sh:NodeShape",
         "sh:node": "fair2s:PersonOrOrganizationShape",
         "sh:property": [
             {
-                "sh:path": "fair2:hadRole",
+                "sh:path": "prov:hadRole",
                 "sh:minCount": 1,
-                "sh:node": {
-                    "sh:property": [
-                        {
-                            "sh:path": "schema:name",
-                            "sh:minCount": 1
-                        }
-                    ]
-                }
+                "sh:node": "fair2s:ContributorRoleShape"
             }
         ]
     }

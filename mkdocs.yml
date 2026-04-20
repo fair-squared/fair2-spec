@@ -10,12 +10,15 @@ nav:
   - Home: index.md
   - Specification:
       - Overview: specification/overview.md
+      - fair2.json File Format: specification/fair2json-format.md
       - Schema: specification/schema.md
       - SHACL Validation: specification/shacl-validation.md
       - FAIR² Ontology: specification/fair2-ontology.md
+      - Namespace Prefixes: specification/prefixes.md
       - Methods: specification/methods.md
       - FAIR² Data Dictionary: specification/data-dictionary.md
       - Access Agreements: specification/access-agreements.md
+      - Certification: specification/certification.md
       - Responsible AI: specification/responsible-ai.md
       - Provenance and Citations: specification/provenance.md
   - Integration:

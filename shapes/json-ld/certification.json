@@ -1,0 +1,44 @@
+{
+    "@context": {
+        "sh": "http://www.w3.org/ns/shacl#",
+        "schema": "https://schema.org/",
+        "fair2": "https://fair2.ai/ns/",
+        "fair2s": "https://fair2.ai/shapes/",
+        "xsd": "http://www.w3.org/2001/XMLSchema#"
+    },
+    "_note": "DRAFT — pending governance decisions A, B, C. See docs/specification/certification.md.",
+    "@id": "fair2s:CertificationShape",
+    "type": "sh:NodeShape",
+    "sh:targetClass": "fair2:Certification",
+    "sh:property": [
+        {
+            "sh:path": "fair2:certifiedBy",
+            "sh:minCount": 1,
+            "sh:node": "fair2s:OrganizationShape"
+        },
+        {
+            "sh:path": "fair2:dateIssued",
+            "sh:minCount": 1,
+            "sh:datatype": "xsd:date"
+        },
+        {
+            "sh:path": "fair2:fair2ComplianceLevel",
+            "sh:minCount": 1,
+            "sh:node": "fair2s:IdentifierShape"
+        },
+        {
+            "sh:path": "fair2:certificationDocument",
+            "sh:minCount": 1,
+            "sh:node": "fair2s:IdentifierShape"
+        },
+        {
+            "sh:path": "fair2:verificationEndpoint",
+            "sh:nodeKind": "sh:IRI"
+        },
+        {
+            "sh:path": "fair2:certificationScope",
+            "sh:minCount": 1,
+            "sh:node": "fair2s:TextShape"
+        }
+    ]
+}

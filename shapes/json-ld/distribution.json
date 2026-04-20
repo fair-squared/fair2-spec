@@ -31,7 +31,7 @@
             "sh:minCount": 1
         },
         {
-            "sh:path": "schema:sha256",
+            "sh:path": "cr:sha256",
             "sh:node": "fair2s:TextShape",
             "sh:minCount": 1
         }

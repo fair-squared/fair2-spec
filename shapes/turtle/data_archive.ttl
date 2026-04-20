@@ -23,7 +23,7 @@ fair2s:DataArchiveShape
 
     # --- Versioning ---
     sh:property [ sh:path schema:version ; sh:minCount 1 ; sh:node fair2s:TextShape ] ;
-    sh:property [ sh:path fair2:changelog ; sh:node fair2s:UpdateActionShape ] ;
+    sh:property [ sh:path fair2:changeLog ; sh:node fair2s:UpdateActionShape ] ;
 
     # --- Life Cycle ---
     sh:property [ sh:path schema:dateCreated ; sh:datatype xsd:date ] ;

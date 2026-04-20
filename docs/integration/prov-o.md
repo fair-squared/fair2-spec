@@ -13,6 +13,15 @@ PROV-O is a W3C recommendation for representing provenance information, includin
 
 ---
 
+!!! note "On bare PROV-O terms in payloads"
+    In `fair2.json` bodies, PROV-O properties such as `wasAttributedTo`,
+    `wasGeneratedBy`, `wasDerivedFrom`, and `hadRole` appear *without* the
+    `prov:` prefix. This is the canonical form: the
+    [FAIR² `@context`](../specification/prefixes.md#canonical-context-reference)
+    aliases each bare name to its full `prov:` URI, so the JSON-LD processor
+    resolves them identically to the prefixed forms. Producers SHOULD use the
+    bare aliases in the payload body to match the rest of the FAIR² data model.
+
 ## PROV-O Concepts in FAIR²
 
 The following table summarizes how FAIR² utilizes core PROV-O terms:

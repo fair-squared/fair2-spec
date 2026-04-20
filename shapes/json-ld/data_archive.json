@@ -47,7 +47,7 @@
             "sh:node": "fair2s:TextShape"
         },
         {
-            "sh:path": "fair2:changelog",
+            "sh:path": "fair2:changeLog",
             "sh:node": "fair2s:UpdateActionShape"
         },
         {

@@ -13,7 +13,7 @@
 | `schema:license` | `xsd:anyURI` | `[1..∞]` | Yes |
 | `schema:name` | `xsd:string` | `[1..∞]` | Yes |
 | `schema:url` | `xsd:anyURI` | `[1..∞]` | Yes |
-| `cr:conformsTo` | `xsd:boolean` | `[1..∞]` | Yes |
+| `dct:conformsTo` | `fair2s:IdentifierShape` | `[1..∞]` | Yes |
 
 <details><summary>Constraint notes</summary>
 
@@ -23,7 +23,7 @@
 - **schema:license**: A dataset must have a license.
 - **schema:name**: A dataset must have a name.
 - **schema:url**: A dataset must have a URL.
-- **cr:conformsTo**: A dataset must conform to an specification version.
+- **dct:conformsTo**: A dataset must reference the URI of the FAIR² specification version it conforms to.
 
 </details>
 
@@ -33,62 +33,62 @@
 
 | Property | Type | Cardinality | Mandatory |
 |---|---|---|---|
-| `dct:accessRights` | `fair2s:AccessRightsShape` | `[1..∞]` | Yes |
-| `fair2:changeLog` | `fair2s:ChangeLogShape` | `[0..∞]` | No |
-| `fair2:citeAs` | `xsd:string` | `[1..∞]` | Yes |
-| `fair2:method` | `fair2s:MethodShape` | `[1..∞]` | Yes |
-| `fair2:recordSet` | `fair2s:RecordSetShape` | `[1..∞]` | Yes |
-| `fair2:socialMedia` | `fair2s:SocialMediaShape` | `[0..∞]` | No |
-| `schema:author` | `fair2s:AuthorShape` | `[1..∞]` | Yes |
-| `schema:citation` | `fair2s:DataArticleShape` | `[1..∞]` | Yes |
-| `schema:citationKey` | `xsd:string` | `[1..∞]` | Yes |
-| `schema:contentUrl` | `sh:IRI` | `[0..∞]` | No |
-| `schema:contributor` | `fair2s:ContributionShape` | `[1..∞]` | Yes |
-| `fair2:dataArticle` | `fair2s:ArticleShape` | `[1..1]` | Yes |
-| `fair2:dataPortal` | `fair2s:DataPortalShape` | `[0..∞]` | No |
+| `schema:accessRights` | `fair2s:AccessRightsShape` | `[0..∞]` | No |
+| `cr:citeAs` | `xsd:string` | `[0..∞]` | No |
+| `fair2:changeLog` | `fair2s:UpdateActionShape` | `[0..∞]` | No |
 | `fair2:dataArchive` | `fair2s:DataArchiveShape` | `[0..∞]` | No |
+| `fair2:dataArticle` | `fair2s:ArticleShape` | `[1..∞]` | Yes |
+| `fair2:dataPortal` | `fair2s:DataPortalShape` | `[0..∞]` | No |
+| `fair2:domain` | `fair2s:DomainShape` | `[0..∞]` | No |
+| `fair2:methodSection` | `fair2s:MethodSectionShape` | `[0..∞]` | No |
+| `fair2s:socialMedia` | `fair2s:SocialMediaShape` | `[0..∞]` | No |
+| `cr:recordSet` | `fair2s:RecordSetShape` | `[0..∞]` | No |
+| `schema:contributor` | `fair2s:ContributorShape` | `[0..∞]` | No |
+| `schema:creator` | `fair2s:PersonOrOrganizationShape` | `[1..∞]` | Yes |
 | `schema:dateCreated` | `xsd:date` | `[0..∞]` | No |
 | `schema:datePublished` | `xsd:date` | `[0..∞]` | No |
 | `schema:dateUpdated` | `xsd:date` | `[0..∞]` | No |
-| `schema:description` | `xsd:string` | `[1..∞]` | Yes |
-| `schema:funding` | `fair2s:FundingShape` | `[0..∞]` | No |
-| `schema:identifier` | `xsd:string` | `[1..∞]` | Yes |
-| `schema:keywords` | `xsd:string` | `[1..∞]` | Yes |
-| `schema:license` | `sh:IRI` | `[1..∞]` | Yes |
-| `schema:name` | `xsd:string` | `[1..∞]` | Yes |
+| `schema:description` | `fair2s:TextShape` | `[1..∞]` | Yes |
+| `schema:distribution` | `fair2s:DistributionShape` | `[1..∞]` | Yes |
+| `schema:funding` | `fair2s:GrantShape` | `[0..∞]` | No |
+| `schema:identifier` | `fair2s:IdentifierShape` | `[1..∞]` | Yes |
+| `schema:keywords` | `fair2s:TextShape` | `[1..∞]` | Yes |
+| `schema:license` | `fair2s:IdentifierShape` | `[1..∞]` | Yes |
+| `schema:name` | `fair2s:TextShape` | `[1..∞]` | Yes |
 | `schema:spatialCoverage` | `fair2s:SpatialCoverageShape` | `[0..∞]` | No |
-| `schema:subjectOf` | `fair2s:DomainShape` | `[1..∞]` | Yes |
-| `schema:temporalCoverage` | `xsd:string` | `[0..∞]` | No |
-| `schema:version` | `xsd:string` | `[1..∞]` | Yes |
+| `schema:subjectOf` | `fair2s:CreativeWorkShape` | `[0..∞]` | No |
+| `schema:temporalCoverage` | `fair2s:TextShape` | `[0..∞]` | No |
+| `schema:url` | `fair2s:IdentifierShape` | `[1..∞]` | Yes |
+| `schema:version` | `fair2s:TextShape` | `[1..∞]` | Yes |
 
 <details><summary>Constraint notes</summary>
 
-- **dct:accessRights**: Dataset must specify access rights (e.g., FAIR² Agreement Level).
+- **schema:accessRights**: Dataset may specify access rights (e.g., FAIR² Agreement Level).
+- **cr:citeAs**: Dataset may include a full 'cite as' text citation.
 - **fair2:changeLog**: Dataset may include a structured changelog for version history.
-- **fair2:citeAs**: Dataset must include a full 'cite as' text citation.
-- **fair2:method**: Dataset must include at least one MethodSection describing methodology.
-- **fair2:recordSet**: Dataset must include at least one RecordSet definition.
-- **fair2:socialMedia**: Dataset may include social media dissemination metadata.
-- **schema:author**: Dataset must include at least one author.
-- **schema:citation**: Dataset must include a citation to the related Data Article.
-- **schema:citationKey**: Dataset must provide a citationKey for internal referencing.
-- **schema:contentUrl**: Dataset may include a content URL for direct access.
-- **schema:contributor**: Dataset must include contributor metadata and roles.
-- **fair2:dataArticle**: Dataset must be linked to a Data Article (Scholarly Article) object.
-- **fair2:dataPortal**: Dataset may be linked to one or more Data Portals providing access to the data.
 - **fair2:dataArchive**: Dataset may be linked to one or more Data Archives for long-term preservation.
+- **fair2:dataArticle**: Dataset must be linked to at least one Data Article (Scholarly Article).
+- **fair2:dataPortal**: Dataset may be linked to one or more Data Portals providing access to the data.
+- **fair2:domain**: Dataset may declare the domain(s) it belongs to (e.g., marine science).
+- **fair2:methodSection**: Dataset may include one or more method sections describing methodology.
+- **fair2s:socialMedia**: Dataset may include social media dissemination metadata.
+- **cr:recordSet**: Dataset may include one or more RecordSet definitions.
+- **schema:contributor**: Dataset may include contributor metadata and CRediT roles.
+- **schema:creator**: Dataset must include at least one creator (Person or Organization).
 - **schema:dateCreated**: Dataset may include its creation date.
 - **schema:datePublished**: Dataset may include its publication date.
 - **schema:dateUpdated**: Dataset may include its last updated date.
 - **schema:description**: Dataset must include a description.
-- **schema:funder**: Dataset may include one or more funding entries.
-- **schema:identifier**: Dataset must include a unique identifier (e.g., DOI).
+- **schema:distribution**: Dataset must have at least one distribution (file object).
+- **schema:funding**: Dataset may include one or more funding entries.
+- **schema:identifier**: Dataset must include a persistent identifier (e.g., DOI URI).
 - **schema:keywords**: Dataset must include at least one keyword.
 - **schema:license**: Dataset must declare an open license IRI.
 - **schema:name**: Dataset must include a name.
 - **schema:spatialCoverage**: Dataset may specify spatial coverage information.
-- **schema:subjectOf**: Dataset must declare at least one domain or subject area.
+- **schema:subjectOf**: Dataset may reference CreativeWorks (e.g., landing page, sameAs links).
 - **schema:temporalCoverage**: Dataset may specify the temporal coverage (e.g., 1995–2023).
+- **schema:url**: Dataset must include its canonical landing-page URL.
 - **schema:version**: Dataset must specify its version.
 
 </details>
@@ -228,7 +228,7 @@
 | `schema:publication` | `fair2s:PublicationShape` | `[1..∞]` | Yes |
 | `schema:publisher` | `fair2s:PublisherShape` | `[1..∞]` | Yes |
 | `schema:version` | `xsd:string` | `[1..∞]` | Yes |
-| `fair2:changelog` | `fair2s:UpdateActionShape` | `[0..∞]` | No |
+| `fair2:changeLog` | `fair2s:UpdateActionShape` | `[0..∞]` | No |
 
 <details><summary>Constraint notes</summary>
 
@@ -238,7 +238,7 @@
 - **schema:publication**: Data article must reference a publication (journal or periodical).
 - **schema:publisher**: Data article must specify a publisher organization.
 - **schema:version**: Data article must specify its version (e.g., '1.0').
-- **fair2:changelog**: Data article may include a structured changelog for version history.
+- **fair2:changeLog**: Data article may include a structured changelog for version history.
 
 </details>
 
@@ -258,7 +258,7 @@
 | `schema:dateCreated` | `xsd:date` | `[0..∞]` | No |
 | `schema:datePublished` | `xsd:date` | `[0..∞]` | No |
 | `schema:dateUpdated` | `xsd:date` | `[0..∞]` | No |
-| `fair2:changelog` | `fair2s:UpdateActionShape` | `[0..∞]` | No |
+| `fair2:changeLog` | `fair2s:UpdateActionShape` | `[0..∞]` | No |
 | `fair2:dataset` | `fair2s:IdentifierShape` | `[0..∞]` | No |
 
 <details><summary>Constraint notes</summary>
@@ -273,7 +273,7 @@
 - **schema:dateCreated**: Data portal may include its creation date.
 - **schema:datePublished**: Data portal may include its publication date.
 - **schema:dateUpdated**: Data portal may include its last updated date.
-- **fair2:changelog**: Data portal may include a structured changelog for version history.
+- **fair2:changeLog**: Data portal may include a structured changelog for version history.
 - **fair2:dataset**: Data portal may reference the dataset(s) it provides access to.
 
 </details>
@@ -294,7 +294,7 @@
 | `schema:dateCreated` | `xsd:date` | `[0..∞]` | No |
 | `schema:datePublished` | `xsd:date` | `[0..∞]` | No |
 | `schema:dateUpdated` | `xsd:date` | `[0..∞]` | No |
-| `fair2:changelog` | `fair2s:UpdateActionShape` | `[0..∞]` | No |
+| `fair2:changeLog` | `fair2s:UpdateActionShape` | `[0..∞]` | No |
 | `fair2:dataset` | `fair2s:IdentifierShape` | `[0..∞]` | No |
 
 <details><summary>Constraint notes</summary>
@@ -309,7 +309,7 @@
 - **schema:dateCreated**: Data archive may include its creation date.
 - **schema:datePublished**: Data archive may include its publication date.
 - **schema:dateUpdated**: Data archive may include its last updated date.
-- **fair2:changelog**: Data archive may include a structured changelog for version history.
+- **fair2:changeLog**: Data archive may include a structured changelog for version history.
 - **fair2:dataset**: Data archive may reference the dataset(s) it stores.
 
 </details>
