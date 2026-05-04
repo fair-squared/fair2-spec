@@ -843,7 +843,6 @@
       "contributor": [
         {
           "@type": "schema:Person",
-          "@id": "/authors/c1b96691-fbbf-4157-a2c5-e8fb78c799f1",
           "schema:name": "Ángel Borja",
           "hadRole": [
             {
@@ -875,7 +874,6 @@
         },
         {
           "@type": "schema:Person",
-          "@id": "/authors/ec8f02fa-21f5-40ed-a7ba-9cbd0f31badd",
           "schema:name": "José Germán Rodríguez",
           "hadRole": [
             {
@@ -897,7 +895,6 @@
         },
         {
           "@type": "schema:Person",
-          "@id": "/authors/7ab2eeaa-ccf2-4da5-b5bc-aae5610a07b6",
           "schema:name": "Juan Bald",
           "hadRole": [
             {
@@ -924,7 +921,6 @@
         },
         {
           "@type": "schema:Person",
-          "@id": "/authors/fc0f0feb-7c90-467d-b0f5-a8ff04d1b86a",
           "schema:name": "Mª. Jesús Belzunce-Segarra",
           "hadRole": [
             {
@@ -946,7 +942,6 @@
         },
         {
           "@type": "schema:Person",
-          "@id": "/authors/58edc419-f85a-4b7c-a420-212433a30d77",
           "schema:name": "Javier Franco",
           "hadRole": [
             {
@@ -978,7 +973,6 @@
         },
         {
           "@type": "schema:Person",
-          "@id": "/authors/70d18870-7f86-47cc-9cdd-a107fc020865",
           "schema:name": "Joxe Mikel Garmendia",
           "hadRole": [
             {
@@ -1005,7 +999,6 @@
         },
         {
           "@type": "schema:Person",
-          "@id": "/authors/755ab500-40f0-4642-976b-740f22f719ff",
           "schema:name": "Joana Larreta",
           "hadRole": [
             {
@@ -1037,7 +1030,6 @@
         },
         {
           "@type": "schema:Person",
-          "@id": "/authors/2b106118-927a-49c0-af90-17b2b0a5c5c7",
           "schema:name": "Iratxe Menchaca",
           "hadRole": [
             {
@@ -1059,7 +1051,6 @@
         },
         {
           "@type": "schema:Person",
-          "@id": "/authors/9fab328f-b9b4-4884-acc2-73292114c42f",
           "schema:name": "Iñigo Muxika",
           "hadRole": [
             {
@@ -1081,7 +1072,6 @@
         },
         {
           "@type": "schema:Person",
-          "@id": "/authors/94f55faa-5c10-4448-b647-4468cf829c57",
           "schema:name": "Sarai Pouso",
           "hadRole": [
             {
@@ -1098,7 +1088,6 @@
         },
         {
           "@type": "schema:Person",
-          "@id": "/authors/e559b4d8-6872-44b0-bbad-bef503ce2669",
           "schema:name": "Yolanda Sagarmínaga",
           "hadRole": [
             {
@@ -1115,7 +1104,6 @@
         },
         {
           "@type": "schema:Person",
-          "@id": "/authors/a4a62167-b607-453c-be6b-41c9a848f862",
           "schema:name": "Oihana Solaun",
           "hadRole": [
             {
@@ -1137,7 +1125,6 @@
         },
         {
           "@type": "schema:Person",
-          "@id": "/authors/6c4bb5d1-01c9-45c7-82ba-84406e31f072",
           "schema:name": "Marta Revilla",
           "hadRole": [
             {
@@ -1164,7 +1151,6 @@
         },
         {
           "@type": "schema:Person",
-          "@id": "/authors/ad100bf0-903f-456e-aa08-32765cda3f72",
           "schema:name": "Alberto Manzanos",
           "hadRole": [
             {
@@ -1186,7 +1172,6 @@
         },
         {
           "@type": "schema:Person",
-          "@id": "/authors/f1d6bf5e-4952-40ee-b071-6a0311d0dbb4",
           "schema:name": "Inma Martín",
           "hadRole": [
             {
@@ -1203,7 +1188,6 @@
         },
         {
           "@type": "schema:Person",
-          "@id": "/authors/0b2c265b-cbbb-4a84-a6e0-8561a03f7617",
           "schema:name": "Ainhize Uriarte",
           "hadRole": [
             {
@@ -1230,7 +1214,6 @@
         },
         {
           "@type": "schema:Person",
-          "@id": "/authors/558ed9d2-2e21-4016-9f93-474fbec7260b",
           "schema:name": "Izaskun Zorita",
           "hadRole": [
             {
@@ -1262,7 +1245,6 @@
         },
         {
           "@type": "schema:Person",
-          "@id": "/authors/2ad3ba9b-5a32-4f97-b9ff-02b3ace52a05",
           "schema:name": "Idoia Adarraga",
           "hadRole": [
             {
@@ -1289,7 +1271,6 @@
         },
         {
           "@type": "schema:Person",
-          "@id": "/authors/b1e7e1cf-b184-4c1c-be77-3ea77a96571d",
           "schema:name": "Igor Cruz",
           "hadRole": [
             {
@@ -1316,7 +1297,6 @@
         },
         {
           "@type": "schema:Person",
-          "@id": "/authors/5f79751e-828f-4b79-8e4f-6c7afdd97ed1",
           "schema:name": "Mikel A. Marquiegui",
           "hadRole": [
             {
@@ -1343,7 +1323,6 @@
         },
         {
           "@type": "schema:Person",
-          "@id": "/authors/a40420ba-c7e4-4cfe-8cde-721c943b3b9e",
           "schema:name": "Julián Martínez",
           "hadRole": [
             {
@@ -1370,7 +1349,6 @@
         },
         {
           "@type": "schema:Person",
-          "@id": "/authors/68615f53-707a-40f7-b37f-beaef70a3aec",
           "schema:name": "Jose María Ruiz",
           "hadRole": [
             {
@@ -1397,7 +1375,6 @@
         },
         {
           "@type": "schema:Person",
-          "@id": "authors/89ab5c4a-78d5-4646-9893-dce79501c391",
           "schema:name": "Aitor Laza-Martínez",
           "hadRole": [
             {
