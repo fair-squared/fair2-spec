@@ -1,31 +1,32 @@
 {
-    "@context": {
-        "sh": "http://www.w3.org/ns/shacl#",
-        "schema": "https://schema.org/",
-        "fair2s": "https://fair2.ai/shapes/"
+  "@context": {
+    "sh": "http://www.w3.org/ns/shacl#",
+    "schema": "https://schema.org/",
+    "fair2s": "https://fair2.ai/shapes/",
+    "skos": "http://www.w3.org/2004/02/skos/core#"
+  },
+  "@id": "fair2s:AccessRightsShape",
+  "type": "sh:NodeShape",
+  "sh:targetClass": "schema:DefinedTerm",
+  "sh:nodeKind": "sh:IRI",
+  "sh:property": [
+    {
+      "sh:path": "schema:name",
+      "sh:node": "fair2s:TextShape",
+      "sh:minCount": 1
     },
-    "@id": "fair2s:AccessRightsShape",
-    "type": "sh:NodeShape",
-    "sh:targetClass": "schema:DefinedTerm",
-    "sh:nodeKind": "sh:IRI",
-    "sh:property": [
-        {
-            "sh:path": "schema:name",
-            "sh:node": "fair2s:TextShape",
-            "sh:minCount": 1
-        },
-        {
-            "sh:path": "schema:definition",
-            "sh:node": "fair2s:TextShape",
-            "sh:minCount": 1
-        },
-        {
-            "sh:path": "schema:note",
-            "sh:node": "fair2s:TextShape"
-        },
-        {
-            "sh:path": "schema:url",
-            "sh:nodeKind": "sh:IRI"
-        }
-    ]
+    {
+      "sh:path": "skos:definition",
+      "sh:node": "fair2s:TextShape",
+      "sh:minCount": 1
+    },
+    {
+      "sh:path": "skos:note",
+      "sh:node": "fair2s:TextShape"
+    },
+    {
+      "sh:path": "schema:url",
+      "sh:node": "fair2s:IdentifierShape"
+    }
+  ]
 }

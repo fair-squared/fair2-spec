@@ -5,30 +5,26 @@
 
 fair2s:SocialMediaShape
     a sh:NodeShape ;
-    
-    # Technical platform identifier (e.g., "linkedin")
-    sh:property [ 
-        sh:path schema:identifier ; 
+
+    sh:property [
+        sh:path schema:identifier ;
         sh:node fair2s:IdentifierShape ;
-        sh:minCount 1 
+        sh:minCount 1
     ] ;
 
-    # Link to the social platform
-    sh:property [ 
-        sh:path fair2s:accountServiceHomePage ; 
+    sh:property [
+        sh:path fair2s:accountServiceHomePage ;
         sh:nodeKind sh:IRI ;
-        sh:minCount 1 
+        sh:minCount 1
     ] ;
 
-    # The content of the social media post
-    sh:property [ 
-        sh:path schema:articleBody ; 
+    sh:property [
+        sh:path schema:articleBody ;
         sh:node fair2s:TextShape ;
-        sh:minCount 1 
+        sh:minCount 1
     ] ;
 
-    # Array of strings for tags/keywords
-    sh:property [ 
-        sh:path schema:keywords ; 
-        sh:node fair2s:TextShape 
+    sh:property [
+        sh:path schema:keywords ;
+        sh:node fair2s:TextShape
     ] .

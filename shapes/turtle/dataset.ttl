@@ -13,11 +13,10 @@ fair2s:DatasetShape
     sh:targetClass schema:Dataset ;
     sh:nodeKind sh:IRI ;
 
-    # --- Standard Identity & Metadata ---
-    sh:property [ 
-        sh:path schema:name ; 
+    sh:property [
+        sh:path schema:name ;
         sh:node fair2s:TextShape ;
-        sh:minCount 1 ; 
+        sh:minCount 1 ;
         sh:message "Name must be a string or a language-tagged string."
     ] ;
     sh:property [ sh:path schema:description ; sh:minCount 1 ; sh:node fair2s:TextShape ] ;
@@ -27,48 +26,48 @@ fair2s:DatasetShape
     sh:property [ sh:path schema:url ; sh:minCount 1 ; sh:node fair2s:IdentifierShape ] ;
     sh:property [ sh:path schema:keywords ; sh:minCount 1 ; sh:node fair2s:TextShape ] ;
 
-    # --- Croissant (cr) Properties ---
     sh:property [ sh:path dct:conformsTo ; sh:minCount 1 ; sh:node fair2s:IdentifierShape] ;
     sh:property [ sh:path cr:citeAs ; sh:node fair2s:TextShape ] ;
 
-    # --- FAIR² & Methodological Properties ---
-    sh:property [ 
-        sh:path fair2:methodSection ; 
+    sh:property [
+        sh:path fair2:methodSection ;
         sh:node fair2s:MethodSectionShape
     ] ;
-    sh:property [ 
-        sh:path cr:recordSet ; 
+    sh:property [
+        sh:path cr:recordSet ;
         sh:node fair2s:RecordSetShape
     ] ;
 
-    # --- Roles & Participants ---
     sh:property [
         sh:path schema:creator ;
         sh:minCount 1 ;
         sh:node fair2s:PersonOrOrganizationShape
     ] ;
-    sh:property [ 
-        sh:path schema:contributor ; 
-        sh:node fair2s:ContributorShape 
+    sh:property [
+        sh:path schema:contributor ;
+        sh:node fair2s:ContributorShape
     ] ;
-    sh:property [ 
-        sh:path schema:funding ; 
-        sh:node fair2s:GrantShape 
-    ] ;
-
-    # --- Coverage & Distribution ---
-    sh:property [ sh:path schema:temporalCoverage ; sh:node fair2s:TextShape ] ;
-    sh:property [ 
-        sh:path schema:spatialCoverage ; 
-        sh:node fair2s:SpatialCoverageShape 
-    ] ;
-    sh:property [ 
-        sh:path schema:distribution ; 
-        sh:minCount 1 ; 
-        sh:node fair2s:DistributionShape 
+    sh:property [
+        sh:path schema:funding ;
+        sh:node fair2s:GrantShape
     ] ;
 
-    # --- Life Cycle & Context ---
+    sh:property [
+        sh:path schema:temporalCoverage ;
+        sh:node fair2s:TextShape ;
+        sh:pattern "^(\\d{4}(-\\d{2}(-\\d{2})?)?)(/(\\d{4}(-\\d{2}(-\\d{2})?)?|\\.\\.))?$" ;
+        sh:message "temporalCoverage must be an ISO 8601 date or interval (e.g. '1995-01-01/2023-12-31') for Google Dataset Search compliance."
+    ] ;
+    sh:property [
+        sh:path schema:spatialCoverage ;
+        sh:node fair2s:SpatialCoverageShape
+    ] ;
+    sh:property [
+        sh:path schema:distribution ;
+        sh:minCount 1 ;
+        sh:node fair2s:DistributionShape
+    ] ;
+
     sh:property [ sh:path schema:dateCreated ; sh:datatype xsd:date ] ;
     sh:property [ sh:path schema:datePublished ; sh:datatype xsd:date ] ;
     sh:property [ sh:path schema:dateUpdated ; sh:datatype xsd:date ] ;
@@ -79,7 +78,6 @@ fair2s:DatasetShape
     sh:property [ sh:path fair2s:socialMedia ; sh:node fair2s:SocialMediaShape ] ;
     sh:property [ sh:path schema:accessRights ; sh:node fair2s:AccessRightsShape ] ;
 
-    # --- Links to Other Publication Products ---
     sh:property [
         sh:path fair2:dataArticle ;
         sh:minCount 1 ;

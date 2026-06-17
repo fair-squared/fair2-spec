@@ -3,17 +3,92 @@
         "sh": "http://www.w3.org/ns/shacl#",
         "xsd": "http://www.w3.org/2001/XMLSchema#",
         "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "schema": "https://schema.org/",
         "fair2s": "https://fair2.ai/shapes/"
     },
-    "@id": "fair2s:TextShape",
-    "@type": "sh:NodeShape",
-    "sh:or": [
+    "@graph": [
         {
-            "sh:datatype": "xsd:string"
+            "@id": "fair2s:TextShape",
+            "@type": "sh:NodeShape",
+            "sh:or": [
+                {
+                    "sh:datatype": "xsd:string"
+                },
+                {
+                    "sh:datatype": "rdf:langString"
+                }
+            ],
+            "sh:message": "Value must be a plain string (xsd:string) or a language-tagged string (rdf:langString)."
         },
         {
-            "sh:datatype": "rdf:langString"
+            "@id": "fair2s:IdentifierShape",
+            "@type": "sh:NodeShape",
+            "sh:or": [
+                {
+                    "sh:nodeKind": "sh:IRI"
+                },
+                {
+                    "sh:datatype": "xsd:string"
+                },
+                {
+                    "sh:datatype": "rdf:langString"
+                }
+            ],
+            "sh:message": "Identifier must be a valid IRI (URL) or a text string."
+        },
+        {
+            "@id": "fair2s:CreativeWorkShape",
+            "@type": "sh:NodeShape",
+            "sh:property": [
+                {
+                    "sh:path": "schema:name",
+                    "sh:minCount": 1,
+                    "sh:node": "fair2s:TextShape"
+                },
+                {
+                    "sh:path": "schema:url",
+                    "sh:node": "fair2s:IdentifierShape"
+                }
+            ]
+        },
+        {
+            "@id": "fair2s:GrantShape",
+            "@type": "sh:NodeShape",
+            "sh:property": [
+                {
+                    "sh:path": "schema:name",
+                    "sh:minCount": 1,
+                    "sh:node": "fair2s:TextShape"
+                },
+                {
+                    "sh:path": "schema:funder",
+                    "sh:node": "fair2s:PersonOrOrganizationShape"
+                },
+                {
+                    "sh:path": "schema:url",
+                    "sh:node": "fair2s:IdentifierShape"
+                },
+                {
+                    "sh:path": "schema:identifier",
+                    "sh:node": "fair2s:IdentifierShape"
+                }
+            ]
+        },
+        {
+            "@id": "fair2s:ContactShape",
+            "@type": "sh:NodeShape",
+            "sh:nodeKind": "sh:BlankNodeOrIRI",
+            "sh:property": [
+                {
+                    "sh:path": "schema:name",
+                    "sh:minCount": 1,
+                    "sh:node": "fair2s:TextShape"
+                },
+                {
+                    "sh:path": "schema:identifier",
+                    "sh:node": "fair2s:IdentifierShape"
+                }
+            ]
         }
-    ],
-    "sh:message": "Value must be a plain string (xsd:string) or a language-tagged string (rdf:langString)."
+    ]
 }

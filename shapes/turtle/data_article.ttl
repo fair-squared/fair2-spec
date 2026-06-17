@@ -8,18 +8,19 @@ fair2s:ArticleShape
     a sh:NodeShape ;
     sh:targetClass schema:ScholarlyArticle ;
     sh:nodeKind sh:IRI ;
-    
-    sh:property [ sh:path schema:headline ; sh:minCount 1 ] ;
+
+    sh:or (
+        [ sh:property [ sh:path schema:headline ; sh:minCount 1 ] ]
+        [ sh:property [ sh:path schema:name ; sh:minCount 1 ] ]
+    ) ;
     sh:property [ sh:path schema:datePublished ; sh:minCount 1 ] ;
     sh:property [ sh:path schema:publisher ; sh:minCount 1 ] ;
-    
-    # Back-linkage validation
+
     sh:property [
         sh:path prov:wasDerivedFrom ;
         sh:minCount 1 ;
         sh:node fair2s:IdentifierShape
     ] ;
 
-    # Versioning
     sh:property [ sh:path schema:version ; sh:minCount 1 ; sh:node fair2s:TextShape ] ;
     sh:property [ sh:path fair2:changeLog ; sh:node fair2s:UpdateActionShape ] .
