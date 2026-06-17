@@ -4,12 +4,10 @@
 @prefix cr: <http://mlcommons.org/croissant/> .
 @prefix fair2s: <https://fair2.ai/shapes/> .
 
-
 schema:DistributionShape
     a sh:NodeShape ;
     sh:targetClass cr:FileObject ;
-    # Ensure this node has an @id (IRI) as per your error log focus node
-    sh:nodeKind sh:IRI ; 
+    sh:nodeKind sh:IRI ;
 
     sh:property [
         sh:path schema:name ;
@@ -32,7 +30,7 @@ schema:DistributionShape
         sh:minCount 1 ;
     ] ;
     sh:property [
-        sh:path cr:sha256 ;
+        sh:path schema:sha256 ;
         sh:node fair2s:TextShape ;
         sh:minCount 1 ;
     ] .

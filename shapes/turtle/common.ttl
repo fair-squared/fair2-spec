@@ -1,9 +1,9 @@
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix schema: <https://schema.org/> .
 @prefix fair2s: <https://fair2.ai/shapes/> .
 
-# This is a reusable validator for the VALUE of a property
 fair2s:TextShape
     a sh:NodeShape ;
     sh:or (
@@ -12,7 +12,6 @@ fair2s:TextShape
     ) ;
     sh:message "Value must be a plain string (xsd:string) or a language-tagged string (rdf:langString)." .
 
-# Reusable shape for identifiers (DOIs, ORCIDs, RORs, URLs)
 fair2s:IdentifierShape
     a sh:NodeShape ;
     sh:or (
@@ -21,3 +20,21 @@ fair2s:IdentifierShape
         [ sh:datatype rdf:langString ]
     ) ;
     sh:message "Identifier must be a valid IRI (URL) or a text string." .
+
+fair2s:CreativeWorkShape
+    a sh:NodeShape ;
+    sh:property [ sh:path schema:name ; sh:minCount 1 ; sh:node fair2s:TextShape ] ;
+    sh:property [ sh:path schema:url ; sh:node fair2s:IdentifierShape ] .
+
+fair2s:GrantShape
+    a sh:NodeShape ;
+    sh:property [ sh:path schema:name ; sh:minCount 1 ; sh:node fair2s:TextShape ] ;
+    sh:property [ sh:path schema:funder ; sh:node fair2s:PersonOrOrganizationShape ] ;
+    sh:property [ sh:path schema:url ; sh:node fair2s:IdentifierShape ] ;
+    sh:property [ sh:path schema:identifier ; sh:node fair2s:IdentifierShape ] .
+
+fair2s:ContactShape
+    a sh:NodeShape ;
+    sh:nodeKind sh:BlankNodeOrIRI ;
+    sh:property [ sh:path schema:name ; sh:minCount 1 ; sh:node fair2s:TextShape ] ;
+    sh:property [ sh:path schema:identifier ; sh:node fair2s:IdentifierShape ] .

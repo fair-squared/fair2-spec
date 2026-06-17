@@ -5,20 +5,19 @@
 @prefix fair2s: <https://fair2.ai/shapes/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-# --- METHOD SECTION SHAPE ---
 fair2s:MethodSectionShape
     a sh:NodeShape ;
     sh:targetClass fair2:Section ;
     sh:nodeKind sh:IRI ;
     sh:description "Validates the high-level sections of the methodology (e.g., Research Design)." ;
 
-    sh:property [ 
-        sh:path schema:name ; 
-        sh:minCount 1 ; 
+    sh:property [
+        sh:path schema:name ;
+        sh:minCount 1 ;
         sh:node fair2s:TextShape
     ] ;
-    sh:property [ 
-        sh:path schema:description ; 
+    sh:property [
+        sh:path schema:description ;
         sh:node fair2s:TextShape
     ] ;
     sh:property [
@@ -34,7 +33,6 @@ fair2s:MethodSectionShape
     sh:property [
         sh:path fair2:step ;
         sh:minCount 0 ;
-        # Steps can be either a standard Step or a conditional StepCase
         sh:or (
             [ sh:node fair2s:MethodStepShape ]
             [ sh:node fair2s:StepCaseShape ]
@@ -42,7 +40,6 @@ fair2s:MethodSectionShape
         sh:description "The discrete operations within this section."
     ] .
 
-# --- METHOD STEP SHAPE ---
 fair2s:MethodStepShape
     a sh:NodeShape ;
     sh:targetClass fair2:Step ;
@@ -50,11 +47,10 @@ fair2s:MethodStepShape
 
     sh:property [ sh:path schema:name ; sh:minCount 1 ] ;
     sh:property [ sh:path schema:description ; sh:node fair2s:TextShape ] ;
-    
-    # Requirement: Step should always have a substep property
-    sh:property [ 
-        sh:path fair2:substep ; 
-        sh:minCount 0 ; 
+
+    sh:property [
+        sh:path fair2:substep ;
+        sh:minCount 0 ;
         sh:node fair2s:MethodSubstepShape ;
         sh:description "Standardized requirement for nested substeps."
     ] ;
@@ -71,37 +67,35 @@ fair2s:MethodStepShape
         sh:description "Lineage link to RecordSet fields."
     ] .
 
-# --- STEPCASE SHAPE (Conditional Logic) ---
 fair2s:StepCaseShape
     a sh:NodeShape ;
     sh:targetClass fair2:StepCase ;
     sh:nodeKind sh:IRI ;
     sh:description "Handles branching logic within the methodology." ;
     sh:property [ sh:path schema:name ; sh:minCount 1 ] ;
-    sh:property [ 
-        sh:path fair2:qualifiedUsage ; 
-        sh:minCount 1 ; 
+    sh:property [
+        sh:path fair2:qualifiedUsage ;
+        sh:minCount 1 ;
         sh:datatype xsd:string ;
         sh:description "The 'if' condition for this step."
     ] ;
-    sh:property [ 
-        sh:path fair2:nextTrue ; 
+    sh:property [
+        sh:path fair2:nextTrue ;
         sh:nodeKind sh:IRI ;
         sh:minCount 1 ;
         sh:description "The path taken if the condition is met."
     ] ;
-    sh:property [ 
-        sh:path fair2:next ; 
+    sh:property [
+        sh:path fair2:next ;
         sh:nodeKind sh:IRI ;
         sh:description "The default 'else' or 'next' path."
     ] .
 
-# --- METHOD SUBSTEP SHAPE ---
 fair2s:MethodSubstepShape
     a sh:NodeShape ;
     sh:targetClass fair2:Substep ;
     sh:nodeKind sh:IRI ;
-    
+
     sh:property [ sh:path schema:name ; sh:minCount 1 ] ;
     sh:property [ sh:path schema:description ; sh:node fair2s:TextShape ] ;
     sh:property [ sh:path fair2:next ; sh:nodeKind sh:IRI ] ;

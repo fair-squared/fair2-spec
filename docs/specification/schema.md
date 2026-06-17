@@ -57,7 +57,7 @@
 | `schema:name` | `fair2s:TextShape` | `[1..∞]` | Yes |
 | `schema:spatialCoverage` | `fair2s:SpatialCoverageShape` | `[0..∞]` | No |
 | `schema:subjectOf` | `fair2s:CreativeWorkShape` | `[0..∞]` | No |
-| `schema:temporalCoverage` | `fair2s:TextShape` | `[0..∞]` | No |
+| `schema:temporalCoverage` | `fair2s:TextShape` (ISO 8601 pattern) | `[0..∞]` | No |
 | `schema:url` | `fair2s:IdentifierShape` | `[1..∞]` | Yes |
 | `schema:version` | `fair2s:TextShape` | `[1..∞]` | Yes |
 
@@ -87,7 +87,7 @@
 - **schema:name**: Dataset must include a name.
 - **schema:spatialCoverage**: Dataset may specify spatial coverage information.
 - **schema:subjectOf**: Dataset may reference CreativeWorks (e.g., landing page, sameAs links).
-- **schema:temporalCoverage**: Dataset may specify the temporal coverage (e.g., 1995–2023).
+- **schema:temporalCoverage**: Dataset may specify the temporal coverage as an ISO 8601 date or interval — a single date (`2008`), a closed interval (`1995-01-01/2023-12-31`), or an open-ended interval (`2013-12-19/..`). This format is required by Google Dataset Search; the shape enforces it with `sh:pattern`.
 - **schema:url**: Dataset must include its canonical landing-page URL.
 - **schema:version**: Dataset must specify its version.
 
@@ -98,13 +98,13 @@
 ## fair2s:DistributionShape
 | Property | Type | Cardinality | Mandatory |
 |---|---|---|---|
-| `cr:sha256` | `xsd:string` | `[1..∞]` | Yes |
+| `schema:sha256` | `xsd:string` | `[1..∞]` | Yes |
 | `schema:contentUrl` | `xsd:anyURI` | `[1..∞]` | Yes |
 | `schema:encodingFormat` | `xsd:string` | `[1..∞]` | Yes |
 
 <details><summary>Constraint notes</summary>
 
-- **cr:sha256**: Each distribution must have a SHA-256 checksum.
+- **schema:sha256**: Each distribution must have a SHA-256 checksum (`schema:sha256`, as expected by mlcroissant).
 - **schema:contentUrl**: Each distribution must have a content URL.
 - **schema:encodingFormat**: Each distribution must specify its encoding format.
 
@@ -213,6 +213,22 @@
 
 - **@id**: Each role must have an IRI identifier, typically from CRO or FAIR² namespace.
 - **rdfs:label**: Each role must have a human-readable label (e.g., DataCuration, Supervision).
+
+</details>
+
+
+## fair2s:CreativeWorkShape
+*Targets:* used via `schema:subjectOf`
+
+| Property | Type | Cardinality | Mandatory |
+|---|---|---|---|
+| `schema:name` | `xsd:string` | `[1..∞]` | Yes |
+| `schema:url` | `fair2s:IdentifierShape` | `[0..∞]` | No |
+
+<details><summary>Constraint notes</summary>
+
+- **schema:name**: The referenced creative work must have a name.
+- **schema:url**: It may carry a URL (e.g. the FAIR² specification it conforms to).
 
 </details>
 
@@ -329,6 +345,23 @@
 - **@id**: Domain entries should ideally reference a controlled vocabulary (e.g., Wikidata).
 - **prov:wasAttributedTo**: Each domain should be attributed to at least one Person (creator or expert).
 - **schema:name**: Each domain entry must include a name (e.g., 'Marine Biology').
+
+</details>
+
+
+## fair2s:ContactShape
+*Targets:* used via `prov:wasAttributedTo`
+
+| Property | Type | Cardinality | Mandatory |
+|---|---|---|---|
+| `schema:name` | `xsd:string` | `[1..∞]` | Yes |
+| `schema:identifier` | `fair2s:IdentifierShape` | `[0..∞]` | No |
+
+<details><summary>Constraint notes</summary>
+
+- A reusable shape for a contact (Person or Organization) attributed to a classification such as a domain.
+- **schema:name**: The contact must have a name.
+- **schema:identifier**: It may carry an identifier (e.g. an ORCID or ROR).
 
 </details>
 
@@ -538,13 +571,36 @@
 
 | Property | Type | Cardinality | Mandatory |
 |---|---|---|---|
-| `schema:geo` | `sh:BlankNodeOrIRI` | `[0..∞]` | No |
-| `schema:name` | `xsd:string` | `[1..∞]` | Yes |
+| `schema:name` | `xsd:string` | `[0..∞]` | No |
+| `schema:description` | `xsd:string` | `[0..∞]` | No |
+| `schema:identifier` | `fair2s:IdentifierShape` | `[0..∞]` | No |
+| `schema:geo` | `fair2s:GeoShapeShape` or `schema:GeoCoordinatesShape` | `[0..∞]` | No |
+| `schema:geoWithin` | `sh:BlankNodeOrIRI` | `[0..∞]` | No |
+| `schema:containsPlace` | `fair2s:SpatialCoverageShape` | `[0..∞]` | No |
 
 <details><summary>Constraint notes</summary>
 
-- **schema:geo**: Spatial coverage may include a geo reference.
-- **schema:name**: Spatial coverage must include a place name.
+- A `Place` may carry a name, description, and identifier.
+- **schema:geo**: a geometry, either a `GeoShape` (bounding box / polygon) or a `GeoCoordinates` point.
+- **schema:geoWithin**: an enclosing region.
+- **schema:containsPlace**: nested Places — the shape is recursive, modelling e.g. a bounding box → convex hull → individual sampling sites.
+
+</details>
+
+
+## fair2s:GeoShapeShape
+*Targets:* `schema:GeoShape`
+
+| Property | Type | Cardinality | Mandatory |
+|---|---|---|---|
+| `schema:box` | `xsd:string` | one geometry | Conditional |
+| `schema:polygon` | `xsd:string` | one geometry | Conditional |
+| `schema:line` | `xsd:string` | one geometry | Conditional |
+| `schema:circle` | `xsd:string` | one geometry | Conditional |
+
+<details><summary>Constraint notes</summary>
+
+- A `GeoShape` must declare **at least one** geometry (`box`, `polygon`, `line`, or `circle`).
 
 </details>
 

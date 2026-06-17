@@ -6,7 +6,7 @@
 
 fair2s:DomainShape
     a sh:NodeShape ;
-    sh:nodeKind sh:IRI ; # Validates the Wikidata @id
+    sh:nodeKind sh:IRI ;
 
     sh:property [
         sh:targetClass schema:Thing ;
@@ -15,9 +15,8 @@ fair2s:DomainShape
         sh:node fair2s:TextShape ;
     ] ;
 
-    # Attribution to the person/expert
     sh:property [
         sh:path prov:wasAttributedTo ;
-        sh:node fair2s:ContactShape ; # Reuses your existing Person/Org shape
+        sh:node fair2s:ContactShape ;
         sh:description "The expert or authority who classified this dataset."
     ] .

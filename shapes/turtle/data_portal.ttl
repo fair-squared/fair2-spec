@@ -9,26 +9,20 @@ fair2s:DataPortalShape
     sh:targetClass fair2:DataPortal ;
     sh:nodeKind sh:IRI ;
 
-    # --- Identity & Metadata ---
     sh:property [ sh:path schema:name ; sh:minCount 1 ; sh:node fair2s:TextShape ] ;
     sh:property [ sh:path schema:description ; sh:minCount 1 ; sh:node fair2s:TextShape ] ;
     sh:property [ sh:path schema:identifier ; sh:minCount 1 ; sh:node fair2s:IdentifierShape ] ;
     sh:property [ sh:path schema:keywords ; sh:minCount 1 ; sh:node fair2s:TextShape ] ;
 
-    # --- Access ---
-    sh:property [ sh:path schema:url ; sh:minCount 1 ; sh:nodeKind sh:IRI ] ;
+    sh:property [ sh:path schema:url ; sh:minCount 1 ; sh:node fair2s:IdentifierShape ] ;
 
-    # --- Authorship ---
     sh:property [ sh:path schema:author ; sh:minCount 1 ; sh:node fair2s:PersonOrOrganizationShape ] ;
 
-    # --- Versioning ---
     sh:property [ sh:path schema:version ; sh:minCount 1 ; sh:node fair2s:TextShape ] ;
     sh:property [ sh:path fair2:changeLog ; sh:node fair2s:UpdateActionShape ] ;
 
-    # --- Life Cycle ---
     sh:property [ sh:path schema:dateCreated ; sh:datatype xsd:date ] ;
     sh:property [ sh:path schema:datePublished ; sh:datatype xsd:date ] ;
     sh:property [ sh:path schema:dateUpdated ; sh:datatype xsd:date ] ;
 
-    # --- Dataset Link ---
     sh:property [ sh:path fair2:dataset ; sh:node fair2s:IdentifierShape ] .

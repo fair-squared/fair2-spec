@@ -2,30 +2,98 @@
     "@context": {
         "sh": "http://www.w3.org/ns/shacl#",
         "schema": "https://schema.org/",
+        "fair2": "https://fair2.ai/ns/",
+        "fair2s": "https://fair2.ai/shapes/",
         "xsd": "http://www.w3.org/2001/XMLSchema#"
     },
-    "@id": "schema:PlaceShape",
-    "type": "sh:NodeShape",
-    "sh:property": [
+    "@graph": [
         {
-            "sh:path": "schema:geo",
-            "sh:minCount": 1,
-            "sh:node": {
-                "@id": "schema:GeoCoordinatesShape",
-                "type": "sh:NodeShape",
-                "sh:property": [
-                    {
-                        "sh:path": "schema:latitude",
+            "@id": "fair2s:SpatialCoverageShape",
+            "@type": "sh:NodeShape",
+            "sh:property": [
+                {
+                    "sh:path": "schema:name",
+                    "sh:node": "fair2s:TextShape"
+                },
+                {
+                    "sh:path": "schema:description",
+                    "sh:node": "fair2s:TextShape"
+                },
+                {
+                    "sh:path": "schema:identifier",
+                    "sh:node": "fair2s:IdentifierShape"
+                },
+                {
+                    "sh:path": "schema:geo",
+                    "sh:or": [
+                        {
+                            "sh:node": "fair2s:GeoShapeShape"
+                        },
+                        {
+                            "sh:node": "schema:GeoCoordinatesShape"
+                        }
+                    ]
+                },
+                {
+                    "sh:path": "schema:geoWithin",
+                    "sh:nodeKind": "sh:BlankNodeOrIRI"
+                },
+                {
+                    "sh:path": "schema:containsPlace",
+                    "sh:node": "fair2s:SpatialCoverageShape"
+                }
+            ]
+        },
+        {
+            "@id": "fair2s:GeoShapeShape",
+            "@type": "sh:NodeShape",
+            "sh:or": [
+                {
+                    "sh:property": {
+                        "sh:path": "schema:box",
                         "sh:minCount": 1,
-                        "sh:datatype": "xsd:float"
-                    },
-                    {
-                        "sh:path": "schema:longitude",
-                        "sh:minCount": 1,
-                        "sh:datatype": "xsd:float"
+                        "sh:node": "fair2s:TextShape"
                     }
-                ]
-            }
+                },
+                {
+                    "sh:property": {
+                        "sh:path": "schema:polygon",
+                        "sh:minCount": 1,
+                        "sh:node": "fair2s:TextShape"
+                    }
+                },
+                {
+                    "sh:property": {
+                        "sh:path": "schema:line",
+                        "sh:minCount": 1,
+                        "sh:node": "fair2s:TextShape"
+                    }
+                },
+                {
+                    "sh:property": {
+                        "sh:path": "schema:circle",
+                        "sh:minCount": 1,
+                        "sh:node": "fair2s:TextShape"
+                    }
+                }
+            ],
+            "sh:message": "A GeoShape must declare at least one geometry (box, polygon, line, or circle)."
+        },
+        {
+            "@id": "schema:GeoCoordinatesShape",
+            "@type": "sh:NodeShape",
+            "sh:property": [
+                {
+                    "sh:path": "schema:latitude",
+                    "sh:minCount": 1,
+                    "sh:datatype": "xsd:float"
+                },
+                {
+                    "sh:path": "schema:longitude",
+                    "sh:minCount": 1,
+                    "sh:datatype": "xsd:float"
+                }
+            ]
         }
     ]
 }

@@ -1,70 +1,70 @@
 {
-    "@context": {
-        "sh": "http://www.w3.org/ns/shacl#",
-        "schema": "https://schema.org/",
-        "fair2": "https://fair2.ai/ns/",
-        "fair2s": "https://fair2.ai/shapes/",
-        "xsd": "http://www.w3.org/2001/XMLSchema#"
+  "@context": {
+    "sh": "http://www.w3.org/ns/shacl#",
+    "schema": "https://schema.org/",
+    "fair2": "https://fair2.ai/ns/",
+    "fair2s": "https://fair2.ai/shapes/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@id": "fair2s:DataPortalShape",
+  "@type": "sh:NodeShape",
+  "sh:targetClass": "fair2:DataPortal",
+  "sh:nodeKind": "sh:IRI",
+  "sh:property": [
+    {
+      "sh:path": "schema:name",
+      "sh:minCount": 1,
+      "sh:node": "fair2s:TextShape"
     },
-    "@id": "fair2s:DataPortalShape",
-    "@type": "sh:NodeShape",
-    "sh:targetClass": "fair2:DataPortal",
-    "sh:nodeKind": "sh:IRI",
-    "sh:property": [
-        {
-            "sh:path": "schema:name",
-            "sh:minCount": 1,
-            "sh:node": "fair2s:TextShape"
-        },
-        {
-            "sh:path": "schema:description",
-            "sh:minCount": 1,
-            "sh:node": "fair2s:TextShape"
-        },
-        {
-            "sh:path": "schema:identifier",
-            "sh:minCount": 1,
-            "sh:node": "fair2s:IdentifierShape"
-        },
-        {
-            "sh:path": "schema:keywords",
-            "sh:minCount": 1,
-            "sh:node": "fair2s:TextShape"
-        },
-        {
-            "sh:path": "schema:url",
-            "sh:minCount": 1,
-            "sh:nodeKind": "sh:IRI"
-        },
-        {
-            "sh:path": "schema:author",
-            "sh:minCount": 1,
-            "sh:node": "fair2s:PersonOrOrganizationShape"
-        },
-        {
-            "sh:path": "schema:version",
-            "sh:minCount": 1,
-            "sh:node": "fair2s:TextShape"
-        },
-        {
-            "sh:path": "fair2:changeLog",
-            "sh:node": "fair2s:UpdateActionShape"
-        },
-        {
-            "sh:path": "schema:dateCreated",
-            "sh:datatype": "xsd:date"
-        },
-        {
-            "sh:path": "schema:datePublished",
-            "sh:datatype": "xsd:date"
-        },
-        {
-            "sh:path": "schema:dateUpdated",
-            "sh:datatype": "xsd:date"
-        },
-        {
-            "sh:path": "fair2:dataset",
-            "sh:node": "fair2s:IdentifierShape"
-        }
-    ]
+    {
+      "sh:path": "schema:description",
+      "sh:minCount": 1,
+      "sh:node": "fair2s:TextShape"
+    },
+    {
+      "sh:path": "schema:identifier",
+      "sh:minCount": 1,
+      "sh:node": "fair2s:IdentifierShape"
+    },
+    {
+      "sh:path": "schema:keywords",
+      "sh:minCount": 1,
+      "sh:node": "fair2s:TextShape"
+    },
+    {
+      "sh:path": "schema:url",
+      "sh:minCount": 1,
+      "sh:node": "fair2s:IdentifierShape"
+    },
+    {
+      "sh:path": "schema:author",
+      "sh:minCount": 1,
+      "sh:node": "fair2s:PersonOrOrganizationShape"
+    },
+    {
+      "sh:path": "schema:version",
+      "sh:minCount": 1,
+      "sh:node": "fair2s:TextShape"
+    },
+    {
+      "sh:path": "fair2:changeLog",
+      "sh:node": "fair2s:UpdateActionShape"
+    },
+    {
+      "sh:path": "schema:dateCreated",
+      "sh:datatype": "xsd:date"
+    },
+    {
+      "sh:path": "schema:datePublished",
+      "sh:datatype": "xsd:date"
+    },
+    {
+      "sh:path": "schema:dateUpdated",
+      "sh:datatype": "xsd:date"
+    },
+    {
+      "sh:path": "fair2:dataset",
+      "sh:node": "fair2s:IdentifierShape"
+    }
+  ]
 }
