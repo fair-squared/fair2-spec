@@ -1,0 +1,2207 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../specification/provenance/">
+      
+      
+        <link rel="next" href="../schema-org/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>ML Croissant - FAIR² Specification</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/css/overrides.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#fair2-and-ml-croissant-integration" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="FAIR² Specification" class="md-header__button md-logo" aria-label="FAIR² Specification" data-md-component="logo">
+      
+  <img src="../../assets/images/fair2-logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            FAIR² Specification
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              ML Croissant
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="FAIR² Specification" class="md-nav__button md-logo" aria-label="FAIR² Specification" data-md-component="logo">
+      
+  <img src="../../assets/images/fair2-logo.png" alt="logo">
+
+    </a>
+    FAIR² Specification
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Specification
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Specification
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../specification/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../specification/fair2json-format/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fair2.json File Format
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../specification/schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../specification/shacl-validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SHACL Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../specification/fair2-ontology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAIR² Ontology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../specification/prefixes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Namespace Prefixes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../specification/methods/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Methods
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../specification/data-dictionary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAIR² Data Dictionary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../specification/access-agreements/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Access Agreements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../specification/certification/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Certification
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../specification/responsible-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Responsible AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../specification/provenance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Provenance and Citations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Integration
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Integration
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ML Croissant
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ML Croissant
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#required-properties-in-ml-croissant" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Required Properties in ML Croissant
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Required Properties in ML Croissant">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fileobject-inside-distribution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FileObject (Inside distribution)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recordset-inside-recordset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RecordSet (Inside recordSet)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#field-inside-field" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Field (Inside field)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extensions-provided-by-fair2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Extensions Provided by FAIR²
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-fair2-metadata-with-croissant-extensions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: FAIR² Metadata with Croissant Extensions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#loading-fair2-datasets-in-ai-frameworks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Loading FAIR² Datasets in AI Frameworks
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validation-of-fair2-metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validation of FAIR² Metadata
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compatibility-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compatibility Rules
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Compatibility Rules">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rule-1-no-shared-node-id-references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rule 1 — No shared-node @id references
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rule-2-no-type-id-on-cross-graph-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rule 2 — No "@type": "@id" on cross-graph properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rule-3-no-circular-self-references-via-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rule 3 — No circular self-references via @id
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rule-4-repeated-entities-must-be-blank-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rule 4 — Repeated entities MUST be blank nodes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rule-5-distribution-id-must-match-fileobject-source-exactly" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rule 5 — Distribution @id MUST match FileObject source exactly
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rule-6-fileobject-type-must-be-crfileobject" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rule 6 — FileObject @type MUST be cr:FileObject
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../schema-org/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schema.org
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prov-o/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PROV-O
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../units-qudt-om/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Units
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contributor-roles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributor Roles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../croissant-rai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Croissant RAI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../google-rich-search/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Google Rich Search
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../odps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ODPS Integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../examples/example-walkthrough/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Community
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Community
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../community/contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../community/governance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Governance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../community/roadmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Roadmap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Access Agreement Levels
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Access Agreement Levels
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../agreement-levels/Level0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Level 0
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../agreement-levels/Level1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Level 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../agreement-levels/Level2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Level 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../agreement-levels/Level3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Level 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../agreement-levels/Level4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Level 4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../agreement-levels/Level5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Level 5
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../agreement-levels/Level6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Level 6
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#required-properties-in-ml-croissant" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Required Properties in ML Croissant
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Required Properties in ML Croissant">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fileobject-inside-distribution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FileObject (Inside distribution)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recordset-inside-recordset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RecordSet (Inside recordSet)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#field-inside-field" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Field (Inside field)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extensions-provided-by-fair2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Extensions Provided by FAIR²
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-fair2-metadata-with-croissant-extensions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: FAIR² Metadata with Croissant Extensions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#loading-fair2-datasets-in-ai-frameworks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Loading FAIR² Datasets in AI Frameworks
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validation-of-fair2-metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validation of FAIR² Metadata
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compatibility-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compatibility Rules
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Compatibility Rules">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rule-1-no-shared-node-id-references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rule 1 — No shared-node @id references
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rule-2-no-type-id-on-cross-graph-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rule 2 — No "@type": "@id" on cross-graph properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rule-3-no-circular-self-references-via-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rule 3 — No circular self-references via @id
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rule-4-repeated-entities-must-be-blank-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rule 4 — Repeated entities MUST be blank nodes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rule-5-distribution-id-must-match-fileobject-source-exactly" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rule 5 — Distribution @id MUST match FileObject source exactly
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rule-6-fileobject-type-must-be-crfileobject" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rule 6 — FileObject @type MUST be cr:FileObject
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="fair2-and-ml-croissant-integration">FAIR² and ML Croissant Integration</h1>
+<h2 id="overview">Overview</h2>
+<p>FAIR² (FAIR Squared) builds directly on ML Croissant, extending its capabilities to ensure that datasets are both FAIR (Findable, Accessible, Interoperable, and Reusable) and AI-ready.</p>
+<p>ML Croissant is a metadata standard for machine learning datasets developed by MLCommons. FAIR² enhances this foundation by adding:</p>
+<ul>
+<li>SHACL validation for structured dataset metadata</li>
+<li>Support for AI/ML methodologies using <code>MethodSectionShape</code> and <code>MethodStepShape</code></li>
+<li>Compliance features aligned with Responsible AI through explicit tracking of dataset provenance and usage</li>
+</ul>
+<p>This document outlines how FAIR² builds upon and extends ML Croissant to provide machine-actionable metadata for AI workflows.</p>
+<hr />
+<h2 id="required-properties-in-ml-croissant">Required Properties in ML Croissant</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Type</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>@type</code></td>
+<td>Specifies the type of the dataset (typically <code>Dataset</code>)</td>
+<td><code>sc:Dataset</code></td>
+<td><code>"@type": "sc:Dataset"</code></td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>The title of the dataset</td>
+<td><code>xsd:string</code></td>
+<td><code>"name": "FAIR AI Benchmark Dataset"</code></td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>Explanation of the dataset’s content and purpose</td>
+<td><code>xsd:string</code></td>
+<td><code>"description": "A dataset for AI fairness"</code></td>
+</tr>
+<tr>
+<td><code>license</code></td>
+<td>Dataset license URI</td>
+<td><code>xsd:anyURI</code></td>
+<td><code>"license": "https://creativecommons.org/licenses/by/4.0/"</code></td>
+</tr>
+<tr>
+<td><code>url</code></td>
+<td>Landing page or repository URL</td>
+<td><code>xsd:anyURI</code></td>
+<td><code>"url": "https://example.com/dataset"</code></td>
+</tr>
+<tr>
+<td><code>distribution</code></td>
+<td>Description of downloadable files</td>
+<td>Array<FileObject></td>
+<td>Refer to FileObject structure below</td>
+</tr>
+<tr>
+<td><code>recordSet</code></td>
+<td>Defines logical data structure</td>
+<td>Array<RecordSet></td>
+<td>Refer to RecordSet section</td>
+</tr>
+</tbody>
+</table>
+<h3 id="fileobject-inside-distribution">FileObject (Inside <code>distribution</code>)</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Type</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>@type</code></td>
+<td>Specifies file type</td>
+<td><code>cr:FileObject</code></td>
+<td><code>"@type": "cr:FileObject"</code></td>
+</tr>
+<tr>
+<td><code>@id</code></td>
+<td>Unique file identifier</td>
+<td><code>xsd:string</code></td>
+<td><code>"@id": "file1"</code></td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>Filename</td>
+<td><code>xsd:string</code></td>
+<td><code>"name": "data.csv"</code></td>
+</tr>
+<tr>
+<td><code>contentUrl</code></td>
+<td>URL of hosted file</td>
+<td><code>xsd:anyURI</code></td>
+<td><code>"contentUrl": "https://example.com/data.csv"</code></td>
+</tr>
+<tr>
+<td><code>encodingFormat</code></td>
+<td>File format (e.g., text/csv)</td>
+<td><code>xsd:string</code></td>
+<td><code>"encodingFormat": "text/csv"</code></td>
+</tr>
+<tr>
+<td><code>sha256</code></td>
+<td>File checksum</td>
+<td><code>xsd:string</code></td>
+<td><code>"sha256": "abc123..."</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="recordset-inside-recordset">RecordSet (Inside <code>recordSet</code>)</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Type</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>@type</code></td>
+<td>Declares a record set</td>
+<td><code>cr:RecordSet</code></td>
+<td><code>"@type": "cr:RecordSet"</code></td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>Name of the record set</td>
+<td><code>xsd:string</code></td>
+<td><code>"name": "User Data"</code></td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>Textual summary of the records</td>
+<td><code>xsd:string</code></td>
+<td><code>"description": "Demographic information"</code></td>
+</tr>
+<tr>
+<td><code>field</code></td>
+<td>List of field definitions</td>
+<td>Array<Field></td>
+<td>Refer to Field section</td>
+</tr>
+</tbody>
+</table>
+<h3 id="field-inside-field">Field (Inside <code>field</code>)</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+<th>Type</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>@type</code></td>
+<td>Field object</td>
+<td><code>cr:Field</code></td>
+<td><code>"@type": "cr:Field"</code></td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>Field name</td>
+<td><code>xsd:string</code></td>
+<td><code>"name": "age"</code></td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>Field explanation</td>
+<td><code>xsd:string</code></td>
+<td><code>"description": "Age of participant"</code></td>
+</tr>
+<tr>
+<td><code>dataType</code></td>
+<td>Expected data type</td>
+<td><code>sc:DataType</code></td>
+<td><code>"dataType": "sc:Integer"</code></td>
+</tr>
+<tr>
+<td><code>references</code></td>
+<td>How the field maps to a file</td>
+<td>Object</td>
+<td><code>"references": { "fileObject": "file1" }</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="extensions-provided-by-fair2">Extensions Provided by FAIR²</h2>
+<table>
+<thead>
+<tr>
+<th>ML Croissant Feature</th>
+<th>FAIR² Enhancement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dataset metadata</td>
+<td>SHACL validation for compliance and consistency</td>
+</tr>
+<tr>
+<td>AI methodology support</td>
+<td>Structured method tracking for data processing and modeling</td>
+</tr>
+<tr>
+<td>Schema.org compatibility</td>
+<td>Alignment with linked data vocabularies</td>
+</tr>
+<tr>
+<td>Provenance and licensing</td>
+<td>Integration of provenance and citation tracking mechanisms</td>
+</tr>
+</tbody>
+</table>
+<p>FAIR² ensures that metadata not only meets FAIR requirements but also enables seamless integration with modern machine learning workflows.</p>
+<hr />
+<h2 id="example-fair2-metadata-with-croissant-extensions">Example: FAIR² Metadata with Croissant Extensions</h2>
+<pre><code class="language-json">{
+  &quot;@context&quot;: [
+    &quot;https://fair2.ai/ns/&quot;,
+    &quot;https://mlcroissant.org/&quot;
+  ],
+  &quot;@type&quot;: &quot;Dataset&quot;,
+  &quot;name&quot;: &quot;AI-ready Dataset&quot;,
+  &quot;description&quot;: &quot;A dataset structured for AI and machine learning workflows.&quot;,
+  &quot;license&quot;: &quot;https://creativecommons.org/licenses/by/4.0/&quot;,
+  &quot;cr:features&quot;: [
+    {
+      &quot;@type&quot;: &quot;Feature&quot;,
+      &quot;name&quot;: &quot;Image&quot;,
+      &quot;dataType&quot;: &quot;image/png&quot;
+    },
+    {
+      &quot;@type&quot;: &quot;Feature&quot;,
+      &quot;name&quot;: &quot;Label&quot;,
+      &quot;dataType&quot;: &quot;string&quot;
+    }
+  ],
+  &quot;cr:citeAs&quot;: &quot;Doe, J. AI Dataset (2025)&quot;,
+  &quot;fair2:method&quot;: {
+    &quot;@type&quot;: &quot;fair2:Section&quot;,
+    &quot;name&quot;: &quot;Data Preprocessing&quot;,
+    &quot;step&quot;: [
+      {
+        &quot;@type&quot;: &quot;fair2:Step&quot;,
+        &quot;name&quot;: &quot;Normalization&quot;,
+        &quot;description&quot;: &quot;Rescaling image pixel values between 0 and 1.&quot;
+      }
+    ]
+  }
+}
+</code></pre>
+<hr />
+<h2 id="loading-fair2-datasets-in-ai-frameworks">Loading FAIR² Datasets in AI Frameworks</h2>
+<p>Datasets described using FAIR² and ML Croissant metadata can be loaded directly into AI frameworks:</p>
+<pre><code class="language-python">from mlcroissant import Dataset
+from torch.utils.data import DataLoader
+
+dataset = Dataset(&quot;fair2.json&quot;)
+dataloader = DataLoader(dataset)
+
+for batch in dataloader:
+    images, labels = batch
+    # Training logic here
+</code></pre>
+<hr />
+<h2 id="validation-of-fair2-metadata">Validation of FAIR² Metadata</h2>
+<p>FAIR² uses SHACL to validate ML Croissant-based metadata:</p>
+<pre><code class="language-bash">pyshacl -s fair2_dataset.json -d mydata.json
+</code></pre>
+<p>Typical validation errors and solutions:</p>
+<table>
+<thead>
+<tr>
+<th>Error Message</th>
+<th>Cause</th>
+<th>Recommended Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Missing required property <code>cr:citeAs</code></td>
+<td>Citation field not provided</td>
+<td>Add <code>"cr:citeAs": "Your citation"</code> to metadata</td>
+</tr>
+<tr>
+<td><code>schema:distribution</code> must be present</td>
+<td>No file references defined</td>
+<td>Include at least one <code>schema:distribution</code> object</td>
+</tr>
+<tr>
+<td>Invalid datatype for <code>schema:datePublished</code></td>
+<td>Incorrect date format</td>
+<td>Use <code>YYYY-MM-DD</code> format</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="compatibility-rules">Compatibility Rules</h2>
+<p>FAIR² metadata files MUST satisfy the rules below in order to load cleanly
+with the <code>mlcroissant</code> Python library. These rules were established by
+validating real FAIR² packages against <code>mlcroissant</code>'s JSON-LD processor and
+identifying reproducible crash modes.</p>
+<h3 id="rule-1-no-shared-node-id-references">Rule 1 — No shared-node <code>@id</code> references</h3>
+<p>A node whose <code>@id</code> appears as a top-level <code>@graph</code> member MUST NOT be
+referenced from more than one other place via a bare <code>{"@id": "X"}</code> object.
+The <code>mlcroissant</code> traversal function visits shared nodes twice and raises a
+<code>KeyError</code>. To describe the same entity at multiple points in the graph,
+embed it as a fresh blank-node object without <code>@id</code> at each usage site
+(see Rule 4).</p>
+<h3 id="rule-2-no-type-id-on-cross-graph-properties">Rule 2 — No <code>"@type": "@id"</code> on cross-graph properties</h3>
+<p>Properties whose values reference other <code>@graph</code> entries MUST NOT carry
+<code>"@type": "@id"</code> in the <code>@context</code>. The underlying <code>rdflib</code> JSON-LD parser
+silently converts string values with this coercion back into bare
+<code>{"@id": "..."}</code> dicts, reintroducing the shared-node crash described in
+Rule 1. Affected properties include <code>citation</code>, <code>dataArticle</code>, <code>dataPortal</code>,
+<code>dataArchive</code>, <code>dataset</code>, <code>wasAssociatedWith</code>, <code>wasGeneratedBy</code>,
+<code>wasDerivedFrom</code>, <code>wasRevisionOf</code>, <code>generated</code>, <code>next</code>, and <code>url</code>.</p>
+<h3 id="rule-3-no-circular-self-references-via-id">Rule 3 — No circular self-references via <code>@id</code></h3>
+<p>A Dataset node MUST NOT reference its own <code>@id</code> as the value of any of its
+own properties. In particular, <code>changeLog[].wasRevisionOf["@id"]</code> MUST NOT
+equal the Dataset's <code>@id</code>. To represent a revision that chains back to the
+same logical entity without the cycle, embed the revision target as an
+object without an <code>@id</code>, or omit the cross-reference entirely.</p>
+<h3 id="rule-4-repeated-entities-must-be-blank-nodes">Rule 4 — Repeated entities MUST be blank nodes</h3>
+<p>When the same logical entity (an author, an organization, a software agent)
+appears in multiple locations in the graph, each occurrence MUST be a fresh
+object without <code>@id</code>. This is the corollary of Rule 1: without an <code>@id</code>,
+the JSON-LD processor treats each occurrence as a distinct blank node and
+the shared-node crash cannot be triggered.</p>
+<h3 id="rule-5-distribution-id-must-match-fileobject-source-exactly">Rule 5 — Distribution <code>@id</code> MUST match FileObject source exactly</h3>
+<p>The <code>@id</code> value of each <code>distribution[]</code> entry MUST exactly match the value
+used in <code>recordSet[].field[].source.fileObject["@id"]</code>. Any mismatch causes
+<code>mlcroissant</code> to silently drop the source mapping; the RecordSet will be
+unloadable without any validation error.</p>
+<h3 id="rule-6-fileobject-type-must-be-crfileobject">Rule 6 — FileObject <code>@type</code> MUST be <code>cr:FileObject</code></h3>
+<p>Distribution entries MUST declare <code>"@type": "cr:FileObject"</code> (which resolves
+to <code>http://mlcommons.org/croissant/FileObject</code>). Legacy types such as
+<code>schema:DataDownload</code> or <code>sc:FileObject</code> are silently ignored by
+<code>mlcroissant</code> and the distribution will not be indexed.</p>
+<hr />
+<h2 id="summary">Summary</h2>
+<p>FAIR² provides the following enhancements to ML Croissant:</p>
+<ul>
+<li>Structured metadata validation using SHACL</li>
+<li>Provenance tracking and citation support</li>
+<li>Interoperable format for use with AI training pipelines</li>
+<li>Integrated methodology documentation for reproducibility</li>
+</ul>
+<p>For further details, refer to the FAIR² schema documentation and validator tools.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

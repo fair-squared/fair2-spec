@@ -1,0 +1,1848 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../certification/">
+      
+      
+        <link rel="next" href="../provenance/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Responsible AI - FAIR² Specification</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/css/overrides.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#fair2-responsible-ai-rai-integration-guide" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="FAIR² Specification" class="md-header__button md-logo" aria-label="FAIR² Specification" data-md-component="logo">
+      
+  <img src="../../assets/images/fair2-logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            FAIR² Specification
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Responsible AI
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="FAIR² Specification" class="md-nav__button md-logo" aria-label="FAIR² Specification" data-md-component="logo">
+      
+  <img src="../../assets/images/fair2-logo.png" alt="logo">
+
+    </a>
+    FAIR² Specification
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Specification
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Specification
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fair2json-format/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fair2.json File Format
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../shacl-validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SHACL Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fair2-ontology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAIR² Ontology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prefixes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Namespace Prefixes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../methods/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Methods
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data-dictionary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAIR² Data Dictionary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../access-agreements/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Access Agreements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../certification/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Certification
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Responsible AI
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Responsible AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-namespaces-conformance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Namespaces &amp; Conformance
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-core-rai-properties-exact-names" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Core RAI Properties (exact names)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-minimal-jsonld-example-fair2-croissant-rai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Minimal JSON‑LD example (FAIR² + Croissant RAI)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-validating-rai-with-fair2py" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Validating RAI with fair2py
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-quick-sparql-to-inspect-rai-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Quick SPARQL to inspect RAI fields
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-authoring-tips-best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6) Authoring tips &amp; best practices
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7) Troubleshooting
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8) References
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../provenance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Provenance and Citations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Integration
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Integration
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/ml-croissant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ML Croissant
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/schema-org/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schema.org
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/prov-o/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PROV-O
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/units-qudt-om/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Units
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/contributor-roles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributor Roles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/croissant-rai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Croissant RAI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/google-rich-search/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Google Rich Search
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/odps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ODPS Integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../examples/example-walkthrough/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Community
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Community
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../community/contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../community/governance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Governance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../community/roadmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Roadmap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Access Agreement Levels
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Access Agreement Levels
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../agreement-levels/Level0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Level 0
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../agreement-levels/Level1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Level 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../agreement-levels/Level2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Level 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../agreement-levels/Level3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Level 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../agreement-levels/Level4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Level 4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../agreement-levels/Level5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Level 5
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../agreement-levels/Level6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Level 6
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-namespaces-conformance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Namespaces &amp; Conformance
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-core-rai-properties-exact-names" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Core RAI Properties (exact names)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-minimal-jsonld-example-fair2-croissant-rai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Minimal JSON‑LD example (FAIR² + Croissant RAI)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-validating-rai-with-fair2py" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Validating RAI with fair2py
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-quick-sparql-to-inspect-rai-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Quick SPARQL to inspect RAI fields
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-authoring-tips-best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6) Authoring tips &amp; best practices
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7) Troubleshooting
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8) References
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="fair2-responsible-ai-rai-integration-guide">FAIR² Responsible AI (RAI) — Integration Guide</h1>
+<p>This guide explains how <strong>FAIR²</strong> metadata aligns with the <strong>ML Croissant RAI</strong> specification and how to
+author, validate, and query Responsible-AI information in your datasets.</p>
+<blockquote>
+<p><strong>Scope.</strong> This document uses the exact property names listed in the Croissant RAI “Overview” table
+(e.g., <code>rai:dataLimitations</code>, <code>rai:dataCollection</code>, <code>rai:useCases</code>, etc.) and shows how they fit
+within FAIR² JSON‑LD. See the official spec for authoritative definitions:<br />
+https://docs.mlcommons.org/croissant/docs/croissant-rai-spec.html#overview-croissant-rai-properties-and-use-cases</p>
+</blockquote>
+<hr />
+<h2 id="1-namespaces-conformance">1. Namespaces &amp; Conformance</h2>
+<p>Use the following prefixes in your dataset JSON‑LD:</p>
+<pre><code class="language-json">{
+  &quot;@context&quot;: {
+    &quot;schema&quot;: &quot;https://schema.org/&quot;,
+    &quot;cr&quot;: &quot;http://mlcommons.org/croissant/&quot;,
+    &quot;rai&quot;: &quot;http://mlcommons.org/croissant/rai/&quot;,
+    &quot;dct&quot;: &quot;http://purl.org/dc/terms/&quot;
+  }
+}
+</code></pre>
+<p>We recommend declaring conformance with the RAI profile via <code>dct:conformsTo</code>:</p>
+<pre><code class="language-json">{
+  &quot;dct:conformsTo&quot;: &quot;http://mlcommons.org/croissant/rai/&quot;
+}
+</code></pre>
+<hr />
+<h2 id="2-core-rai-properties-exact-names">2. Core RAI Properties (exact names)</h2>
+<p>The table below lists the <strong>core Croissant RAI properties</strong> this library expects. All are plain strings
+unless otherwise noted by your governance process. Your project may adopt additional RAI terms as the
+spec evolves—always consult the official spec for the latest guidance.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Purpose (short)</th>
+<th>Cardinality</th>
+<th>Required?*</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>rai:dataLimitations</code></td>
+<td>Known gaps, caveats, or limitations of the data</td>
+<td>0..1</td>
+<td>Recommended</td>
+</tr>
+<tr>
+<td><code>rai:dataCollection</code></td>
+<td>How the data was collected (procedures, settings)</td>
+<td>0..1</td>
+<td>Recommended</td>
+</tr>
+<tr>
+<td><code>rai:useCases</code></td>
+<td>Intended/appropriate uses</td>
+<td>0..1</td>
+<td>Recommended</td>
+</tr>
+<tr>
+<td><code>rai:dataReleaseMaintenance</code></td>
+<td>Release cadence, maintenance &amp; support commitments</td>
+<td>0..1</td>
+<td>Recommended</td>
+</tr>
+<tr>
+<td><code>rai:annotationPlatform</code></td>
+<td>Platform(s) used for annotation</td>
+<td>0..1</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code>rai:annotationsPerItem</code></td>
+<td>How many annotations per item</td>
+<td>0..1</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code>rai:annotatorDemographics</code></td>
+<td>Demographic info about annotators (if appropriate/allowed)</td>
+<td>0..1</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code>rai:machineAnnotationTools</code></td>
+<td>ML tools used to pre‑label or assist annotation</td>
+<td>0..1</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code>rai:dataBiases</code></td>
+<td>Known or suspected biases</td>
+<td>0..1</td>
+<td>Recommended</td>
+</tr>
+<tr>
+<td><code>rai:personalSensitiveInformation</code></td>
+<td>Whether/how PII or sensitive info is handled</td>
+<td>0..1</td>
+<td>Recommended</td>
+</tr>
+</tbody>
+</table>
+<p>* FAIR² does <strong>not</strong> mandate a minimum set beyond Croissant’s baseline, but strongly encourages filling
+all <strong>Recommended</strong> fields to improve transparency and downstream risk assessment.</p>
+<hr />
+<h2 id="3-minimal-jsonld-example-fair2-croissant-rai">3. Minimal JSON‑LD example (FAIR² + Croissant RAI)</h2>
+<p>Below is a compact, copy‑paste‑ready snippet. You can merge it with your dataset’s main JSON‑LD.</p>
+<pre><code class="language-json">{
+  &quot;@context&quot;: {
+    &quot;schema&quot;: &quot;https://schema.org/&quot;,
+    &quot;cr&quot;: &quot;http://mlcommons.org/croissant/&quot;,
+    &quot;rai&quot;: &quot;http://mlcommons.org/croissant/rai/&quot;,
+    &quot;dct&quot;: &quot;http://purl.org/dc/terms/&quot;
+  },
+  &quot;@type&quot;: &quot;schema:Dataset&quot;,
+  &quot;name&quot;: &quot;Example FAIR² Dataset with RAI&quot;,
+  &quot;version&quot;: &quot;1.0&quot;,
+  &quot;dct:conformsTo&quot;: &quot;http://mlcommons.org/croissant/rai/&quot;,
+  &quot;rai:dataLimitations&quot;: &quot;Labels may be noisy for low-light scenes.&quot;,
+  &quot;rai:dataCollection&quot;: &quot;Captured via mobile devices in public indoor spaces.&quot;,
+  &quot;rai:useCases&quot;: &quot;Robust indoor navigation and scene understanding research.&quot;,
+  &quot;rai:dataReleaseMaintenance&quot;: &quot;Quarterly updates; issues tracked in public repository.&quot;,
+  &quot;rai:annotationPlatform&quot;: &quot;In-house tool; audit logs retained.&quot;,
+  &quot;rai:annotationsPerItem&quot;: &quot;3&quot;,
+  &quot;rai:annotatorDemographics&quot;: &quot;Adult bilingual annotators from multiple regions.&quot;,
+  &quot;rai:machineAnnotationTools&quot;: &quot;YOLOv8 for pre‑labels; human review required.&quot;,
+  &quot;rai:dataBiases&quot;: &quot;Over‑representation of shopping malls; under‑representation of hospitals.&quot;,
+  &quot;rai:personalSensitiveInformation&quot;: &quot;PII removed per policy; faces blurred at source.&quot;
+}
+</code></pre>
+<hr />
+<h2 id="4-validating-rai-with-fair2py">4. Validating RAI with <code>fair2py</code></h2>
+<p><code>Fair2Dataset</code> loads your JSON‑LD, runs <strong>Croissant validation</strong> and <strong>FAIR² SHACL</strong> checks (including
+RAI shape coverage where applicable), and keeps the <strong>full</strong> JSON‑LD in <code>metadata_full</code>.</p>
+<pre><code class="language-python">from fair2py.dataset import Fair2Dataset
+
+# Path or URL to your dataset JSON-LD
+path = &quot;path/to/dataset.json&quot;
+
+ds = Fair2Dataset(path)
+
+# Full JSON-LD (with RAI) preserved:
+rai_fields = {
+    k: ds.metadata_full.get(k)
+    for k in [
+        &quot;rai:dataLimitations&quot;,
+        &quot;rai:dataCollection&quot;,
+        &quot;rai:useCases&quot;,
+        &quot;rai:dataReleaseMaintenance&quot;,
+        &quot;rai:annotationPlatform&quot;,
+        &quot;rai:annotationsPerItem&quot;,
+        &quot;rai:annotatorDemographics&quot;,
+        &quot;rai:machineAnnotationTools&quot;,
+        &quot;rai:dataBiases&quot;,
+        &quot;rai:personalSensitiveInformation&quot;,
+    ]
+}
+print({k: v for k, v in rai_fields.items() if v})
+</code></pre>
+<blockquote>
+<p>If you see a warning about non‑standard <code>@context</code>, that is <strong>informative</strong> (from Croissant) and does
+not block FAIR² validation. Ensure that the <code>rai:</code> prefix is present and values are strings or IRIs as
+appropriate for your governance rules.</p>
+</blockquote>
+<hr />
+<h2 id="5-quick-sparql-to-inspect-rai-fields">5. Quick SPARQL to inspect RAI fields</h2>
+<p>The following SPARQL query enumerates RAI predicates and values when your graph is parsed into <code>rdflib</code>.</p>
+<pre><code class="language-python">from rdflib import Namespace, URIRef
+from rdflib.namespace import RDF
+
+RAI = Namespace(&quot;http://mlcommons.org/croissant/rai/&quot;)
+SCHEMA = Namespace(&quot;https://schema.org/&quot;)
+
+q = &quot;&quot;&quot;
+PREFIX schema: &lt;https://schema.org/&gt;
+PREFIX rai: &lt;http://mlcommons.org/croissant/rai/&gt;
+
+SELECT ?dataset ?p ?o
+WHERE {
+  ?dataset a schema:Dataset ;
+           ?p ?o .
+  FILTER(STRSTARTS(STR(?p), STR(rai:)))
+}
+ORDER BY ?p
+LIMIT 200
+&quot;&quot;&quot;
+
+for row in ds.graph.query(q):
+    print(row)
+</code></pre>
+<hr />
+<h2 id="6-authoring-tips-best-practices">6) Authoring tips &amp; best practices</h2>
+<ul>
+<li><strong>Be concrete, not generic.</strong> Prefer actionable statements over boilerplate (e.g., name bias sources,
+  collection settings, audit processes).</li>
+<li><strong>Keep provenance.</strong> When feasible, link to documents (IRIs) that describe templated processes or
+  internal policies.</li>
+<li><strong>Avoid sensitive disclosures.</strong> If describing annotator demographics, comply with local privacy laws
+  and internal policies. Use aggregated or high‑level descriptors when needed.</li>
+<li><strong>Version RAI text.</strong> Update RAI fields alongside dataset releases; note changes in your changelog.</li>
+</ul>
+<hr />
+<h2 id="7-troubleshooting">7) Troubleshooting</h2>
+<ul>
+<li><strong>RAI fields missing in <code>ds.metadata</code></strong>: That’s expected—Croissant keeps its own schema. Use
+  <code>ds.metadata_full</code> to access <em>all</em> original JSON‑LD (including RAI).</li>
+<li><strong>Prefixes look like literals (e.g., "schema:name")</strong>: Ensure your JSON‑LD uses prefix <strong>keys</strong> in
+  <code>@context</code> and not quoted strings in SHACL/Turtle. If converting shapes, normalize predicates to IRIs.</li>
+<li><strong>Validation passes but shapes don’t trigger</strong>: Check your target class (<code>@type: schema:Dataset</code>) and
+  that the RAI predicates are actually used in the data being validated.</li>
+</ul>
+<hr />
+<h2 id="8-references">8) References</h2>
+<ul>
+<li><strong>ML Croissant RAI spec (properties &amp; use cases):</strong><br />
+  https://docs.mlcommons.org/croissant/docs/croissant-rai-spec.html#overview-croissant-rai-properties-and-use-cases</li>
+<li><strong>ML Croissant (main spec):</strong> https://docs.mlcommons.org/croissant/</li>
+<li><strong>FAIR² project:</strong> https://fair2.ai/</li>
+</ul>
+<hr />
+<p><em>Last updated:</em> Generated by <code>fair2py</code> docs automation.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

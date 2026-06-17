@@ -1,0 +1,18 @@
+{
+  "@context": "http://www.w3.org/ns/odrl.jsonld",
+  "@type": "odrl:Policy",
+  "odrl:uid": "https://fair2.ai/licenses/policies/collaborative-access.json",
+  "odrl:profile": "http://www.w3.org/ns/odrl/2/data",
+  "odrl:permission": [
+    {
+      "odrl:target": "urn:example:dataset:123",
+      "odrl:action": "odrl:use",
+      "odrl:constraint": {
+        "odrl:leftOperand": "odrl:purpose",
+        "odrl:operator": "odrl:eq",
+        "odrl:rightOperand": "research"
+      }
+    }
+  ],
+  "odrl:prohibition": []
+}

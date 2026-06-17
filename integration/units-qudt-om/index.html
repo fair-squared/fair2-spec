@@ -1,0 +1,1990 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../prov-o/">
+      
+      
+        <link rel="next" href="../contributor-roles/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Units - FAIR² Specification</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/css/overrides.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#using-qudt-and-om-in-the-fair2-specification" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="FAIR² Specification" class="md-header__button md-logo" aria-label="FAIR² Specification" data-md-component="logo">
+      
+  <img src="../../assets/images/fair2-logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            FAIR² Specification
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Units
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="FAIR² Specification" class="md-nav__button md-logo" aria-label="FAIR² Specification" data-md-component="logo">
+      
+  <img src="../../assets/images/fair2-logo.png" alt="logo">
+
+    </a>
+    FAIR² Specification
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Specification
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Specification
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../specification/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../specification/fair2json-format/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fair2.json File Format
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../specification/schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../specification/shacl-validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SHACL Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../specification/fair2-ontology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAIR² Ontology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../specification/prefixes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Namespace Prefixes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../specification/methods/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Methods
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../specification/data-dictionary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAIR² Data Dictionary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../specification/access-agreements/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Access Agreements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../specification/certification/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Certification
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../specification/responsible-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Responsible AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../specification/provenance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Provenance and Citations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Integration
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Integration
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ml-croissant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ML Croissant
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../schema-org/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schema.org
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prov-o/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PROV-O
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Units
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Units
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introduction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-qudt-and-om-are-used-in-fair2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why QUDT and OM Are Used in FAIR²
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Why QUDT and OM Are Used in FAIR²">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#qudt-and-om-in-fair2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        QUDT and OM in FAIR²
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-fair2-uses-qudt-and-om" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How FAIR² Uses QUDT and OM
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How FAIR² Uses QUDT and OM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-representing-quantities-and-units" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Representing Quantities and Units
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Representing Quantities and Units">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#qudt-representation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        QUDT Representation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#om-representation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OM Representation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-ensuring-unit-consistency" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Ensuring Unit Consistency
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-handling-unit-conversions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Handling Unit Conversions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Handling Unit Conversions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#qudt-based-conversion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        QUDT-based conversion
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#om-based-conversion-explicit-conversion-factors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OM-based conversion (explicit conversion factors)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-validating-units-with-shacl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Validating Units with SHACL
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices-for-fair2-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Best Practices for FAIR² Integration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contributor-roles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributor Roles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../croissant-rai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Croissant RAI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../google-rich-search/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Google Rich Search
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../odps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ODPS Integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../examples/example-walkthrough/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Community
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Community
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../community/contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../community/governance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Governance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../community/roadmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Roadmap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Access Agreement Levels
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Access Agreement Levels
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../agreement-levels/Level0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Level 0
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../agreement-levels/Level1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Level 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../agreement-levels/Level2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Level 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../agreement-levels/Level3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Level 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../agreement-levels/Level4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Level 4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../agreement-levels/Level5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Level 5
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../agreement-levels/Level6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Level 6
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introduction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-qudt-and-om-are-used-in-fair2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why QUDT and OM Are Used in FAIR²
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Why QUDT and OM Are Used in FAIR²">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#qudt-and-om-in-fair2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        QUDT and OM in FAIR²
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-fair2-uses-qudt-and-om" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How FAIR² Uses QUDT and OM
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How FAIR² Uses QUDT and OM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-representing-quantities-and-units" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Representing Quantities and Units
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Representing Quantities and Units">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#qudt-representation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        QUDT Representation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#om-representation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OM Representation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-ensuring-unit-consistency" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Ensuring Unit Consistency
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-handling-unit-conversions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Handling Unit Conversions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Handling Unit Conversions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#qudt-based-conversion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        QUDT-based conversion
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#om-based-conversion-explicit-conversion-factors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OM-based conversion (explicit conversion factors)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-validating-units-with-shacl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Validating Units with SHACL
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices-for-fair2-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Best Practices for FAIR² Integration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="using-qudt-and-om-in-the-fair2-specification"><strong>Using QUDT and OM in the FAIR² Specification</strong></h1>
+<h2 id="introduction"><strong>Introduction</strong></h2>
+<p>This document provides guidance on how <strong>QUDT (Quantities, Units, Dimensions, and Data Types)</strong> and <strong>OM (Ontology of Units of Measure)</strong> are integrated within the <strong>FAIR² (FAIR SQUARED) framework</strong> to ensure semantic interoperability of measurement units in AI-ready datasets.</p>
+<h2 id="why-qudt-and-om-are-used-in-fair2"><strong>Why QUDT and OM Are Used in FAIR²</strong></h2>
+<p>FAIR² builds upon the FAIR principles to enhance scientific datasets with <strong>context-rich metadata</strong>, <strong>AI-ready design</strong>, and <strong>Responsible AI alignment</strong>. Measurement units are critical for FAIR compliance, and both <strong>QUDT</strong> and <strong>OM</strong> provide robust RDF/OWL representations for handling units in a standardized way.</p>
+<h3 id="qudt-and-om-in-fair2"><strong>QUDT and OM in FAIR²</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>QUDT</th>
+<th>OM</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Primary Focus</strong></td>
+<td>Engineering, aerospace, industry, geospatial</td>
+<td>Scientific precision, research</td>
+</tr>
+<tr>
+<td><strong>RDF/OWL Compatible</strong></td>
+<td>✅ Yes</td>
+<td>✅ Yes</td>
+</tr>
+<tr>
+<td><strong>Unit Conversions</strong></td>
+<td>✅ Yes (via <code>qudt:conversionMultiplier</code>)</td>
+<td>✅ Yes (via <code>om:hasConversionFactor</code>)</td>
+</tr>
+<tr>
+<td><strong>Temperature Conversions (e.g., F → C)</strong></td>
+<td>❌ No</td>
+<td>✅ Yes (<code>om:hasOffset</code>)</td>
+</tr>
+<tr>
+<td><strong>Complex Derived Units (e.g., m/s²)</strong></td>
+<td>❌ No</td>
+<td>✅ Yes (<code>om:derivedFromUnit</code>)</td>
+</tr>
+<tr>
+<td><strong>Industry Adoption</strong></td>
+<td>NASA, OGC, IoT, digital twins</td>
+<td>Research, EOSC</td>
+</tr>
+</tbody>
+</table>
+<h2 id="how-fair2-uses-qudt-and-om"><strong>How FAIR² Uses QUDT and OM</strong></h2>
+<h3 id="1-representing-quantities-and-units"><strong>1. Representing Quantities and Units</strong></h3>
+<p>FAIR² integrates QUDT and OM to ensure standardized unit representation in RDF/OWL. Below are examples of how they are applied in FAIR².</p>
+<h4 id="qudt-representation"><strong>QUDT Representation</strong></h4>
+<pre><code class="language-jsonld">{
+  &quot;@context&quot;: {
+    &quot;qudt&quot;: &quot;http://qudt.org/schema/qudt/&quot;,
+    &quot;xsd&quot;: &quot;http://www.w3.org/2001/XMLSchema#&quot;,
+    &quot;ex&quot;: &quot;http://example.org/&quot;
+  },
+  &quot;@id&quot;: &quot;ex:measurement1&quot;,
+  &quot;@type&quot;: &quot;qudt:QuantityValue&quot;,
+  &quot;qudt:numericValue&quot;: {
+    &quot;@value&quot;: &quot;1000.0&quot;,
+    &quot;@type&quot;: &quot;xsd:double&quot;
+  },
+  &quot;qudt:unit&quot;: {
+    &quot;@id&quot;: &quot;qudt:Meter&quot;
+  }
+}
+</code></pre>
+<h4 id="om-representation"><strong>OM Representation</strong></h4>
+<pre><code class="language-jsonld">{
+  &quot;@context&quot;: {
+    &quot;om&quot;: &quot;http://www.ontology-of-units-of-measure.org/resource/om-2/&quot;,
+    &quot;xsd&quot;: &quot;http://www.w3.org/2001/XMLSchema#&quot;,
+    &quot;ex&quot;: &quot;http://example.org/&quot;
+  },
+  &quot;@id&quot;: &quot;ex:measurement2&quot;,
+  &quot;@type&quot;: &quot;om:Measurement&quot;,
+  &quot;om:hasValue&quot;: {
+    &quot;@value&quot;: &quot;1000.0&quot;,
+    &quot;@type&quot;: &quot;xsd:double&quot;
+  },
+  &quot;om:hasUnit&quot;: {
+    &quot;@id&quot;: &quot;om:Meter&quot;
+  }
+}
+</code></pre>
+<h3 id="2-ensuring-unit-consistency"><strong>2. Ensuring Unit Consistency</strong></h3>
+<p>When using both QUDT and OM, FAIR² ensures that units are consistently mapped:</p>
+<pre><code class="language-jsonld">{
+  &quot;@context&quot;: {
+    &quot;qudt&quot;: &quot;http://qudt.org/schema/qudt/&quot;,
+    &quot;om&quot;: &quot;http://www.ontology-of-units-of-measure.org/resource/om-2/&quot;,
+    &quot;xsd&quot;: &quot;http://www.w3.org/2001/XMLSchema#&quot;,
+    &quot;ex&quot;: &quot;http://example.org/&quot;
+  },
+  &quot;@id&quot;: &quot;ex:measurement3&quot;,
+  &quot;@type&quot;: [&quot;qudt:QuantityValue&quot;, &quot;om:Measurement&quot;],
+  &quot;qudt:numericValue&quot;: {
+    &quot;@value&quot;: &quot;1.0&quot;,
+    &quot;@type&quot;: &quot;xsd:double&quot;
+  },
+  &quot;qudt:unit&quot;: {
+    &quot;@id&quot;: &quot;qudt:Kilometer&quot;
+  },
+  &quot;om:hasValue&quot;: {
+    &quot;@value&quot;: &quot;1000.0&quot;,
+    &quot;@type&quot;: &quot;xsd:double&quot;
+  },
+  &quot;om:hasUnit&quot;: {
+    &quot;@id&quot;: &quot;om:Meter&quot;
+  }
+}
+</code></pre>
+<h3 id="3-handling-unit-conversions"><strong>3. Handling Unit Conversions</strong></h3>
+<h4 id="qudt-based-conversion"><strong>QUDT-based conversion</strong></h4>
+<pre><code class="language-jsonld">{
+  &quot;@context&quot;: {
+    &quot;qudt&quot;: &quot;http://qudt.org/schema/qudt/&quot;,
+    &quot;xsd&quot;: &quot;http://www.w3.org/2001/XMLSchema#&quot;
+  },
+  &quot;@id&quot;: &quot;qudt:Kilometer&quot;,
+  &quot;@type&quot;: &quot;qudt:Unit&quot;,
+  &quot;qudt:conversionMultiplier&quot;: {
+    &quot;@value&quot;: &quot;1000.0&quot;,
+    &quot;@type&quot;: &quot;xsd:double&quot;
+  }
+}
+</code></pre>
+<h4 id="om-based-conversion-explicit-conversion-factors"><strong>OM-based conversion (explicit conversion factors)</strong></h4>
+<pre><code class="language-jsonld">{
+  &quot;@context&quot;: {
+    &quot;om&quot;: &quot;http://www.ontology-of-units-of-measure.org/resource/om-2/&quot;,
+    &quot;xsd&quot;: &quot;http://www.w3.org/2001/XMLSchema#&quot;
+  },
+  &quot;@id&quot;: &quot;om:Kilometer&quot;,
+  &quot;@type&quot;: &quot;om:Unit&quot;,
+  &quot;om:hasConversionFactor&quot;: {
+    &quot;@type&quot;: &quot;om:ConversionFactor&quot;,
+    &quot;om:hasNumericalValue&quot;: {
+      &quot;@value&quot;: &quot;1000.0&quot;,
+      &quot;@type&quot;: &quot;xsd:double&quot;
+    },
+    &quot;om:hasUnit&quot;: {
+      &quot;@id&quot;: &quot;om:Meter&quot;
+    }
+  }
+}
+</code></pre>
+<h3 id="4-validating-units-with-shacl"><strong>4. Validating Units with SHACL</strong></h3>
+<p>FAIR² employs <strong>SHACL validation</strong> to enforce unit correctness and conversions. Below is a SHACL shape for validating unit consistency between QUDT and OM.</p>
+<pre><code class="language-jsonld">{
+  &quot;@context&quot;: {
+    &quot;sh&quot;: &quot;http://www.w3.org/ns/shacl#&quot;,
+    &quot;qudt&quot;: &quot;http://qudt.org/schema/qudt/&quot;,
+    &quot;om&quot;: &quot;http://www.ontology-of-units-of-measure.org/resource/om-2/&quot;,
+    &quot;ex&quot;: &quot;http://example.org/&quot;
+  },
+  &quot;@id&quot;: &quot;ex:UnitConsistencyShape&quot;,
+  &quot;@type&quot;: &quot;sh:NodeShape&quot;,
+  &quot;sh:targetClass&quot;: {
+    &quot;@id&quot;: &quot;qudt:Unit&quot;
+  },
+  &quot;sh:property&quot;: {
+    &quot;sh:path&quot;: {
+      &quot;@id&quot;: &quot;om:hasUnit&quot;
+    },
+    &quot;sh:class&quot;: {
+      &quot;@id&quot;: &quot;om:Unit&quot;
+    },
+    &quot;sh:maxCount&quot;: 1,
+    &quot;sh:message&quot;: &quot;If an OM unit is used alongside a QUDT unit, they should be equivalent.&quot;
+  }
+}
+</code></pre>
+<h2 id="best-practices-for-fair2-integration"><strong>Best Practices for FAIR² Integration</strong></h2>
+<ol>
+<li><strong>Use QUDT for broad interoperability</strong>, especially in <strong>industry, geospatial, and IoT applications</strong>.</li>
+<li><strong>Use OM for scientific and research-based measurements</strong>, particularly <strong>biomedical and physical sciences</strong>.</li>
+<li><strong>Ensure unit consistency</strong> when using both ontologies in the same dataset.</li>
+<li><strong>Validate unit correctness with SHACL</strong> to ensure data quality.</li>
+<li><strong>Adopt conversion multipliers carefully</strong>, using <code>qudt:conversionMultiplier</code> for simple unit scaling and <code>om:hasConversionFactor</code> for complex derivations.</li>
+</ol>
+<h2 id="conclusion"><strong>Conclusion</strong></h2>
+<p>FAIR² <strong>integrates QUDT and OM</strong> to enhance <strong>machine-readability</strong>, <strong>semantic clarity</strong>, and <strong>interoperability</strong> of datasets. By enforcing SHACL validation and ensuring accurate unit representation, FAIR² supports AI-ready, FAIR-compliant datasets across multiple domains.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
