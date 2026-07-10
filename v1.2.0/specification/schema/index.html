@@ -1,0 +1,4038 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://fair2.ai/spec/v1.2.0/specification/schema/">
+      
+      
+        <link rel="prev" href="../versioning/">
+      
+      
+        <link rel="next" href="../shacl-validation/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Schema - FAIR² Specification</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/css/overrides.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#fair2-schema" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="FAIR² Specification" class="md-header__button md-logo" aria-label="FAIR² Specification" data-md-component="logo">
+      
+  <img src="../../assets/images/fair2-logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            FAIR² Specification
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Schema
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="FAIR² Specification" class="md-nav__button md-logo" aria-label="FAIR² Specification" data-md-component="logo">
+      
+  <img src="../../assets/images/fair2-logo.png" alt="logo">
+
+    </a>
+    FAIR² Specification
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Specification
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Specification
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fair2json-format/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fair2.json File Format
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../versioning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Versioning & Conformance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schema
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#schemadatasetshape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        schema:DatasetShape
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fair2sdatasetshape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fair2s:DatasetShape
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fair2sdistributionshape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fair2s:DistributionShape
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fair2saccessrightsshape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fair2s:AccessRightsShape
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fair2sauthorshape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fair2s:AuthorShape
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fair2schangedescriptionshape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fair2s:ChangeDescriptionShape
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fair2schangelogshape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fair2s:ChangeLogShape
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fair2scontributionshape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fair2s:ContributionShape
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fair2scontributorroleshape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fair2s:ContributorRoleShape
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fair2screativeworkshape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fair2s:CreativeWorkShape
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fair2sdataarticleshape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fair2s:DataArticleShape
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fair2sdataportalshape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fair2s:DataPortalShape
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fair2sdataarchiveshape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fair2s:DataArchiveShape
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fair2sdomainshape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fair2s:DomainShape
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fair2scontactshape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fair2s:ContactShape
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fair2sfieldshape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fair2s:FieldShape
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fair2sfundingorganizationshape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fair2s:FundingOrganizationShape
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fair2sfundingschemeshape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fair2s:FundingSchemeShape
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fair2sfundingshape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fair2s:FundingShape
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fair2smethodshape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fair2s:MethodShape
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fair2sorganizationshape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fair2s:OrganizationShape
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fair2spublicationshape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fair2s:PublicationShape
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fair2spublishershape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fair2s:PublisherShape
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fair2srecordsetshape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fair2s:RecordSetShape
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fair2srevisionshape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fair2s:RevisionShape
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fair2ssocialmediashape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fair2s:SocialMediaShape
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fair2sspatialcoverageshape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fair2s:SpatialCoverageShape
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fair2sgeoshapeshape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fair2s:GeoShapeShape
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fair2sstepshape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fair2s:StepShape
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fair2ssubstepshape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fair2s:SubStepShape
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fair2sdigitaldocumentshape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fair2s:DigitalDocumentShape
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fair2ssoftwaresourcecodeshape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fair2s:SoftwareSourceCodeShape
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fair2sactivityshape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fair2s:ActivityShape
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fair2ssoftwareagentshape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fair2s:SoftwareAgentShape
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../shacl-validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SHACL Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fair2-ontology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAIR² Ontology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prefixes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Namespace Prefixes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../methods/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Methods
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data-dictionary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAIR² Data Dictionary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../access-agreements/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Access Agreements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../certification/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Certification
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../responsible-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Responsible AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../provenance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Provenance and Citations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Integration
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Integration
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/ml-croissant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ML Croissant
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/schema-org/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schema.org
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/prov-o/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PROV-O
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/units-qudt-om/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Units
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/contributor-roles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributor Roles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/croissant-rai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Croissant RAI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/google-rich-search/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Google Rich Search
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/odps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ODPS Integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../examples/example-walkthrough/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Community
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Community
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../community/contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../community/governance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Governance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../community/roadmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Roadmap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Access Agreement Levels
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Access Agreement Levels
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../agreement-levels/Level0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Level 0
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../agreement-levels/Level1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Level 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../agreement-levels/Level2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Level 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../agreement-levels/Level3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Level 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../agreement-levels/Level4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Level 4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../agreement-levels/Level5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Level 5
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../agreement-levels/Level6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Level 6
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#schemadatasetshape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        schema:DatasetShape
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fair2sdatasetshape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fair2s:DatasetShape
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fair2sdistributionshape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fair2s:DistributionShape
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fair2saccessrightsshape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fair2s:AccessRightsShape
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fair2sauthorshape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fair2s:AuthorShape
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fair2schangedescriptionshape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fair2s:ChangeDescriptionShape
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fair2schangelogshape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fair2s:ChangeLogShape
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fair2scontributionshape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fair2s:ContributionShape
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fair2scontributorroleshape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fair2s:ContributorRoleShape
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fair2screativeworkshape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fair2s:CreativeWorkShape
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fair2sdataarticleshape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fair2s:DataArticleShape
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fair2sdataportalshape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fair2s:DataPortalShape
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fair2sdataarchiveshape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fair2s:DataArchiveShape
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fair2sdomainshape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fair2s:DomainShape
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fair2scontactshape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fair2s:ContactShape
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fair2sfieldshape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fair2s:FieldShape
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fair2sfundingorganizationshape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fair2s:FundingOrganizationShape
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fair2sfundingschemeshape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fair2s:FundingSchemeShape
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fair2sfundingshape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fair2s:FundingShape
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fair2smethodshape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fair2s:MethodShape
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fair2sorganizationshape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fair2s:OrganizationShape
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fair2spublicationshape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fair2s:PublicationShape
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fair2spublishershape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fair2s:PublisherShape
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fair2srecordsetshape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fair2s:RecordSetShape
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fair2srevisionshape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fair2s:RevisionShape
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fair2ssocialmediashape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fair2s:SocialMediaShape
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fair2sspatialcoverageshape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fair2s:SpatialCoverageShape
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fair2sgeoshapeshape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fair2s:GeoShapeShape
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fair2sstepshape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fair2s:StepShape
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fair2ssubstepshape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fair2s:SubStepShape
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fair2sdigitaldocumentshape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fair2s:DigitalDocumentShape
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fair2ssoftwaresourcecodeshape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fair2s:SoftwareSourceCodeShape
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fair2sactivityshape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fair2s:ActivityShape
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fair2ssoftwareagentshape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fair2s:SoftwareAgentShape
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="fair2-schema">FAIR² Schema</h1>
+<hr />
+<h2 id="schemadatasetshape">schema:DatasetShape</h2>
+<p><em>Targets:</em> <code>schema:Dataset</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Cardinality</th>
+<th>Mandatory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>schema:distribution</code></td>
+<td><code>schema:DataDownload</code>/<code>schema:FileObject</code></td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>cr:recordSet</code></td>
+<td><code>RecordSet</code></td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>schema:description</code></td>
+<td><code>xsd:string</code></td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>schema:license</code></td>
+<td><code>xsd:anyURI</code></td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>schema:name</code></td>
+<td><code>xsd:string</code></td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>schema:url</code></td>
+<td><code>xsd:anyURI</code></td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>dct:conformsTo</code></td>
+<td><code>fair2s:IdentifierShape</code></td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<details><summary>Constraint notes</summary>
+
+- **schema:distribution**: A dataset must have at least one distribution.
+- **cr:recordSet**: A dataset must have at least one record set.
+- **schema:description**: A dataset must have a description.
+- **schema:license**: A dataset must have a license.
+- **schema:name**: A dataset must have a name.
+- **schema:url**: A dataset must have a URL.
+- **dct:conformsTo**: A dataset must reference the URI of the FAIR² specification version it conforms to.
+
+</details>
+
+<h2 id="fair2sdatasetshape">fair2s:DatasetShape</h2>
+<p><em>Targets:</em> <code>schema:Dataset</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Cardinality</th>
+<th>Mandatory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>schema:accessRights</code></td>
+<td><code>fair2s:AccessRightsShape</code></td>
+<td><code>[0..∞]</code></td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>cr:citeAs</code></td>
+<td><code>xsd:string</code></td>
+<td><code>[0..∞]</code></td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>fair2:changeLog</code></td>
+<td><code>fair2s:UpdateActionShape</code></td>
+<td><code>[0..∞]</code></td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>fair2:dataArchive</code></td>
+<td><code>fair2s:DataArchiveShape</code></td>
+<td><code>[0..∞]</code></td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>fair2:dataArticle</code></td>
+<td><code>fair2s:ArticleShape</code></td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>fair2:dataPortal</code></td>
+<td><code>fair2s:DataPortalShape</code></td>
+<td><code>[0..∞]</code></td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>fair2:domain</code></td>
+<td><code>fair2s:DomainShape</code></td>
+<td><code>[0..∞]</code></td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>fair2:methodSection</code></td>
+<td><code>fair2s:MethodSectionShape</code></td>
+<td><code>[0..∞]</code></td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>fair2s:socialMedia</code></td>
+<td><code>fair2s:SocialMediaShape</code></td>
+<td><code>[0..∞]</code></td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>cr:recordSet</code></td>
+<td><code>fair2s:RecordSetShape</code></td>
+<td><code>[0..∞]</code></td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>schema:contributor</code></td>
+<td><code>fair2s:ContributorShape</code></td>
+<td><code>[0..∞]</code></td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>schema:creator</code></td>
+<td><code>fair2s:PersonOrOrganizationShape</code></td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>schema:dateCreated</code></td>
+<td><code>xsd:date</code></td>
+<td><code>[0..∞]</code></td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>schema:datePublished</code></td>
+<td><code>xsd:date</code></td>
+<td><code>[0..∞]</code></td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>schema:dateUpdated</code></td>
+<td><code>xsd:date</code></td>
+<td><code>[0..∞]</code></td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>schema:description</code></td>
+<td><code>fair2s:TextShape</code></td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>schema:distribution</code></td>
+<td><code>fair2s:DistributionShape</code></td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>schema:funding</code></td>
+<td><code>fair2s:GrantShape</code></td>
+<td><code>[0..∞]</code></td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>schema:identifier</code></td>
+<td><code>fair2s:IdentifierShape</code></td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>schema:keywords</code></td>
+<td><code>fair2s:TextShape</code></td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>schema:license</code></td>
+<td><code>fair2s:IdentifierShape</code></td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>schema:name</code></td>
+<td><code>fair2s:TextShape</code></td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>schema:spatialCoverage</code></td>
+<td><code>fair2s:SpatialCoverageShape</code></td>
+<td><code>[0..∞]</code></td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>schema:subjectOf</code></td>
+<td><code>fair2s:CreativeWorkShape</code></td>
+<td><code>[0..∞]</code></td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>schema:temporalCoverage</code></td>
+<td><code>fair2s:TextShape</code> (ISO 8601 pattern)</td>
+<td><code>[0..∞]</code></td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>schema:url</code></td>
+<td><code>fair2s:IdentifierShape</code></td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>schema:version</code></td>
+<td><code>fair2s:TextShape</code></td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<details><summary>Constraint notes</summary>
+
+- **schema:accessRights**: Dataset may specify access rights (e.g., FAIR² Agreement Level).
+- **cr:citeAs**: Dataset may include a full 'cite as' text citation.
+- **fair2:changeLog**: Dataset may include a structured changelog for version history.
+- **fair2:dataArchive**: Dataset may be linked to one or more Data Archives for long-term preservation.
+- **fair2:dataArticle**: Dataset must be linked to at least one Data Article (Scholarly Article).
+- **fair2:dataPortal**: Dataset may be linked to one or more Data Portals providing access to the data.
+- **fair2:domain**: Dataset may declare the domain(s) it belongs to (e.g., marine science).
+- **fair2:methodSection**: Dataset may include one or more method sections describing methodology.
+- **fair2s:socialMedia**: Dataset may include social media dissemination metadata.
+- **cr:recordSet**: Dataset may include one or more RecordSet definitions.
+- **schema:contributor**: Dataset may include contributor metadata and CRediT roles.
+- **schema:creator**: Dataset must include at least one creator (Person or Organization).
+- **schema:dateCreated**: Dataset may include its creation date.
+- **schema:datePublished**: Dataset may include its publication date.
+- **schema:dateUpdated**: Dataset may include its last updated date.
+- **schema:description**: Dataset must include a description.
+- **schema:distribution**: Dataset must have at least one distribution (file object).
+- **schema:funding**: Dataset may include one or more funding entries.
+- **schema:identifier**: Dataset must include a persistent identifier (e.g., DOI URI).
+- **schema:keywords**: Dataset must include at least one keyword.
+- **schema:license**: Dataset must declare an open license IRI.
+- **schema:name**: Dataset must include a name.
+- **schema:spatialCoverage**: Dataset may specify spatial coverage information.
+- **schema:subjectOf**: Dataset may reference CreativeWorks (e.g., landing page, sameAs links).
+- **schema:temporalCoverage**: Dataset may specify the temporal coverage as an ISO 8601 date or interval — a single date (`2008`), a closed interval (`1995-01-01/2023-12-31`), or an open-ended interval (`2013-12-19/..`). This format is required by Google Dataset Search; the shape enforces it with `sh:pattern`.
+- **schema:url**: Dataset must include its canonical landing-page URL.
+- **schema:version**: Dataset must specify its version.
+
+</details>
+
+<h2 id="fair2sdistributionshape">fair2s:DistributionShape</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Cardinality</th>
+<th>Mandatory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>schema:sha256</code></td>
+<td><code>xsd:string</code></td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>schema:contentUrl</code></td>
+<td><code>xsd:anyURI</code></td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>schema:encodingFormat</code></td>
+<td><code>xsd:string</code></td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<details><summary>Constraint notes</summary>
+
+- **schema:sha256**: Each distribution must have a SHA-256 checksum (`schema:sha256`, as expected by mlcroissant).
+- **schema:contentUrl**: Each distribution must have a content URL.
+- **schema:encodingFormat**: Each distribution must specify its encoding format.
+
+</details>
+
+<h2 id="fair2saccessrightsshape">fair2s:AccessRightsShape</h2>
+<p><em>Targets:</em> <code>schema:DefinedTerm</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Cardinality</th>
+<th>Mandatory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>@id</code></td>
+<td><code>sh:IRI</code></td>
+<td><code>[0..∞]</code></td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>schema:name</code></td>
+<td><code>xsd:string</code></td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>schema:url</code></td>
+<td><code>sh:IRI</code></td>
+<td><code>[0..∞]</code></td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>skos:definition</code></td>
+<td><code>xsd:string</code></td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>skos:note</code></td>
+<td><code>xsd:string</code></td>
+<td><code>[0..∞]</code></td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<details><summary>Constraint notes</summary>
+
+- **@id**: AccessRights @id should be a FAIR² AgreementLevels URI.
+- **schema:name**: AccessRights must have a name (e.g., 'Open Access').
+- **schema:url**: AccessRights URL must point to a FAIR² Agreement Level definition (1–4).
+- **skos:definition**: AccessRights must provide a definition describing the access conditions.
+- **skos:note**: AccessRights may include a note clarifying additional access information.
+
+</details>
+
+<h2 id="fair2sauthorshape">fair2s:AuthorShape</h2>
+<p><em>Targets:</em> <code>schema:Person</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Cardinality</th>
+<th>Mandatory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>schema:affiliation</code></td>
+<td><code>fair2s:OrganizationShape</code></td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>schema:identifier</code></td>
+<td>``</td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>schema:name</code></td>
+<td><code>xsd:string</code></td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<details><summary>Constraint notes</summary>
+
+- **schema:affiliation**: Each author must be affiliated with at least one organization.
+- **schema:identifier**: Each author must include an identifier, preferably an ORCID.
+- **schema:name**: Each author must have a name.
+
+</details>
+
+<h2 id="fair2schangedescriptionshape">fair2s:ChangeDescriptionShape</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Cardinality</th>
+<th>Mandatory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>fair2:bugFixes</code></td>
+<td><code>xsd:string</code></td>
+<td><code>[0..∞]</code></td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>fair2:improvements</code></td>
+<td><code>xsd:string</code></td>
+<td><code>[0..∞]</code></td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>fair2:newFeatures</code></td>
+<td><code>xsd:string</code></td>
+<td><code>[0..∞]</code></td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>fair2:otherInformation</code></td>
+<td><code>xsd:string</code></td>
+<td><code>[0..∞]</code></td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<details><summary>Constraint notes</summary>
+
+- **fair2:bugFixes**: Description may include bugFixes as a list of strings.
+- **fair2:improvements**: Description may include improvements as a list of strings.
+- **fair2:newFeatures**: Description may include newFeatures as a list of strings.
+- **fair2:otherInformation**: Description may include otherInformation such as version notes or license changes.
+
+</details>
+
+<h2 id="fair2schangelogshape">fair2s:ChangeLogShape</h2>
+<p><em>Targets:</em> <code>schema:UpdateAction</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Cardinality</th>
+<th>Mandatory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>prov:wasRevisionOf</code></td>
+<td><code>fair2s:RevisionShape</code></td>
+<td><code>[0..∞]</code></td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>schema:datePublished</code></td>
+<td><code>xsd:date</code></td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>schema:description</code></td>
+<td><code>fair2s:ChangeDescriptionShape</code></td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<details><summary>Constraint notes</summary>
+
+- **prov:wasRevisionOf**: Each changelog entry may reference the previous dataset version using prov:wasRevisionOf.
+- **schema:datePublished**: Each changelog entry must include a publication date.
+- **schema:description**: Each changelog entry must include a structured description of changes.
+
+</details>
+
+<h2 id="fair2scontributionshape">fair2s:ContributionShape</h2>
+<p><em>Targets:</em> <code>schema:Contribution</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Cardinality</th>
+<th>Mandatory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>prov:agent</code></td>
+<td><code>fair2s:AuthorShape</code></td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>prov:hadRole</code></td>
+<td><code>fair2s:ContributorRoleShape</code></td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<details><summary>Constraint notes</summary>
+
+- **prov:agent**: Each contribution must reference at least one agent (Person or Organization).
+- **prov:hadRole**: Each contribution must include at least one role.
+
+</details>
+
+<h2 id="fair2scontributorroleshape">fair2s:ContributorRoleShape</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Cardinality</th>
+<th>Mandatory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>@id</code></td>
+<td><code>sh:IRI</code></td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>rdfs:label</code></td>
+<td><code>xsd:string</code></td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<details><summary>Constraint notes</summary>
+
+- **@id**: Each role must have an IRI identifier, typically from CRO or FAIR² namespace.
+- **rdfs:label**: Each role must have a human-readable label (e.g., DataCuration, Supervision).
+
+</details>
+
+<h2 id="fair2screativeworkshape">fair2s:CreativeWorkShape</h2>
+<p><em>Targets:</em> used via <code>schema:subjectOf</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Cardinality</th>
+<th>Mandatory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>schema:name</code></td>
+<td><code>xsd:string</code></td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>schema:url</code></td>
+<td><code>fair2s:IdentifierShape</code></td>
+<td><code>[0..∞]</code></td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<details><summary>Constraint notes</summary>
+
+- **schema:name**: The referenced creative work must have a name.
+- **schema:url**: It may carry a URL (e.g. the FAIR² specification it conforms to).
+
+</details>
+
+<h2 id="fair2sdataarticleshape">fair2s:DataArticleShape</h2>
+<p><em>Targets:</em> <code>schema:ScholarlyArticle</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Cardinality</th>
+<th>Mandatory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>prov:wasDerivedFrom</code></td>
+<td><code>sh:IRI</code></td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>schema:datePublished</code></td>
+<td><code>xsd:date</code></td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>schema:name</code></td>
+<td><code>xsd:string</code></td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>schema:publication</code></td>
+<td><code>fair2s:PublicationShape</code></td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>schema:publisher</code></td>
+<td><code>fair2s:PublisherShape</code></td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>schema:version</code></td>
+<td><code>xsd:string</code></td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>fair2:changeLog</code></td>
+<td><code>fair2s:UpdateActionShape</code></td>
+<td><code>[0..∞]</code></td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<details><summary>Constraint notes</summary>
+
+- **prov:wasDerivedFrom**: Data article must reference the dataset DOI or persistent identifier.
+- **schema:datePublished**: Data article must have a publication date.
+- **schema:name**: Data article must include a title.
+- **schema:publication**: Data article must reference a publication (journal or periodical).
+- **schema:publisher**: Data article must specify a publisher organization.
+- **schema:version**: Data article must specify its version (e.g., '1.0').
+- **fair2:changeLog**: Data article may include a structured changelog for version history.
+
+</details>
+
+<h2 id="fair2sdataportalshape">fair2s:DataPortalShape</h2>
+<p><em>Targets:</em> <code>fair2:DataPortal</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Cardinality</th>
+<th>Mandatory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>schema:name</code></td>
+<td><code>xsd:string</code></td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>schema:description</code></td>
+<td><code>xsd:string</code></td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>schema:identifier</code></td>
+<td><code>fair2s:IdentifierShape</code></td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>schema:version</code></td>
+<td><code>xsd:string</code></td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>schema:url</code></td>
+<td><code>sh:IRI</code></td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>schema:keywords</code></td>
+<td><code>xsd:string</code></td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>schema:author</code></td>
+<td><code>fair2s:PersonOrOrganizationShape</code></td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>schema:dateCreated</code></td>
+<td><code>xsd:date</code></td>
+<td><code>[0..∞]</code></td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>schema:datePublished</code></td>
+<td><code>xsd:date</code></td>
+<td><code>[0..∞]</code></td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>schema:dateUpdated</code></td>
+<td><code>xsd:date</code></td>
+<td><code>[0..∞]</code></td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>fair2:changeLog</code></td>
+<td><code>fair2s:UpdateActionShape</code></td>
+<td><code>[0..∞]</code></td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>fair2:dataset</code></td>
+<td><code>fair2s:IdentifierShape</code></td>
+<td><code>[0..∞]</code></td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<details><summary>Constraint notes</summary>
+
+- **schema:name**: Data portal must include a name.
+- **schema:description**: Data portal must include a description.
+- **schema:identifier**: Data portal must include a persistent identifier (e.g., URL or DOI).
+- **schema:version**: Data portal must specify its version.
+- **schema:url**: Data portal must include a URL pointing to the portal's web address.
+- **schema:keywords**: Data portal must include at least one keyword.
+- **schema:author**: Data portal must include at least one author or maintaining organization.
+- **schema:dateCreated**: Data portal may include its creation date.
+- **schema:datePublished**: Data portal may include its publication date.
+- **schema:dateUpdated**: Data portal may include its last updated date.
+- **fair2:changeLog**: Data portal may include a structured changelog for version history.
+- **fair2:dataset**: Data portal may reference the dataset(s) it provides access to.
+
+</details>
+
+<h2 id="fair2sdataarchiveshape">fair2s:DataArchiveShape</h2>
+<p><em>Targets:</em> <code>fair2:DataArchive</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Cardinality</th>
+<th>Mandatory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>schema:name</code></td>
+<td><code>xsd:string</code></td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>schema:description</code></td>
+<td><code>xsd:string</code></td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>schema:identifier</code></td>
+<td><code>fair2s:IdentifierShape</code></td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>schema:version</code></td>
+<td><code>xsd:string</code></td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>schema:keywords</code></td>
+<td><code>xsd:string</code></td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>schema:holdingArchive</code></td>
+<td><code>fair2s:IdentifierShape</code></td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>schema:author</code></td>
+<td><code>fair2s:PersonOrOrganizationShape</code></td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>schema:dateCreated</code></td>
+<td><code>xsd:date</code></td>
+<td><code>[0..∞]</code></td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>schema:datePublished</code></td>
+<td><code>xsd:date</code></td>
+<td><code>[0..∞]</code></td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>schema:dateUpdated</code></td>
+<td><code>xsd:date</code></td>
+<td><code>[0..∞]</code></td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>fair2:changeLog</code></td>
+<td><code>fair2s:UpdateActionShape</code></td>
+<td><code>[0..∞]</code></td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>fair2:dataset</code></td>
+<td><code>fair2s:IdentifierShape</code></td>
+<td><code>[0..∞]</code></td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<details><summary>Constraint notes</summary>
+
+- **schema:name**: Data archive must include a name.
+- **schema:description**: Data archive must include a description.
+- **schema:identifier**: Data archive must include a persistent identifier (e.g., DOI or URL).
+- **schema:version**: Data archive must specify its version.
+- **schema:keywords**: Data archive must include at least one keyword.
+- **schema:holdingArchive**: Data archive must reference the institution responsible for holding the archive (e.g., Zenodo, SEANOE).
+- **schema:author**: Data archive must include at least one author or responsible organization.
+- **schema:dateCreated**: Data archive may include its creation date.
+- **schema:datePublished**: Data archive may include its publication date.
+- **schema:dateUpdated**: Data archive may include its last updated date.
+- **fair2:changeLog**: Data archive may include a structured changelog for version history.
+- **fair2:dataset**: Data archive may reference the dataset(s) it stores.
+
+</details>
+
+<h2 id="fair2sdomainshape">fair2s:DomainShape</h2>
+<p><em>Targets:</em> <code>schema:Thing</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Cardinality</th>
+<th>Mandatory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>@id</code></td>
+<td><code>sh:IRI</code></td>
+<td><code>[0..∞]</code></td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>prov:wasAttributedTo</code></td>
+<td><code>fair2s:AuthorShape</code></td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>schema:name</code></td>
+<td><code>xsd:string</code></td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<details><summary>Constraint notes</summary>
+
+- **@id**: Domain entries should ideally reference a controlled vocabulary (e.g., Wikidata).
+- **prov:wasAttributedTo**: Each domain should be attributed to at least one Person (creator or expert).
+- **schema:name**: Each domain entry must include a name (e.g., 'Marine Biology').
+
+</details>
+
+<h2 id="fair2scontactshape">fair2s:ContactShape</h2>
+<p><em>Targets:</em> used via <code>prov:wasAttributedTo</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Cardinality</th>
+<th>Mandatory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>schema:name</code></td>
+<td><code>xsd:string</code></td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>schema:identifier</code></td>
+<td><code>fair2s:IdentifierShape</code></td>
+<td><code>[0..∞]</code></td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<details><summary>Constraint notes</summary>
+
+- A reusable shape for a contact (Person or Organization) attributed to a classification such as a domain.
+- **schema:name**: The contact must have a name.
+- **schema:identifier**: It may carry an identifier (e.g. an ORCID or ROR).
+
+</details>
+
+<h2 id="fair2sfieldshape">fair2s:FieldShape</h2>
+<p><em>Targets:</em> <code>cr:Field</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Cardinality</th>
+<th>Mandatory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>cr:dataType</code></td>
+<td>``</td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>fair2:statistics</code></td>
+<td>``</td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>fair2:unit</code></td>
+<td>``</td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>schema:description</code></td>
+<td><code>xsd:string</code></td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>schema:name</code></td>
+<td><code>xsd:string</code></td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<details><summary>Constraint notes</summary>
+
+- **cr:dataType**: Each Field must specify a dataType (e.g., Text, Integer, Float, Date).
+- **fair2:statistics**: Each Field should include descriptive statistics (count, missing values, etc.).
+- **fair2:unit**: Each Field should specify a measurement unit, using QUDT or equivalent controlled vocabulary.
+- **schema:description**: Each Field must include a human-readable description.
+- **schema:name**: Each Field must have a name.
+
+</details>
+
+<h2 id="fair2sfundingorganizationshape">fair2s:FundingOrganizationShape</h2>
+<p><em>Targets:</em> <code>schema:Organization</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Cardinality</th>
+<th>Mandatory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>schema:identifier</code></td>
+<td>``</td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>schema:name</code></td>
+<td><code>xsd:string</code></td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<details><summary>Constraint notes</summary>
+
+- **schema:identifier**: Funding organization should include an identifier (e.g., ROR ID).
+- **schema:name**: Funding organization must include a name.
+
+</details>
+
+<h2 id="fair2sfundingschemeshape">fair2s:FundingSchemeShape</h2>
+<p><em>Targets:</em> <code>schema:FundingScheme</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Cardinality</th>
+<th>Mandatory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>schema:identifier</code></td>
+<td>``</td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>schema:name</code></td>
+<td><code>xsd:string</code></td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<details><summary>Constraint notes</summary>
+
+- **schema:identifier**: Funding scheme must include an identifier (e.g., Horizon Europe code).
+- **schema:name**: Funding scheme must include a name.
+
+</details>
+
+<h2 id="fair2sfundingshape">fair2s:FundingShape</h2>
+<p><em>Targets:</em> <code>schema:Grant</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Cardinality</th>
+<th>Mandatory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>schema:funder</code></td>
+<td><code>fair2s:FundingOrganizationShape</code></td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>schema:fundingScheme</code></td>
+<td><code>fair2s:FundingSchemeShape</code></td>
+<td><code>[0..1]</code></td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>schema:name</code></td>
+<td><code>xsd:string</code></td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>schema:url</code></td>
+<td><code>sh:IRI</code></td>
+<td><code>[0..1]</code></td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<details><summary>Constraint notes</summary>
+
+- **schema:funder**: Each funding entry must specify at least one funder organization.
+- **schema:fundingScheme**: If provided, fundingScheme must contain valid scheme metadata.
+- **schema:name**: Each funding entry must include a grant name or title.
+- **schema:url**: Funding entries may optionally include a URL (e.g., project page).
+
+</details>
+
+<h2 id="fair2smethodshape">fair2s:MethodShape</h2>
+<p><em>Targets:</em> <code>fair2:MethodSection</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Cardinality</th>
+<th>Mandatory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>fair2:step</code></td>
+<td><code>fair2s:StepShape</code></td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>schema:description</code></td>
+<td><code>xsd:string</code></td>
+<td><code>[0..∞]</code></td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>schema:name</code></td>
+<td><code>xsd:string</code></td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>fair2:next</code></td>
+<td><code>sh:IRI</code></td>
+<td><code>[0..1]</code></td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>prov:used</code></td>
+<td><code>sh:IRI</code></td>
+<td><code>[0..∞]</code></td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<details><summary>Constraint notes</summary>
+
+- **fair2:step**: Each MethodSection must contain at least one Step.
+- **schema:description**: Each MethodSection may include a description summarizing the methodological context.
+- **schema:name**: Each MethodSection must include a section name.
+- **fair2:next**: MethodSection may reference the next section by IRI.
+- **prov:used**: MethodSection may reference source documents or scripts (DigitalDocument or SoftwareSourceCode nodes) that were consulted during this section.
+
+</details>
+
+<h2 id="fair2sorganizationshape">fair2s:OrganizationShape</h2>
+<p><em>Targets:</em> <code>schema:Organization</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Cardinality</th>
+<th>Mandatory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>schema:address</code></td>
+<td><code>xsd:string</code></td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>schema:identifier</code></td>
+<td>``</td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>schema:name</code></td>
+<td><code>xsd:string</code></td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<details><summary>Constraint notes</summary>
+
+- **schema:address**: Organization should include a postal address.
+- **schema:identifier**: Organization should include a persistent identifier (e.g., ROR).
+- **schema:name**: Organization must have a name.
+
+</details>
+
+<h2 id="fair2spublicationshape">fair2s:PublicationShape</h2>
+<p><em>Targets:</em> <code>schema:Periodical</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Cardinality</th>
+<th>Mandatory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>schema:name</code></td>
+<td><code>xsd:string</code></td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<details><summary>Constraint notes</summary>
+
+- **schema:name**: Publication must include a name (journal or periodical title).
+
+</details>
+
+<h2 id="fair2spublishershape">fair2s:PublisherShape</h2>
+<p><em>Targets:</em> <code>schema:Organization</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Cardinality</th>
+<th>Mandatory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>schema:name</code></td>
+<td><code>xsd:string</code></td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<details><summary>Constraint notes</summary>
+
+- **schema:name**: Publisher organization must include a name.
+
+</details>
+
+<h2 id="fair2srecordsetshape">fair2s:RecordSetShape</h2>
+<p><em>Targets:</em> <code>cr:RecordSet</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Cardinality</th>
+<th>Mandatory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>cr:field</code></td>
+<td><code>fair2s:FieldShape</code></td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>schema:description</code></td>
+<td><code>xsd:string</code></td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>schema:name</code></td>
+<td><code>xsd:string</code></td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<details><summary>Constraint notes</summary>
+
+- **cr:field**: Each RecordSet must define at least one Field.
+- **schema:description**: Each RecordSet must include a description.
+- **schema:name**: Each RecordSet must have a name (e.g., 'WATER', 'SEDIMENTS').
+
+</details>
+
+<h2 id="fair2srevisionshape">fair2s:RevisionShape</h2>
+<p><em>Targets:</em> <code>schema:Dataset</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Cardinality</th>
+<th>Mandatory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>schema:identifier</code></td>
+<td><code>sh:IRI</code></td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>schema:version</code></td>
+<td><code>xsd:string</code></td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<details><summary>Constraint notes</summary>
+
+- **schema:identifier**: Revision reference must include a persistent identifier (e.g., DOI).
+- **schema:version**: Revision reference must include a version label.
+
+</details>
+
+<h2 id="fair2ssocialmediashape">fair2s:SocialMediaShape</h2>
+<p><em>Targets:</em> <code>schema:SocialMediaPosting</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Cardinality</th>
+<th>Mandatory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>schema:accountServiceHomePage</code></td>
+<td><code>sh:IRI</code></td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>schema:articleBody</code></td>
+<td><code>xsd:string</code></td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>schema:datePublished</code></td>
+<td><code>xsd:date</code></td>
+<td><code>[0..∞]</code></td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>schema:identifier</code></td>
+<td><code>xsd:string</code></td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>schema:keywords</code></td>
+<td><code>xsd:string</code></td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>schema:url</code></td>
+<td><code>sh:IRI</code></td>
+<td><code>[0..∞]</code></td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<details><summary>Constraint notes</summary>
+
+- **schema:accountServiceHomePage**: Each entry must specify the social media service homepage as an IRI (e.g., 'https://twitter.com/').
+- **schema:articleBody**: Each entry must include the message text or post body.
+- **schema:datePublished**: Optionally, entries may record the publication date of the social media post.
+- **schema:identifier**: Each social media entry must have a platform identifier (e.g., 'twitter', 'linkedin').
+- **schema:keywords**: Each entry must list at least one keyword or tag describing its content.
+- **schema:url**: Optionally, entries may include a direct URL to the social post or related resource.
+
+</details>
+
+<h2 id="fair2sspatialcoverageshape">fair2s:SpatialCoverageShape</h2>
+<p><em>Targets:</em> <code>schema:Place</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Cardinality</th>
+<th>Mandatory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>schema:name</code></td>
+<td><code>xsd:string</code></td>
+<td><code>[0..∞]</code></td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>schema:description</code></td>
+<td><code>xsd:string</code></td>
+<td><code>[0..∞]</code></td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>schema:identifier</code></td>
+<td><code>fair2s:IdentifierShape</code></td>
+<td><code>[0..∞]</code></td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>schema:geo</code></td>
+<td><code>fair2s:GeoShapeShape</code> or <code>schema:GeoCoordinatesShape</code></td>
+<td><code>[0..∞]</code></td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>schema:geoWithin</code></td>
+<td><code>sh:BlankNodeOrIRI</code></td>
+<td><code>[0..∞]</code></td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>schema:containsPlace</code></td>
+<td><code>fair2s:SpatialCoverageShape</code></td>
+<td><code>[0..∞]</code></td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<details><summary>Constraint notes</summary>
+
+- A `Place` may carry a name, description, and identifier.
+- **schema:geo**: a geometry, either a `GeoShape` (bounding box / polygon) or a `GeoCoordinates` point.
+- **schema:geoWithin**: an enclosing region.
+- **schema:containsPlace**: nested Places — the shape is recursive, modelling e.g. a bounding box → convex hull → individual sampling sites.
+
+</details>
+
+<h2 id="fair2sgeoshapeshape">fair2s:GeoShapeShape</h2>
+<p><em>Targets:</em> <code>schema:GeoShape</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Cardinality</th>
+<th>Mandatory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>schema:box</code></td>
+<td><code>xsd:string</code></td>
+<td>one geometry</td>
+<td>Conditional</td>
+</tr>
+<tr>
+<td><code>schema:polygon</code></td>
+<td><code>xsd:string</code></td>
+<td>one geometry</td>
+<td>Conditional</td>
+</tr>
+<tr>
+<td><code>schema:line</code></td>
+<td><code>xsd:string</code></td>
+<td>one geometry</td>
+<td>Conditional</td>
+</tr>
+<tr>
+<td><code>schema:circle</code></td>
+<td><code>xsd:string</code></td>
+<td>one geometry</td>
+<td>Conditional</td>
+</tr>
+</tbody>
+</table>
+<details><summary>Constraint notes</summary>
+
+- A `GeoShape` must declare **at least one** geometry (`box`, `polygon`, `line`, or `circle`).
+
+</details>
+
+<h2 id="fair2sstepshape">fair2s:StepShape</h2>
+<p><em>Targets:</em> <code>fair2:Step</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Cardinality</th>
+<th>Mandatory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>fair2:generated</code></td>
+<td><code>sh:IRI</code></td>
+<td><code>[0..∞]</code></td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>fair2:next</code></td>
+<td><code>sh:IRI</code></td>
+<td><code>[0..∞]</code></td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>fair2:substep</code></td>
+<td><code>fair2s:SubStepShape</code></td>
+<td><code>[0..∞]</code></td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>prov:used</code></td>
+<td><code>sh:IRI</code></td>
+<td><code>[0..∞]</code></td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>schema:description</code></td>
+<td><code>xsd:string</code></td>
+<td><code>[0..∞]</code></td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>schema:name</code></td>
+<td><code>xsd:string</code></td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<details><summary>Constraint notes</summary>
+
+- **fair2:generated**: If provided, 'generated' should reference produced data elements (e.g., fields, recordSets) by IRI.
+- **fair2:next**: If provided, 'next' should reference the following step using an IRI.
+- **fair2:substep**: Substeps may be defined as nested procedural components.
+- **prov:used**: Step may reference source documents or scripts (DigitalDocument or SoftwareSourceCode nodes) that were used as inputs for this step.
+- **schema:description**: Each Step may include a description detailing actions or parameters.
+- **schema:name**: Each Step must include a name.
+
+</details>
+
+<h2 id="fair2ssubstepshape">fair2s:SubStepShape</h2>
+<p><em>Targets:</em> <code>fair2:Substep</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Cardinality</th>
+<th>Mandatory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>fair2:next</code></td>
+<td><code>sh:IRI</code></td>
+<td><code>[0..∞]</code></td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>prov:used</code></td>
+<td><code>sh:IRI</code></td>
+<td><code>[0..∞]</code></td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>schema:description</code></td>
+<td><code>xsd:string</code></td>
+<td><code>[0..∞]</code></td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>schema:name</code></td>
+<td><code>xsd:string</code></td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<details><summary>Constraint notes</summary>
+
+- **fair2:next**: If provided, 'next' should reference the subsequent substep.
+- **prov:used**: Substep may reference source documents or scripts used as inputs.
+- **schema:description**: Each Substep may include a descriptive text.
+- **schema:name**: Each Substep must include a name.
+
+</details>
+
+<h2 id="fair2sdigitaldocumentshape">fair2s:DigitalDocumentShape</h2>
+<p><em>Targets:</em> <code>schema:DigitalDocument</code></p>
+<p>Source documents referenced via <code>prov:used</code> in method sections and steps (e.g., READMEs, data dictionaries, protocol specifications).</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Cardinality</th>
+<th>Mandatory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>schema:name</code></td>
+<td><code>xsd:string</code></td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>schema:pagination</code></td>
+<td><code>xsd:string</code></td>
+<td><code>[0..∞]</code></td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>schema:encodingFormat</code></td>
+<td><code>xsd:string</code></td>
+<td><code>[0..∞]</code></td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>schema:url</code></td>
+<td><code>sh:IRI</code></td>
+<td><code>[0..1]</code></td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<details><summary>Constraint notes</summary>
+
+- **schema:name**: Document must have a human-readable name.
+- **schema:pagination**: Relative file path to the document within the dataset package (repurposed from schema.org).
+- **schema:encodingFormat**: MIME type of the document (e.g., `text/markdown`, `text/csv`).
+- **schema:url**: Optionally, a persistent URL for the document.
+
+</details>
+
+<h2 id="fair2ssoftwaresourcecodeshape">fair2s:SoftwareSourceCodeShape</h2>
+<p><em>Targets:</em> <code>schema:SoftwareSourceCode</code></p>
+<p>Scripts and code files used or produced by method steps, referenced via <code>prov:used</code> or <code>fair2:generated</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Cardinality</th>
+<th>Mandatory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>schema:name</code></td>
+<td><code>xsd:string</code></td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>schema:identifier</code></td>
+<td><code>xsd:string</code></td>
+<td><code>[0..∞]</code></td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>schema:encodingFormat</code></td>
+<td><code>xsd:string</code></td>
+<td><code>[0..∞]</code></td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>schema:url</code></td>
+<td><code>sh:IRI</code></td>
+<td><code>[0..1]</code></td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>schema:programmingLanguage</code></td>
+<td><code>xsd:string</code></td>
+<td><code>[0..∞]</code></td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>schema:runtimePlatform</code></td>
+<td><code>xsd:string</code></td>
+<td><code>[0..∞]</code></td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<details><summary>Constraint notes</summary>
+
+- **schema:name**: Script must have a human-readable name (e.g., filename).
+- **schema:identifier**: Relative path or persistent identifier for the script.
+- **schema:encodingFormat**: MIME type of the source file (e.g., `text/x-python`).
+- **schema:url**: Optionally, a URL pointing to the script.
+- **schema:programmingLanguage**: Programming language used (e.g., `Python`, `R`).
+- **schema:runtimePlatform**: Runtime environment (e.g., `Python 3.11`, `R 4.3`).
+
+</details>
+
+<h2 id="fair2sactivityshape">fair2s:ActivityShape</h2>
+<p><em>Targets:</em> <code>prov:Activity</code></p>
+<p>A computational or manual activity that uses inputs and produces outputs. Activities link agents to the data they generate.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Cardinality</th>
+<th>Mandatory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>rdfs:label</code></td>
+<td><code>xsd:string</code></td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>prov:wasAssociatedWith</code></td>
+<td><code>sh:IRI</code></td>
+<td><code>[0..∞]</code></td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>schema:startTime</code></td>
+<td><code>xsd:dateTime</code></td>
+<td><code>[0..1]</code></td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>schema:endTime</code></td>
+<td><code>xsd:dateTime</code></td>
+<td><code>[0..1]</code></td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<details><summary>Constraint notes</summary>
+
+- **rdfs:label**: Activity must have a human-readable name describing the computation or process.
+- **prov:wasAssociatedWith**: Activity may reference one or more responsible agents (SoftwareAgent, Person, Organization).
+- **schema:startTime**: Activity may record when it began.
+- **schema:endTime**: Activity may record when it completed.
+
+</details>
+
+<h2 id="fair2ssoftwareagentshape">fair2s:SoftwareAgentShape</h2>
+<p><em>Targets:</em> <code>prov:SoftwareAgent</code></p>
+<p>A software tool or application that performed an activity. Software agents are responsible for automated data processing, extraction, and transformation steps.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Cardinality</th>
+<th>Mandatory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>schema:name</code></td>
+<td><code>xsd:string</code></td>
+<td><code>[1..∞]</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>schema:identifier</code></td>
+<td><code>fair2s:IdentifierShape</code></td>
+<td><code>[0..∞]</code></td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>schema:softwareVersion</code></td>
+<td><code>xsd:string</code></td>
+<td><code>[0..∞]</code></td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>schema:programmingLanguage</code></td>
+<td><code>xsd:string</code></td>
+<td><code>[0..∞]</code></td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<details><summary>Constraint notes</summary>
+
+- **schema:name**: Software agent must have a name (e.g., `Pandas`, `R`, `CESM2.2`).
+- **schema:identifier**: Software agent may include a persistent identifier or homepage URL.
+- **schema:softwareVersion**: Software agent may specify its version (e.g., `2.1.1`).
+- **schema:programmingLanguage**: Software agent may specify its implementation language.
+
+</details>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"default": "latest", "provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

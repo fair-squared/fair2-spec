@@ -1,0 +1,12 @@
+{
+  "@context": {
+    "schema": "https://schema.org/",
+    "fair2": "https://fair2.ai/ns/"
+  },
+  "@id": "fair2:AgreementLevel5",
+  "@type": "schema:DefinedTerm",
+  "schema:name": "Secure / Controlled Access",
+  "schema:description": "For sensitive or regulated data requiring a controlled secure environment. No raw data download permitted; strict credentialing and auditing apply.",
+  "schema:text": "By requesting access to this dataset, you agree to hold verified human-data or ethics credentials linked to your ORCID profile, comply with the FAIR² Data Use Agreement (DUA), work exclusively within the approved secure or federated environment, refrain from re-identification or raw data extraction, permit full audit logging, cite and acknowledge the dataset and its creators, preserve metadata and provenance, and avoid any redistribution outside the FAIR² or sovereign hosting environment. Only aggregated or anonymized outputs may leave the secure system.",
+  "schema:url": "https://fair2.ai/ns/AgreementLevels/5"
+}

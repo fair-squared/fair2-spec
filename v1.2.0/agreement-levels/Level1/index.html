@@ -1,0 +1,1760 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://fair2.ai/spec/v1.2.0/agreement-levels/Level1/">
+      
+      
+        <link rel="prev" href="../Level0/">
+      
+      
+        <link rel="next" href="../Level2/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Level 1 - FAIR² Specification</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/css/overrides.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#fair2-access-governance-documentation" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="FAIR² Specification" class="md-header__button md-logo" aria-label="FAIR² Specification" data-md-component="logo">
+      
+  <img src="../../assets/images/fair2-logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            FAIR² Specification
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Level 1
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="FAIR² Specification" class="md-nav__button md-logo" aria-label="FAIR² Specification" data-md-component="logo">
+      
+  <img src="../../assets/images/fair2-logo.png" alt="logo">
+
+    </a>
+    FAIR² Specification
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Specification
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Specification
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../specification/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../specification/fair2json-format/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fair2.json File Format
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../specification/versioning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Versioning & Conformance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../specification/schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../specification/shacl-validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SHACL Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../specification/fair2-ontology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAIR² Ontology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../specification/prefixes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Namespace Prefixes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../specification/methods/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Methods
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../specification/data-dictionary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAIR² Data Dictionary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../specification/access-agreements/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Access Agreements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../specification/certification/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Certification
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../specification/responsible-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Responsible AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../specification/provenance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Provenance and Citations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Integration
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Integration
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/ml-croissant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ML Croissant
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/schema-org/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schema.org
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/prov-o/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PROV-O
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/units-qudt-om/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Units
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/contributor-roles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributor Roles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/croissant-rai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Croissant RAI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/google-rich-search/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Google Rich Search
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/odps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ODPS Integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../examples/example-walkthrough/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Community
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Community
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../community/contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../community/governance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Governance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../community/roadmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Roadmap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Access Agreement Levels
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Access Agreement Levels
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Level0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Level 0
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Level 1
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Level 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#level-1-open-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Level 1 – Open Access
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Level2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Level 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Level3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Level 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Level4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Level 4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Level5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Level 5
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Level6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Level 6
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#level-1-open-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Level 1 – Open Access
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="fair2-access-governance-documentation">FAIR² Access Governance Documentation</h1>
+<h2 id="level-1-open-access"><strong>Level 1 – Open Access</strong></h2>
+<p>This document provides a consolidated representation of the <strong>case scenario matrix</strong> for Level‑1 access, together with <strong>metadata examples</strong> for each variant.<br />
+It is intended for FAIR²’s public GitHub documentation.</p>
+<hr />
+<h1 id="1-overview-of-level-1-open-access"><strong>1. Overview of Level 1 (Open Access)</strong></h1>
+<p>Level 1 datasets are publicly accessible without registration or authentication.<br />
+However, FAIR² recognizes that even “open” datasets may require ethical, technical, or governance-based <strong>constraints</strong>.</p>
+<p>FAIR² therefore models Open Access as a <strong>profile</strong>, refined by a set of controlled constraint axes:</p>
+<ul>
+<li><strong>identity</strong>: none  </li>
+<li><strong>environment</strong>: open  </li>
+<li><strong>communityGovernance</strong>: none / consultationRecommended  </li>
+<li><strong>aiTraining</strong>: allowed / prohibited  </li>
+<li><strong>exportRestriction</strong>: none / derived-parameters-only  </li>
+<li><strong>distribution-level constraints</strong> (optional, for mixed-access datasets)</li>
+</ul>
+<hr />
+<h1 id="2-level-1-case-scenario-matrix"><strong>2. Level 1 Case Scenario Matrix</strong></h1>
+<table>
+<thead>
+<tr>
+<th>Variant</th>
+<th>Description</th>
+<th>identity</th>
+<th>governance</th>
+<th>aiTraining</th>
+<th>exportRestriction</th>
+<th>distribution-level constraints</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1.1</strong></td>
+<td>Fully open, no restrictions</td>
+<td>none</td>
+<td>none</td>
+<td>allowed</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td><strong>1.2</strong></td>
+<td>Open, but AI training prohibited</td>
+<td>none</td>
+<td>none</td>
+<td>prohibited</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td><strong>1.3</strong></td>
+<td>Open, but only derived parameters may be reused</td>
+<td>none</td>
+<td>none</td>
+<td>allowed</td>
+<td>derived-parameters-only</td>
+<td>none</td>
+</tr>
+<tr>
+<td><strong>1.4</strong></td>
+<td>Open, but community consultation recommended</td>
+<td>none</td>
+<td>consultationRecommended</td>
+<td>allowed</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td><strong>1.5</strong></td>
+<td>Metadata fully open; some files restricted</td>
+<td>none</td>
+<td>none</td>
+<td>allowed</td>
+<td>none</td>
+<td>present at distribution level</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="3-metadata-examples-for-each-level1-variant"><strong>3. Metadata Examples for Each Level‑1 Variant</strong></h1>
+<p>All examples use the FAIR² JSON‑LD namespace:</p>
+<pre><code>fair2: https://fair2.ai/ns/
+</code></pre>
+<hr />
+<h2 id="variant-11-fully-open-no-restrictions"><strong>Variant 1.1 — Fully Open, No Restrictions</strong></h2>
+<pre><code class="language-json">{
+  &quot;@context&quot;: {
+    &quot;schema&quot;: &quot;https://schema.org/&quot;,
+    &quot;dct&quot;: &quot;http://purl.org/dc/terms/&quot;,
+    &quot;fair2&quot;: &quot;https://fair2.ai/ns/&quot;
+  },
+  &quot;@type&quot;: &quot;schema:Dataset&quot;,
+  &quot;schema:name&quot;: &quot;Open Climate Indicators Dataset&quot;,
+  &quot;dct:license&quot;: &quot;https://opendatacommons.org/licenses/by/1-0/&quot;,
+  &quot;dct:accessRights&quot;: &quot;fair2:AgreementLevel1&quot;,
+  &quot;fair2:constraints&quot;: {
+    &quot;identity&quot;: &quot;none&quot;,
+    &quot;environment&quot;: &quot;open&quot;,
+    &quot;communityGovernance&quot;: &quot;none&quot;,
+    &quot;aiTraining&quot;: &quot;allowed&quot;,
+    &quot;exportRestriction&quot;: &quot;none&quot;
+  }
+}
+</code></pre>
+<hr />
+<h2 id="variant-12-open-but-ai-training-prohibited"><strong>Variant 1.2 — Open, but AI Training Prohibited</strong></h2>
+<pre><code class="language-json">{
+  &quot;@context&quot;: {
+    &quot;schema&quot;: &quot;https://schema.org/&quot;,
+    &quot;dct&quot;: &quot;http://purl.org/dc/terms/&quot;,
+    &quot;fair2&quot;: &quot;https://fair2.ai/ns/&quot;
+  },
+  &quot;@type&quot;: &quot;schema:Dataset&quot;,
+  &quot;schema:name&quot;: &quot;Open Literary Corpus (Human Reading Only)&quot;,
+  &quot;dct:license&quot;: &quot;https://opendatacommons.org/licenses/by/1-0/&quot;,
+  &quot;dct:accessRights&quot;: &quot;fair2:AgreementLevel1&quot;,
+  &quot;fair2:constraints&quot;: {
+    &quot;identity&quot;: &quot;none&quot;,
+    &quot;environment&quot;: &quot;open&quot;,
+    &quot;communityGovernance&quot;: &quot;none&quot;,
+    &quot;aiTraining&quot;: &quot;prohibited&quot;,
+    &quot;exportRestriction&quot;: &quot;none&quot;
+  }
+}
+</code></pre>
+<hr />
+<h2 id="variant-13-open-but-only-derived-parameters-may-be-reused"><strong>Variant 1.3 — Open, but Only Derived Parameters May Be Reused</strong></h2>
+<pre><code class="language-json">{
+  &quot;@context&quot;: {
+    &quot;schema&quot;: &quot;https://schema.org/&quot;,
+    &quot;dct&quot;: &quot;http://purl.org/dc/terms/&quot;,
+    &quot;fair2&quot;: &quot;https://fair2.ai/ns/&quot;
+  },
+  &quot;@type&quot;: &quot;schema:Dataset&quot;,
+  &quot;schema:name&quot;: &quot;Open Satellite Imagery (Derived Outputs Only)&quot;,
+  &quot;dct:license&quot;: &quot;https://opendatacommons.org/licenses/by/1-0/&quot;,
+  &quot;dct:accessRights&quot;: &quot;fair2:AgreementLevel1&quot;,
+  &quot;fair2:constraints&quot;: {
+    &quot;identity&quot;: &quot;none&quot;,
+    &quot;environment&quot;: &quot;open&quot;,
+    &quot;communityGovernance&quot;: &quot;none&quot;,
+    &quot;aiTraining&quot;: &quot;allowed&quot;,
+    &quot;exportRestriction&quot;: &quot;derived-parameters-only&quot;
+  }
+}
+</code></pre>
+<hr />
+<h2 id="variant-14-open-but-community-consultation-recommended"><strong>Variant 1.4 — Open, but Community Consultation Recommended</strong></h2>
+<pre><code class="language-json">{
+  &quot;@context&quot;: {
+    &quot;schema&quot;: &quot;https://schema.org/&quot;,
+    &quot;dct&quot;: &quot;http://purl.org/dc/terms/&quot;,
+    &quot;fair2&quot;: &quot;https://fair2.ai/ns/&quot;
+  },
+  &quot;@type&quot;: &quot;schema:Dataset&quot;,
+  &quot;schema:name&quot;: &quot;Open Traditional Ecological Knowledge Summaries&quot;,
+  &quot;dct:license&quot;: &quot;https://opendatacommons.org/licenses/by/1-0/&quot;,
+  &quot;dct:accessRights&quot;: &quot;fair2:AgreementLevel1&quot;,
+  &quot;fair2:constraints&quot;: {
+    &quot;identity&quot;: &quot;none&quot;,
+    &quot;environment&quot;: &quot;open&quot;,
+    &quot;communityGovernance&quot;: &quot;consultationRecommended&quot;,
+    &quot;aiTraining&quot;: &quot;allowed&quot;,
+    &quot;exportRestriction&quot;: &quot;none&quot;
+  },
+  &quot;fair2:governanceProtocol&quot;: &quot;https://community.example.org/governance&quot;
+}
+</code></pre>
+<hr />
+<h2 id="variant-15-metadata-fully-public-some-files-restricted"><strong>Variant 1.5 — Metadata Fully Public, Some Files Restricted</strong></h2>
+<pre><code class="language-json">{
+  &quot;@context&quot;: {
+    &quot;schema&quot;: &quot;https://schema.org/&quot;,
+    &quot;dct&quot;: &quot;http://purl.org/dc/terms/&quot;,
+    &quot;fair2&quot;: &quot;https://fair2.ai/ns/&quot;
+  },
+  &quot;@type&quot;: &quot;schema:Dataset&quot;,
+  &quot;schema:name&quot;: &quot;Open Biodiversity Observations with Restricted Coordinates&quot;,
+
+  &quot;dct:license&quot;: &quot;https://opendatacommons.org/licenses/by/1-0/&quot;,
+  &quot;dct:accessRights&quot;: &quot;fair2:AgreementLevel1&quot;,
+
+  &quot;fair2:constraints&quot;: {
+    &quot;identity&quot;: &quot;none&quot;,
+    &quot;environment&quot;: &quot;open&quot;,
+    &quot;communityGovernance&quot;: &quot;none&quot;,
+    &quot;aiTraining&quot;: &quot;allowed&quot;,
+    &quot;exportRestriction&quot;: &quot;none&quot;
+  },
+
+  &quot;distribution&quot;: [
+    {
+      &quot;@type&quot;: &quot;schema:DataDownload&quot;,
+      &quot;schema:contentUrl&quot;: &quot;https://example.org/files/species_list.csv&quot;,
+      &quot;fair2:constraints&quot;: {
+        &quot;environment&quot;: &quot;open&quot;
+      }
+    },
+    {
+      &quot;@type&quot;: &quot;schema:DataDownload&quot;,
+      &quot;schema:contentUrl&quot;: &quot;https://example.org/files/precise_coordinates.csv&quot;,
+      &quot;fair2:constraints&quot;: {
+        &quot;identity&quot;: &quot;ORCID&quot;,
+        &quot;environment&quot;: &quot;secureHuman&quot;,
+        &quot;exportRestriction&quot;: &quot;aggregated-only&quot;
+      }
+    }
+  ]
+}
+</code></pre>
+<hr />
+<h1 id="4-summary-table"><strong>4. Summary Table</strong></h1>
+<table>
+<thead>
+<tr>
+<th>Variant</th>
+<th>Meaning</th>
+<th>Constraint</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1.1</strong></td>
+<td>Fully open</td>
+<td>None</td>
+</tr>
+<tr>
+<td><strong>1.2</strong></td>
+<td>Open but AI training disallowed</td>
+<td><code>aiTraining = prohibited</code></td>
+</tr>
+<tr>
+<td><strong>1.3</strong></td>
+<td>Open but only derived outputs allowed</td>
+<td><code>exportRestriction = derived-parameters-only</code></td>
+</tr>
+<tr>
+<td><strong>1.4</strong></td>
+<td>Open with community consultation recommended</td>
+<td><code>communityGovernance = consultationRecommended</code></td>
+</tr>
+<tr>
+<td><strong>1.5</strong></td>
+<td>Mixed-access dataset with public metadata</td>
+<td>Distribution-level constraints</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="navigation"><strong>Navigation</strong></h1>
+<p><strong><a href="../Level0/">← Level 0</a> | <a href="../Level2/">Level 2 →</a></strong></p>
+<hr />
+<p><strong>End of Level 1 Documentation — FAIR² Access Governance</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"default": "latest", "provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
