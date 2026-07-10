@@ -1,9 +1,13 @@
 site_name: FAIR² Specification
+site_url: https://fair2.ai/spec/
 theme:
   name: material
   logo: assets/images/fair2-logo.png
 extra:
   favicon: assets/images/favicon.ico
+  version:
+    provider: mike
+    default: latest
 extra_css:
   - assets/css/overrides.css
 nav:
@@ -11,6 +15,7 @@ nav:
   - Specification:
       - Overview: specification/overview.md
       - fair2.json File Format: specification/fair2json-format.md
+      - Versioning & Conformance: specification/versioning.md
       - Schema: specification/schema.md
       - SHACL Validation: specification/shacl-validation.md
       - FAIR² Ontology: specification/fair2-ontology.md
