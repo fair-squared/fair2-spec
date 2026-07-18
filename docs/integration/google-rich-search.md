@@ -89,4 +89,4 @@ To ensure compatibility with search engines and FAIR² validation:
 
 - Refer to the [FAIR² Schema](../specification/schema.md) for additional properties
 - Test rich result compatibility using [Google’s Rich Results Test](https://search.google.com/test/rich-results)
-- Contribute improvements or extensions via [GitHub](https://github.com/fair2-spec/issues)
+- Contribute improvements or extensions via [GitHub](https://github.com/fair-squared/fair2-spec/issues)
