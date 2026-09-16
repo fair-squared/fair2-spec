@@ -9745,7 +9745,8 @@
                   "name": "Water",
                   "next": {
                     "@id": "steps/b766faea-0c0e-4b88-a453-1b13b4d48379"
-                  }
+                  },
+                  "description": "Water was sampled every three months, and monthly at a few stations: surface water was collected with a Niskin bottle for nutrients and contaminants, and a CTD was used for temperature, salinity, depth, irradiance, chlorophyll, light transmission, pH and dissolved oxygen."
                 },
                 {
                   "@type": "Step",
@@ -9753,12 +9754,14 @@
                   "name": "Sediments",
                   "next": {
                     "@id": "steps/9596deff-d524-4285-95b1-c7634bd6be26"
-                  }
+                  },
+                  "description": "Sediments were sampled annually in winter (January to March), with a 0.1 m2 van Veen grab at coastal stations and a 0.03 m2 grab at the estuarine station E-A10. Each sample was frozen until laboratory analysis."
                 },
                 {
                   "@type": "Step",
                   "@id": "steps/9596deff-d524-4285-95b1-c7634bd6be26",
-                  "name": "Biota"
+                  "name": "Biota",
+                  "description": "Sampling was tailored to each biological group: macroinvertebrates annually in winter, phytoplankton quarterly, macroalgae in spring or early summer every three years, and demersal fish and crustaceans in autumn by beam trawl."
                 }
               ],
               "description": "Sampling methodologies were tailored to each group (taxagroup) to ensure accurate and representative data collection.",
@@ -9863,7 +9866,8 @@
                   "name": "Water Sampling",
                   "next": {
                     "@id": "steps/7d37e3aa-e3fe-4f44-8832-864e0214b6e0"
-                  }
+                  },
+                  "description": "Surface water was collected with a Niskin bottle and profiled in situ with a CTD, following EN 15972:2011 and the URA sampling protocols."
                 },
                 {
                   "@type": "Step",
@@ -9871,7 +9875,8 @@
                   "name": "Sediment Sampling",
                   "next": {
                     "@id": "steps/888f5268-6e26-43ac-89b6-8a6df4d18006"
-                  }
+                  },
+                  "description": "Subtidal sediments were collected with van Veen grabs (0.1 m2 coastal, 0.03 m2 estuarine); intertidal estuarine stations were sampled with a 0.5 x 0.5 m quadrat to 15 cm depth."
                 },
                 {
                   "@type": "Step",
@@ -9879,7 +9884,8 @@
                   "name": "Biota Sampling",
                   "next": {
                     "@id": "steps/1ddafab6-d4a0-465f-9fd0-6aa65909f1ef"
-                  }
+                  },
+                  "description": "Demersal fauna were sampled with beam trawls - 1.5 m wide (10 mm mesh, 8 mm cod end) in the smaller estuaries and 2.5 m wide (40 mm mesh, 14 mm cod end) in the Nerbioi - towed for 10 minutes at 1.5 knots. Macroalgae were sampled along intertidal transects with quadrats, and macroinvertebrate replicates were sieved through a 1 mm mesh."
                 }
               ],
               "description": "Instrumentation and sampling setups varied by component, adhering to standardized protocols across water, sediment, and biota sampling."
@@ -9890,7 +9896,8 @@
               "name": "Calibration of Instruments",
               "next": {
                 "@id": "steps/e2086dca-8bb7-445d-bdd9-c1c4376226c8"
-              }
+              },
+              "description": "Calibration applied to the instruments used across the monitoring programme. It is documented in detail for the CTD sensor; calibration records for the van Veen grab and the beam trawl were not available in the source documentation."
             },
             {
               "@type": "Step",
@@ -9921,7 +9928,8 @@
                   "name": "Water Samples",
                   "next": {
                     "@id": "steps/63d1b196-f124-4192-b4cb-9d229aa039e4"
-                  }
+                  },
+                  "description": "Water collected for nutrient and contaminant determination was handled under the applicable ISO and EN 15972:2011 standards; CTD readings were taken in situ and required no preparation."
                 },
                 {
                   "@type": "Step",
@@ -9929,17 +9937,20 @@
                   "name": "Sediment Samples",
                   "next": {
                     "@id": "steps/459cc48f-a958-4084-a589-75d8e619e913"
-                  }
+                  },
+                  "description": "Sediment samples were frozen on collection and held frozen until laboratory analysis."
                 },
                 {
                   "@type": "Step",
                   "@id": "steps/459cc48f-a958-4084-a589-75d8e619e913",
-                  "name": "Biota Samples"
+                  "name": "Biota Samples",
+                  "description": "Macroinvertebrate replicates were sieved through a 1 mm mesh and preserved in formaldehyde until identification under a stereomicroscope. Trawled fish and crustaceans were identified onboard and released."
                 }
               ],
               "description": "Sample preparation varied by component type, based on the specific parameter and storage requirements."
             }
-          ]
+          ],
+          "description": "Equipment used for each component and the handling of samples between collection and laboratory analysis: Niskin bottles and a CTD for water, van Veen grabs and quadrats for sediments and intertidal biota, and beam trawls for demersal fauna, with calibration and preparation following the URA protocols and EN 15972:2011."
         },
         {
           "@type": "Section",
@@ -10010,7 +10021,8 @@
                   "name": "Water",
                   "next": {
                     "@id": "steps/55ec66fa-38cb-4e9f-be75-e6d47fe29d3a"
-                  }
+                  },
+                  "description": "Quarterly, with some stations sampled at both high and low tides and a few sampled monthly."
                 },
                 {
                   "@type": "Step",
@@ -10018,12 +10030,14 @@
                   "name": "Sediments",
                   "next": {
                     "@id": "steps/475aece6-bc86-4e43-9091-869f2ca95229"
-                  }
+                  },
+                  "description": "Annually, in January, within the winter sampling window of January to March."
                 },
                 {
                   "@type": "Step",
                   "@id": "steps/475aece6-bc86-4e43-9091-869f2ca95229",
-                  "name": "Biota"
+                  "name": "Biota",
+                  "description": "Phytoplankton and macroalgae quarterly; fish and invertebrates seasonally, aligned with site accessibility and species-specific behaviour."
                 }
               ],
               "description": "Data collection followed a consistent schedule, ensuring reliable comparisons over time."
@@ -10042,7 +10056,8 @@
                   "name": "Water Variables",
                   "next": {
                     "@id": "steps/bf8243c5-1fb8-4011-af8c-1a84b17e1188"
-                  }
+                  },
+                  "description": "Water measurements are held in the WATER record set as parameter, parameter_value and parameter_standardunit triples, keyed by collection date, station and sample and qualified by sampling depth and effort."
                 },
                 {
                   "@type": "Step",
@@ -10050,12 +10065,14 @@
                   "name": "Sediment Variables",
                   "next": {
                     "@id": "steps/7f70be18-e744-4066-9078-413ce0105028"
-                  }
+                  },
+                  "description": "Sediment measurements are held in the Sediments record set on the same parameter, parameter_value and parameter_standardunit model, qualified by sampling depth and effort."
                 },
                 {
                   "@type": "Step",
                   "@id": "steps/7f70be18-e744-4066-9078-413ce0105028",
-                  "name": "Biota Variables"
+                  "name": "Biota Variables",
+                  "description": "Biological measurements are held in the Biota, Phytoplankton, Macroalgae, Invertebrates and Fish record sets, which add taxaname and taxanameid to the parameter, parameter_value and parameter_standardunit triple."
                 }
               ],
               "description": "Explicitly measured variables were selected to provide a comprehensive view of environmental quality across components.",
@@ -10131,7 +10148,8 @@
               "name": "Data Logging and Monitoring",
               "description": "Data logging procedures ensured systematic tracking for each component.\n- Real-time logging was applied for immediate on-site measurements like temperature, dissolved oxygen, and pH. For sediment and biota samples, data were logged upon completion of laboratory analysis.\n- The documentation did not specify whether data logging was performed manually or with automated systems. Information on specific data storage software or data logging methods was also not provided."
             }
-          ]
+          ],
+          "description": "Field collection across the 1995-2023 monitoring programme: the sampling schedule for each component, the recording of collection dates, the variables measured in water, sediments and biota, and how observations were logged."
         },
         {
           "@type": "Section",
@@ -10155,12 +10173,14 @@
                   "name": "Water Data",
                   "next": {
                     "@id": "steps/4ff5d04c-6043-46c9-9cb7-ec30caa3a4a1"
-                  }
+                  },
+                  "description": "Water records were consolidated into the WATER record set, keyed by collection date, station and sample, with every measurement normalised to a parameter, a value and a standard unit."
                 },
                 {
                   "@type": "Step",
                   "@id": "steps/4ff5d04c-6043-46c9-9cb7-ec30caa3a4a1",
-                  "name": "Sediment and Biota Data"
+                  "name": "Sediment and Biota Data",
+                  "description": "Sediment and biota records were consolidated into their record sets on the same parameter, value and standard-unit model, retaining taxon name and identifier for the biological components."
                 }
               ],
               "description": "Data processing involved multiple steps tailored to each component type to ensure consistency and accuracy."
@@ -10179,12 +10199,14 @@
                   "name": "Trend Analysis",
                   "next": {
                     "@id": "steps/6de078b6-93cd-4c27-946b-4cf4676356a2"
-                  }
+                  },
+                  "description": "Long-term trends were derived per variable across the 1995-2023 series, to assess environmental response to human pressures and to management actions such as wastewater treatment."
                 },
                 {
                   "@type": "Step",
                   "@id": "steps/6de078b6-93cd-4c27-946b-4cf4676356a2",
-                  "name": "Software"
+                  "name": "Software",
+                  "description": "Trend analysis was carried out in R, with non-parametric confidence intervals computed using the boot package. The descriptive statistics published with each record set were generated with pandas."
                 }
               ],
               "description": "After initial processing, data underwent additional statistical analyses to assess long-term environmental trends across variables."
@@ -10200,7 +10222,8 @@
                   "name": "Seasonal Decomposition",
                   "next": {
                     "@id": "steps/e29a1cae-7fc1-4016-9762-b6a7ac6e7b30"
-                  }
+                  },
+                  "description": "Series were decomposed into seasonal and trend components, so that long-term change could be separated from the marked seasonal cycle of the monitored variables."
                 },
                 {
                   "@type": "Step",
@@ -10208,17 +10231,20 @@
                   "name": "Significance Testing",
                   "next": {
                     "@id": "steps/865ec317-5081-49de-b2c4-dc7049d329b4"
-                  }
+                  },
+                  "description": "Trend significance was assessed non-parametrically, with bootstrap resampling used to derive confidence intervals for each variable."
                 },
                 {
                   "@type": "Step",
                   "@id": "steps/865ec317-5081-49de-b2c4-dc7049d329b4",
-                  "name": "Trend Interpretation"
+                  "name": "Trend Interpretation",
+                  "description": "Trends were read against the natural variability of each variable, so that improvement attributable to management action could be distinguished from background environmental fluctuation."
                 }
               ],
               "description": "A range of analytical techniques was used to provide robust time-series analyses across variables."
             }
-          ]
+          ],
+          "description": "Consolidation of the raw monitoring records into the published record sets, followed by the statistical analysis used to characterise long-term environmental trends across the monitored variables."
         },
         {
           "@type": "Section",
@@ -10239,7 +10265,8 @@
                   "name": "Water Sampling Protocol",
                   "next": {
                     "@id": "steps/f8ee2edc-521a-4f77-ae7d-55527af23691"
-                  }
+                  },
+                  "description": "Water sampling followed EN 15972:2011 and the URA sampling protocols published on the Basque Water Agency resource portal."
                 },
                 {
                   "@type": "Step",
@@ -10247,12 +10274,14 @@
                   "name": "Sediment and Biota Sampling Protocols",
                   "next": {
                     "@id": "steps/e02e6522-2489-422a-9db0-dfa300d9eda6"
-                  }
+                  },
+                  "description": "Sediment and biota sampling followed the URA protocols for macroinvertebrates, macroalgae and ichthyofauna, applied consistently across stations and years."
                 },
                 {
                   "@type": "Step",
                   "@id": "steps/e02e6522-2489-422a-9db0-dfa300d9eda6",
-                  "name": "Instrument Calibration"
+                  "name": "Instrument Calibration",
+                  "description": "Instruments were calibrated to standardized protocols, the CTD regularly for dissolved oxygen, temperature and salinity under EN 15972:2011."
                 }
               ],
               "description": "Standardized sampling and analytical protocols were followed to ensure data consistency and accuracy."
@@ -10263,7 +10292,8 @@
               "name": "Validation Information",
               "next": {
                 "@id": "steps/f5457ea0-ff3e-4c7f-adb1-584386cf5390"
-              }
+              },
+              "description": "Validation rested on cross-validation against independent datasets where these were available; variables without such a reference were carried forward with the qualifications recorded in the following steps."
             },
             {
               "@type": "Step",
@@ -10289,7 +10319,8 @@
               "name": "Trend Robustness",
               "description": "To ensure trend reliability, non-parametric confidence intervals were calculated for each variable using the boot package in R. This approach applied bootstrap resampling to verify trend robustness, particularly for variables where natural variability could impact results."
             }
-          ]
+          ],
+          "description": "Measures taken to keep the 28-year series comparable - standardized sampling and analytical protocols and instrument calibration - together with the treatment of variables whose natural variability limits how far an observed trend can be attributed to human pressure."
         }
       ],
       "recordSet": [
