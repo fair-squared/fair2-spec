@@ -3,8 +3,21 @@
         "sh": "http://www.w3.org/ns/shacl#",
         "schema": "https://schema.org/",
         "fair2s": "https://fair2.ai/shapes/",
+        "fair2": "https://fair2.ai/ns/",
         "xsd": "http://www.w3.org/2001/XMLSchema#",
-        "prov": "http://www.w3.org/ns/prov#"
+        "prov": "http://www.w3.org/ns/prov#",
+        "sh:path": {
+            "@type": "@id"
+        },
+        "sh:node": {
+            "@type": "@id"
+        },
+        "sh:targetClass": {
+            "@type": "@id"
+        },
+        "sh:datatype": {
+            "@type": "@id"
+        }
     },
     "@id": "fair2s:UpdateActionShape",
     "@type": "sh:NodeShape",
@@ -23,19 +36,19 @@
                 "@type": "sh:NodeShape",
                 "sh:property": [
                     {
-                        "sh:path": "fair2s:newFeatures",
+                        "sh:path": "fair2:newFeatures",
                         "sh:node": "fair2s:TextShape"
                     },
                     {
-                        "sh:path": "fair2s:improvements",
+                        "sh:path": "fair2:improvements",
                         "sh:node": "fair2s:TextShape"
                     },
                     {
-                        "sh:path": "fair2s:bugFixes",
+                        "sh:path": "fair2:bugFixes",
                         "sh:node": "fair2s:TextShape"
                     },
                     {
-                        "sh:path": "fair2s:otherInformation",
+                        "sh:path": "fair2:otherInformation",
                         "sh:node": "fair2s:TextShape"
                     }
                 ]

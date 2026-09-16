@@ -3,10 +3,22 @@
         "sh": "http://www.w3.org/ns/shacl#",
         "schema": "https://schema.org/",
         "cr": "http://mlcommons.org/croissant/",
-        "fair2s": "https://fair2.ai/shapes/"
+        "fair2s": "https://fair2.ai/shapes/",
+        "sh:path": {
+            "@type": "@id"
+        },
+        "sh:node": {
+            "@type": "@id"
+        },
+        "sh:targetClass": {
+            "@type": "@id"
+        },
+        "sh:nodeKind": {
+            "@type": "@id"
+        }
     },
     "@id": "fair2s:RecordSetShape",
-    "type": "sh:NodeShape",
+    "@type": "sh:NodeShape",
     "sh:targetClass": "cr:RecordSet",
     "sh:nodeKind": "sh:IRI",
     "sh:property": [
@@ -27,7 +39,7 @@
             "sh:minCount": 1,
             "sh:node": {
                 "@id": "fair2s:FieldShape",
-                "type": "sh:NodeShape",
+                "@type": "sh:NodeShape",
                 "sh:targetClass": "cr:Field",
                 "sh:nodeKind": "sh:IRI",
                 "sh:property": [
@@ -54,7 +66,7 @@
                         "sh:minCount": 1,
                         "sh:node": {
                             "@id": "fair2s:SourceShape",
-                            "type": "sh:NodeShape",
+                            "@type": "sh:NodeShape",
                             "sh:nodeKind": "sh:BlankNodeOrIRI",
                             "sh:property": [
                                 {
