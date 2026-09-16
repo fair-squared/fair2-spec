@@ -24,7 +24,7 @@ A major methodological unit (e.g., "Structure Prediction", "Binding Assays").
 | Property | Vocabulary | Required | Description |
 |---|---|---|---|
 | `schema:name` | schema.org | Yes | Section title |
-| `schema:description` | schema.org | No | Narrative description |
+| `schema:description` | schema.org | Yes | Narrative description |
 | `fair2:step` | FAIR² | No | Steps or StepCases within this section |
 | `fair2:next` | FAIR² | No | IRI of the following section |
 
@@ -48,7 +48,7 @@ Primary procedural element within a Section. May contain substeps and link to pr
 | Property | Vocabulary | Required | Description |
 |---|---|---|---|
 | `schema:name` | schema.org | Yes | Step title |
-| `schema:description` | schema.org | No | Step instructions |
+| `schema:description` | schema.org | Yes | Step instructions |
 | `fair2:substep` | FAIR² | No | Nested substeps |
 | `fair2:next` | FAIR² | No | IRI of the following step |
 | `fair2:generated` | FAIR² | No | IRI(s) of RecordSet fields produced by this step |
@@ -77,7 +77,7 @@ A finer-grained instruction nested within a `fair2:Step`.
 | Property | Vocabulary | Required | Description |
 |---|---|---|---|
 | `schema:name` | schema.org | Yes | Substep title |
-| `schema:description` | schema.org | No | Substep instructions |
+| `schema:description` | schema.org | Yes | Substep instructions |
 | `fair2:next` | FAIR² | No | IRI of the following substep |
 
 ```jsonld
@@ -99,6 +99,7 @@ Used to capture conditional logic (e.g., environment-dependent or tool-specific 
 | Property | Vocabulary | Required | Description |
 |---|---|---|---|
 | `schema:name` | schema.org | Yes | Condition label |
+| `schema:description` | schema.org | Yes | What the branch does and why |
 | `fair2:qualifiedUsage` | FAIR² | Yes | The `if` condition string |
 | `fair2:nextTrue` | FAIR² | Yes | IRI of the path taken if the condition is met |
 | `fair2:next` | FAIR² | No | IRI of the default `else` / fallthrough path |
@@ -108,6 +109,7 @@ Used to capture conditional logic (e.g., environment-dependent or tool-specific 
   "@type": "fair2:StepCase",
   "@id": "fair2:method:stepcase-gpu",
   "schema:name": "GPU available",
+  "schema:description": "Branch taken when a CUDA-capable GPU is available on the compute node.",
   "fair2:qualifiedUsage": "hardware.gpu == true",
   "fair2:nextTrue": { "@id": "fair2:method:step-alphafold-full-db" },
   "fair2:next": { "@id": "fair2:method:step-alphafold-reduced-db" }
@@ -135,6 +137,7 @@ Steps link to the RecordSet fields/variables they produce via `fair2:generated`.
   "@type": "fair2:Step",
   "@id": "fair2:method:step-rmsd",
   "schema:name": "RMSD Calculation",
+  "schema:description": "Compute backbone RMSD between predicted and reference structures.",
   "fair2:generated": [
     { "@id": "fair2:var:rmsd" }
   ]
@@ -179,6 +182,7 @@ Steps link to the RecordSet fields/variables they produce via `fair2:generated`.
       "@type": "fair2:StepCase",
       "@id": "fair2:method:stepcase-gpu",
       "schema:name": "GPU available",
+      "schema:description": "Branch taken when a CUDA-capable GPU is available on the compute node.",
       "fair2:qualifiedUsage": "hardware.gpu == true",
       "fair2:nextTrue": { "@id": "fair2:method:step-alphafold-full-db" },
       "fair2:next": { "@id": "fair2:method:step-alphafold-reduced-db" }
@@ -195,10 +199,10 @@ All method representations must conform to the shapes defined in `shapes/turtle/
 
 | Shape | Target class | Required properties |
 |---|---|---|
-| `MethodSectionShape` | `fair2:Section` | `schema:name` |
-| `MethodStepShape` | `fair2:Step` | `schema:name` |
-| `MethodSubstepShape` | `fair2:Substep` | `schema:name` |
-| `StepCaseShape` | `fair2:StepCase` | `schema:name`, `fair2:qualifiedUsage`, `fair2:nextTrue` |
+| `MethodSectionShape` | `fair2:Section` | `schema:name`, `schema:description` |
+| `MethodStepShape` | `fair2:Step` | `schema:name`, `schema:description` |
+| `MethodSubstepShape` | `fair2:Substep` | `schema:name`, `schema:description` |
+| `StepCaseShape` | `fair2:StepCase` | `schema:name`, `schema:description`, `fair2:qualifiedUsage`, `fair2:nextTrue` |
 
 ---
 
@@ -206,6 +210,7 @@ All method representations must conform to the shapes defined in `shapes/turtle/
 
 - This pattern allows nesting to arbitrary depth.
 - Textual content can be multilingual using `@language` tags.
+- `schema:description` is **required** on every method element (`Section`, `Step`, `Substep`, `StepCase`): a name alone does not make a method reproducible.
 - `fair2:substep` and `fair2:generated` are optional but recommended for clarity and provenance.
 - `fair2:next` enables sequential ordering of sections, steps, and substeps without relying on array index.
 

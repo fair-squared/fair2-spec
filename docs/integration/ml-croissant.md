@@ -99,6 +99,7 @@ FAIR² ensures that metadata not only meets FAIR requirements but also enables s
   "fair2:method": {
     "@type": "fair2:Section",
     "name": "Data Preprocessing",
+    "description": "Preparation of raw images before model training.",
     "step": [
       {
         "@type": "fair2:Step",
