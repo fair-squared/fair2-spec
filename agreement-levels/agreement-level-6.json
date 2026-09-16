@@ -1,0 +1,12 @@
+{
+  "@context": {
+    "schema": "https://schema.org/",
+    "fair2": "https://fair2.ai/ns/"
+  },
+  "@id": "fair2:AgreementLevel6",
+  "@type": "schema:DefinedTerm",
+  "schema:name": "Federated Compute-to-Data Access",
+  "schema:description": "Raw data never leaves the sovereign hosting environment. Analytics occur through federated compute; only aggregated or model-derived outputs are permitted.",
+  "schema:text": "By accessing this dataset, you agree to submit computations to the approved federated environment, refrain from attempting to extract or reconstruct raw data, comply with export restrictions that permit only aggregated or model-derived outputs, use the data only for responsible and approved purposes consistent with FAIR² and Responsible AI principles, authenticate using ORCID or institutional credentials, and comply with all logging and audit requirements. Redistribution of raw data is strictly prohibited.",
+  "schema:url": "https://fair2.ai/ns/AgreementLevels/6"
+}

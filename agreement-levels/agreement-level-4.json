@@ -1,0 +1,12 @@
+{
+  "@context": {
+    "schema": "https://schema.org/",
+    "fair2": "https://fair2.ai/ns/"
+  },
+  "@id": "fair2:AgreementLevel4",
+  "@type": "schema:DefinedTerm",
+  "schema:name": "Community-Governed Access (CARE)",
+  "schema:description": "Applies to datasets governed by recognized communities under the CARE Principles. Substantial reuse requires community consultation or approval.",
+  "schema:text": "By accessing this dataset, you agree to use the data responsibly and ethically in alignment with FAIR² and CARE Principles, acknowledge the dataset's creators and governing community, preserve metadata and provenance, consult the designated community authority before substantial reuse or derivative publication, respect cultural, ethical, or spiritual restrictions, communicate outcomes and benefits back to the community, and avoid redistribution outside the FAIR² or sovereign hosting environment or beyond the community's jurisdiction.",
+  "schema:url": "https://fair2.ai/ns/AgreementLevels/4"
+}
