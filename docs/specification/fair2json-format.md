@@ -94,6 +94,7 @@ this block is not part of the linked-data model.
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
+| `conformsTo` | string (URL) | Yes | The FAIR² **spec** version this file was produced against, as `https://fair2.ai/spec/v<MAJOR>.<MINOR>.<PATCH>` — matching the `fair2-spec` release tag. Distinct from `version` (the file version) and from `Dataset.conformsTo` (Croissant). See [Versioning & Conformance](versioning.md). |
 | `version` | string (semver) | Yes | Version of the `fair2.json` file itself. Follows `MAJOR.MINOR.PATCH`. Independent of `Dataset.version`. |
 | `dateCreated` | string (ISO 8601 date) | Yes | Date the file was first created. Set once. |
 | `dateModified` | string (ISO 8601 date) | Yes | Date of the most recent modification. MUST be updated on every edit. |
@@ -116,6 +117,7 @@ metadata corrections.
 {
   "@context": { "...": "..." },
   "_meta": {
+    "conformsTo": "https://fair2.ai/spec/v1.2.0",
     "version": "1.0.0",
     "dateCreated": "2025-03-03",
     "dateModified": "2026-04-20"
@@ -126,10 +128,12 @@ metadata corrections.
 
 ### Validation
 
-`_meta` is validated outside of SHACL — producer-side linting or a JSON
-Schema check is sufficient. Required checks:
+`_meta` is validated outside of SHACL (it is document metadata, not an RDF
+graph node) — the `fair2-validator` tool checks it deterministically, and
+producer-side linting or a JSON Schema check is equivalent. Required checks:
 
-- All three fields are present
+- All four fields are present
+- `conformsTo` matches `https://fair2.ai/spec/vMAJOR.MINOR.PATCH`
 - `version` matches the `MAJOR.MINOR.PATCH` regex
 - `dateCreated` and `dateModified` are valid ISO 8601 dates
 - `dateModified >= dateCreated`

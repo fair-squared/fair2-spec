@@ -620,6 +620,7 @@
     }
   },
   "_meta": {
+    "conformsTo": "https://fair2.ai/spec/v1.2.0",
     "version": "1.0.0",
     "dateCreated": "2025-03-03",
     "dateModified": "2026-04-20"

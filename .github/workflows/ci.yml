@@ -1,33 +1,34 @@
-name: Deploy MkDocs
+name: Deploy MkDocs (versioned)
 
+# Tag-only versioned docs with mike. Pushing a tag v* (e.g. v1.2.0) publishes
+# that version and moves the `latest` alias + site default to it, so
+# https://fair2.ai/spec/v1.2.0/ and https://fair2.ai/spec/latest/ both resolve
+# and the site root redirects to latest. There is no intermediate/dev channel —
+# only tagged releases are published.
 on:
   push:
-    branches:
-      - main
-    paths:
-      - 'docs/**'
-      - 'mkdocs.yml'
-      - 'assets/**'
+    tags: ['v*']
 
 permissions:
   contents: write
-  pages: write
-  id-token: write
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Set up Python
-        uses: actions/setup-python@v4
+      - uses: actions/checkout@v4
         with:
-          python-version: '3.11'
-      - name: Install dependencies
+          fetch-depth: 0        # mike needs full history of the gh-pages branch
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install
+        run: pip install mkdocs mkdocs-material mike
+      - name: Configure git
         run: |
-          pip install mkdocs mkdocs-material
-      - name: Deploy to GitHub Pages
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+      - name: Publish release docs
         run: |
-          mkdocs gh-deploy --force --remote-name origin
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          mike deploy --push --update-aliases "${GITHUB_REF_NAME}" latest
+          mike set-default --push latest
