@@ -45,6 +45,7 @@ Methods in FAIR² are structured hierarchically as `fair2:Section` objects conta
   "@id": "https://fair2.ai/examples/borja2025#method",
   "@type": "fair2:Section",
   "schema:name": "Machine Learning Workflow",
+  "schema:description": "End-to-end workflow from Bio2Byte feature extraction to model evaluation.",
   "fair2:step": [
     {
       "@type": "fair2:Step",

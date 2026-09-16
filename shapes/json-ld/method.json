@@ -7,43 +7,146 @@
         "fair2s": "https://fair2.ai/shapes/",
         "xsd": "http://www.w3.org/2001/XMLSchema#"
     },
-    "@id": "fair2s:MethodSectionShape",
-    "type": "sh:NodeShape",
-    "sh:targetClass": "fair2:Section",
-    "sh:nodeKind": "sh:IRI",
-    "sh:description": "Validates the high-level sections of the methodology (e.g., Research Design).",
-    "sh:property": [
+    "@graph": [
         {
-            "sh:path": "schema:name",
-            "sh:minCount": 1,
-            "sh:node": "fair2s:TextShape"
-        },
-        {
-            "sh:path": "schema:description",
-            "sh:node": "fair2s:TextShape"
-        },
-        {
-            "sh:path": "fair2:next",
+            "@id": "fair2s:MethodSectionShape",
+            "@type": "sh:NodeShape",
+            "sh:targetClass": "fair2:Section",
             "sh:nodeKind": "sh:IRI",
-            "sh:description": "The section following this one."
-        },
-        {
-            "sh:path": "prov:used",
-            "sh:nodeKind": "sh:IRI",
-            "sh:description": "Source documents or scripts referenced during this section."
-        },
-        {
-            "sh:path": "fair2:step",
-            "sh:minCount": 0,
-            "sh:or": [
+            "sh:description": "Validates the high-level sections of the methodology (e.g., Research Design).",
+            "sh:property": [
                 {
-                    "sh:node": "fair2s:MethodStepShape"
+                    "sh:path": "schema:name",
+                    "sh:minCount": 1,
+                    "sh:node": "fair2s:TextShape"
                 },
                 {
-                    "sh:node": "fair2s:StepCaseShape"
+                    "sh:path": "schema:description",
+                    "sh:minCount": 1,
+                    "sh:node": "fair2s:TextShape"
+                },
+                {
+                    "sh:path": "fair2:next",
+                    "sh:nodeKind": "sh:IRI",
+                    "sh:description": "The section following this one."
+                },
+                {
+                    "sh:path": "prov:used",
+                    "sh:nodeKind": "sh:IRI",
+                    "sh:description": "Source documents or scripts referenced during this section."
+                },
+                {
+                    "sh:path": "fair2:step",
+                    "sh:minCount": 0,
+                    "sh:or": [
+                        {
+                            "sh:node": "fair2s:MethodStepShape"
+                        },
+                        {
+                            "sh:node": "fair2s:StepCaseShape"
+                        }
+                    ],
+                    "sh:description": "The discrete operations within this section."
                 }
-            ],
-            "sh:description": "The discrete operations within this section."
+            ]
+        },
+        {
+            "@id": "fair2s:MethodStepShape",
+            "@type": "sh:NodeShape",
+            "sh:targetClass": "fair2:Step",
+            "sh:nodeKind": "sh:IRI",
+            "sh:property": [
+                {
+                    "sh:path": "schema:name",
+                    "sh:minCount": 1
+                },
+                {
+                    "sh:path": "schema:description",
+                    "sh:minCount": 1,
+                    "sh:node": "fair2s:TextShape"
+                },
+                {
+                    "sh:path": "fair2:substep",
+                    "sh:minCount": 0,
+                    "sh:node": "fair2s:MethodSubstepShape",
+                    "sh:description": "Standardized requirement for nested substeps."
+                },
+                {
+                    "sh:path": "fair2:next",
+                    "sh:nodeKind": "sh:IRI"
+                },
+                {
+                    "sh:path": "prov:used",
+                    "sh:nodeKind": "sh:IRI",
+                    "sh:description": "Source documents or scripts used in this step."
+                },
+                {
+                    "sh:path": "fair2:generated",
+                    "sh:nodeKind": "sh:IRI",
+                    "sh:description": "Lineage link to RecordSet fields."
+                }
+            ]
+        },
+        {
+            "@id": "fair2s:StepCaseShape",
+            "@type": "sh:NodeShape",
+            "sh:targetClass": "fair2:StepCase",
+            "sh:nodeKind": "sh:IRI",
+            "sh:description": "Handles branching logic within the methodology.",
+            "sh:property": [
+                {
+                    "sh:path": "schema:name",
+                    "sh:minCount": 1
+                },
+                {
+                    "sh:path": "schema:description",
+                    "sh:minCount": 1,
+                    "sh:node": "fair2s:TextShape"
+                },
+                {
+                    "sh:path": "fair2:qualifiedUsage",
+                    "sh:minCount": 1,
+                    "sh:datatype": "xsd:string",
+                    "sh:description": "The 'if' condition for this step."
+                },
+                {
+                    "sh:path": "fair2:nextTrue",
+                    "sh:nodeKind": "sh:IRI",
+                    "sh:minCount": 1,
+                    "sh:description": "The path taken if the condition is met."
+                },
+                {
+                    "sh:path": "fair2:next",
+                    "sh:nodeKind": "sh:IRI",
+                    "sh:description": "The default 'else' or 'next' path."
+                }
+            ]
+        },
+        {
+            "@id": "fair2s:MethodSubstepShape",
+            "@type": "sh:NodeShape",
+            "sh:targetClass": "fair2:Substep",
+            "sh:nodeKind": "sh:IRI",
+            "sh:property": [
+                {
+                    "sh:path": "schema:name",
+                    "sh:minCount": 1
+                },
+                {
+                    "sh:path": "schema:description",
+                    "sh:minCount": 1,
+                    "sh:node": "fair2s:TextShape"
+                },
+                {
+                    "sh:path": "fair2:next",
+                    "sh:nodeKind": "sh:IRI"
+                },
+                {
+                    "sh:path": "prov:used",
+                    "sh:nodeKind": "sh:IRI",
+                    "sh:description": "Source documents or scripts used in this substep."
+                }
+            ]
         }
     ]
 }

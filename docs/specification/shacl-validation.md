@@ -82,7 +82,7 @@ FAIR²’s SHACL rules ensure datasets comply with structured metadata requireme
 |---------------------|-----------------|
 | **Dataset Validation (`DatasetShape`)** | - Must include **dataset name, description, author, license, and identifier**. <br> - Must have at least **one distribution file** (`schema:distribution`). <br> - Should include **a citation** (`schema:citation`) and **a preferred citation format** (`cr:citeAs`). |
 | **Data Article Validation (`DataArticleShape`)** | - If provided, must **link to a scholarly article** (`schema:ScholarlyArticle`). <br> - Should have **a method section** (`fair2:methodSection`). |
-| **Methodology Validation (`MethodSectionShape` & `MethodStepShape`)** | - **Method sections** (`fair2:MethodSectionShape`) must contain at least **one step** (`fair2:step`). <br> - **Method steps** (`fair2:MethodStepShape`) should: <br> &nbsp; - Have a **name** (`schema:name`) and **description** (`schema:description`). <br> &nbsp; - Optionally reference **next steps** (`schema:nextItem`). |
+| **Methodology Validation (`MethodSectionShape` & `MethodStepShape`)** | - **Method sections** (`fair2:MethodSectionShape`) must contain at least **one step** (`fair2:step`). <br> - **Method steps** (`fair2:MethodStepShape`) must: <br> &nbsp; - Have a **name** (`schema:name`) and a **description** (`schema:description`) — as must sections, substeps and step cases. <br> &nbsp; - Optionally reference **next steps** (`schema:nextItem`). |
 
 ---
 

@@ -446,7 +446,7 @@
 | Property | Type | Cardinality | Mandatory |
 |---|---|---|---|
 | `fair2:step` | `fair2s:StepShape` | `[1..∞]` | Yes |
-| `schema:description` | `xsd:string` | `[0..∞]` | No |
+| `schema:description` | `xsd:string` | `[1..∞]` | Yes |
 | `schema:name` | `xsd:string` | `[1..∞]` | Yes |
 | `fair2:next` | `sh:IRI` | `[0..1]` | No |
 | `prov:used` | `sh:IRI` | `[0..∞]` | No |
@@ -454,7 +454,7 @@
 <details><summary>Constraint notes</summary>
 
 - **fair2:step**: Each MethodSection must contain at least one Step.
-- **schema:description**: Each MethodSection may include a description summarizing the methodological context.
+- **schema:description**: Each MethodSection must include a description summarizing the methodological context.
 - **schema:name**: Each MethodSection must include a section name.
 - **fair2:next**: MethodSection may reference the next section by IRI.
 - **prov:used**: MethodSection may reference source documents or scripts (DigitalDocument or SoftwareSourceCode nodes) that were consulted during this section.
@@ -614,7 +614,7 @@
 | `fair2:next` | `sh:IRI` | `[0..∞]` | No |
 | `fair2:substep` | `fair2s:SubStepShape` | `[0..∞]` | No |
 | `prov:used` | `sh:IRI` | `[0..∞]` | No |
-| `schema:description` | `xsd:string` | `[0..∞]` | No |
+| `schema:description` | `xsd:string` | `[1..∞]` | Yes |
 | `schema:name` | `xsd:string` | `[1..∞]` | Yes |
 
 <details><summary>Constraint notes</summary>
@@ -623,7 +623,7 @@
 - **fair2:next**: If provided, 'next' should reference the following step using an IRI.
 - **fair2:substep**: Substeps may be defined as nested procedural components.
 - **prov:used**: Step may reference source documents or scripts (DigitalDocument or SoftwareSourceCode nodes) that were used as inputs for this step.
-- **schema:description**: Each Step may include a description detailing actions or parameters.
+- **schema:description**: Each Step must include a description detailing actions or parameters.
 - **schema:name**: Each Step must include a name.
 
 </details>
@@ -636,14 +636,14 @@
 |---|---|---|---|
 | `fair2:next` | `sh:IRI` | `[0..∞]` | No |
 | `prov:used` | `sh:IRI` | `[0..∞]` | No |
-| `schema:description` | `xsd:string` | `[0..∞]` | No |
+| `schema:description` | `xsd:string` | `[1..∞]` | Yes |
 | `schema:name` | `xsd:string` | `[1..∞]` | Yes |
 
 <details><summary>Constraint notes</summary>
 
 - **fair2:next**: If provided, 'next' should reference the subsequent substep.
 - **prov:used**: Substep may reference source documents or scripts used as inputs.
-- **schema:description**: Each Substep may include a descriptive text.
+- **schema:description**: Each Substep must include a descriptive text.
 - **schema:name**: Each Substep must include a name.
 
 </details>
