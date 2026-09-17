@@ -2,67 +2,96 @@
     "@context": {
         "sh": "http://www.w3.org/ns/shacl#",
         "schema": "https://schema.org/",
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
         "fair2s": "https://fair2.ai/shapes/",
         "fair2": "https://fair2.ai/ns/",
-        "prov": "http://www.w3.org/ns/prov#"
+        "prov": "http://www.w3.org/ns/prov#",
+        "sh:path": {
+            "@type": "@id"
+        },
+        "sh:node": {
+            "@type": "@id"
+        },
+        "sh:nodeKind": {
+            "@type": "@id"
+        },
+        "sh:or": {
+            "@container": "@list"
+        }
     },
-    "@id": "fair2s:PersonOrOrganizationShape",
-    "type": "sh:NodeShape",
-    "sh:nodeKind": "sh:BlankNodeOrIRI",
-    "sh:property": [
+    "@graph": [
         {
-            "sh:path": "schema:name",
-            "sh:minCount": 1,
-            "sh:node": "fair2s:TextShape"
+            "@id": "fair2s:PersonOrOrganizationShape",
+            "@type": "sh:NodeShape",
+            "sh:nodeKind": "sh:BlankNodeOrIRI",
+            "sh:property": [
+                {
+                    "sh:path": "schema:name",
+                    "sh:minCount": 1,
+                    "sh:node": "fair2s:TextShape"
+                },
+                {
+                    "sh:path": "schema:affiliation",
+                    "sh:node": "fair2s:OrganizationShape"
+                }
+            ]
         },
         {
-            "sh:path": "schema:affiliation",
-            "sh:node": "fair2s:OrganizationShape"
+            "@id": "fair2s:OrganizationShape",
+            "@type": "sh:NodeShape",
+            "sh:property": [
+                {
+                    "sh:path": "schema:name",
+                    "sh:minCount": 1,
+                    "sh:node": "fair2s:TextShape"
+                }
+            ]
+        },
+        {
+            "@id": "fair2s:ContributorRoleShape",
+            "@type": "sh:NodeShape",
+            "sh:nodeKind": "sh:BlankNodeOrIRI",
+            "sh:or": [
+                {
+                    "sh:property": [
+                        {
+                            "sh:path": "schema:name",
+                            "sh:minCount": 1,
+                            "sh:node": "fair2s:TextShape"
+                        }
+                    ]
+                },
+                {
+                    "sh:property": [
+                        {
+                            "sh:path": "schema:propertyID",
+                            "sh:minCount": 1,
+                            "sh:node": "fair2s:TextShape"
+                        }
+                    ]
+                },
+                {
+                    "sh:property": [
+                        {
+                            "sh:path": "rdfs:label",
+                            "sh:minCount": 1,
+                            "sh:node": "fair2s:TextShape"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "@id": "fair2s:ContributorShape",
+            "@type": "sh:NodeShape",
+            "sh:node": "fair2s:PersonOrOrganizationShape",
+            "sh:property": [
+                {
+                    "sh:path": "prov:hadRole",
+                    "sh:minCount": 1,
+                    "sh:node": "fair2s:ContributorRoleShape"
+                }
+            ]
         }
-    ],
-    "fair2s:OrganizationShape": {
-        "type": "sh:NodeShape",
-        "sh:property": [
-            {
-                "sh:path": "schema:name",
-                "sh:minCount": 1,
-                "sh:node": "fair2s:TextShape"
-            }
-        ]
-    },
-    "fair2s:ContributorRoleShape": {
-        "type": "sh:NodeShape",
-        "sh:nodeKind": "sh:BlankNodeOrIRI",
-        "sh:or": [
-            {
-                "sh:property": [
-                    {
-                        "sh:path": "schema:name",
-                        "sh:minCount": 1,
-                        "sh:node": "fair2s:TextShape"
-                    }
-                ]
-            },
-            {
-                "sh:property": [
-                    {
-                        "sh:path": "schema:propertyID",
-                        "sh:minCount": 1,
-                        "sh:node": "fair2s:TextShape"
-                    }
-                ]
-            }
-        ]
-    },
-    "fair2s:ContributorShape": {
-        "type": "sh:NodeShape",
-        "sh:node": "fair2s:PersonOrOrganizationShape",
-        "sh:property": [
-            {
-                "sh:path": "prov:hadRole",
-                "sh:minCount": 1,
-                "sh:node": "fair2s:ContributorRoleShape"
-            }
-        ]
-    }
+    ]
 }

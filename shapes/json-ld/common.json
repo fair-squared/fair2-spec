@@ -4,7 +4,22 @@
         "xsd": "http://www.w3.org/2001/XMLSchema#",
         "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
         "schema": "https://schema.org/",
-        "fair2s": "https://fair2.ai/shapes/"
+        "fair2s": "https://fair2.ai/shapes/",
+        "sh:path": {
+            "@type": "@id"
+        },
+        "sh:node": {
+            "@type": "@id"
+        },
+        "sh:nodeKind": {
+            "@type": "@id"
+        },
+        "sh:datatype": {
+            "@type": "@id"
+        },
+        "sh:or": {
+            "@container": "@list"
+        }
     },
     "@graph": [
         {

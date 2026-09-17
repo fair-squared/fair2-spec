@@ -5,7 +5,25 @@
         "prov": "http://www.w3.org/ns/prov#",
         "fair2": "https://fair2.ai/ns/",
         "fair2s": "https://fair2.ai/shapes/",
-        "xsd": "http://www.w3.org/2001/XMLSchema#"
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "sh:path": {
+            "@type": "@id"
+        },
+        "sh:node": {
+            "@type": "@id"
+        },
+        "sh:targetClass": {
+            "@type": "@id"
+        },
+        "sh:nodeKind": {
+            "@type": "@id"
+        },
+        "sh:datatype": {
+            "@type": "@id"
+        },
+        "sh:or": {
+            "@container": "@list"
+        }
     },
     "@graph": [
         {
@@ -37,7 +55,7 @@
                 },
                 {
                     "sh:path": "fair2:step",
-                    "sh:minCount": 0,
+                    "sh:minCount": 1,
                     "sh:or": [
                         {
                             "sh:node": "fair2s:MethodStepShape"

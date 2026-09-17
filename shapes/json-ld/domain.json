@@ -3,10 +3,22 @@
         "sh": "http://www.w3.org/ns/shacl#",
         "schema": "https://schema.org/",
         "prov": "http://www.w3.org/ns/prov#",
-        "fair2s": "https://fair2.ai/shapes/"
+        "fair2s": "https://fair2.ai/shapes/",
+        "sh:path": {
+            "@type": "@id"
+        },
+        "sh:node": {
+            "@type": "@id"
+        },
+        "sh:targetClass": {
+            "@type": "@id"
+        },
+        "sh:nodeKind": {
+            "@type": "@id"
+        }
     },
     "@id": "fair2s:DomainShape",
-    "type": "sh:NodeShape",
+    "@type": "sh:NodeShape",
     "sh:nodeKind": "sh:IRI",
     "sh:property": [
         {

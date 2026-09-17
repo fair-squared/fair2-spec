@@ -440,24 +440,25 @@
 </details>
 
 
-## fair2s:MethodShape
-*Targets:* `fair2:MethodSection`
+## fair2s:MethodSectionShape
+*Targets:* `fair2:Section`
 
 | Property | Type | Cardinality | Mandatory |
 |---|---|---|---|
-| `fair2:step` | `fair2s:StepShape` | `[1..∞]` | Yes |
+| `fair2:step` | `fair2s:MethodStepShape` or `fair2s:StepCaseShape` | `[1..∞]` | Yes |
 | `schema:description` | `xsd:string` | `[1..∞]` | Yes |
 | `schema:name` | `xsd:string` | `[1..∞]` | Yes |
-| `fair2:next` | `sh:IRI` | `[0..1]` | No |
+| `fair2:next` | `sh:IRI` | `[0..∞]` | No |
 | `prov:used` | `sh:IRI` | `[0..∞]` | No |
 
 <details><summary>Constraint notes</summary>
 
-- **fair2:step**: Each MethodSection must contain at least one Step.
-- **schema:description**: Each MethodSection must include a description summarizing the methodological context.
-- **schema:name**: Each MethodSection must include a section name.
-- **fair2:next**: MethodSection may reference the next section by IRI.
-- **prov:used**: MethodSection may reference source documents or scripts (DigitalDocument or SoftwareSourceCode nodes) that were consulted during this section.
+- **fair2:step**: Each Section must contain at least one Step or StepCase.
+- **schema:description**: Each Section must include a description summarizing the methodological context.
+- **schema:name**: Each Section must include a section name.
+- **fair2:next**: A Section may reference the next section by IRI.
+- **prov:used**: A Section may reference source documents or scripts (DigitalDocument or SoftwareSourceCode nodes) that were consulted during this section.
+- `fair2:MethodSection` is a legacy alias for `fair2:Section`, retained for backward compatibility; the shape targets `fair2:Section`.
 
 </details>
 
@@ -605,14 +606,14 @@
 </details>
 
 
-## fair2s:StepShape
+## fair2s:MethodStepShape
 *Targets:* `fair2:Step`
 
 | Property | Type | Cardinality | Mandatory |
 |---|---|---|---|
 | `fair2:generated` | `sh:IRI` | `[0..∞]` | No |
 | `fair2:next` | `sh:IRI` | `[0..∞]` | No |
-| `fair2:substep` | `fair2s:SubStepShape` | `[0..∞]` | No |
+| `fair2:substep` | `fair2s:MethodSubstepShape` | `[0..∞]` | No |
 | `prov:used` | `sh:IRI` | `[0..∞]` | No |
 | `schema:description` | `xsd:string` | `[1..∞]` | Yes |
 | `schema:name` | `xsd:string` | `[1..∞]` | Yes |
@@ -629,7 +630,7 @@
 </details>
 
 
-## fair2s:SubStepShape
+## fair2s:MethodSubstepShape
 *Targets:* `fair2:Substep`
 
 | Property | Type | Cardinality | Mandatory |
@@ -645,6 +646,30 @@
 - **prov:used**: Substep may reference source documents or scripts used as inputs.
 - **schema:description**: Each Substep must include a descriptive text.
 - **schema:name**: Each Substep must include a name.
+
+</details>
+
+
+## fair2s:StepCaseShape
+*Targets:* `fair2:StepCase`
+
+Conditional branching within a method. StepCase items sit in the same `fair2:step` array as regular Steps.
+
+| Property | Type | Cardinality | Mandatory |
+|---|---|---|---|
+| `schema:name` | `xsd:string` | `[1..∞]` | Yes |
+| `schema:description` | `xsd:string` | `[1..∞]` | Yes |
+| `fair2:qualifiedUsage` | `xsd:string` | `[1..∞]` | Yes |
+| `fair2:nextTrue` | `sh:IRI` | `[1..∞]` | Yes |
+| `fair2:next` | `sh:IRI` | `[0..∞]` | No |
+
+<details><summary>Constraint notes</summary>
+
+- **schema:name**: Each StepCase must include a condition label.
+- **schema:description**: Each StepCase must include a description of what the branch does and why.
+- **fair2:qualifiedUsage**: The `if` condition governing the branch, as a string.
+- **fair2:nextTrue**: The path taken when the condition is met, referenced by IRI.
+- **fair2:next**: Optionally, the default `else` / fallthrough path.
 
 </details>
 

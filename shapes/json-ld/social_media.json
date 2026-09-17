@@ -2,9 +2,19 @@
     "@context": {
         "sh": "http://www.w3.org/ns/shacl#",
         "schema": "https://schema.org/",
-        "fair2s": "https://fair2.ai/shapes/"
+        "fair2s": "https://fair2.ai/shapes/",
+        "sh:path": {
+            "@type": "@id"
+        },
+        "sh:node": {
+            "@type": "@id"
+        },
+        "sh:nodeKind": {
+            "@type": "@id"
+        }
     },
     "@id": "fair2s:SocialMediaShape",
+    "@type": "sh:NodeShape",
     "sh:property": [
         {
             "sh:path": "schema:identifier",
