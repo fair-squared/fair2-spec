@@ -25,7 +25,7 @@ A major methodological unit (e.g., "Structure Prediction", "Binding Assays").
 |---|---|---|---|
 | `schema:name` | schema.org | Yes | Section title |
 | `schema:description` | schema.org | Yes | Narrative description |
-| `fair2:step` | FAIR² | No | Steps or StepCases within this section |
+| `fair2:step` | FAIR² | Yes | Steps or StepCases within this section |
 | `fair2:next` | FAIR² | No | IRI of the following section |
 
 ```jsonld
@@ -199,7 +199,7 @@ All method representations must conform to the shapes defined in `shapes/turtle/
 
 | Shape | Target class | Required properties |
 |---|---|---|
-| `MethodSectionShape` | `fair2:Section` | `schema:name`, `schema:description` |
+| `MethodSectionShape` | `fair2:Section` | `schema:name`, `schema:description`, `fair2:step` |
 | `MethodStepShape` | `fair2:Step` | `schema:name`, `schema:description` |
 | `MethodSubstepShape` | `fair2:Substep` | `schema:name`, `schema:description` |
 | `StepCaseShape` | `fair2:StepCase` | `schema:name`, `schema:description`, `fair2:qualifiedUsage`, `fair2:nextTrue` |

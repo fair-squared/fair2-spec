@@ -55,7 +55,7 @@
                 },
                 {
                     "sh:path": "fair2:step",
-                    "sh:minCount": 0,
+                    "sh:minCount": 1,
                     "sh:or": [
                         {
                             "sh:node": "fair2s:MethodStepShape"

@@ -445,7 +445,7 @@
 
 | Property | Type | Cardinality | Mandatory |
 |---|---|---|---|
-| `fair2:step` | `fair2s:MethodStepShape` or `fair2s:StepCaseShape` | `[0..∞]` | No |
+| `fair2:step` | `fair2s:MethodStepShape` or `fair2s:StepCaseShape` | `[1..∞]` | Yes |
 | `schema:description` | `xsd:string` | `[1..∞]` | Yes |
 | `schema:name` | `xsd:string` | `[1..∞]` | Yes |
 | `fair2:next` | `sh:IRI` | `[0..∞]` | No |
@@ -453,7 +453,7 @@
 
 <details><summary>Constraint notes</summary>
 
-- **fair2:step**: A Section may contain Steps and/or StepCases. The shape sets `sh:minCount 0`, so it does not currently enforce that a Section has at least one Step.
+- **fair2:step**: Each Section must contain at least one Step or StepCase.
 - **schema:description**: Each Section must include a description summarizing the methodological context.
 - **schema:name**: Each Section must include a section name.
 - **fair2:next**: A Section may reference the next section by IRI.
