@@ -94,5 +94,5 @@ Including ODPS metadata within FAIR² enables:
 ## Next Steps
 
 - Refer to the [FAIR² Schema](../specification/schema.md) for usage examples
-- Review the [ODPS documentation](https://opendataproducts.org/specification/)
+- Review the [ODPS documentation](https://opendataproducts.org)
 - Submit extensions or validation rules via [GitHub](https://github.com/fair2-spec/issues)
