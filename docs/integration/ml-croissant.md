@@ -156,6 +156,14 @@ with the `mlcroissant` Python library. These rules were established by
 validating real FAIR² packages against `mlcroissant`'s JSON-LD processor and
 identifying reproducible crash modes.
 
+!!! warning "These rules predate the v1.4.0 document shape"
+    Rules 1–4 were derived from the pre-v1.4.0 layout, where the payload was
+    a top-level `@graph` of peer entities. That layout is gone: a
+    `fair2.json` is now single-rooted, peer artifacts are bare URI
+    references, and reused bodies sit under `included`. Each rule below is
+    annotated with what was re-verified against the current reference
+    example under `mlcroissant`.
+
 ### Rule 1 — No shared-node `@id` references
 
 A node whose `@id` appears as a top-level `@graph` member MUST NOT be
@@ -164,6 +172,12 @@ The `mlcroissant` traversal function visits shared nodes twice and raises a
 `KeyError`. To describe the same entity at multiple points in the graph,
 embed it as a fresh blank-node object without `@id` at each usage site
 (see Rule 4).
+
+!!! note "Status in v1.4.0 — unverified"
+    The reference example no longer has `@graph` peers, and each `included`
+    body is referenced exactly once, so this crash mode is not exercised and
+    the rule stands unconfirmed rather than resolved. Treat it as still in
+    force until someone tests a doubly-referenced `included` body.
 
 ### Rule 2 — No `"@type": "@id"` on cross-graph properties
 
@@ -174,6 +188,21 @@ silently converts string values with this coercion back into bare
 Rule 1. Affected properties include `citation`, `dataArticle`, `dataPortal`,
 `dataArchive`, `dataset`, `wasAssociatedWith`, `wasGeneratedBy`,
 `wasDerivedFrom`, `wasRevisionOf`, `generated`, `next`, and `url`.
+
+!!! note "Status in v1.4.0 — narrowed, and one case confirmed"
+    Re-tested against the current reference example:
+
+    - **`dct:conformsTo` — confirmed, and the one that bites.** Coercing it
+      to `@id` makes `mlcroissant` reject the document with 16 type errors
+      (`FileObject` reported as `cr:FileObject` rather than
+      `schema:FileObject`), because it reads `conformsTo` to decide which
+      Croissant version's rules apply. Keep it a plain string.
+    - **`dataArticle` / `dataArchive` / `dataPortal` — no longer applies.**
+      With their bodies gone from the document, the coercion is safe; the
+      example loads identically with and without it, and v1.4.0 relies on
+      it to write these as bare URI strings.
+
+    The remaining properties in the list have not been re-tested.
 
 ### Rule 3 — No circular self-references via `@id`
 

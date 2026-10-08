@@ -59,8 +59,8 @@
         },
         {
             "sh:path": "dct:conformsTo",
-            "sh:nodeKind": "sh:IRI",
-            "sh:description": "The FAIR2 spec or profile version validated against, as a resolvable https://fair2.ai/spec/vX.Y.Z URI."
+            "sh:description": "The FAIR2 spec or profile version validated against, as a resolvable https://fair2.ai/spec/vX.Y.Z URI. Carried as a plain string, matching how Croissant conformance is declared on the Dataset.",
+            "sh:node": "fair2s:IdentifierShape"
         },
         {
             "sh:path": "prov:wasGeneratedBy",

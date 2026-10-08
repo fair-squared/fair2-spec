@@ -144,15 +144,18 @@
         {
             "sh:path": "fair2:dataArticle",
             "sh:minCount": 1,
-            "sh:node": "fair2s:ArticleShape"
+            "sh:nodeKind": "sh:IRI",
+            "sh:description": "The data article, by DOI or other resolvable identifier."
         },
         {
             "sh:path": "fair2:dataPortal",
-            "sh:node": "fair2s:DataPortalShape"
+            "sh:nodeKind": "sh:IRI",
+            "sh:description": "The data portal, by its own identifier."
         },
         {
             "sh:path": "fair2:dataArchive",
-            "sh:node": "fair2s:DataArchiveShape"
+            "sh:nodeKind": "sh:IRI",
+            "sh:description": "The data archive, by its own identifier."
         }
     ]
 }

@@ -78,10 +78,22 @@ fair2s:DatasetShape
     sh:property [ sh:path fair2s:socialMedia ; sh:node fair2s:SocialMediaShape ] ;
     sh:property [ sh:path schema:accessRights ; sh:node fair2s:AccessRightsShape ] ;
 
+    # Peer artifacts are referenced by their own identifier, not described
+    # here. Each is governed independently, so inlining a body would let a
+    # change to another artifact invalidate this document and its signature.
     sh:property [
         sh:path fair2:dataArticle ;
         sh:minCount 1 ;
-        sh:node fair2s:ArticleShape
+        sh:nodeKind sh:IRI ;
+        sh:description "The data article, by DOI or other resolvable identifier."
     ] ;
-    sh:property [ sh:path fair2:dataPortal ; sh:node fair2s:DataPortalShape ] ;
-    sh:property [ sh:path fair2:dataArchive ; sh:node fair2s:DataArchiveShape ] .
+    sh:property [
+        sh:path fair2:dataPortal ;
+        sh:nodeKind sh:IRI ;
+        sh:description "The data portal, by its own identifier."
+    ] ;
+    sh:property [
+        sh:path fair2:dataArchive ;
+        sh:nodeKind sh:IRI ;
+        sh:description "The data archive, by its own identifier."
+    ] .

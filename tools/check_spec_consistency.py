@@ -285,6 +285,33 @@ def check_examples_validate(shapes: rdflib.Graph) -> None:
                           f"({text.count('Constraint Violation')} violations)")
 
 
+def check_examples_load_in_mlcroissant() -> None:
+    """Croissant compatibility is the gate: mlcroissant must still load each example.
+
+    This is not covered by SHACL. A context change can leave every shape
+    satisfied and still break the reference loader — coercing dct:conformsTo
+    to @id did exactly that, because mlcroissant reads it to decide which
+    Croissant version's rules apply.
+    """
+    try:
+        import mlcroissant as mlc
+    except ImportError:
+        print("  [skip] mlcroissant not installed — Croissant compatibility unchecked")
+        return
+
+    import warnings
+
+    for path in example_files():
+        try:
+            with warnings.catch_warnings():
+                warnings.simplefilter("ignore")
+                mlc.Dataset(jsonld=str(path))
+        except Exception as exc:  # noqa: BLE001 - any loader failure is a failure
+            first = next((l.strip() for l in str(exc).splitlines() if l.strip().startswith("-")), "")
+            fail("croissant", f"mlcroissant cannot load {path.relative_to(ROOT)}: "
+                              f"{type(exc).__name__}" + (f" — {first[:120]}" if first else ""))
+
+
 def main() -> int:
     shapes = shapes_graph()
     ctx_inline, ctx_fair2 = context_terms()
@@ -298,6 +325,7 @@ def main() -> int:
     check_example_contexts(ctx_inline)
     check_no_vocab_fallthrough()
     check_examples_validate(shapes)
+    check_examples_load_in_mlcroissant()
 
     if failures:
         print("Spec consistency check FAILED\n")

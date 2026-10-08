@@ -14,7 +14,9 @@ produced against, at the **root** of the document, in the `_meta` block:
     "dateCreated": "2025-03-03",
     "dateModified": "2026-04-20"
   },
-  "@graph": [ { "@type": "Dataset", ... } ]
+  "@type": "Dataset",
+  "name": "...",
+  "...": "..."
 }
 ```
 
@@ -27,8 +29,8 @@ produced against, at the **root** of the document, in the `_meta` block:
   distinct from the spec version.
 - `_meta.dateCreated` / `_meta.dateModified` — package lifecycle dates.
 
-`_meta` is document-level package metadata; it sits at the root, **outside
-`@graph`**, so it does not affect how the Dataset is parsed by mlcroissant or
+`_meta` is document-level package metadata; the context maps it to `null`,
+so it produces no RDF and does not affect how the Dataset is parsed by mlcroissant or
 Google Dataset Search. It is complementary to the Dataset node's own
 `schema:conformsTo` (which declares Croissant conformance).
 
