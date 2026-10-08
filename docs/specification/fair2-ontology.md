@@ -105,6 +105,7 @@ the scope says **what was checked** — there is no metadata-only level.
 | `fair2:DataIntegrity` | `fair2:CertificationScope` | The data files were retrieved and checked against their digests. |
 | `fair2:LicenseVerification` | `fair2:CertificationScope` | The declared licence was checked. |
 | `fair2:ProcessAttestation` | `fair2:CertificationScope` | The production process was attested by the certifier. |
+| `fair2:TemporalProof` | `fair2:CertificationScope` | An RFC 3161 timestamp or blockchain anchor is attached. |
 
 A certification whose scope omits `dataIntegrity` MUST be rendered as
 **“FAIR²-Certified (metadata only)”**. That is a requirement on consumers —

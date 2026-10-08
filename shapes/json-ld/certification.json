@@ -83,6 +83,9 @@
                         },
                         {
                             "@id": "fair2:ProcessAttestation"
+                        },
+                        {
+                            "@id": "fair2:TemporalProof"
                         }
                     ],
                     "sh:message": "certificationScope must draw on the canonical scope tokens. A scope omitting dataIntegrity must be rendered as FAIR2-Certified (metadata only)."

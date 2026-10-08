@@ -1,13 +1,5 @@
 # FAIR² Certification
 
-!!! warning "Draft — pending governance"
-    The two-tier certification model and the `fair2s:CertificationShape`
-    SHACL shape in this document are **drafts**. Three governance questions
-    (Decisions A, B, and C at the end of this page) are unresolved. Producers
-    and consumers SHOULD NOT rely on the binding semantics of
-    `fair2:Certified` or `fair2:Validated` until these decisions
-    are finalised by the FAIR² governance body.
-
 ## Overview
 
 FAIR² defines two distinct statuses for a dataset package:
@@ -35,10 +27,15 @@ An assertion that the following automated checks all passed:
 - All `distribution` SHA-256 checksums declared (not necessarily verified
   against actual file downloads)
 
-FAIR²-Validated can be asserted by any FAIR² validator authorised by the
-governance body (Clara, or any licensed toolchain). It is a status flag in
-the metadata, not a signed credential. It carries no legal or contractual
-standing.
+FAIR²-Validated is **self-assertable**: any producer may run a conformant
+validator and embed the claim, with no authorised issuer involved
+(Decision B). What it must carry instead is its evidence — the profile
+validated against, the validation run and its software agent, and the
+report — so that a consumer can inspect the claim rather than trust it.
+See [Making the claim inspectable](#making-the-claim-inspectable).
+
+It is a status flag in the metadata, not a signed credential, and carries
+no legal or contractual standing.
 
 ---
 
@@ -74,7 +71,7 @@ external credential.
 | `dataIntegrity` | SHA-256 checksums verified against actual file downloads |
 | `licenseVerification` | License URI resolves; access rights consistent with declared level |
 | `processAttestation` | Provenance activity and software-agent records reviewed |
-| `temporal-proof` | RFC 3161 timestamp or blockchain anchor attached |
+| `temporalProof` | RFC 3161 timestamp or blockchain anchor attached |
 
 ### Standard scope combinations
 
@@ -185,41 +182,124 @@ The registry is a JSON-LD document published at
 certifier's DID, organisation name, licence tier, allowed certification
 scope, and validity period.
 
-!!! warning "No schema yet for `fair2-cert.json` or the registry"
-    Neither the credential document nor the registry has a published schema or
-    example, and whether `fair2-cert.json` is a W3C Verifiable Credential (VC
-    Data Model 2.0, with the certifier DID as `issuer` and a `proof`) is **not
-    yet decided** — it depends on Decisions A, B and C below. Implementers
-    should not build against either format until that is settled. The
-    `Certification` pointer node inside `fair2.json`, described above, is
-    stable and can be relied on.
+!!! warning "Formats not yet published"
+    The credential document and the registry do not yet have published
+    schemas or examples. The governance decisions they depend on are settled
+    (see below) and the formats follow from them: `fair2-cert.json` will be a
+    W3C Verifiable Credential (VC Data Model 2.0) with the certifier's DID as
+    `issuer`, carrying `validFrom` and no `validUntil` per Decision C, and
+    revocation through a Bitstring Status List. Implementers should not build
+    against the exact shape until it is published. The `Certification`
+    pointer node inside `fair2.json`, described above, is stable.
+
 
 ---
 
-## Open governance decisions
+## Verifying a certification
 
-The following design questions are **unresolved**. The certification
-semantics described above are provisional pending these decisions.
+Given a `Certification` pointer node in a `fair2.json`:
 
-### Decision A — Scope label for partial certification
+1. **Resolve the issuer.** Fetch `certificationDocument`, read its `issuer`
+   DID, and resolve the DID document to obtain the signing key.
+2. **Check authority at the issuance date.** Fetch the
+   [certifier registry](#registry-format) and confirm the issuer DID has an
+   entry whose `validFrom`/`validUntil` span the credential's `validFrom`,
+   and whose `allowedScopes` cover the declared `certificationScope`.
+   Authority is checked at **issuance**, not at verification time — a
+   certification issued while the certifier was authorised stays valid after
+   that authority lapses (Decision C).
+3. **Verify the proof** on the credential against the resolved key.
+4. **Check revocation** through the credential's `credentialStatus`
+   Bitstring Status List. There is no expiry to check; `validUntil` is
+   deliberately absent.
+5. **Recompute the digest** of the `fair2.json` and compare it with the one
+   in the credential. A mismatch means the package has changed since it was
+   certified, so the certification no longer applies to this document.
 
-Does metadata-only scope still carry the `fair2:Certified` compliance
-level, or should restricted-data packages receive a distinct label (e.g.,
-`fair2:FAIR2-Certified-Metadata`)? Implications: discoverability, consumer
-trust, and whether partial certification is a first-class status or a
-downgrade.
+A **FAIR²-Validated** claim is verified differently, because it has no
+issuer and no credential: re-run the validator named in `wasGeneratedBy`
+against the profile named in `conformsTo`, and compare with
+`validationReport`. It cannot be revoked — only contradicted.
 
-### Decision B — Self-assertability of FAIR²-Validated
+---
 
-Can a data producer run a conformant validator locally and embed
-`fair2ComplianceLevel: "fair2:Validated"` in their own metadata
-without involving an authorised validator? If yes, Validated is a
-declaration, not a credential — low trademark exposure but potential brand
-dilution. If no, even Validated requires an authorised issuer (a
-lighter-weight one), which adds friction but protects the brand.
+## Governance decisions
 
-### Decision C — Expiry model
+These were open questions in v1.3.0 and are now settled. They are recorded
+here because they determine what a certification means.
 
-Are certifications permanent (revocation-only invalidation) or do they
-expire annually and require re-certification? Annual expiry strengthens
-trust but imposes ongoing operational burden on producers and certifiers.
+### A — One label; the scope says what was checked
+
+There is a single compliance level, `fair2:Certified`, and no
+`-Metadata` variant. `certificationScope` (already required) is how a
+certification says what was checked.
+
+When the scope does not include `dataIntegrity`, any human-readable
+rendering — badges, landing pages, search snippets — **MUST** display
+**"FAIR²-Certified (metadata only)"**.
+
+A certifier without access to the files **MUST** use the metadata-only
+scope.
+
+*Rationale:* the label says who vouches, the scope says what was checked.
+A restricted dataset is not downgraded because its certifier cannot read
+the files.
+
+!!! note "This rule is on consumers, not on documents"
+    SHACL constrains `certificationScope` to the four canonical tokens, so a
+    typo fails validation. It cannot check how a badge is rendered. The
+    display rule is a requirement on consuming software and nothing in this
+    repository can enforce it.
+
+### B — FAIR²-Validated can be self-asserted, as an inspectable claim
+
+Any producer may run a validator and embed `fair2:Validated`. No
+authorised issuer is needed.
+
+A Validated node **MUST** carry:
+
+- `conformsTo` — a resolvable `https://fair2.ai/spec/vX.Y.Z` URI;
+- `wasGeneratedBy` — an Activity with `endedAtTime`, associated with a
+  SoftwareAgent that has `name` and `softwareVersion`;
+- `validationReport`.
+
+It needs no `certifiedBy`, no `certificationDocument` and no signature,
+and makes no trademark claim beyond "these open checks passed".
+
+**Transition.** Existing Validated nodes that carry `certifiedBy` and
+`dateIssued` but lack the evidence properties stay valid for now. That
+path is deprecated, raises a SHACL warning, and will be removed in a later
+release.
+
+*Rationale:* the difference between the two statuses is who vouches. The
+brand is protected by Certified's signature, and Validated by being
+re-runnable.
+
+!!! note "Two consequences worth stating"
+    `fair2s:ActivityShape` requires `rdfs:label`, so the evidence Activity
+    needs a label as well as the properties listed above.
+
+    A self-asserted Validated claim has no issuer and no credential, so it
+    **cannot be revoked** — Decision C's revocation model reaches Certified
+    only. A Validated claim is withdrawn by re-running the checks and
+    finding they no longer pass.
+
+### C — Bound to the package version, not to the calendar
+
+A certification attests to one exact package version: the DOI, the package
+version and a digest of `fair2.json`. It has no calendar expiry
+(`validUntil` is omitted).
+
+It stops applying when either:
+
+- it is revoked through a Bitstring Status List; or
+- the package changes, so the digest no longer matches and the new version
+  needs a new certification.
+
+Certifier authority entries in the registry have `validFrom` / `validUntil`
+and are renewed annually. A certification issued while the certifier was
+authorised stays valid after that authority lapses, unless it is revoked —
+**verifiers check authority at the issuance date**.
+
+A newer spec version does not invalidate a certification; `conformsTo`
+records which version applied.

@@ -26,7 +26,7 @@ fair2s:CertificationShape
     sh:property [
         sh:path fair2:certificationScope ;
         sh:minCount 1 ;
-        sh:in ( fair2:MetadataConformance fair2:DataIntegrity fair2:LicenseVerification fair2:ProcessAttestation ) ;
+        sh:in ( fair2:MetadataConformance fair2:DataIntegrity fair2:LicenseVerification fair2:ProcessAttestation fair2:TemporalProof ) ;
         sh:message "certificationScope must draw on the canonical scope tokens. A scope omitting dataIntegrity must be rendered as FAIR2-Certified (metadata only)."
     ] .
 

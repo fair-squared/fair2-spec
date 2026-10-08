@@ -105,7 +105,7 @@ Below are the key namespaces used in this schema:
 | `prov` | `http://www.w3.org/ns/prov#` |
 
 For a **detailed description** of these namespaces and their usage in the FAIR² ontology, refer to:  
-📖 **[Ontology Documentation](./ontology.md#namespaces-used-in-fair²)**.
+📖 **[Ontology Documentation](./fair2-ontology.md)**.
 ---
 
 ## 🎯 **Why SHACL is Essential for FAIR²**
@@ -160,5 +160,5 @@ conforms, report_graph, report_text = pyshacl.validate(
 
 ## 🚀 **Next Steps**
 - **[Validate your dataset](shacl-validation.md)** with SHACL.
-- **[See dataset examples](examples.md)** to understand real-world usage.
+- **[See the worked example](../examples/example-walkthrough.md)** to understand real-world usage.
 - **[Learn about JSON-LD & RDF](../technical/json-ld.md)** for AI-ready metadata.

@@ -110,9 +110,6 @@
     "Integer": {
       "@id": "schema:Integer"
     },
-    "Location": {
-      "@id": "schema:Location"
-    },
     "Number": {
       "@id": "schema:Number"
     },
@@ -236,6 +233,9 @@
     },
     "processAttestation": {
       "@id": "fair2:ProcessAttestation"
+    },
+    "temporalProof": {
+      "@id": "fair2:TemporalProof"
     },
     "changeLog": {
       "@id": "fair2:changeLog"
@@ -1787,6 +1787,7 @@
   "name": "Marine biodiversity and environmental data: an AI-ready, open dataset from the long term (1995–2023) monitoring network",
   "dataArticle": "https://doi.org/10.3389/focsu.2024.1528837",
   "dataArchive": "https://doi.org/10.5281/zenodo.18326712",
+  "dataPortal": "https://sen.science/doi/10.71728/r1rj-f947",
   "domain": {
     "@id": "https://www.wikidata.org/wiki/Q7173",
     "@type": "schema:Thing",
@@ -11624,6 +11625,26 @@
       "dataset": "https://doi.org/10.71728/r1rj-f947",
       "changeLog": [],
       "url": "https://doi.org/10.5281/zenodo.18326712"
+    },
+    {
+      "@id": "https://sen.science/doi/10.71728/r1rj-f947",
+      "@type": "DataPortal",
+      "name": "Borja 2025 — FAIR² Data Portal",
+      "description": "Interactive portal for the Basque coast monitoring dataset: record-set browser, per-variable summaries, methods, and downloads.",
+      "identifier": "https://sen.science/doi/10.71728/r1rj-f947",
+      "url": "https://sen.science/doi/10.71728/r1rj-f947",
+      "keywords": [
+        "marine biodiversity",
+        "environmental monitoring",
+        "FAIR2 data portal"
+      ],
+      "author": {
+        "@type": "Organization",
+        "name": "SENSCIENCE"
+      },
+      "version": "1.2",
+      "datePublished": "2025-03-03",
+      "dataset": "https://doi.org/10.71728/r1rj-f947"
     },
     {
       "@type": "DigitalDocument",

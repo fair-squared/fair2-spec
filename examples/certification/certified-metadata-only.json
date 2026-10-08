@@ -108,9 +108,6 @@
     "Integer": {
       "@id": "schema:Integer"
     },
-    "Location": {
-      "@id": "schema:Location"
-    },
     "Number": {
       "@id": "schema:Number"
     },
@@ -234,6 +231,9 @@
     },
     "processAttestation": {
       "@id": "fair2:ProcessAttestation"
+    },
+    "temporalProof": {
+      "@id": "fair2:TemporalProof"
     },
     "changeLog": {
       "@id": "fair2:changeLog"

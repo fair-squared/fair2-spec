@@ -339,3 +339,7 @@ fair2:LicenseVerification a fair2:CertificationScope ;
 fair2:ProcessAttestation a fair2:CertificationScope ;
   rdfs:label "processAttestation" ;
   rdfs:comment "The production process was attested by the certifier." .
+
+fair2:TemporalProof a fair2:CertificationScope ;
+  rdfs:label "temporalProof" ;
+  rdfs:comment "An RFC 3161 timestamp or blockchain anchor is attached to the certification." .
