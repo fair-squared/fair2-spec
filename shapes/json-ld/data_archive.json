@@ -1,10 +1,11 @@
 {
     "@context": {
-        "sh": "http://www.w3.org/ns/shacl#",
         "schema": "https://schema.org/",
+        "sh": "http://www.w3.org/ns/shacl#",
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
         "fair2": "https://fair2.ai/ns/",
         "fair2s": "https://fair2.ai/shapes/",
-        "xsd": "http://www.w3.org/2001/XMLSchema#",
         "sh:path": {
             "@type": "@id"
         },
@@ -23,31 +24,27 @@
     },
     "@id": "fair2s:DataArchiveShape",
     "@type": "sh:NodeShape",
-    "sh:targetClass": "fair2:DataArchive",
     "sh:nodeKind": "sh:IRI",
     "sh:property": [
         {
-            "sh:path": "schema:name",
-            "sh:minCount": 1,
-            "sh:node": "fair2s:TextShape"
+            "sh:path": "schema:dateCreated",
+            "sh:datatype": "xsd:date"
         },
         {
-            "sh:path": "schema:description",
-            "sh:minCount": 1,
-            "sh:node": "fair2s:TextShape"
+            "sh:path": "schema:dateModified",
+            "sh:datatype": "xsd:date"
         },
         {
-            "sh:path": "schema:identifier",
+            "sh:path": "schema:datePublished",
+            "sh:datatype": "xsd:date"
+        },
+        {
+            "sh:path": "schema:holdingArchive",
             "sh:minCount": 1,
             "sh:node": "fair2s:IdentifierShape"
         },
         {
-            "sh:path": "schema:keywords",
-            "sh:minCount": 1,
-            "sh:node": "fair2s:TextShape"
-        },
-        {
-            "sh:path": "schema:holdingArchive",
+            "sh:path": "schema:identifier",
             "sh:minCount": 1,
             "sh:node": "fair2s:IdentifierShape"
         },
@@ -57,29 +54,33 @@
             "sh:node": "fair2s:PersonOrOrganizationShape"
         },
         {
+            "sh:path": "schema:description",
+            "sh:minCount": 1,
+            "sh:node": "fair2s:TextShape"
+        },
+        {
+            "sh:path": "schema:keywords",
+            "sh:minCount": 1,
+            "sh:node": "fair2s:TextShape"
+        },
+        {
+            "sh:path": "schema:name",
+            "sh:minCount": 1,
+            "sh:node": "fair2s:TextShape"
+        },
+        {
             "sh:path": "schema:version",
             "sh:minCount": 1,
             "sh:node": "fair2s:TextShape"
         },
         {
-            "sh:path": "fair2:changeLog",
-            "sh:node": "fair2s:UpdateActionShape"
-        },
-        {
-            "sh:path": "schema:dateCreated",
-            "sh:datatype": "xsd:date"
-        },
-        {
-            "sh:path": "schema:datePublished",
-            "sh:datatype": "xsd:date"
-        },
-        {
-            "sh:path": "schema:dateUpdated",
-            "sh:datatype": "xsd:date"
-        },
-        {
             "sh:path": "fair2:dataset",
             "sh:node": "fair2s:IdentifierShape"
+        },
+        {
+            "sh:path": "fair2:changeLog",
+            "sh:node": "fair2s:UpdateActionShape"
         }
-    ]
+    ],
+    "sh:targetClass": "fair2:DataArchive"
 }

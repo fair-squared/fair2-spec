@@ -1,0 +1,9 @@
+{
+  "_comment": "What each fixture must do when validated against shapes/turtle/. 'valid' = conforms with no results; 'warn' = conforms only when warnings are allowed; 'invalid' = must produce a Violation.",
+  "certified-full.json": "valid",
+  "certified-metadata-only.json": "valid",
+  "validated-self-asserted.json": "valid",
+  "validated-legacy.json": "warn",
+  "invalid-validated-no-evidence.json": "invalid",
+  "invalid-certified-no-document.json": "invalid"
+}

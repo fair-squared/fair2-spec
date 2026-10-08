@@ -1,18 +1,26 @@
 {
     "@context": {
-        "sh": "http://www.w3.org/ns/shacl#",
+        "prov": "http://www.w3.org/ns/prov#",
         "schema": "https://schema.org/",
+        "sh": "http://www.w3.org/ns/shacl#",
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
         "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
         "fair2s": "https://fair2.ai/shapes/",
         "fair2": "https://fair2.ai/ns/",
-        "prov": "http://www.w3.org/ns/prov#",
         "sh:path": {
             "@type": "@id"
         },
         "sh:node": {
             "@type": "@id"
         },
+        "sh:targetClass": {
+            "@type": "@id"
+        },
         "sh:nodeKind": {
+            "@type": "@id"
+        },
+        "sh:datatype": {
             "@type": "@id"
         },
         "sh:or": {
@@ -21,31 +29,32 @@
     },
     "@graph": [
         {
-            "@id": "fair2s:PersonOrOrganizationShape",
+            "@id": "fair2s:AttributionShape",
             "@type": "sh:NodeShape",
-            "sh:nodeKind": "sh:BlankNodeOrIRI",
+            "sh:nodeKind": "sh:IRI",
+            "sh:description": "A dataset's relationship to one agent: who they are, what roles they held, and where they sat in the list. Every domain here checks out, unlike prov:hadRole on a Person.",
             "sh:property": [
                 {
-                    "sh:path": "schema:name",
-                    "sh:minCount": 1,
-                    "sh:node": "fair2s:TextShape"
+                    "sh:path": "fair2:position",
+                    "sh:maxCount": 1,
+                    "sh:datatype": "xsd:integer",
+                    "sh:description": "Ordinal position in the author list. RDF loses array order, so it must be stated."
                 },
                 {
-                    "sh:path": "schema:affiliation",
-                    "sh:node": "fair2s:OrganizationShape"
-                }
-            ]
-        },
-        {
-            "@id": "fair2s:OrganizationShape",
-            "@type": "sh:NodeShape",
-            "sh:property": [
-                {
-                    "sh:path": "schema:name",
+                    "sh:path": "prov:hadRole",
                     "sh:minCount": 1,
-                    "sh:node": "fair2s:TextShape"
+                    "sh:node": "fair2s:ContributorRoleShape",
+                    "sh:description": "One or more roles, drawn from CRediT, CRO or the FAIR2 role vocabulary."
+                },
+                {
+                    "sh:path": "prov:agent",
+                    "sh:minCount": 1,
+                    "sh:maxCount": 1,
+                    "sh:nodeKind": "sh:IRI",
+                    "sh:description": "The Person or Organization, by reference. Described once under schema:creator."
                 }
-            ]
+            ],
+            "sh:targetClass": "prov:Attribution"
         },
         {
             "@id": "fair2s:ContributorRoleShape",
@@ -82,14 +91,29 @@
             ]
         },
         {
-            "@id": "fair2s:ContributorShape",
+            "@id": "fair2s:OrganizationShape",
             "@type": "sh:NodeShape",
-            "sh:node": "fair2s:PersonOrOrganizationShape",
             "sh:property": [
                 {
-                    "sh:path": "prov:hadRole",
+                    "sh:path": "schema:name",
                     "sh:minCount": 1,
-                    "sh:node": "fair2s:ContributorRoleShape"
+                    "sh:node": "fair2s:TextShape"
+                }
+            ]
+        },
+        {
+            "@id": "fair2s:PersonOrOrganizationShape",
+            "@type": "sh:NodeShape",
+            "sh:nodeKind": "sh:BlankNodeOrIRI",
+            "sh:property": [
+                {
+                    "sh:path": "schema:name",
+                    "sh:minCount": 1,
+                    "sh:node": "fair2s:TextShape"
+                },
+                {
+                    "sh:path": "schema:affiliation",
+                    "sh:node": "fair2s:OrganizationShape"
                 }
             ]
         }

@@ -87,7 +87,7 @@ Example role usage:
 
 FAIR² defines a machine-readable ontology describing relationships between dataset components, contributors, activities, and provenance. The ontology is available in both JSON-LD and Turtle formats.
 
-For more information, see the [Ontology Documentation](ontology.md).
+For more information, see the [Ontology Documentation](fair2-ontology.md).
 
 ---
 

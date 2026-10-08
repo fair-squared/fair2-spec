@@ -43,7 +43,7 @@
 | `fair2:methodSection` | `fair2s:MethodSectionShape` | `[0..∞]` | No |
 | `fair2s:socialMedia` | `fair2s:SocialMediaShape` | `[0..∞]` | No |
 | `cr:recordSet` | `fair2s:RecordSetShape` | `[0..∞]` | No |
-| `schema:contributor` | `fair2s:ContributorShape` | `[0..∞]` | No |
+| `prov:qualifiedAttribution` | `fair2s:AttributionShape` | `[0..∞]` | No |
 | `schema:creator` | `fair2s:PersonOrOrganizationShape` | `[1..∞]` | Yes |
 | `schema:dateCreated` | `xsd:date` | `[0..∞]` | No |
 | `schema:datePublished` | `xsd:date` | `[0..∞]` | No |
@@ -73,7 +73,7 @@
 - **fair2:methodSection**: Dataset may include one or more method sections describing methodology.
 - **fair2s:socialMedia**: Dataset may include social media dissemination metadata.
 - **cr:recordSet**: Dataset may include one or more RecordSet definitions.
-- **schema:contributor**: Dataset may include contributor metadata and CRediT roles.
+- **prov:qualifiedAttribution**: Dataset may state, per agent, which roles they held and where they sat in the author list. Replaces `schema:contributor` (see `fair2s:AttributionShape`).
 - **schema:creator**: Dataset must include at least one creator (Person or Organization).
 - **schema:dateCreated**: Dataset may include its creation date.
 - **schema:datePublished**: Dataset may include its publication date.
@@ -151,24 +151,6 @@
 </details>
 
 
-## fair2s:ChangeDescriptionShape
-| Property | Type | Cardinality | Mandatory |
-|---|---|---|---|
-| `fair2:bugFixes` | `xsd:string` | `[0..∞]` | No |
-| `fair2:improvements` | `xsd:string` | `[0..∞]` | No |
-| `fair2:newFeatures` | `xsd:string` | `[0..∞]` | No |
-| `fair2:otherInformation` | `xsd:string` | `[0..∞]` | No |
-
-<details><summary>Constraint notes</summary>
-
-- **fair2:bugFixes**: Description may include bugFixes as a list of strings.
-- **fair2:improvements**: Description may include improvements as a list of strings.
-- **fair2:newFeatures**: Description may include newFeatures as a list of strings.
-- **fair2:otherInformation**: Description may include otherInformation such as version notes or license changes.
-
-</details>
-
-
 ## fair2s:ChangeLogShape
 *Targets:* `schema:UpdateAction`
 
@@ -176,29 +158,67 @@
 |---|---|---|---|
 | `prov:wasRevisionOf` | `fair2s:RevisionShape` | `[0..∞]` | No |
 | `schema:datePublished` | `xsd:date` | `[1..∞]` | Yes |
-| `schema:description` | `fair2s:ChangeDescriptionShape` | `[1..∞]` | Yes |
+| `schema:description` | `xsd:string` | `[1..∞]` | Yes |
+| `fair2:newFeatures` | `xsd:string` | `[0..∞]` | No |
+| `fair2:improvements` | `xsd:string` | `[0..∞]` | No |
+| `fair2:bugFixes` | `xsd:string` | `[0..∞]` | No |
+| `fair2:otherInformation` | `xsd:string` | `[0..∞]` | No |
 
 <details><summary>Constraint notes</summary>
 
 - **prov:wasRevisionOf**: Each changelog entry may reference the previous dataset version using prov:wasRevisionOf.
 - **schema:datePublished**: Each changelog entry must include a publication date.
-- **schema:description**: Each changelog entry must include a structured description of changes.
+- **schema:description**: A human-readable summary of the update, as a string.
+- **fair2:newFeatures / fair2:improvements / fair2:bugFixes / fair2:otherInformation**: Change categories, each a list of strings.
+
+!!! note "Changed in v1.4.0"
+    Up to v1.3.0 `schema:description` on a changelog entry took a structured
+    object (`fair2s:ChangeDescriptionShape`) carrying the four categories as
+    sub-properties. [`schema:description`](https://schema.org/description)
+    takes `Text`, so that shape was a type mismatch with the vocabulary it
+    borrows from, and at the RDF level it asserted that the update's
+    *description* is a thing with new-features and bug-fixes. The categories
+    are now sibling properties on the `UpdateAction` itself.
 
 </details>
 
 
-## fair2s:ContributionShape
-*Targets:* `schema:Contribution`
+## fair2s:AttributionShape
+*Targets:* `prov:Attribution`
+
+A dataset's relationship to one agent: who they are, what roles they held,
+and where they sat in the list.
 
 | Property | Type | Cardinality | Mandatory |
 |---|---|---|---|
-| `prov:agent` | `fair2s:AuthorShape` | `[1..∞]` | Yes |
+| `prov:agent` | `sh:IRI` | `[1..1]` | Yes |
 | `prov:hadRole` | `fair2s:ContributorRoleShape` | `[1..∞]` | Yes |
+| `fair2:position` | `xsd:integer` | `[0..1]` | No |
 
 <details><summary>Constraint notes</summary>
 
-- **prov:agent**: Each contribution must reference at least one agent (Person or Organization).
-- **prov:hadRole**: Each contribution must include at least one role.
+- **prov:agent**: the Person or Organization, by reference. They are described once under `schema:creator`; the attribution does not repeat them.
+- **prov:hadRole**: one or more roles, from CRediT, CRO or the FAIR² role vocabulary.
+- **fair2:position**: ordinal position in the author list, counting from 1.
+
+!!! note "Changed in v1.4.0 — roles moved off the person"
+    Up to v1.3.0 roles hung off the agent: `schema:contributor` held a second
+    copy of the author list carrying `prov:hadRole`. That had three problems.
+    `prov:hadRole` has domain `prov:Influence`, so putting it on a
+    `schema:Person` entails that the person *is* an influence — nothing errors,
+    a reasoner just draws a false conclusion. The role was not scoped to the
+    dataset, so a SPARQL join returned "datasets contributed to by someone who
+    holds this role *somewhere*", which is correct only while each person
+    appears in one dataset. And `schema:contributor` duplicated
+    `schema:creator`, which in schema.org asserts that everyone is
+    simultaneously primary and secondary.
+
+    In the reference example the duplicate list had already drifted: three
+    names were spelled differently in the two copies.
+
+    `schema:creator` is unchanged, so Croissant and schema.org harvesters see
+    what they saw before. The qualified layer is an additional property they
+    ignore.
 
 </details>
 
@@ -584,7 +604,20 @@
 - A `Place` may carry a name, description, and identifier.
 - **schema:geo**: a geometry, either a `GeoShape` (bounding box / polygon) or a `GeoCoordinates` point.
 - **schema:geoWithin**: an enclosing region.
-- **schema:containsPlace**: nested Places — the shape is recursive, modelling e.g. a bounding box → convex hull → individual sampling sites.
+- **schema:containsPlace**: nested Places — the shape is recursive.
+
+!!! note "Spatial coverage is aggregate-only"
+    `spatialCoverage` describes the **extent** of a dataset, not its
+    observations. Give the bounding box, and a convex hull or polygon where
+    a tighter envelope is useful. Do **not** enumerate individual sampling
+    sites as nested `Place` nodes: their coordinates and codes already live
+    in the record sets, so the enumeration is duplicated content that scales
+    with the data rather than with the description of it. STAC, OGC CSW,
+    DataCite and Zenodo all draw the same line, and Google Dataset Search
+    indexes only the top-level `GeoShape`.
+
+    `schema:containsPlace` remains available for genuine place *hierarchies*
+    — a region containing sub-regions — not for point-level enumeration.
 
 </details>
 

@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fair2.ai/schemas/certifier-registry/v1.4.0",
+  "title": "FAIR² authorised-certifier registry (registry.json)",
+  "description": "The list of entities authorised to issue FAIR² certifications, published by the FAIR² governance body at https://fair2.ai/certifiers/registry.json and signed with its DID. A verifier checks a credential's issuer against this list at the credential's validFrom date.",
+  "type": "object",
+  "required": ["@context", "type", "issuer", "updated", "certifiers", "proof"],
+  "additionalProperties": false,
+  "properties": {
+    "@context": {
+      "type": "array",
+      "minItems": 2,
+      "prefixItems": [
+        { "const": "https://www.w3.org/ns/credentials/v2" },
+        { "type": "string", "pattern": "^https://fair2\\.ai/context/v[0-9]+(\\.[0-9]+){0,2}(\\.jsonld)?$" }
+      ]
+    },
+    "id": { "const": "https://fair2.ai/certifiers/registry.json" },
+    "type": { "const": "FAIR2CertifierRegistry" },
+    "issuer": {
+      "description": "The FAIR² governance body's DID.",
+      "type": "string", "pattern": "^did:(web|key):[A-Za-z0-9._:%-]+$"
+    },
+    "updated": { "type": "string", "format": "date-time" },
+    "certifiers": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/Certifier" }
+    },
+    "proof": { "$ref": "#/$defs/DataIntegrityProof" }
+  },
+  "$defs": {
+    "Certifier": {
+      "type": "object",
+      "required": ["id", "name", "licenceTier", "allowedScopes", "validFrom", "status"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "description": "The certifier's DID. Matches the issuer of credentials it signs.",
+          "type": "string", "pattern": "^did:(web|key):[A-Za-z0-9._:%-]+$"
+        },
+        "name": { "type": "string", "minLength": 1 },
+        "identifier": {
+          "description": "A resolvable identifier for the organisation, such as a ROR.",
+          "type": "string", "format": "uri"
+        },
+        "licenceTier": { "enum": ["non-commercial", "commercial"] },
+        "allowedScopes": {
+          "description": "The scopes this certifier may assert. A credential declaring a scope outside this set does not verify.",
+          "type": "array", "minItems": 1, "uniqueItems": true,
+          "items": { "enum": ["metadataConformance", "dataIntegrity", "licenseVerification",
+                              "processAttestation", "temporalProof"] }
+        },
+        "validFrom": { "type": "string", "format": "date" },
+        "validUntil": {
+          "description": "Authority entries are renewed annually. Unlike a certification, authority does expire.",
+          "type": "string", "format": "date"
+        },
+        "status": { "enum": ["active", "suspended", "revoked"] }
+      }
+    },
+    "DataIntegrityProof": {
+      "type": "object",
+      "required": ["type", "cryptosuite", "created", "verificationMethod", "proofPurpose", "proofValue"],
+      "properties": {
+        "type": { "const": "DataIntegrityProof" },
+        "cryptosuite": { "const": "eddsa-jcs-2022" },
+        "created": { "type": "string", "format": "date-time" },
+        "verificationMethod": { "type": "string", "pattern": "^did:(web|key):[A-Za-z0-9._:%-]+#.+$" },
+        "proofPurpose": { "const": "assertionMethod" },
+        "proofValue": { "type": "string", "pattern": "^z[1-9A-HJ-NP-Za-km-z]+$" }
+      }
+    }
+  }
+}

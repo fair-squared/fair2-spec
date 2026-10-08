@@ -1,8 +1,9 @@
 {
     "@context": {
-        "sh": "http://www.w3.org/ns/shacl#",
-        "schema": "https://schema.org/",
         "prov": "http://www.w3.org/ns/prov#",
+        "schema": "https://schema.org/",
+        "sh": "http://www.w3.org/ns/shacl#",
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
         "fair2": "https://fair2.ai/ns/",
         "fair2s": "https://fair2.ai/shapes/",
         "sh:path": {
@@ -23,17 +24,26 @@
     },
     "@id": "fair2s:ArticleShape",
     "@type": "sh:NodeShape",
-    "sh:targetClass": "schema:ScholarlyArticle",
     "sh:nodeKind": "sh:IRI",
+    "sh:or": [
+        {
+            "sh:property": [
+                {
+                    "sh:path": "schema:headline",
+                    "sh:minCount": 1
+                }
+            ]
+        },
+        {
+            "sh:property": [
+                {
+                    "sh:path": "schema:name",
+                    "sh:minCount": 1
+                }
+            ]
+        }
+    ],
     "sh:property": [
-        {
-            "sh:path": "schema:datePublished",
-            "sh:minCount": 1
-        },
-        {
-            "sh:path": "schema:publisher",
-            "sh:minCount": 1
-        },
         {
             "sh:path": "prov:wasDerivedFrom",
             "sh:minCount": 1,
@@ -45,22 +55,17 @@
             "sh:node": "fair2s:TextShape"
         },
         {
+            "sh:path": "schema:datePublished",
+            "sh:minCount": 1
+        },
+        {
+            "sh:path": "schema:publisher",
+            "sh:minCount": 1
+        },
+        {
             "sh:path": "fair2:changeLog",
             "sh:node": "fair2s:UpdateActionShape"
         }
     ],
-    "sh:or": [
-        {
-            "sh:property": {
-                "sh:path": "schema:headline",
-                "sh:minCount": 1
-            }
-        },
-        {
-            "sh:property": {
-                "sh:path": "schema:name",
-                "sh:minCount": 1
-            }
-        }
-    ]
+    "sh:targetClass": "schema:ScholarlyArticle"
 }
