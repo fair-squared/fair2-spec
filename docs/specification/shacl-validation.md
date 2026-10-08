@@ -116,6 +116,48 @@ For a **detailed description** of these namespaces and their usage in the FAIR²
  Provides structured validation for **research integrity**.
 
 
+## Validating: load the ontology with the shapes
+
+A validator MUST load `ontologies/fair2_ontology.ttl` alongside the shapes —
+as `ont_graph` in pyshacl, or by merging it into the data graph.
+
+SHACL class targets select *SHACL instances* of a class, following
+`rdf:type/rdfs:subClassOf*`. That path can only be walked over triples the
+validator actually holds, and the subclass declarations live in the ontology.
+Omit it and the effect is silent under-validation rather than an error:
+
+- `fair2s:ArticleShape` targets `schema:ScholarlyArticle`, while documents
+  type the article `fair2:DataArticle`. Without the ontology the shape never
+  reaches it, so an article body missing `publisher`, `datePublished` or
+  `version` passes — and the report says the document conforms.
+- The same applies to any future class declared as a subclass of one that a
+  shape targets.
+
+```python
+import pyshacl, rdflib, glob
+
+shapes = rdflib.Graph()
+for f in glob.glob("shapes/turtle/*.ttl"):
+    shapes.parse(f, format="turtle")
+ontology = rdflib.Graph().parse("ontologies/fair2_ontology.ttl", format="turtle")
+data = rdflib.Graph().parse("fair2.json", format="json-ld")
+
+conforms, report_graph, report_text = pyshacl.validate(
+    data, shacl_graph=shapes, ont_graph=ontology, advanced=True)
+```
+
+!!! note "Why the ontology is safe to merge"
+    Declaring a class a subclass of one a shape targets makes every instance
+    inherit that shape. Up to v1.3.0 `fair2:DescriptiveStatistics` and
+    `fair2:RecordSet` were both declared `rdfs:subClassOf schema:Dataset`,
+    so loading the ontology made `fair2s:DatasetShape` fire on all 123
+    statistics blocks and demand `dataArticle`, `distribution` and `license`
+    from each. Those superclasses have been corrected, and a subclass
+    relationship is now understood to be a statement about which shapes
+    apply.
+
+---
+
 ## 🚀 **Next Steps**
 - **[Validate your dataset](shacl-validation.md)** with SHACL.
 - **[See dataset examples](examples.md)** to understand real-world usage.

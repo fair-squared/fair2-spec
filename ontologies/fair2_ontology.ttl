@@ -10,19 +10,15 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
 # FAIR2 Ontology — 2026-03-30T12:00:00.000000Z
 # Includes only terms used in published datasets.
 
-fair2:OpenDataArticle a rdfs:Class ;
-  rdfs:label "OpenDataArticle" ;
-  rdfs:comment "Scholarly work describing and linking an open dataset with methods and reuse guidance." ;
-  rdfs:subClassOf schema:ScholarlyArticle .
-
 fair2:MethodSection a rdfs:Class ;
   rdfs:label "MethodSection" ;
-  rdfs:comment "Structured section grouping procedural steps for a method." ;
-  rdfs:subClassOf schema:HowToSection .
+  rdfs:comment "Legacy alias for fair2:Section, retained so existing documents keep resolving. Declared a subclass of fair2:Section rather than of schema:HowToSection directly, so that fair2s:MethodSectionShape reaches legacy nodes too; fair2:Section supplies the schema:HowToSection parent." ;
+  rdfs:subClassOf fair2:Section .
 
 fair2:Step a rdfs:Class ;
   rdfs:label "Step" ;
@@ -34,20 +30,10 @@ fair2:Substep a rdfs:Class ;
   rdfs:comment "Subordinate procedural instruction nested under a Step." ;
   rdfs:subClassOf schema:HowToStep .
 
-fair2:RecordSet a rdfs:Class ;
-  rdfs:label "RecordSet" ;
-  rdfs:comment "A coherent subset of a dataset used for analysis or curation." ;
-  rdfs:subClassOf schema:Dataset .
-
-fair2:Visualization a rdfs:Class ;
-  rdfs:label "Visualization" ;
-  rdfs:comment "A visual artifact (plot, figure, dashboard) derived from the dataset." ;
-  rdfs:subClassOf schema:CreativeWork .
-
 fair2:DescriptiveStatistics a rdfs:Class ;
   rdfs:label "DescriptiveStatistics" ;
-  rdfs:comment "Summary statistics computed over a RecordSet or Dataset." ;
-  rdfs:subClassOf schema:Dataset .
+  rdfs:comment "Summary statistics computed over a field, RecordSet or Dataset. A bundle of measured values, not a dataset in its own right: declaring it a schema:Dataset made every statistics block a target of fair2s:DatasetShape." ;
+  rdfs:subClassOf schema:StructuredValue .
 
 fair2:Submission a rdfs:Class ;
   rdfs:label "Submission" ;
@@ -65,27 +51,10 @@ fair2:DataArchive a rdfs:Class ;
   rdfs:comment "An archive component that stores and preserves datasets for long-term access." ;
   rdfs:subClassOf schema:ArchiveComponent .
 
-fair2:activities a rdf:Property ;
-  rdfs:label "activities" ;
-  rdfs:comment "Reserved. Intended to group provenance activities for an entity, but no domain, range, shape or example is specified yet; do not rely on it." ;
-  vs:term_status "unstable" .
-
 fair2:attachment a rdf:Property ;
   rdfs:label "attachment" ;
   rdfs:comment "Reserved. Intended to reference supplemental material in a submission package, but no domain, range, shape or example is specified yet; do not rely on it." ;
   vs:term_status "unstable" .
-
-fair2:builds a rdf:Property ;
-  rdfs:label "builds" ;
-  rdfs:comment "Reserved. Intended to record that one artifact extends another, but no domain, range, shape or example is specified yet; do not rely on it." ;
-  vs:term_status "unstable" .
-
-fair2:contributorRole a rdf:Property ;
-  rdfs:label "contributorRole" ;
-  rdfs:comment "Links a contribution to a contributor role term." ;
-  schema:domainIncludes schema:Role ;
-  schema:rangeIncludes fair2:ContributorRole ;
-  vs:term_status "stable" .
 
 fair2:dataArticle a rdf:Property ;
   rdfs:label "dataArticle" ;
@@ -101,22 +70,10 @@ fair2:dataset a rdf:Property ;
   schema:rangeIncludes schema:Dataset ;
   vs:term_status "stable" .
 
-fair2:digest a rdf:Property ;
-  rdfs:label "digest" ;
-  rdfs:comment "Reserved. Intended to carry a short digest for quick identification, but no domain, range, shape or example is specified yet; do not rely on it." ;
-  vs:term_status "unstable" .
-
 fair2:manuscript a rdf:Property ;
   rdfs:label "manuscript" ;
   rdfs:comment "Reserved. Intended to reference a manuscript file in a submission package, but no domain, range, shape or example is specified yet; do not rely on it." ;
   vs:term_status "unstable" .
-
-fair2:roleName a rdf:Property ;
-  rdfs:label "roleName" ;
-  rdfs:comment "Human-readable label for a contributor role." ;
-  schema:domainIncludes fair2:Role ;
-  schema:rangeIncludes schema:Text ;
-  vs:term_status "stable" .
 
 fair2:statistics a rdf:Property ;
   rdfs:label "statistics" ;
@@ -136,19 +93,6 @@ fair2:store a rdf:Property ;
   rdfs:label "store" ;
   rdfs:comment "Reserved. Intended for the storage location or repository endpoint of an asset, but no domain, range, shape or example is specified yet; do not rely on it." ;
   vs:term_status "unstable" .
-
-fair2:variables a rdf:Property ;
-  rdfs:label "variables" ;
-  rdfs:comment "Lists variable or feature definitions referenced by an analysis or record set." ;
-  schema:rangeIncludes schema:DefinedTermSet ;
-  vs:term_status "stable" .
-
-fair2:visualization a rdf:Property ;
-  rdfs:label "visualization" ;
-  rdfs:comment "Links to a visualization derived from the dataset or record set." ;
-  schema:domainIncludes schema:Dataset ;
-  schema:rangeIncludes fair2:Visualization ;
-  vs:term_status "stable" .
 
 fair2:dataPortal a rdf:Property ;
   rdfs:label "dataPortal" ;
@@ -201,35 +145,15 @@ fair2:DataArticle a rdfs:Class ;
   rdfs:comment "Scholarly article describing a dataset, its methods and its reuse." ;
   rdfs:subClassOf schema:ScholarlyArticle .
 
-fair2:ExperimentDataset a rdfs:Class ;
-  rdfs:label "ExperimentDataset" ;
-  rdfs:comment "A dataset produced by an experiment, as distinct from an observational or derived one. Applied as an additional type alongside schema:Dataset." ;
-  rdfs:subClassOf schema:Dataset .
-
-fair2:OpenDataArticleSection a rdfs:Class ;
-  rdfs:label "OpenDataArticleSection" ;
-  rdfs:comment "A titled section of an open data article." ;
-  rdfs:subClassOf schema:CreativeWork .
-
-fair2:Role a rdfs:Class ;
-  rdfs:label "Role" ;
-  rdfs:comment "A role played by an agent in relation to a dataset or article." ;
-  rdfs:subClassOf schema:Role .
-
 fair2:AuthorRole a rdfs:Class ;
   rdfs:label "AuthorRole" ;
   rdfs:comment "Role played by an author in producing the dataset (e.g. Corresponding Author)." ;
-  rdfs:subClassOf fair2:Role .
+  rdfs:subClassOf schema:Role .
 
 fair2:ContributorRole a rdfs:Class ;
   rdfs:label "ContributorRole" ;
   rdfs:comment "Contributor role drawn from the CRediT or CRO vocabularies." ;
-  rdfs:subClassOf fair2:Role .
-
-fair2:Audience a rdfs:Class ;
-  rdfs:label "Audience" ;
-  rdfs:comment "Intended audience for a dataset or article." ;
-  rdfs:subClassOf schema:Audience .
+  rdfs:subClassOf schema:Role .
 
 ## Method properties
 
@@ -291,7 +215,7 @@ fair2:certificationDocument a rdf:Property ;
 
 fair2:certificationScope a rdf:Property ;
   rdfs:label "certificationScope" ;
-  rdfs:comment "What the certification covers (e.g. metadata-conformance, data-integrity)." ;
+  rdfs:comment "What the certification covers (e.g. metadataConformance, dataIntegrity)." ;
   schema:domainIncludes fair2:Certification ;
   schema:rangeIncludes schema:Text .
 
@@ -359,11 +283,6 @@ fair2:unit a rdf:Property ;
   schema:domainIncludes cr:Field ;
   schema:rangeIncludes qudt:Unit .
 
-fair2:variable a rdf:Property ;
-  rdfs:label "variable" ;
-  rdfs:comment "A variable or feature definition referenced by an analysis or record set. Singular form of fair2:variables." ;
-  schema:rangeIncludes schema:DefinedTerm .
-
 fair2:validationReport a rdf:Property ;
   rdfs:label "validationReport" ;
   rdfs:comment "The validation report backing a certification or validation claim." ;
@@ -377,3 +296,46 @@ fair2:fundingScheme a rdf:Property ;
   schema:domainIncludes schema:Grant ;
   schema:rangeIncludes schema:FundingScheme ;
   vs:term_status "stable" .
+
+# ---------------------------------------------------------------------------
+# Certification vocabulary. One compliance level says who vouches; the scope
+# says what was checked (Decision A).
+# ---------------------------------------------------------------------------
+
+fair2:ComplianceLevel a rdfs:Class ;
+  rdfs:label "ComplianceLevel" ;
+  rdfs:comment "A FAIR² compliance status asserted for a package." ;
+  rdfs:subClassOf skos:Concept ;
+  vs:term_status "stable" .
+
+fair2:Certified a fair2:ComplianceLevel ;
+  rdfs:label "FAIR²-Certified" ;
+  rdfs:comment "An authority assertion, backed by a credential signed by an authorised certifier. There is no metadata-only variant: fair2:certificationScope records what was checked." ;
+  vs:term_status "stable" .
+
+fair2:Validated a fair2:ComplianceLevel ;
+  rdfs:label "FAIR²-Validated" ;
+  rdfs:comment "A quality status asserting that the automated conformance checks pass. Self-assertable, provided the claim carries its evidence: the profile validated against, the validation run and its software agent, and the report." ;
+  vs:term_status "stable" .
+
+fair2:CertificationScope a rdfs:Class ;
+  rdfs:label "CertificationScope" ;
+  rdfs:comment "A facet of a package that a certification covers." ;
+  rdfs:subClassOf skos:Concept ;
+  vs:term_status "stable" .
+
+fair2:MetadataConformance a fair2:CertificationScope ;
+  rdfs:label "metadataConformance" ;
+  rdfs:comment "The metadata conforms to the declared FAIR² profile." .
+
+fair2:DataIntegrity a fair2:CertificationScope ;
+  rdfs:label "dataIntegrity" ;
+  rdfs:comment "The data files were retrieved and checked against their recorded digests. A certification whose scope omits this token must be rendered as \"FAIR²-Certified (metadata only)\"." .
+
+fair2:LicenseVerification a fair2:CertificationScope ;
+  rdfs:label "licenseVerification" ;
+  rdfs:comment "The declared licence was checked for presence and internal consistency." .
+
+fair2:ProcessAttestation a fair2:CertificationScope ;
+  rdfs:label "processAttestation" ;
+  rdfs:comment "The production process was attested by the certifier." .
