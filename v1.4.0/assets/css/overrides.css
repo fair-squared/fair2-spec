@@ -1,0 +1,37 @@
+/* --- Top Navigation Bar --- */
+.md-header {
+  background-color: #2B3D8D !important;
+}
+/* Reduce spacing between logo and site name */
+.md-header__button.md-logo {
+  margin-right: 0.4rem !important;  /* reduce from default (usually ~1rem) */
+}
+
+/* Optional: scale down logo size if needed */
+.md-logo img {
+  max-height: 1.8rem;  /* default is often 2.4rem */
+  margin-right: 0.2rem;
+  vertical-align: middle;
+}
+/* --- Sidebar link hover / active --- */
+.md-nav__link--active,
+.md-nav__link:hover {
+  background-color: #3F51B5 !important;
+  color: #ffffff !important;
+}
+
+/* --- Buttons or callout styling --- */
+button, .md-typeset .admonition-title {
+  background-color: #E53935 !important;
+  color: #ffffff !important;
+}
+
+/* --- Page background --- */
+.md-content {
+  background-color: #FAFAFA;
+}
+
+/* --- Text and headings --- */
+body {
+  color: #212121;
+}

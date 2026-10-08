@@ -1,0 +1,2398 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://fair2.ai/spec/v1.4.0/specification/certification/">
+      
+      
+        <link rel="prev" href="../access-agreements/">
+      
+      
+        <link rel="next" href="../responsible-ai/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Certification - FAIR² Specification</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/css/overrides.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#fair2-certification" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="FAIR² Specification" class="md-header__button md-logo" aria-label="FAIR² Specification" data-md-component="logo">
+      
+  <img src="../../assets/images/fair2-logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            FAIR² Specification
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Certification
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="FAIR² Specification" class="md-nav__button md-logo" aria-label="FAIR² Specification" data-md-component="logo">
+      
+  <img src="../../assets/images/fair2-logo.png" alt="logo">
+
+    </a>
+    FAIR² Specification
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Specification
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Specification
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fair2json-format/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fair2.json File Format
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../versioning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Versioning & Conformance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../shacl-validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SHACL Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fair2-ontology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAIR² Ontology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prefixes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Namespace Prefixes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../methods/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Methods
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data-dictionary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAIR² Data Dictionary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../access-agreements/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Access Agreements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Certification
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Certification
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fair2-validated" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FAIR²-Validated
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fair2-certified" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FAIR²-Certified
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#certificationscope" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        certificationScope
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="certificationScope">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#canonical-vocabulary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Canonical vocabulary
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#standard-scope-combinations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Standard scope combinations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-pointer-node-in-fair2json" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The pointer node in fair2.json
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#making-the-claim-inspectable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Making the claim inspectable
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#authorised-certifiers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authorised certifiers
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Authorised certifiers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#governance-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Governance rules
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#registry-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Registry format
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fair2-certjson" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fair2-cert.json
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-the-pointer-node-maps-to-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How the pointer node maps to it
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-a-certification-is-bound-to" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What a certification is bound to
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What a certification is bound to">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#verify-in-that-order" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verify in that order
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-not-one-digest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why not one digest
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#governance-decisions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Governance decisions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Governance decisions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-one-label-the-scope-says-what-was-checked" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A — One label; the scope says what was checked
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-fair2-validated-can-be-self-asserted-as-an-inspectable-claim" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        B — FAIR²-Validated can be self-asserted, as an inspectable claim
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-bound-to-the-package-version-not-to-the-calendar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        C — Bound to the package version, not to the calendar
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../responsible-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Responsible AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../provenance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Provenance and Citations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Integration
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Integration
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/ml-croissant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ML Croissant
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/schema-org/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schema.org
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/prov-o/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PROV-O
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/units-qudt-om/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Units
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/contributor-roles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributor Roles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/croissant-rai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Croissant RAI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/google-rich-search/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Google Rich Search
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/odps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ODPS Integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../examples/example-walkthrough/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Community
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Community
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../community/contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../community/governance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Governance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../community/roadmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Roadmap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Access Agreement Levels
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Access Agreement Levels
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../agreement-levels/Level0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Level 0
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../agreement-levels/Level1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Level 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../agreement-levels/Level2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Level 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../agreement-levels/Level3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Level 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../agreement-levels/Level4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Level 4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../agreement-levels/Level5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Level 5
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../agreement-levels/Level6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Level 6
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fair2-validated" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FAIR²-Validated
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fair2-certified" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FAIR²-Certified
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#certificationscope" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        certificationScope
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="certificationScope">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#canonical-vocabulary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Canonical vocabulary
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#standard-scope-combinations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Standard scope combinations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-pointer-node-in-fair2json" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The pointer node in fair2.json
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#making-the-claim-inspectable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Making the claim inspectable
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#authorised-certifiers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authorised certifiers
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Authorised certifiers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#governance-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Governance rules
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#registry-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Registry format
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fair2-certjson" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fair2-cert.json
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-the-pointer-node-maps-to-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How the pointer node maps to it
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-a-certification-is-bound-to" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What a certification is bound to
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What a certification is bound to">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#verify-in-that-order" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verify in that order
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-not-one-digest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why not one digest
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#governance-decisions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Governance decisions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Governance decisions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-one-label-the-scope-says-what-was-checked" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A — One label; the scope says what was checked
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-fair2-validated-can-be-self-asserted-as-an-inspectable-claim" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        B — FAIR²-Validated can be self-asserted, as an inspectable claim
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-bound-to-the-package-version-not-to-the-calendar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        C — Bound to the package version, not to the calendar
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="fair2-certification">FAIR² Certification</h1>
+<h2 id="overview">Overview</h2>
+<p>FAIR² defines two distinct statuses for a dataset package:</p>
+<ul>
+<li><strong>FAIR²-Validated</strong> — a <em>quality status</em> asserting that all automated
+  conformance checks pass.</li>
+<li><strong>FAIR²-Certified</strong> — an <em>authority assertion</em> backed by a
+  cryptographically signed credential from an authorised certifier.</li>
+</ul>
+<p>The distinction is <strong>who vouches for the package</strong>, not the level of
+automation used during verification. A fully automated pipeline operated by
+an authorised certifier produces a valid FAIR²-Certified credential.</p>
+<hr />
+<h2 id="fair2-validated">FAIR²-Validated</h2>
+<p>An assertion that the following automated checks all passed:</p>
+<ul>
+<li>SHACL validation against the declared FAIR² compliance level — 0 errors,
+  0 warnings</li>
+<li>All required metadata fields present and correctly typed</li>
+<li><code>_meta.version</code> and <code>_meta.dateModified</code> current</li>
+<li><code>license</code> URI resolves and is consistent with the declared <code>accessRights</code></li>
+<li>All <code>distribution</code> SHA-256 checksums declared (not necessarily verified
+  against actual file downloads)</li>
+</ul>
+<p>FAIR²-Validated is <strong>self-assertable</strong>: any producer may run a conformant
+validator and embed the claim, with no authorised issuer involved
+(Decision B). What it must carry instead is its evidence — the profile
+validated against, the validation run and its software agent, and the
+report — so that a consumer can inspect the claim rather than trust it.
+See <a href="#making-the-claim-inspectable">Making the claim inspectable</a>.</p>
+<p>It is a status flag in the metadata, not a signed credential, and carries
+no legal or contractual standing.</p>
+<hr />
+<h2 id="fair2-certified">FAIR²-Certified</h2>
+<p>An assertion backed by a cryptographically signed credential issued by an
+authorised certifier. In addition to everything required for
+FAIR²-Validated:</p>
+<ul>
+<li>The credential is signed by a DID listed in the FAIR² authorised-certifier
+  registry (see <a href="#authorised-certifiers">Authorised certifiers</a>)</li>
+<li><code>certificationScope</code> is explicitly declared (see below)</li>
+<li><code>certificationDocument</code> points at an external <code>fair2-cert.json</code> file whose
+  signature verifies</li>
+<li><code>certifiedBy</code> references an authorised <code>Organization</code> with a resolvable
+  identifier</li>
+</ul>
+<hr />
+<h2 id="certificationscope"><code>certificationScope</code></h2>
+<p><code>certificationScope</code> is a required array of tokens on both the
+<code>Certification</code> pointer node (inside <code>fair2.json</code>) and the full credential
+(in <code>fair2-cert.json</code>). It declares exactly what was verified during
+certification, so consumers can make access decisions without fetching the
+external credential.</p>
+<h3 id="canonical-vocabulary">Canonical vocabulary</h3>
+<table>
+<thead>
+<tr>
+<th>Token</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>metadataConformance</code></td>
+<td>SHACL validation passed at the declared compliance level</td>
+</tr>
+<tr>
+<td><code>dataIntegrity</code></td>
+<td>SHA-256 checksums verified against actual file downloads</td>
+</tr>
+<tr>
+<td><code>licenseVerification</code></td>
+<td>License URI resolves; access rights consistent with declared level</td>
+</tr>
+<tr>
+<td><code>processAttestation</code></td>
+<td>Provenance activity and software-agent records reviewed</td>
+</tr>
+<tr>
+<td><code>temporalProof</code></td>
+<td>RFC 3161 timestamp or blockchain anchor attached</td>
+</tr>
+</tbody>
+</table>
+<h3 id="standard-scope-combinations">Standard scope combinations</h3>
+<ul>
+<li><strong>Full scope</strong> (recommended for Level 0 / open access):
+  <code>["metadataConformance", "dataIntegrity", "licenseVerification", "processAttestation"]</code></li>
+<li><strong>Metadata-only</strong> (restricted datasets where the certifier has no access
+  to the files): <code>["metadataConformance", "licenseVerification"]</code></li>
+</ul>
+<hr />
+<h2 id="the-pointer-node-in-fair2json">The pointer node in <code>fair2.json</code></h2>
+<p>A lightweight <code>Certification</code> node is embedded in the Dataset's graph so
+consumers can assess certification status without fetching the full
+credential:</p>
+<pre><code class="language-json">{
+  &quot;@id&quot;: &quot;certification/fair2-cert-2026&quot;,
+  &quot;@type&quot;: &quot;Certification&quot;,
+  &quot;certifiedBy&quot;: {
+    &quot;@type&quot;: &quot;Organization&quot;,
+    &quot;name&quot;: &quot;Senscience&quot;,
+    &quot;identifier&quot;: &quot;https://sen.science/&quot;
+  },
+  &quot;dateIssued&quot;: &quot;2026-04-16&quot;,
+  &quot;fair2ComplianceLevel&quot;: &quot;fair2:Certified&quot;,
+  &quot;certificationDocument&quot;: &quot;https://sen.science/certifications/10.71728/r1rj-f947/fair2-cert.json&quot;,
+  &quot;verificationEndpoint&quot;: &quot;https://sen.science/certifications/10.71728/r1rj-f947&quot;,
+  &quot;certificationScope&quot;: [
+    &quot;metadataConformance&quot;,
+    &quot;dataIntegrity&quot;,
+    &quot;licenseVerification&quot;,
+    &quot;processAttestation&quot;
+  ]
+}
+</code></pre>
+<hr />
+<h2 id="making-the-claim-inspectable">Making the claim inspectable</h2>
+<p><code>fair2ComplianceLevel</code> on its own is a single token: a consumer can trust it or
+re-run the checks, but cannot inspect it. A <code>Certification</code> node SHOULD
+therefore also record <strong>what was checked, by what, and where the evidence is</strong>,
+using vocabulary FAIR² already uses elsewhere:</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>dct:conformsTo</code></td>
+<td>The spec or profile version validated against, as a resolvable <code>https://fair2.ai/spec/vX.Y.Z</code> URI</td>
+</tr>
+<tr>
+<td><code>prov:wasGeneratedBy</code></td>
+<td>The validation run, carrying the validator as a <code>prov:SoftwareAgent</code> with its version</td>
+</tr>
+<tr>
+<td><code>fair2:validationReport</code></td>
+<td>The report backing the claim</td>
+</tr>
+</tbody>
+</table>
+<p>This is the same provenance pattern the Data Dictionary uses for descriptive
+statistics, so consumers that already read one can read the other.</p>
+<pre><code class="language-json">{
+  &quot;@id&quot;: &quot;certification/fair2-cert-2026&quot;,
+  &quot;@type&quot;: &quot;Certification&quot;,
+  &quot;fair2ComplianceLevel&quot;: &quot;fair2:Validated&quot;,
+  &quot;conformsTo&quot;: &quot;https://fair2.ai/spec/v1.3.0&quot;,
+  &quot;validationReport&quot;: &quot;https://sen.science/certifications/10.71728/r1rj-f947/report.json&quot;,
+  &quot;wasGeneratedBy&quot;: {
+    &quot;@type&quot;: &quot;Activity&quot;,
+    &quot;label&quot;: &quot;FAIR2 conformance validation&quot;,
+    &quot;endedAtTime&quot;: &quot;2026-04-16&quot;,
+    &quot;wasAssociatedWith&quot;: {
+      &quot;@type&quot;: &quot;SoftwareAgent&quot;,
+      &quot;name&quot;: &quot;fair2-validator&quot;,
+      &quot;softwareVersion&quot;: &quot;0.9.2&quot;,
+      &quot;identifier&quot;: &quot;https://github.com/fair-squared/fair2-validator&quot;
+    }
+  }
+}
+</code></pre>
+<p>These three properties are <strong>optional</strong> in <code>fair2s:CertificationShape</code>.
+Requiring them would invalidate every certification issued to date; they are
+expected to become required in a later release.</p>
+<hr />
+<h2 id="authorised-certifiers">Authorised certifiers</h2>
+<p><code>fair2:AuthorizedCertifier</code> is a governance concept. An authorised certifier
+is any entity whose DID appears in the FAIR² certifier registry, maintained
+by the FAIR² governance body. Senscience is the primary authorised
+certifier; third parties may apply for certification authority under a
+trademark licence.</p>
+<h3 id="governance-rules">Governance rules</h3>
+<ul>
+<li><strong>Conflict of interest.</strong> A funder of a dataset MUST NOT be the certifier
+  of that same dataset. The <code>funding[].funder</code> list MUST NOT overlap with
+  <code>certifiedBy</code>.</li>
+<li><strong>Scope limitation for restricted data.</strong> Certifiers without access to
+  the data files MUST declare <code>certificationScope</code> as
+  <code>["metadataConformance", "licenseVerification"]</code> only.</li>
+<li><strong>Non-commercial licence rule.</strong> Third-party certifiers operating under
+  the non-commercial FAIR² trademark licence MUST NOT certify datasets
+  hosted on commercial platforms without upgrading to a commercial licence.</li>
+</ul>
+<h3 id="registry-format">Registry format</h3>
+<p>The registry is a JSON-LD document published at
+<code>https://fair2.ai/certifiers/registry.json</code> and signed with the governance
+body's DID. Schema at
+<a href="https://github.com/fair-squared/fair2-spec/blob/main/schemas/certifier-registry.schema.json"><code>schemas/certifier-registry.schema.json</code></a>,
+example at
+<a href="https://github.com/fair-squared/fair2-spec/blob/main/examples/credentials/certifier-registry.json"><code>examples/credentials/certifier-registry.json</code></a>.</p>
+<pre><code class="language-json">{
+  &quot;type&quot;: &quot;FAIR2CertifierRegistry&quot;,
+  &quot;issuer&quot;: &quot;did:web:fair2.ai&quot;,
+  &quot;updated&quot;: &quot;2026-04-01T00:00:00Z&quot;,
+  &quot;certifiers&quot;: [
+    {
+      &quot;id&quot;: &quot;did:web:sen.science&quot;,
+      &quot;name&quot;: &quot;SENSCIENCE&quot;,
+      &quot;identifier&quot;: &quot;https://ror.org/02wn5qz54&quot;,
+      &quot;licenceTier&quot;: &quot;commercial&quot;,
+      &quot;allowedScopes&quot;: [&quot;metadataConformance&quot;, &quot;dataIntegrity&quot;, &quot;licenseVerification&quot;,
+                        &quot;processAttestation&quot;, &quot;temporalProof&quot;],
+      &quot;validFrom&quot;: &quot;2026-01-01&quot;,
+      &quot;validUntil&quot;: &quot;2026-12-31&quot;,
+      &quot;status&quot;: &quot;active&quot;
+    }
+  ],
+  &quot;proof&quot;: { &quot;type&quot;: &quot;DataIntegrityProof&quot;, &quot;cryptosuite&quot;: &quot;eddsa-jcs-2022&quot;, &quot;...&quot;: &quot;...&quot; }
+}
+</code></pre>
+<p><strong>The verifier rule.</strong> A certifier's authority is checked <strong>at the
+credential's <code>validFrom</code></strong>, not at verification time. An entry whose
+<code>validUntil</code> has passed does not invalidate credentials it issued while it
+was active — those end only by revocation or by the package changing. A
+credential whose <code>certificationScope</code> exceeds the issuer's <code>allowedScopes</code>
+at that date does not verify.</p>
+<p>Note the asymmetry with Decision C: <strong>authority expires, certifications do
+not.</strong> Entries are renewed annually.</p>
+<h3 id="fair2-certjson"><code>fair2-cert.json</code></h3>
+<p>The credential is a <strong>W3C Verifiable Credential</strong> (VC Data Model 2.0),
+schema at <a href="https://github.com/fair-squared/fair2-spec/blob/main/schemas/fair2-cert.schema.json"><code>schemas/fair2-cert.schema.json</code></a>,
+worked example at
+<a href="https://github.com/fair-squared/fair2-spec/blob/main/examples/credentials/fair2-cert.json"><code>examples/credentials/fair2-cert.json</code></a>.</p>
+<pre><code class="language-json">{
+  &quot;@context&quot;: [&quot;https://www.w3.org/ns/credentials/v2&quot;, &quot;https://fair2.ai/context/v1.4.0&quot;],
+  &quot;type&quot;: [&quot;VerifiableCredential&quot;, &quot;FAIR2CertificationCredential&quot;],
+  &quot;issuer&quot;: &quot;did:web:sen.science&quot;,
+  &quot;validFrom&quot;: &quot;2026-04-16T09:30:00Z&quot;,
+  &quot;credentialSubject&quot;: {
+    &quot;id&quot;: &quot;https://doi.org/10.71728/r1rj-f947&quot;,
+    &quot;certifiedDocument&quot;: &quot;https://sen.science/doi/10.71728/r1rj-f947/fair2.json&quot;,
+    &quot;conformsTo&quot;: &quot;https://fair2.ai/spec/v1.4.0&quot;,
+    &quot;metadataVersion&quot;: &quot;1.0.0&quot;,
+    &quot;digestMultibase&quot;: &quot;u...&quot;,
+    &quot;graphDigestMultibase&quot;: &quot;u...&quot;,
+    &quot;fair2ComplianceLevel&quot;: &quot;fair2:Certified&quot;,
+    &quot;certificationScope&quot;: [&quot;metadataConformance&quot;, &quot;dataIntegrity&quot;]
+  },
+  &quot;credentialStatus&quot;: {
+    &quot;type&quot;: &quot;BitstringStatusListEntry&quot;,
+    &quot;statusPurpose&quot;: &quot;revocation&quot;,
+    &quot;statusListIndex&quot;: &quot;4812&quot;,
+    &quot;statusListCredential&quot;: &quot;https://sen.science/certifications/status/1&quot;
+  },
+  &quot;proof&quot;: { &quot;type&quot;: &quot;DataIntegrityProof&quot;, &quot;cryptosuite&quot;: &quot;eddsa-jcs-2022&quot;, &quot;...&quot;: &quot;...&quot; }
+}
+</code></pre>
+<p>Three things follow from the decisions rather than from the VC model:</p>
+<ul>
+<li><strong><code>validUntil</code> is forbidden</strong>, not merely optional (Decision C). The schema
+  rejects it. A certification ends by revocation or by the package changing.</li>
+<li><strong><code>credentialSubject.certifiedDocument</code></strong> names the digested file by URL.
+  "fair2.json" alone is ambiguous — a FAIR² <em>governance</em> document uses the
+  same filename and a disjoint vocabulary. The digests cover the metadata
+  document described by this specification.</li>
+<li><strong><code>eddsa-jcs-2022</code></strong> is the cryptosuite, matching the rest of the FAIR²
+  credential stack. Note this canonicalises the <em>credential</em> for signing; it
+  is unrelated to how the payload digests are computed.</li>
+</ul>
+<h3 id="how-the-pointer-node-maps-to-it">How the pointer node maps to it</h3>
+<table>
+<thead>
+<tr>
+<th><code>Certification</code> node in <code>fair2.json</code></th>
+<th><code>fair2-cert.json</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>certifiedBy</code></td>
+<td><code>issuer</code> (as a DID)</td>
+</tr>
+<tr>
+<td><code>dateIssued</code></td>
+<td><code>validFrom</code></td>
+</tr>
+<tr>
+<td><code>fair2ComplianceLevel</code></td>
+<td><code>credentialSubject.fair2ComplianceLevel</code></td>
+</tr>
+<tr>
+<td><code>certificationScope</code></td>
+<td><code>credentialSubject.certificationScope</code></td>
+</tr>
+<tr>
+<td><code>certificationDocument</code></td>
+<td>the credential's own <code>id</code></td>
+</tr>
+<tr>
+<td>—</td>
+<td>the digests, the status entry and the proof, which exist only in the credential</td>
+</tr>
+</tbody>
+</table>
+<p>The pointer node lets a consumer read the status without fetching the
+credential; the credential is what makes it checkable.</p>
+<hr />
+<h2 id="what-a-certification-is-bound-to">What a certification is bound to</h2>
+<p>Decision C binds a certification to one exact package version: the DOI, the
+package version, and a digest of the <code>fair2.json</code>. It carries <strong>two</strong>
+digests, because "the same file" and "the same content" are different
+claims and neither alone is enough.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Covers</th>
+<th>Cost to verify</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>sec:digestMultibase</code></td>
+<td>the published bytes</td>
+<td>~0.1 ms, <code>sha256sum</code></td>
+</tr>
+<tr>
+<td><code>fair2:graphDigestMultibase</code></td>
+<td>the RDFC-1.0 canonical graph</td>
+<td>~90 ms, needs a JSON-LD processor</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-json">&quot;credentialSubject&quot;: {
+  &quot;id&quot;: &quot;https://doi.org/10.71728/r1rj-f947&quot;,
+  &quot;conformsTo&quot;: &quot;https://fair2.ai/spec/v1.4.0&quot;,
+  &quot;metadataVersion&quot;: &quot;1.0.0&quot;,
+  &quot;digestMultibase&quot;:      &quot;uEiDixlVqFfWrgYrq6dQttW6sa336WgzxLL3YxsyIxAFsYQ&quot;,
+  &quot;graphDigestMultibase&quot;: &quot;uEiCdaRhI_cl636VHp2O5fmXhaTiciRWa40UiHLMl5JoVAQ&quot;
+}
+</code></pre>
+<p>Both are multibase-encoded multihashes (<code>u</code> = base64url, <code>0x12 0x20</code> =
+sha2-256). The graph digest is taken over the canonical n-quads produced by
+<a href="https://www.w3.org/TR/rdf-canon/">RDFC-1.0</a>.</p>
+<h3 id="verify-in-that-order">Verify in that order</h3>
+<ol>
+<li><strong>Byte digest matches.</strong> Done. This is the common case and it costs
+   nothing — anyone with <code>sha256sum</code> can check it, with no JSON-LD stack and
+   no network.</li>
+<li><strong>Byte digest fails, graph digest matches.</strong> The file was reformatted,
+   minified or round-tripped through a JSON-LD tool; the description is
+   intact. Report <strong>equivalent, not identical</strong> — a warning, not a failure.</li>
+<li><strong>Both fail.</strong> The package has changed. Per Decision C the certification
+   no longer applies, and the new version needs its own.</li>
+</ol>
+<h3 id="why-not-one-digest">Why not one digest</h3>
+<p>A byte digest alone reports any reserialisation as tampering: pretty-print
+the file, or let a JSON-LD library round-trip it, and verification fails
+although nothing changed. A graph digest alone is blind to anything outside
+the RDF — and is 900× more expensive, which matters when the check runs on a
+landing page or in a crawler.</p>
+<p>!!! note "Why the graph digest became worth having"
+    Before v1.4.0 a graph digest would have been actively misleading: the
+    <code>_meta</code> block was deliberately outside the RDF, so changing
+    <code>_meta.version</code> left the graph digest untouched. With <code>_meta</code> folded onto
+    the Dataset, everything material is in the graph, and the two digests
+    now differ only in what kind of change they tolerate rather than in what
+    they can see.</p>
+<hr />
+<h2 id="governance-decisions">Governance decisions</h2>
+<p>These were open questions in v1.3.0 and are now settled. They are recorded
+here because they determine what a certification means.</p>
+<h3 id="a-one-label-the-scope-says-what-was-checked">A — One label; the scope says what was checked</h3>
+<p>There is a single compliance level, <code>fair2:Certified</code>, and no
+<code>-Metadata</code> variant. <code>certificationScope</code> (already required) is how a
+certification says what was checked.</p>
+<p>When the scope does not include <code>dataIntegrity</code>, any human-readable
+rendering — badges, landing pages, search snippets — <strong>MUST</strong> display
+<strong>"FAIR²-Certified (metadata only)"</strong>.</p>
+<p>A certifier without access to the files <strong>MUST</strong> use the metadata-only
+scope.</p>
+<p><em>Rationale:</em> the label says who vouches, the scope says what was checked.
+A restricted dataset is not downgraded because its certifier cannot read
+the files.</p>
+<p>!!! note "This rule is on consumers, not on documents"
+    SHACL constrains <code>certificationScope</code> to the four canonical tokens, so a
+    typo fails validation. It cannot check how a badge is rendered. The
+    display rule is a requirement on consuming software and nothing in this
+    repository can enforce it.</p>
+<h3 id="b-fair2-validated-can-be-self-asserted-as-an-inspectable-claim">B — FAIR²-Validated can be self-asserted, as an inspectable claim</h3>
+<p>Any producer may run a validator and embed <code>fair2:Validated</code>. No
+authorised issuer is needed.</p>
+<p>A Validated node <strong>MUST</strong> carry:</p>
+<ul>
+<li><code>conformsTo</code> — a resolvable <code>https://fair2.ai/spec/vX.Y.Z</code> URI;</li>
+<li><code>wasGeneratedBy</code> — an Activity with <code>endedAtTime</code>, associated with a
+  SoftwareAgent that has <code>name</code> and <code>softwareVersion</code>;</li>
+<li><code>validationReport</code>.</li>
+</ul>
+<p>It needs no <code>certifiedBy</code>, no <code>certificationDocument</code> and no signature,
+and makes no trademark claim beyond "these open checks passed".</p>
+<p><strong>Transition.</strong> Existing Validated nodes that carry <code>certifiedBy</code> and
+<code>dateIssued</code> but lack the evidence properties stay valid for now. That
+path is deprecated, raises a SHACL warning, and will be removed in a later
+release.</p>
+<p><em>Rationale:</em> the difference between the two statuses is who vouches. The
+brand is protected by Certified's signature, and Validated by being
+re-runnable.</p>
+<p>!!! note "Two consequences worth stating"
+    <code>fair2s:ActivityShape</code> requires <code>rdfs:label</code>, so the evidence Activity
+    needs a label as well as the properties listed above.</p>
+<pre><code>A self-asserted Validated claim has no issuer and no credential, so it
+**cannot be revoked** — Decision C's revocation model reaches Certified
+only. A Validated claim is withdrawn by re-running the checks and
+finding they no longer pass.
+</code></pre>
+<h3 id="c-bound-to-the-package-version-not-to-the-calendar">C — Bound to the package version, not to the calendar</h3>
+<p>A certification attests to one exact package version: the DOI, the package
+version and a digest of <code>fair2.json</code>. It has no calendar expiry
+(<code>validUntil</code> is omitted).</p>
+<p>It stops applying when either:</p>
+<ul>
+<li>it is revoked through a Bitstring Status List; or</li>
+<li>the package changes, so the digest no longer matches and the new version
+  needs a new certification.</li>
+</ul>
+<p>Certifier authority entries in the registry have <code>validFrom</code> / <code>validUntil</code>
+and are renewed annually. A certification issued while the certifier was
+authorised stays valid after that authority lapses, unless it is revoked —
+<strong>verifiers check authority at the issuance date</strong>.</p>
+<p>A newer spec version does not invalidate a certification; <code>conformsTo</code>
+records which version applied.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"default": "latest", "provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
