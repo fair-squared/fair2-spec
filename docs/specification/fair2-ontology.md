@@ -31,7 +31,7 @@ The following classes define the core conceptual entities in FAIR². Each class 
 |:------|:--------------|:----------------|:------------------|
 | `fair2:DataArticle` | DataArticle | Scholarly article describing and linking an open dataset with methods and reuse guidance. | `schema:ScholarlyArticle` |
 | `fair2:OpenDataArticle` | OpenDataArticle | Legacy alias for `fair2:DataArticle`; retained for backward compatibility. | `schema:ScholarlyArticle` |
-| `fair2:DataPortal` | DataPortal | An online portal or platform that hosts and serves the dataset. | `schema:CreativeWork` |
+| `fair2:DataPortal` | DataPortal | An authored, versioned web application presenting a single FAIR² dataset — an interactive explorer or landing site, not a catalogue and not a bare API endpoint. | `schema:CreativeWork` |
 | `fair2:DataArchive` | DataArchive | A long-term archive or repository that preserves the dataset. | `schema:CreativeWork` |
 | `fair2:Section` | Section | Structured methodology section grouping procedural steps. | `schema:HowToSection` |
 | `fair2:MethodSection` | MethodSection | Legacy alias for `fair2:Section`; retained for backward compatibility. | `schema:HowToSection` |
@@ -97,7 +97,28 @@ The FAIR² properties define relationships between datasets, methods, contributo
 | `fair2:fair2ComplianceLevel` | fair2ComplianceLevel | The FAIR² compliance level asserted for the package. |
 | `fair2:variable` | variable | A variable or feature definition referenced by an analysis or record set. Singular form of fair2:variables. |
 | `fair2:verificationEndpoint` | verificationEndpoint | Endpoint at which the certification can be verified. |
+| `fair2:validationReport` | validationReport | The validation report backing a certification or validation claim. |
 ---
+
+---
+
+## Reserved terms
+
+The following are declared so that existing documents keep resolving, but they
+have no shape, no example and no stated domain or range. They carry
+`vs:term_status "unstable"` in the ontology. **Consumers should not rely on
+them, and producers should not emit them**, until they are specified.
+
+| Term | Intended meaning |
+|:-----|:-----------------|
+| `fair2:Submission` | A submission package grouping dataset, article and supporting materials for review. Whether it ever appears in a *published* `fair2.json`, as opposed to a pre-publication review package, is not yet decided. |
+| `fair2:manuscript` | Reference to a manuscript file in a submission package. |
+| `fair2:attachment` | Reference to supplemental material in a submission package. |
+| `fair2:store` | Storage location or repository endpoint for an asset. Its relationship to `schema:contentUrl` on a `FileObject` and to `fair2:dataArchive` is undefined. |
+| `fair2:activities` | Grouping of provenance activities for an entity. |
+| `fair2:builds` | Record that one artifact extends another. |
+| `fair2:digest` | Short digest for quick identification. |
+
 
 ## Notes
 

@@ -19,7 +19,9 @@
         },
         "sh:datatype": {
             "@type": "@id"
-        }
+        },
+        "dct": "http://purl.org/dc/terms/",
+        "prov": "http://www.w3.org/ns/prov#"
     },
     "_note": "DRAFT — pending governance decisions A, B, C. See docs/specification/certification.md.",
     "@id": "fair2s:CertificationShape",
@@ -54,6 +56,21 @@
             "sh:path": "fair2:certificationScope",
             "sh:minCount": 1,
             "sh:node": "fair2s:TextShape"
+        },
+        {
+            "sh:path": "dct:conformsTo",
+            "sh:nodeKind": "sh:IRI",
+            "sh:description": "The FAIR2 spec or profile version validated against, as a resolvable https://fair2.ai/spec/vX.Y.Z URI."
+        },
+        {
+            "sh:path": "prov:wasGeneratedBy",
+            "sh:node": "fair2s:ActivityShape",
+            "sh:description": "The validation run, carrying the validator as a prov:SoftwareAgent with its version - the same pattern used for descriptive statistics."
+        },
+        {
+            "sh:path": "fair2:validationReport",
+            "sh:node": "fair2s:IdentifierShape",
+            "sh:description": "The validation report backing the claim."
         }
     ]
 }

@@ -9,6 +9,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
 
 # FAIR2 Ontology — 2026-03-30T12:00:00.000000Z
 # Includes only terms used in published datasets.
@@ -50,12 +51,13 @@ fair2:DescriptiveStatistics a rdfs:Class ;
 
 fair2:Submission a rdfs:Class ;
   rdfs:label "Submission" ;
-  rdfs:comment "Submission package that groups dataset, article, and supporting materials for review." ;
-  rdfs:subClassOf schema:CreativeWork .
+  rdfs:comment "Reserved. Intended as a submission package grouping dataset, article and supporting materials for review; it has no shape or example, and whether it appears in a published fair2.json is not yet decided. Do not rely on it." ;
+  rdfs:subClassOf schema:CreativeWork ;
+  vs:term_status "unstable" .
 
 fair2:DataPortal a rdfs:Class ;
   rdfs:label "DataPortal" ;
-  rdfs:comment "A web portal that provides access to and discovery of FAIR² datasets." ;
+  rdfs:comment "An authored, versioned web application presenting a single FAIR² dataset - an interactive explorer or landing site, not a catalogue of many datasets and not a bare API endpoint. Hence the required author, version and keywords, and the optional changeLog." ;
   rdfs:subClassOf schema:CreativeWork .
 
 fair2:DataArchive a rdfs:Class ;
@@ -65,71 +67,109 @@ fair2:DataArchive a rdfs:Class ;
 
 fair2:activities a rdf:Property ;
   rdfs:label "activities" ;
-  rdfs:comment "Groups workflow or provenance activities related to an entity." .
+  rdfs:comment "Reserved. Intended to group provenance activities for an entity, but no domain, range, shape or example is specified yet; do not rely on it." ;
+  vs:term_status "unstable" .
 
 fair2:attachment a rdf:Property ;
   rdfs:label "attachment" ;
-  rdfs:comment "Points to a supporting file or supplemental material." .
+  rdfs:comment "Reserved. Intended to reference supplemental material in a submission package, but no domain, range, shape or example is specified yet; do not rely on it." ;
+  vs:term_status "unstable" .
 
 fair2:builds a rdf:Property ;
   rdfs:label "builds" ;
-  rdfs:comment "Indicates that one artifact is built from or extends another artifact." .
+  rdfs:comment "Reserved. Intended to record that one artifact extends another, but no domain, range, shape or example is specified yet; do not rely on it." ;
+  vs:term_status "unstable" .
 
 fair2:contributorRole a rdf:Property ;
   rdfs:label "contributorRole" ;
-  rdfs:comment "Links a contribution to a contributor role term." .
+  rdfs:comment "Links a contribution to a contributor role term." ;
+  schema:domainIncludes schema:Role ;
+  schema:rangeIncludes fair2:ContributorRole ;
+  vs:term_status "stable" .
 
 fair2:dataArticle a rdf:Property ;
   rdfs:label "dataArticle" ;
-  rdfs:comment "Links a dataset or submission to its associated scholarly data article." .
+  rdfs:comment "Links a dataset or submission to its associated scholarly data article." ;
+  schema:domainIncludes schema:Dataset ;
+  schema:rangeIncludes fair2:DataArticle ;
+  vs:term_status "stable" .
 
 fair2:dataset a rdf:Property ;
   rdfs:label "dataset" ;
-  rdfs:comment "References the dataset resource associated with the entity." .
+  rdfs:comment "References the dataset resource associated with the entity." ;
+  schema:domainIncludes fair2:DataArchive, fair2:DataPortal ;
+  schema:rangeIncludes schema:Dataset ;
+  vs:term_status "stable" .
 
 fair2:digest a rdf:Property ;
   rdfs:label "digest" ;
-  rdfs:comment "Provides a short textual or hash-based digest for quick identification." .
+  rdfs:comment "Reserved. Intended to carry a short digest for quick identification, but no domain, range, shape or example is specified yet; do not rely on it." ;
+  vs:term_status "unstable" .
 
 fair2:manuscript a rdf:Property ;
   rdfs:label "manuscript" ;
-  rdfs:comment "References a manuscript file associated with the submission." .
+  rdfs:comment "Reserved. Intended to reference a manuscript file in a submission package, but no domain, range, shape or example is specified yet; do not rely on it." ;
+  vs:term_status "unstable" .
 
 fair2:roleName a rdf:Property ;
   rdfs:label "roleName" ;
-  rdfs:comment "Human-readable label for a contributor role." .
+  rdfs:comment "Human-readable label for a contributor role." ;
+  schema:domainIncludes fair2:Role ;
+  schema:rangeIncludes schema:Text ;
+  vs:term_status "stable" .
 
 fair2:statistics a rdf:Property ;
   rdfs:label "statistics" ;
-  rdfs:comment "Links to computed descriptive statistics." .
+  rdfs:comment "Links to computed descriptive statistics." ;
+  schema:domainIncludes cr:Field ;
+  schema:rangeIncludes fair2:DescriptiveStatistics ;
+  vs:term_status "stable" .
 
 fair2:step a rdf:Property ;
   rdfs:label "step" ;
-  rdfs:comment "Connects a MethodSection with its constituent Step items." .
+  rdfs:comment "Connects a MethodSection with its constituent Step items." ;
+  schema:domainIncludes fair2:Section ;
+  schema:rangeIncludes fair2:Step, fair2:StepCase ;
+  vs:term_status "stable" .
 
 fair2:store a rdf:Property ;
   rdfs:label "store" ;
-  rdfs:comment "Indicates the storage location or repository endpoint for an asset." .
+  rdfs:comment "Reserved. Intended for the storage location or repository endpoint of an asset, but no domain, range, shape or example is specified yet; do not rely on it." ;
+  vs:term_status "unstable" .
 
 fair2:variables a rdf:Property ;
   rdfs:label "variables" ;
-  rdfs:comment "Lists variable or feature definitions referenced by an analysis or record set." .
+  rdfs:comment "Lists variable or feature definitions referenced by an analysis or record set." ;
+  schema:rangeIncludes schema:DefinedTermSet ;
+  vs:term_status "stable" .
 
 fair2:visualization a rdf:Property ;
   rdfs:label "visualization" ;
-  rdfs:comment "Links to a visualization derived from the dataset or record set." .
+  rdfs:comment "Links to a visualization derived from the dataset or record set." ;
+  schema:domainIncludes schema:Dataset ;
+  schema:rangeIncludes fair2:Visualization ;
+  vs:term_status "stable" .
 
 fair2:dataPortal a rdf:Property ;
   rdfs:label "dataPortal" ;
-  rdfs:comment "Links a dataset to an associated data portal." .
+  rdfs:comment "Links a dataset to an associated data portal." ;
+  schema:domainIncludes schema:Dataset ;
+  schema:rangeIncludes fair2:DataPortal ;
+  vs:term_status "stable" .
 
 fair2:dataArchive a rdf:Property ;
   rdfs:label "dataArchive" ;
-  rdfs:comment "Links a dataset to an associated data archive." .
+  rdfs:comment "Links a dataset to an associated data archive." ;
+  schema:domainIncludes schema:Dataset ;
+  schema:rangeIncludes fair2:DataArchive ;
+  vs:term_status "stable" .
 
 fair2:generated a rdf:Property ;
   rdfs:label "generated" ;
-  rdfs:comment "Links a method step to the RecordSet fields or artifacts it produced (lineage)." .
+  rdfs:comment "Links a method step to the RecordSet fields or artifacts it produced (lineage)." ;
+  schema:domainIncludes fair2:Step ;
+  schema:rangeIncludes cr:Field ;
+  vs:term_status "stable" .
 
 # ---------------------------------------------------------------------------
 # Terms used by the SHACL shapes and the JSON-LD context that were previously
@@ -319,3 +359,10 @@ fair2:variable a rdf:Property ;
   rdfs:label "variable" ;
   rdfs:comment "A variable or feature definition referenced by an analysis or record set. Singular form of fair2:variables." ;
   schema:rangeIncludes schema:DefinedTerm .
+
+fair2:validationReport a rdf:Property ;
+  rdfs:label "validationReport" ;
+  rdfs:comment "The validation report backing a certification or validation claim." ;
+  schema:domainIncludes fair2:Certification ;
+  schema:rangeIncludes schema:URL ;
+  vs:term_status "stable" .

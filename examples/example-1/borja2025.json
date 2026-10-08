@@ -249,7 +249,8 @@
       "@id": "cr:column"
     },
     "conformsTo": {
-      "@id": "dct:conformsTo"
+      "@id": "dct:conformsTo",
+      "@type": "@id"
     },
     "containsPlace": {
       "@id": "schema:containsPlace"
@@ -595,6 +596,9 @@
     "variables": {
       "@id": "fair2:variables",
       "@type": "@id"
+    },
+    "validationReport": {
+      "@id": "fair2:validationReport"
     },
     "verificationEndpoint": {
       "@id": "fair2:verificationEndpoint"

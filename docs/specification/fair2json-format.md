@@ -67,7 +67,14 @@ MUST NOT be nested inside one another. For example:
     {
       "@id": "https://portal.example.org",
       "@type": "DataPortal",
-      "...": "..."
+      "name": "Foo Dataset Explorer",
+      "description": "Interactive explorer for the Foo dataset: faceted search over the record sets, per-variable summaries and downloads.",
+      "identifier": "https://portal.example.org",
+      "url": "https://portal.example.org",
+      "keywords": ["foo", "data explorer"],
+      "author": { "@type": "Organization", "name": "Example Institute" },
+      "version": "2.1.0",
+      "dataset": { "@id": "https://example.org/dataset/123" }
     }
   ]
 }
@@ -85,10 +92,13 @@ traverse the graph without re-entering shared nodes
 ## The `_meta` block
 
 `_meta` carries file-level administrative information. It is deliberately
-outside `@graph` so that it produces no RDF triples and does not need a SHACL
-shape. JSON-LD processors (including `mlcroissant`) ignore top-level keys
-they do not recognise. The leading underscore signals to human readers that
-this block is not part of the linked-data model.
+outside `@graph` and the FAIR² context maps `_meta` to `null`, which is what
+keeps it out of the RDF; it therefore needs no SHACL shape. The mapping is
+required, not cosmetic: the context sets `@vocab`, so an unmapped top-level
+key would **not** be ignored — it would expand to `https://schema.org/_meta`
+and emit a triple against a property that does not exist. The leading
+underscore signals to human readers that this block is not part of the
+linked-data model.
 
 ### Fields
 
