@@ -311,22 +311,26 @@ fair2:changeLog a rdf:Property ;
 
 fair2:newFeatures a rdf:Property ;
   rdfs:label "newFeatures" ;
-  rdfs:comment "Additions introduced by a change-log entry. Appears on the description node of a schema:UpdateAction." ;
+  rdfs:comment "Additions introduced by a change-log entry. A sibling property of schema:description on a schema:UpdateAction, not nested inside it." ;
+  schema:domainIncludes schema:UpdateAction ;
   schema:rangeIncludes schema:Text .
 
 fair2:improvements a rdf:Property ;
   rdfs:label "improvements" ;
-  rdfs:comment "Refinements introduced by a change-log entry. Appears on the description node of a schema:UpdateAction." ;
+  rdfs:comment "Refinements introduced by a change-log entry. A sibling property of schema:description on a schema:UpdateAction, not nested inside it." ;
+  schema:domainIncludes schema:UpdateAction ;
   schema:rangeIncludes schema:Text .
 
 fair2:bugFixes a rdf:Property ;
   rdfs:label "bugFixes" ;
-  rdfs:comment "Corrections introduced by a change-log entry. Appears on the description node of a schema:UpdateAction." ;
+  rdfs:comment "Corrections introduced by a change-log entry. A sibling property of schema:description on a schema:UpdateAction, not nested inside it." ;
+  schema:domainIncludes schema:UpdateAction ;
   schema:rangeIncludes schema:Text .
 
 fair2:otherInformation a rdf:Property ;
   rdfs:label "otherInformation" ;
-  rdfs:comment "Remaining notes for a change-log entry. Appears on the description node of a schema:UpdateAction." ;
+  rdfs:comment "Remaining notes for a change-log entry. A sibling property of schema:description on a schema:UpdateAction, not nested inside it." ;
+  schema:domainIncludes schema:UpdateAction ;
   schema:rangeIncludes schema:Text .
 
 ## Dataset and field properties

@@ -61,7 +61,7 @@ The FAIR² properties define relationships between datasets, methods, contributo
 | `fair2:activities` | activities | Groups workflow or provenance activities related to an entity. |
 | `fair2:attachment` | attachment | Points to a supporting file or supplemental material. |
 | `fair2:builds` | builds | Indicates that one artifact is built from or extends another artifact. |
-| `fair2:bugFixes` | bugFixes | Bug-fix entries within a changelog update description. |
+| `fair2:bugFixes` | bugFixes | Bug-fix entries on a changelog `UpdateAction`. |
 | `fair2:citationKey` | citationKey | Short citation key identifying the dataset. |
 | `fair2:contributorRole` | contributorRole | Links a contribution to a contributor role term. |
 | `fair2:dataArchive` | dataArchive | Links a dataset to the archive that preserves it. |
@@ -71,14 +71,14 @@ The FAIR² properties define relationships between datasets, methods, contributo
 | `fair2:digest` | digest | Provides a short textual or hash-based digest for quick identification. |
 | `fair2:domain` | domain | Subject-domain classification of the dataset (e.g. a Wikidata concept). |
 | `fair2:generated` | generated | Links a method step to the RecordSet fields or artifacts it produced (lineage). |
-| `fair2:improvements` | improvements | Improvement entries within a changelog update description. |
+| `fair2:improvements` | improvements | Improvement entries on a changelog `UpdateAction`. |
 | `fair2:isExperimentRelated` | isExperimentRelated | Flags whether a field relates to experimental data. |
 | `fair2:manuscript` | manuscript | References a manuscript file associated with the submission. |
 | `fair2:methodSection` | methodSection | Links a dataset to its methodology section(s). |
-| `fair2:newFeatures` | newFeatures | New-feature entries within a changelog update description. |
+| `fair2:newFeatures` | newFeatures | New-feature entries on a changelog `UpdateAction`. |
 | `fair2:next` | next | Orders sequential method sections, steps, or substeps. |
 | `fair2:nextTrue` | nextTrue | Conditional branch target taken when a StepCase condition holds. |
-| `fair2:otherInformation` | otherInformation | Miscellaneous notes within a changelog update description. |
+| `fair2:otherInformation` | otherInformation | Miscellaneous notes on a changelog `UpdateAction`. |
 | `fair2:qualifiedUsage` | qualifiedUsage | Condition guarding a conditional method step (StepCase). |
 | `fair2:roleName` | roleName | Human-readable label for a contributor role. |
 | `fair2:statistics` | statistics | Links to computed descriptive statistics. |

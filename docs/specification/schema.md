@@ -151,24 +151,6 @@
 </details>
 
 
-## fair2s:ChangeDescriptionShape
-| Property | Type | Cardinality | Mandatory |
-|---|---|---|---|
-| `fair2:bugFixes` | `xsd:string` | `[0..∞]` | No |
-| `fair2:improvements` | `xsd:string` | `[0..∞]` | No |
-| `fair2:newFeatures` | `xsd:string` | `[0..∞]` | No |
-| `fair2:otherInformation` | `xsd:string` | `[0..∞]` | No |
-
-<details><summary>Constraint notes</summary>
-
-- **fair2:bugFixes**: Description may include bugFixes as a list of strings.
-- **fair2:improvements**: Description may include improvements as a list of strings.
-- **fair2:newFeatures**: Description may include newFeatures as a list of strings.
-- **fair2:otherInformation**: Description may include otherInformation such as version notes or license changes.
-
-</details>
-
-
 ## fair2s:ChangeLogShape
 *Targets:* `schema:UpdateAction`
 
@@ -176,13 +158,27 @@
 |---|---|---|---|
 | `prov:wasRevisionOf` | `fair2s:RevisionShape` | `[0..∞]` | No |
 | `schema:datePublished` | `xsd:date` | `[1..∞]` | Yes |
-| `schema:description` | `fair2s:ChangeDescriptionShape` | `[1..∞]` | Yes |
+| `schema:description` | `xsd:string` | `[1..∞]` | Yes |
+| `fair2:newFeatures` | `xsd:string` | `[0..∞]` | No |
+| `fair2:improvements` | `xsd:string` | `[0..∞]` | No |
+| `fair2:bugFixes` | `xsd:string` | `[0..∞]` | No |
+| `fair2:otherInformation` | `xsd:string` | `[0..∞]` | No |
 
 <details><summary>Constraint notes</summary>
 
 - **prov:wasRevisionOf**: Each changelog entry may reference the previous dataset version using prov:wasRevisionOf.
 - **schema:datePublished**: Each changelog entry must include a publication date.
-- **schema:description**: Each changelog entry must include a structured description of changes.
+- **schema:description**: A human-readable summary of the update, as a string.
+- **fair2:newFeatures / fair2:improvements / fair2:bugFixes / fair2:otherInformation**: Change categories, each a list of strings.
+
+!!! note "Changed in v1.4.0"
+    Up to v1.3.0 `schema:description` on a changelog entry took a structured
+    object (`fair2s:ChangeDescriptionShape`) carrying the four categories as
+    sub-properties. [`schema:description`](https://schema.org/description)
+    takes `Text`, so that shape was a type mismatch with the vocabulary it
+    borrows from, and at the RDF level it asserted that the update's
+    *description* is a thing with new-features and bug-fixes. The categories
+    are now sibling properties on the `UpdateAction` itself.
 
 </details>
 

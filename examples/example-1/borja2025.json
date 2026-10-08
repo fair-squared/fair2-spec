@@ -1000,64 +1000,57 @@
         {
           "@type": "schema:UpdateAction",
           "datePublished": "2025-03-03",
-          "schema:description": {
-            "newFeatures": [
-              "First official release of the dataset.",
-              "Data covering the period 1995-2023.",
-              "Metadata following Croissant v1.0 and FAIR² Spec v0.1.0-beta standards."
-            ],
-            "improvements": [
-              "Standarized metadata structure for interoperability.",
-              "Enhanced documentation for better usability."
-            ],
-            "bugFixes": [
-              "Removed minor formatting inconsistencies in metadata fields."
-            ],
-            "otherInformation": [
-              "License: ODC-By v1.0",
-              "Data Package DOI: 10.71728/r1rj-f947"
-            ]
-          }
+          "description": "First official release, covering 1995-2023, with metadata following Croissant v1.0 and the FAIR2 specification.",
+          "newFeatures": [
+            "First official release of the dataset.",
+            "Data covering the period 1995-2023.",
+            "Metadata following Croissant v1.0 and FAIR² Spec v0.1.0-beta standards."
+          ],
+          "improvements": [
+            "Standarized metadata structure for interoperability.",
+            "Enhanced documentation for better usability."
+          ],
+          "bugFixes": [
+            "Removed minor formatting inconsistencies in metadata fields."
+          ],
+          "otherInformation": [
+            "License: ODC-By v1.0",
+            "Data Package DOI: 10.71728/r1rj-f947"
+          ]
         },
         {
           "@type": "schema:UpdateAction",
           "datePublished": "2025-03-12",
+          "description": "Data article metadata reworked, with corrected dates and contribution roles added.",
           "wasRevisionOf": {
             "identifier": "https://doi.org/10.71728/r1rj-f947",
             "version": "1.0"
           },
-          "schema:description": {
-            "newFeatures": [],
-            "improvements": [
-              "Updated schema structure to improve the data article metadata."
-            ],
-            "bugFixes": [
-              "Correct publication and creation dates.",
-              "Include contrubution roles in the metadata of the data package."
-            ],
-            "otherInformation": []
-          }
+          "improvements": [
+            "Updated schema structure to improve the data article metadata."
+          ],
+          "bugFixes": [
+            "Correct publication and creation dates.",
+            "Include contrubution roles in the metadata of the data package."
+          ]
         },
         {
           "@type": "schema:UpdateAction",
           "datePublished": "2025-11-19",
+          "description": "Alignment with the current FAIR2 specification: richer spatial and temporal coverage for Google Dataset Search, DUA metadata, and the FAIR2 namespace used throughout.",
           "wasRevisionOf": {
             "identifier": "https://doi.org/10.71728/r1rj-f947",
             "version": "1.1"
           },
-          "schema:description": {
-            "newFeatures": [],
-            "improvements": [
-              "Updated schema structure to better align with the latest version of the FAIR² specifications",
-              "Enhanced spatial and temporal coverage details for Google Dataset Search compliance",
-              "Added DUA metadata"
-            ],
-            "bugFixes": [
-              "Include @language in the @context to comply with new Croissant requirements.",
-              "Use FAIR² namespace for all FAIR² specific properties."
-            ],
-            "otherInformation": []
-          }
+          "improvements": [
+            "Updated schema structure to better align with the latest version of the FAIR² specifications",
+            "Enhanced spatial and temporal coverage details for Google Dataset Search compliance",
+            "Added DUA metadata"
+          ],
+          "bugFixes": [
+            "Include @language in the @context to comply with new Croissant requirements.",
+            "Use FAIR² namespace for all FAIR² specific properties."
+          ]
         }
       ],
       "citation": "https://doi.org/10.3389/focsu.2024.1528837",

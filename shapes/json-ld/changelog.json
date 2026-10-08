@@ -6,70 +6,38 @@
         "fair2": "https://fair2.ai/ns/",
         "xsd": "http://www.w3.org/2001/XMLSchema#",
         "prov": "http://www.w3.org/ns/prov#",
-        "sh:path": {
-            "@type": "@id"
-        },
-        "sh:node": {
-            "@type": "@id"
-        },
-        "sh:targetClass": {
-            "@type": "@id"
-        },
-        "sh:datatype": {
-            "@type": "@id"
-        }
+        "sh:path": { "@type": "@id" },
+        "sh:node": { "@type": "@id" },
+        "sh:targetClass": { "@type": "@id" },
+        "sh:datatype": { "@type": "@id" }
     },
-    "@id": "fair2s:UpdateActionShape",
-    "@type": "sh:NodeShape",
-    "sh:targetClass": "schema:UpdateAction",
-    "sh:property": [
+    "@graph": [
         {
-            "sh:path": "schema:datePublished",
-            "sh:datatype": "xsd:date",
-            "sh:minCount": 1
+            "@id": "fair2s:UpdateActionShape",
+            "@type": "sh:NodeShape",
+            "sh:targetClass": "schema:UpdateAction",
+            "sh:property": [
+                { "sh:path": "schema:datePublished", "sh:datatype": "xsd:date", "sh:minCount": 1 },
+                {
+                    "sh:path": "schema:description",
+                    "sh:minCount": 1,
+                    "sh:node": "fair2s:TextShape",
+                    "sh:description": "A human-readable summary of the update. schema:description takes Text; the change categories below are siblings, not sub-properties of it."
+                },
+                { "sh:path": "fair2:newFeatures", "sh:node": "fair2s:TextShape" },
+                { "sh:path": "fair2:improvements", "sh:node": "fair2s:TextShape" },
+                { "sh:path": "fair2:bugFixes", "sh:node": "fair2s:TextShape" },
+                { "sh:path": "fair2:otherInformation", "sh:node": "fair2s:TextShape" },
+                { "sh:path": "prov:wasRevisionOf", "sh:node": "fair2s:VersionReferenceShape" }
+            ]
         },
         {
-            "sh:path": "schema:description",
-            "sh:minCount": 1,
-            "sh:node": {
-                "@id": "fair2s:UpdateDescriptionShape",
-                "@type": "sh:NodeShape",
-                "sh:property": [
-                    {
-                        "sh:path": "fair2:newFeatures",
-                        "sh:node": "fair2s:TextShape"
-                    },
-                    {
-                        "sh:path": "fair2:improvements",
-                        "sh:node": "fair2s:TextShape"
-                    },
-                    {
-                        "sh:path": "fair2:bugFixes",
-                        "sh:node": "fair2s:TextShape"
-                    },
-                    {
-                        "sh:path": "fair2:otherInformation",
-                        "sh:node": "fair2s:TextShape"
-                    }
-                ]
-            }
-        },
-        {
-            "sh:path": "prov:wasRevisionOf",
-            "sh:node": {
-                "@id": "fair2s:VersionReferenceShape",
-                "@type": "sh:NodeShape",
-                "sh:property": [
-                    {
-                        "sh:path": "schema:identifier",
-                        "sh:node": "fair2s:IdentifierShape"
-                    },
-                    {
-                        "sh:path": "schema:version",
-                        "sh:node": "fair2s:TextShape"
-                    }
-                ]
-            }
+            "@id": "fair2s:VersionReferenceShape",
+            "@type": "sh:NodeShape",
+            "sh:property": [
+                { "sh:path": "schema:identifier", "sh:node": "fair2s:IdentifierShape" },
+                { "sh:path": "schema:version", "sh:node": "fair2s:TextShape" }
+            ]
         }
     ]
 }
