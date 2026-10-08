@@ -92,8 +92,14 @@
     "Float": {
       "@id": "schema:Float"
     },
+    "GeoCoordinates": {
+      "@id": "schema:GeoCoordinates"
+    },
     "GeoShape": {
       "@id": "schema:GeoShape"
+    },
+    "Grant": {
+      "@id": "schema:Grant"
     },
     "HowTo": {
       "@id": "schema:HowTo"
@@ -204,7 +210,7 @@
       "@id": "schema:articleBody"
     },
     "atLocation": {
-      "@id": "schema:atLocation"
+      "@id": "prov:atLocation"
     },
     "attachment": {
       "@id": "fair2:attachment"
@@ -351,7 +357,7 @@
       "@type": "xsd:date"
     },
     "dateUpdated": {
-      "@id": "schema:dateUpdated",
+      "@id": "schema:dateModified",
       "@type": "xsd:date"
     },
     "department": {
@@ -403,7 +409,7 @@
       "@id": "schema:funding"
     },
     "fundingScheme": {
-      "@id": "schema:fundingScheme"
+      "@id": "fair2:fundingScheme"
     },
     "generated": {
       "@id": "fair2:generated"

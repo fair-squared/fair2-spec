@@ -366,3 +366,10 @@ fair2:validationReport a rdf:Property ;
   schema:domainIncludes fair2:Certification ;
   schema:rangeIncludes schema:URL ;
   vs:term_status "stable" .
+
+fair2:fundingScheme a rdf:Property ;
+  rdfs:label "fundingScheme" ;
+  rdfs:comment "The funding programme a grant was awarded under. schema.org defines FundingScheme as a class but has no property of that name." ;
+  schema:domainIncludes schema:Grant ;
+  schema:rangeIncludes schema:FundingScheme ;
+  vs:term_status "stable" .

@@ -70,7 +70,7 @@ fair2s:DatasetShape
 
     sh:property [ sh:path schema:dateCreated ; sh:datatype xsd:date ] ;
     sh:property [ sh:path schema:datePublished ; sh:datatype xsd:date ] ;
-    sh:property [ sh:path schema:dateUpdated ; sh:datatype xsd:date ] ;
+    sh:property [ sh:path schema:dateModified ; sh:datatype xsd:date ] ;
     sh:property [ sh:path fair2:changeLog ; sh:node fair2s:UpdateActionShape ] ;
     sh:property [ sh:path schema:subjectOf ; sh:node fair2s:CreativeWorkShape ] ;
     sh:property [ sh:path fair2:domain ; sh:node fair2s:DomainShape ] ;

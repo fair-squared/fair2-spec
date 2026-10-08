@@ -30,6 +30,7 @@ TURTLE_DIR = ROOT / "shapes" / "turtle"
 JSONLD_DIR = ROOT / "shapes" / "json-ld"
 ONTOLOGY = ROOT / "ontologies" / "fair2_ontology.ttl"
 ONTOLOGY_DOC = ROOT / "docs" / "specification" / "fair2-ontology.md"
+SCHEMAORG_TERMS = Path(__file__).resolve().parent / "schemaorg-terms.json"
 CONTEXT = ROOT / "context" / "metadata" / "fair2_context.json"
 EXAMPLES = ROOT / "examples"
 
@@ -121,6 +122,70 @@ def check_context_coercions(ctx_inline: dict) -> None:
         fail("context",
              "term definitions coerce @type to a class IRI (use @id, or declare "
              "rdfs:subClassOf in the ontology instead):", offenders)
+
+
+def check_schemaorg_terms_exist(ctx_inline: dict) -> None:
+    """A term bound to schema:X must be a term schema.org actually has.
+
+    Prefix expansion is syntactic, so `schema:dateUpdated` expands to a
+    plausible IRI that resolves to nothing and joins to nothing, and every
+    processor stays silent. Needs tools/schemaorg-terms.json; regenerate it
+    with tools/fetch_schemaorg_terms.py.
+    """
+    if not SCHEMAORG_TERMS.exists():
+        print(f"  [skip] {SCHEMAORG_TERMS.name} absent — run tools/fetch_schemaorg_terms.py "
+              f"to enable the schema.org term check")
+        return
+    known = set(json.loads(SCHEMAORG_TERMS.read_text())["terms"])
+    offenders = []
+    for term, defn in ctx_inline.items():
+        iri = defn.get("@id") if isinstance(defn, dict) else defn
+        if isinstance(iri, str) and iri.startswith("schema:"):
+            name = iri.split(":", 1)[1]
+            if name not in known:
+                offenders.append(f"{term} -> {iri} (no such schema.org term)")
+    if offenders:
+        fail("context", "terms bound to schema.org URIs that do not exist:", offenders)
+
+
+def check_types_are_mapped() -> None:
+    """Every @type value in an example must resolve through the context.
+
+    An unmapped @type is not caught by undefined-term policies, which govern
+    properties. With @vocab set it becomes https://schema.org/<Type>; without
+    one it resolves against @base into the document's own namespace. Either
+    way the node carries a type that means nothing.
+    """
+    for path in example_files():
+        doc = json.loads(path.read_text())
+        ctx = doc.get("@context")
+        if not isinstance(ctx, dict):
+            continue
+        defined = {k for k in ctx if not k.startswith("@")}
+        prefixes = {k for k, v in ctx.items() if isinstance(v, str) and v.startswith("http")}
+        unmapped: set[str] = set()
+
+        def walk(node) -> None:
+            if isinstance(node, dict):
+                types = node.get("@type")
+                for t in ([types] if isinstance(types, str) else types or []):
+                    if not isinstance(t, str) or t.startswith("@"):
+                        continue
+                    if ":" in t:
+                        if t.split(":", 1)[0] not in prefixes:
+                            unmapped.add(t)
+                    elif t not in defined:
+                        unmapped.add(t)
+                for value in node.values():
+                    walk(value)
+            elif isinstance(node, list):
+                for item in node:
+                    walk(item)
+
+        walk({k: v for k, v in doc.items() if k != "@context"})
+        if unmapped:
+            fail("context", f"{path.relative_to(ROOT)} uses @type values the context does not map:",
+                 sorted(unmapped))
 
 
 def check_shape_mirrors() -> None:
@@ -227,6 +292,8 @@ def main() -> int:
     check_term_coverage(shapes, ctx_inline, ctx_fair2)
     check_ontology_documented()
     check_context_coercions(ctx_inline)
+    check_schemaorg_terms_exist(ctx_inline)
+    check_types_are_mapped()
     check_shape_mirrors()
     check_example_contexts(ctx_inline)
     check_no_vocab_fallthrough()

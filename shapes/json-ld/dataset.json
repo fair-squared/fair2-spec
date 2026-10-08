@@ -118,7 +118,7 @@
             "sh:datatype": "xsd:date"
         },
         {
-            "sh:path": "schema:dateUpdated",
+            "sh:path": "schema:dateModified",
             "sh:datatype": "xsd:date"
         },
         {
