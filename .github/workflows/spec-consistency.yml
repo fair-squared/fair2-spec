@@ -1,0 +1,37 @@
+name: Spec consistency
+
+# The SHACL shapes are the source of truth. This fails the build whenever the
+# ontology, the JSON-LD context, the JSON-LD shape mirrors or the examples stop
+# agreeing with them — so a shape change cannot land without its ontology and
+# context updates.
+on:
+  push:
+    branches: ['**']
+    paths:
+      - 'shapes/**'
+      - 'ontologies/**'
+      - 'context/**'
+      - 'examples/**'
+      - 'tools/**'
+      - '.github/workflows/spec-consistency.yml'
+  pull_request:
+    paths:
+      - 'shapes/**'
+      - 'ontologies/**'
+      - 'context/**'
+      - 'examples/**'
+      - 'tools/**'
+      - '.github/workflows/spec-consistency.yml'
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install
+        run: pip install 'rdflib>=7.0' 'pyshacl>=0.26'
+      - name: Check ontology, context, shape mirrors and examples
+        run: python tools/check_spec_consistency.py

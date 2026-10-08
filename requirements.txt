@@ -1,5 +1,4 @@
 mkdocs==1.5.3
 mkdocs-material==9.5.13
-pyshacl==0.20.3
-rdflib==6.3.2
-rdflib-jsonld==0.6.2
+pyshacl>=0.26
+rdflib>=7.0

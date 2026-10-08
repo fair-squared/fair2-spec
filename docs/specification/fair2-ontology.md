@@ -43,6 +43,12 @@ The following classes define the core conceptual entities in FAIR². Each class 
 | `fair2:Visualization` | Visualization | A visual artifact (plot, figure, dashboard) derived from the dataset. | `schema:CreativeWork` |
 | `fair2:DescriptiveStatistics` | DescriptiveStatistics | Summary statistics computed over a RecordSet or Dataset. | `schema:Dataset` |
 | `fair2:Submission` | Submission | Submission package that groups dataset, article, and supporting materials for review. | `schema:CreativeWork` |
+| `fair2:Audience` | Audience | Intended audience for a dataset or article. | `schema:Audience` |
+| `fair2:Certification` | Certification | Pointer node asserting the FAIR² certification or validation status of a package, and referencing the external credential. | `schema:CreativeWork` |
+| `fair2:ExperimentDataset` | ExperimentDataset | A dataset produced by an experiment, as distinct from an observational or derived one. Applied as an additional type alongside schema:Dataset. | `schema:Dataset` |
+| `fair2:OpenDataArticleSection` | OpenDataArticleSection | A titled section of an open data article. | `schema:CreativeWork` |
+| `fair2:Role` | Role | A role played by an agent in relation to a dataset or article. | `schema:Role` |
+| `fair2:StepCase` | StepCase | Conditional branch within a method, carrying the condition and the path taken when it holds. Sits in the same fair2:step list as a Step. | `schema:HowToStep` |
 
 ---
 
@@ -83,6 +89,14 @@ The FAIR² properties define relationships between datasets, methods, contributo
 | `fair2:variables` | variables | Lists variable or feature definitions referenced by an analysis or record set. |
 | `fair2:visualization` | visualization | Links to a visualization derived from the dataset or record set. |
 
+| `fair2:certificationDocument` | certificationDocument | Reference to the external credential document backing the certification. |
+| `fair2:certificationScope` | certificationScope | What the certification covers (e.g. metadata-conformance, data-integrity). |
+| `fair2:certifiedBy` | certifiedBy | The organisation issuing the certification. |
+| `fair2:changeLog` | changeLog | Record of updates made to a dataset, article, archive or portal. |
+| `fair2:dateIssued` | dateIssued | Date the certification was issued. |
+| `fair2:fair2ComplianceLevel` | fair2ComplianceLevel | The FAIR² compliance level asserted for the package. |
+| `fair2:variable` | variable | A variable or feature definition referenced by an analysis or record set. Singular form of fair2:variables. |
+| `fair2:verificationEndpoint` | verificationEndpoint | Endpoint at which the certification can be verified. |
 ---
 
 ## Notes

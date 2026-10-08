@@ -10,6 +10,7 @@
     "fair2": "https://fair2.ai/ns/",
     "fair2s": "https://fair2.ai/shapes/",
     "prov": "http://www.w3.org/ns/prov#",
+    "qudt": "http://qudt.org/schema/qudt/",
     "rai": "http://mlcommons.org/croissant/RAI/",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     "schema": "https://schema.org/",
@@ -44,8 +45,7 @@
       "@id": "fair2:DataArchive"
     },
     "DataArticle": {
-      "@id": "fair2:DataArticle",
-      "@type": "schema:ScholarlyArticle"
+      "@id": "fair2:DataArticle"
     },
     "DataDownload": {
       "@id": "schema:DataDownload"
@@ -81,8 +81,7 @@
       "@id": "schema:Event"
     },
     "ExperimentDataset": {
-      "@id": "fair2:ExperimentDataset",
-      "@type": "schema:Dataset"
+      "@id": "fair2:ExperimentDataset"
     },
     "Field": {
       "@id": "cr:Field"
@@ -118,8 +117,7 @@
       "@id": "schema:Offer"
     },
     "OpenDataArticleSection": {
-      "@id": "fair2:OpenDataArticleSection",
-      "@type": "schema:Text"
+      "@id": "fair2:OpenDataArticleSection"
     },
     "Organization": {
       "@id": "schema:Organization"
@@ -152,8 +150,7 @@
       "@id": "schema:ScholarlyArticle"
     },
     "Section": {
-      "@id": "fair2:Section",
-      "@type": "schema:HowToSection"
+      "@id": "fair2:Section"
     },
     "SoftwareAgent": {
       "@id": "prov:SoftwareAgent"
@@ -162,8 +159,10 @@
       "@id": "schema:SoftwareSourceCode"
     },
     "Step": {
-      "@id": "fair2:Step",
-      "@type": "schema:HowToStep"
+      "@id": "fair2:Step"
+    },
+    "StepCase": {
+      "@id": "fair2:StepCase"
     },
     "Submission": {
       "@id": "fair2:Submission"
@@ -353,6 +352,9 @@
     "dateUpdated": {
       "@id": "schema:dateUpdated",
       "@type": "xsd:date"
+    },
+    "department": {
+      "@id": "schema:department"
     },
     "definition": {
       "@id": "skos:definition"
@@ -562,7 +564,7 @@
       "@id": "fair2:substep"
     },
     "symbol": {
-      "@id": "schema:symbol"
+      "@id": "qudt:symbol"
     },
     "temporalCoverage": {
       "@id": "schema:temporalCoverage"
@@ -585,14 +587,14 @@
     },
     "variable": {
       "@id": "fair2:variable",
-      "@type": "schema:DefinedTermSet"
+      "@type": "@id"
     },
     "variableMeasured": {
       "@id": "schema:variableMeasured"
     },
     "variables": {
       "@id": "fair2:variables",
-      "@type": "schema:DefinedTermSet"
+      "@type": "@id"
     },
     "verificationEndpoint": {
       "@id": "fair2:verificationEndpoint"
@@ -617,7 +619,12 @@
     },
     "wasRevisionOf": {
       "@id": "prov:wasRevisionOf"
-    }
+    },
+    "uri": "@id",
+    "identifier": {
+      "@id": "schema:identifier"
+    },
+    "_meta": null
   },
   "_meta": {
     "conformsTo": "https://fair2.ai/spec/v1.3.0",
@@ -762,12 +769,12 @@
               "@id": "/organizations/5dacfbe0-deb1-40d8-95fb-40c072074a18",
               "@type": "Organization",
               "address": "48940 Leioa, Spain",
-              "departament": {
+              "name": "University of the Basque Country (UPV/EHU)",
+              "department": {
                 "@id": "/organizations/7492635b-c545-454c-9dd5-fca827c8d056",
                 "@type": "Organization",
                 "name": "Department of Plant Biology and Ecology"
-              },
-              "name": "University of the Basque Country (UPV/EHU)"
+              }
             }
           ],
           "identifier": "https://orcid.org/0000-0001-8311-2603",

@@ -130,3 +130,192 @@ fair2:dataArchive a rdf:Property ;
 fair2:generated a rdf:Property ;
   rdfs:label "generated" ;
   rdfs:comment "Links a method step to the RecordSet fields or artifacts it produced (lineage)." .
+
+# ---------------------------------------------------------------------------
+# Terms used by the SHACL shapes and the JSON-LD context that were previously
+# undeclared here. Domain/range use schema:domainIncludes and
+# schema:rangeIncludes (union semantics) rather than rdfs:domain/rdfs:range,
+# whose multiple values are read as an intersection — wrong for properties
+# such as fair2:next and fair2:changeLog, which apply to several classes.
+# ---------------------------------------------------------------------------
+
+## Classes
+
+fair2:Section a rdfs:Class ;
+  rdfs:label "Section" ;
+  rdfs:comment "Structured methodology section grouping procedural steps. Target of fair2s:MethodSectionShape; fair2:MethodSection is a legacy alias." ;
+  rdfs:subClassOf schema:HowToSection .
+
+fair2:StepCase a rdfs:Class ;
+  rdfs:label "StepCase" ;
+  rdfs:comment "Conditional branch within a method, carrying the condition and the path taken when it holds. Sits in the same fair2:step list as a Step." ;
+  rdfs:subClassOf schema:HowToStep .
+
+fair2:Certification a rdfs:Class ;
+  rdfs:label "Certification" ;
+  rdfs:comment "Pointer node asserting the FAIR² certification or validation status of a package, and referencing the external credential." ;
+  rdfs:subClassOf schema:CreativeWork .
+
+fair2:DataArticle a rdfs:Class ;
+  rdfs:label "DataArticle" ;
+  rdfs:comment "Scholarly article describing a dataset, its methods and its reuse." ;
+  rdfs:subClassOf schema:ScholarlyArticle .
+
+fair2:ExperimentDataset a rdfs:Class ;
+  rdfs:label "ExperimentDataset" ;
+  rdfs:comment "A dataset produced by an experiment, as distinct from an observational or derived one. Applied as an additional type alongside schema:Dataset." ;
+  rdfs:subClassOf schema:Dataset .
+
+fair2:OpenDataArticleSection a rdfs:Class ;
+  rdfs:label "OpenDataArticleSection" ;
+  rdfs:comment "A titled section of an open data article." ;
+  rdfs:subClassOf schema:CreativeWork .
+
+fair2:Role a rdfs:Class ;
+  rdfs:label "Role" ;
+  rdfs:comment "A role played by an agent in relation to a dataset or article." ;
+  rdfs:subClassOf schema:Role .
+
+fair2:AuthorRole a rdfs:Class ;
+  rdfs:label "AuthorRole" ;
+  rdfs:comment "Role played by an author in producing the dataset (e.g. Corresponding Author)." ;
+  rdfs:subClassOf fair2:Role .
+
+fair2:ContributorRole a rdfs:Class ;
+  rdfs:label "ContributorRole" ;
+  rdfs:comment "Contributor role drawn from the CRediT or CRO vocabularies." ;
+  rdfs:subClassOf fair2:Role .
+
+fair2:Audience a rdfs:Class ;
+  rdfs:label "Audience" ;
+  rdfs:comment "Intended audience for a dataset or article." ;
+  rdfs:subClassOf schema:Audience .
+
+## Method properties
+
+fair2:methodSection a rdf:Property ;
+  rdfs:label "methodSection" ;
+  rdfs:comment "Links a dataset to a methodology section." ;
+  schema:domainIncludes schema:Dataset ;
+  schema:rangeIncludes fair2:Section .
+
+fair2:substep a rdf:Property ;
+  rdfs:label "substep" ;
+  rdfs:comment "Nests a subordinate procedural instruction under a Step." ;
+  schema:domainIncludes fair2:Step ;
+  schema:rangeIncludes fair2:Substep .
+
+fair2:next a rdf:Property ;
+  rdfs:label "next" ;
+  rdfs:comment "References the following element in a method sequence, so order does not depend on array position." ;
+  schema:domainIncludes fair2:Section, fair2:Step, fair2:Substep, fair2:StepCase ;
+  schema:rangeIncludes fair2:Section, fair2:Step, fair2:Substep, fair2:StepCase .
+
+fair2:nextTrue a rdf:Property ;
+  rdfs:label "nextTrue" ;
+  rdfs:comment "The path taken when a StepCase condition holds." ;
+  schema:domainIncludes fair2:StepCase ;
+  schema:rangeIncludes fair2:Step .
+
+fair2:qualifiedUsage a rdf:Property ;
+  rdfs:label "qualifiedUsage" ;
+  rdfs:comment "The condition governing a StepCase, as a string expression." ;
+  schema:domainIncludes fair2:StepCase ;
+  schema:rangeIncludes schema:Text .
+
+## Certification properties
+
+fair2:certifiedBy a rdf:Property ;
+  rdfs:label "certifiedBy" ;
+  rdfs:comment "The organisation issuing the certification." ;
+  schema:domainIncludes fair2:Certification ;
+  schema:rangeIncludes schema:Organization .
+
+fair2:dateIssued a rdf:Property ;
+  rdfs:label "dateIssued" ;
+  rdfs:comment "Date the certification was issued." ;
+  schema:domainIncludes fair2:Certification ;
+  schema:rangeIncludes schema:Date .
+
+fair2:fair2ComplianceLevel a rdf:Property ;
+  rdfs:label "fair2ComplianceLevel" ;
+  rdfs:comment "The FAIR² compliance level asserted for the package." ;
+  schema:domainIncludes fair2:Certification ;
+  schema:rangeIncludes schema:URL .
+
+fair2:certificationDocument a rdf:Property ;
+  rdfs:label "certificationDocument" ;
+  rdfs:comment "Reference to the external credential document backing the certification." ;
+  schema:domainIncludes fair2:Certification ;
+  schema:rangeIncludes schema:URL .
+
+fair2:certificationScope a rdf:Property ;
+  rdfs:label "certificationScope" ;
+  rdfs:comment "What the certification covers (e.g. metadata-conformance, data-integrity)." ;
+  schema:domainIncludes fair2:Certification ;
+  schema:rangeIncludes schema:Text .
+
+fair2:verificationEndpoint a rdf:Property ;
+  rdfs:label "verificationEndpoint" ;
+  rdfs:comment "Endpoint at which the certification can be verified." ;
+  schema:domainIncludes fair2:Certification ;
+  schema:rangeIncludes schema:URL .
+
+## Change-log properties
+
+fair2:changeLog a rdf:Property ;
+  rdfs:label "changeLog" ;
+  rdfs:comment "Record of updates made to a dataset, article, archive or portal." ;
+  schema:domainIncludes schema:Dataset, schema:ScholarlyArticle, fair2:DataArchive, fair2:DataPortal ;
+  schema:rangeIncludes schema:UpdateAction .
+
+fair2:newFeatures a rdf:Property ;
+  rdfs:label "newFeatures" ;
+  rdfs:comment "Additions introduced by a change-log entry. Appears on the description node of a schema:UpdateAction." ;
+  schema:rangeIncludes schema:Text .
+
+fair2:improvements a rdf:Property ;
+  rdfs:label "improvements" ;
+  rdfs:comment "Refinements introduced by a change-log entry. Appears on the description node of a schema:UpdateAction." ;
+  schema:rangeIncludes schema:Text .
+
+fair2:bugFixes a rdf:Property ;
+  rdfs:label "bugFixes" ;
+  rdfs:comment "Corrections introduced by a change-log entry. Appears on the description node of a schema:UpdateAction." ;
+  schema:rangeIncludes schema:Text .
+
+fair2:otherInformation a rdf:Property ;
+  rdfs:label "otherInformation" ;
+  rdfs:comment "Remaining notes for a change-log entry. Appears on the description node of a schema:UpdateAction." ;
+  schema:rangeIncludes schema:Text .
+
+## Dataset and field properties
+
+fair2:domain a rdf:Property ;
+  rdfs:label "domain" ;
+  rdfs:comment "Subject domain classifying the dataset." ;
+  schema:domainIncludes schema:Dataset ;
+  schema:rangeIncludes schema:Thing .
+
+fair2:citationKey a rdf:Property ;
+  rdfs:label "citationKey" ;
+  rdfs:comment "Short citation key for the dataset (e.g. a BibTeX key)." ;
+  schema:domainIncludes schema:Dataset ;
+  schema:rangeIncludes schema:Text .
+
+fair2:isExperimentRelated a rdf:Property ;
+  rdfs:label "isExperimentRelated" ;
+  rdfs:comment "Whether a field records an experimental observation rather than descriptive metadata." ;
+  schema:domainIncludes cr:Field ;
+  schema:rangeIncludes schema:Boolean .
+
+fair2:unit a rdf:Property ;
+  rdfs:label "unit" ;
+  rdfs:comment "Unit of measurement for a field, referenced by its QUDT IRI." ;
+  schema:domainIncludes cr:Field ;
+  schema:rangeIncludes qudt:Unit .
+
+fair2:variable a rdf:Property ;
+  rdfs:label "variable" ;
+  rdfs:comment "A variable or feature definition referenced by an analysis or record set. Singular form of fair2:variables." ;
+  schema:rangeIncludes schema:DefinedTerm .
