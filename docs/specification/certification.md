@@ -178,48 +178,102 @@ trademark licence.
 ### Registry format
 
 The registry is a JSON-LD document published at
-`https://fair2.ai/certifiers/registry.json`. Each entry carries the
-certifier's DID, organisation name, licence tier, allowed certification
-scope, and validity period.
+`https://fair2.ai/certifiers/registry.json` and signed with the governance
+body's DID. Schema at
+[`schemas/certifier-registry.schema.json`](https://github.com/fair-squared/fair2-spec/blob/main/schemas/certifier-registry.schema.json),
+example at
+[`examples/credentials/certifier-registry.json`](https://github.com/fair-squared/fair2-spec/blob/main/examples/credentials/certifier-registry.json).
 
-!!! warning "Formats not yet published"
-    The credential document and the registry do not yet have published
-    schemas or examples. The governance decisions they depend on are settled
-    (see below) and the formats follow from them: `fair2-cert.json` will be a
-    W3C Verifiable Credential (VC Data Model 2.0) with the certifier's DID as
-    `issuer`, carrying `validFrom` and no `validUntil` per Decision C, and
-    revocation through a Bitstring Status List. Implementers should not build
-    against the exact shape until it is published. The `Certification`
-    pointer node inside `fair2.json`, described above, is stable.
+```json
+{
+  "type": "FAIR2CertifierRegistry",
+  "issuer": "did:web:fair2.ai",
+  "updated": "2026-04-01T00:00:00Z",
+  "certifiers": [
+    {
+      "id": "did:web:sen.science",
+      "name": "SENSCIENCE",
+      "identifier": "https://ror.org/02wn5qz54",
+      "licenceTier": "commercial",
+      "allowedScopes": ["metadataConformance", "dataIntegrity", "licenseVerification",
+                        "processAttestation", "temporalProof"],
+      "validFrom": "2026-01-01",
+      "validUntil": "2026-12-31",
+      "status": "active"
+    }
+  ],
+  "proof": { "type": "DataIntegrityProof", "cryptosuite": "eddsa-jcs-2022", "...": "..." }
+}
+```
 
+**The verifier rule.** A certifier's authority is checked **at the
+credential's `validFrom`**, not at verification time. An entry whose
+`validUntil` has passed does not invalidate credentials it issued while it
+was active — those end only by revocation or by the package changing. A
+credential whose `certificationScope` exceeds the issuer's `allowedScopes`
+at that date does not verify.
 
----
+Note the asymmetry with Decision C: **authority expires, certifications do
+not.** Entries are renewed annually.
 
-## Verifying a certification
+### `fair2-cert.json`
 
-Given a `Certification` pointer node in a `fair2.json`:
+The credential is a **W3C Verifiable Credential** (VC Data Model 2.0),
+schema at [`schemas/fair2-cert.schema.json`](https://github.com/fair-squared/fair2-spec/blob/main/schemas/fair2-cert.schema.json),
+worked example at
+[`examples/credentials/fair2-cert.json`](https://github.com/fair-squared/fair2-spec/blob/main/examples/credentials/fair2-cert.json).
 
-1. **Resolve the issuer.** Fetch `certificationDocument`, read its `issuer`
-   DID, and resolve the DID document to obtain the signing key.
-2. **Check authority at the issuance date.** Fetch the
-   [certifier registry](#registry-format) and confirm the issuer DID has an
-   entry whose `validFrom`/`validUntil` span the credential's `validFrom`,
-   and whose `allowedScopes` cover the declared `certificationScope`.
-   Authority is checked at **issuance**, not at verification time — a
-   certification issued while the certifier was authorised stays valid after
-   that authority lapses (Decision C).
-3. **Verify the proof** on the credential against the resolved key.
-4. **Check revocation** through the credential's `credentialStatus`
-   Bitstring Status List. There is no expiry to check; `validUntil` is
-   deliberately absent.
-5. **Recompute the digests** and compare, in the order given under
-   [What a certification is bound to](#what-a-certification-is-bound-to):
-   the byte digest first, the graph digest only if it fails.
+```json
+{
+  "@context": ["https://www.w3.org/ns/credentials/v2", "https://fair2.ai/context/v1.4.0"],
+  "type": ["VerifiableCredential", "FAIR2CertificationCredential"],
+  "issuer": "did:web:sen.science",
+  "validFrom": "2026-04-16T09:30:00Z",
+  "credentialSubject": {
+    "id": "https://doi.org/10.71728/r1rj-f947",
+    "certifiedDocument": "https://sen.science/doi/10.71728/r1rj-f947/fair2.json",
+    "conformsTo": "https://fair2.ai/spec/v1.4.0",
+    "metadataVersion": "1.0.0",
+    "digestMultibase": "u...",
+    "graphDigestMultibase": "u...",
+    "fair2ComplianceLevel": "fair2:Certified",
+    "certificationScope": ["metadataConformance", "dataIntegrity"]
+  },
+  "credentialStatus": {
+    "type": "BitstringStatusListEntry",
+    "statusPurpose": "revocation",
+    "statusListIndex": "4812",
+    "statusListCredential": "https://sen.science/certifications/status/1"
+  },
+  "proof": { "type": "DataIntegrityProof", "cryptosuite": "eddsa-jcs-2022", "...": "..." }
+}
+```
 
-A **FAIR²-Validated** claim is verified differently, because it has no
-issuer and no credential: re-run the validator named in `wasGeneratedBy`
-against the profile named in `conformsTo`, and compare with
-`validationReport`. It cannot be revoked — only contradicted.
+Three things follow from the decisions rather than from the VC model:
+
+- **`validUntil` is forbidden**, not merely optional (Decision C). The schema
+  rejects it. A certification ends by revocation or by the package changing.
+- **`credentialSubject.certifiedDocument`** names the digested file by URL.
+  "fair2.json" alone is ambiguous — a FAIR² *governance* document uses the
+  same filename and a disjoint vocabulary. The digests cover the metadata
+  document described by this specification.
+- **`eddsa-jcs-2022`** is the cryptosuite, matching the rest of the FAIR²
+  credential stack. Note this canonicalises the *credential* for signing; it
+  is unrelated to how the payload digests are computed.
+
+### How the pointer node maps to it
+
+| `Certification` node in `fair2.json` | `fair2-cert.json` |
+|---|---|
+| `certifiedBy` | `issuer` (as a DID) |
+| `dateIssued` | `validFrom` |
+| `fair2ComplianceLevel` | `credentialSubject.fair2ComplianceLevel` |
+| `certificationScope` | `credentialSubject.certificationScope` |
+| `certificationDocument` | the credential's own `id` |
+| — | the digests, the status entry and the proof, which exist only in the credential |
+
+The pointer node lets a consumer read the status without fetching the
+credential; the credential is what makes it checkable.
 
 
 ---

@@ -34,6 +34,8 @@ SCHEMAORG_TERMS = Path(__file__).resolve().parent / "schemaorg-terms.json"
 CONTEXT = ROOT / "context" / "metadata" / "fair2_context.json"
 EXAMPLES = ROOT / "examples"
 CERT_FIXTURES = EXAMPLES / "certification"
+CREDENTIALS = EXAMPLES / "credentials"
+SCHEMAS = ROOT / "schemas"
 
 # Keys an individual document may add to its own copy of the shared context.
 DOCUMENT_LOCAL_CONTEXT_KEYS = {"@base", "@language"}
@@ -223,7 +225,7 @@ def example_files() -> list[Path]:
     except (subprocess.CalledProcessError, FileNotFoundError):
         candidates = sorted(EXAMPLES.rglob("*.json"))
     return [p for p in candidates
-            if p.exists() and CERT_FIXTURES not in p.parents
+            if p.exists() and CERT_FIXTURES not in p.parents and CREDENTIALS not in p.parents
             and "@context" in p.read_text()]
 
 
@@ -404,6 +406,44 @@ def check_certification_fixtures(shapes: rdflib.Graph) -> None:
             fail("fixtures", f"certification/{name}: expected {expected[name]}, got {got}")
 
 
+def check_credential_examples() -> None:
+    """The credential and registry examples must satisfy their JSON Schemas.
+
+    These are not dataset documents and not Certification nodes, so neither
+    SHACL nor mlcroissant applies; their contract is the schema under
+    schemas/.
+    """
+    if not CREDENTIALS.exists():
+        return
+    try:
+        import jsonschema
+    except ImportError:
+        print("  [skip] jsonschema not installed - credential examples unchecked")
+        return
+
+    pairs = {
+        "fair2-cert.json": "fair2-cert.schema.json",
+        "certifier-registry.json": "certifier-registry.schema.json",
+    }
+    for example in sorted(CREDENTIALS.glob("*.json")):
+        schema_name = pairs.get(example.name)
+        if schema_name is None:
+            fail("credentials", f"{example.relative_to(ROOT)} has no schema listed in the guard")
+            continue
+        schema_path = SCHEMAS / schema_name
+        if not schema_path.exists():
+            fail("credentials", f"{schema_path.relative_to(ROOT)} is missing")
+            continue
+        schema = json.loads(schema_path.read_text())
+        try:
+            jsonschema.Draft202012Validator.check_schema(schema)
+            jsonschema.validate(json.loads(example.read_text()), schema,
+                                format_checker=jsonschema.FormatChecker())
+        except Exception as exc:  # noqa: BLE001
+            first = str(exc).splitlines()[0]
+            fail("credentials", f"{example.relative_to(ROOT)} does not satisfy {schema_name}: {first[:140]}")
+
+
 def main() -> int:
     shapes = shapes_graph()
     ctx_inline, ctx_fair2 = context_terms()
@@ -420,6 +460,7 @@ def main() -> int:
     check_examples_validate(shapes)
     check_examples_load_in_mlcroissant()
     check_certification_fixtures(shapes)
+    check_credential_examples()
 
     if failures:
         print("Spec consistency check FAILED\n")

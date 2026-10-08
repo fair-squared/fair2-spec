@@ -372,3 +372,36 @@ fair2:graphDigestMultibase a rdf:Property ;
   schema:domainIncludes fair2:Certification ;
   schema:rangeIncludes schema:Text ;
   vs:term_status "stable" .
+
+fair2:FAIR2CertificationCredential a rdfs:Class ;
+  rdfs:label "FAIR2CertificationCredential" ;
+  rdfs:comment "A W3C Verifiable Credential asserting the FAIR² certification status of one exact package version. Published as fair2-cert.json and referenced by fair2:certificationDocument." ;
+  rdfs:subClassOf schema:CreativeWork ;
+  vs:term_status "stable" .
+
+fair2:FAIR2CertifierRegistry a rdfs:Class ;
+  rdfs:label "FAIR2CertifierRegistry" ;
+  rdfs:comment "The signed list of entities authorised to issue FAIR² certifications, published by the governance body." ;
+  rdfs:subClassOf schema:CreativeWork ;
+  vs:term_status "stable" .
+
+fair2:licenceTier a rdf:Property ;
+  rdfs:label "licenceTier" ;
+  rdfs:comment "The trademark licence under which a certifier operates: non-commercial or commercial." ;
+  schema:domainIncludes fair2:FAIR2CertifierRegistry ;
+  schema:rangeIncludes schema:Text ;
+  vs:term_status "stable" .
+
+fair2:allowedScopes a rdf:Property ;
+  rdfs:label "allowedScopes" ;
+  rdfs:comment "The certification scopes a certifier is authorised to assert. A credential declaring a scope outside this set does not verify." ;
+  schema:domainIncludes fair2:FAIR2CertifierRegistry ;
+  schema:rangeIncludes fair2:CertificationScope ;
+  vs:term_status "stable" .
+
+fair2:certifiedDocument a rdf:Property ;
+  rdfs:label "certifiedDocument" ;
+  rdfs:comment "The exact fair2.json a certification's digests were taken over. Stated by URL because the filename alone is ambiguous: a FAIR² governance document shares it." ;
+  schema:domainIncludes fair2:FAIR2CertificationCredential ;
+  schema:rangeIncludes schema:URL ;
+  vs:term_status "stable" .

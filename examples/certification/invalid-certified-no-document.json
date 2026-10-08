@@ -648,6 +648,23 @@
     },
     "graphDigestMultibase": {
       "@id": "fair2:graphDigestMultibase"
+    },
+    "FAIR2CertificationCredential": {
+      "@id": "fair2:FAIR2CertificationCredential"
+    },
+    "FAIR2CertifierRegistry": {
+      "@id": "fair2:FAIR2CertifierRegistry"
+    },
+    "licenceTier": {
+      "@id": "fair2:licenceTier"
+    },
+    "allowedScopes": {
+      "@id": "fair2:allowedScopes",
+      "@type": "@vocab"
+    },
+    "certifiedDocument": {
+      "@id": "fair2:certifiedDocument",
+      "@type": "@id"
     }
   },
   "@id": "https://example.org/datasets/nodoc#cert",

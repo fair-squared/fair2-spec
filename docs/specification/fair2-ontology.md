@@ -44,6 +44,8 @@ The following classes define the core conceptual entities in FAIR². Each class 
 | `fair2:StepCase` | StepCase | Conditional branch within a method, carrying the condition and the path taken when it holds. Sits in the same fair2:step list as a Step. | `schema:HowToStep` |
 | `fair2:ComplianceLevel` | ComplianceLevel | A FAIR² compliance status asserted for a package. | `skos:Concept` |
 | `fair2:CertificationScope` | CertificationScope | A facet of a package that a certification covers. | `skos:Concept` |
+| `fair2:FAIR2CertificationCredential` | FAIR2CertificationCredential | A W3C Verifiable Credential asserting a package's certification status. | `schema:CreativeWork` |
+| `fair2:FAIR2CertifierRegistry` | FAIR2CertifierRegistry | The signed list of entities authorised to issue FAIR² certifications. | `schema:CreativeWork` |
 
 ---
 
@@ -90,6 +92,9 @@ The FAIR² properties define relationships between datasets, methods, contributo
 | `fair2:metadataModified` | metadataModified | Date the `fair2.json` document was last edited. |
 | `fair2:position` | position | Ordinal position of an agent in the author list, counting from 1. |
 | `fair2:graphDigestMultibase` | graphDigestMultibase | Multihash of a `fair2.json`'s RDFC-1.0 canonical graph, companion to `sec:digestMultibase` over its bytes. |
+| `fair2:licenceTier` | licenceTier | The trademark licence a certifier operates under. |
+| `fair2:allowedScopes` | allowedScopes | The scopes a certifier is authorised to assert. |
+| `fair2:certifiedDocument` | certifiedDocument | The exact `fair2.json` a certification's digests cover. |
 ---
 
 ---

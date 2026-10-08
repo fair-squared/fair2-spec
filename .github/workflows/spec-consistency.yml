@@ -13,6 +13,7 @@ on:
       - 'context/**'
       - 'examples/**'
       - 'tools/**'
+      - 'schemas/**'
       - '.github/workflows/spec-consistency.yml'
   pull_request:
     paths:
@@ -21,6 +22,7 @@ on:
       - 'context/**'
       - 'examples/**'
       - 'tools/**'
+      - 'schemas/**'
       - '.github/workflows/spec-consistency.yml'
 
 jobs:
@@ -32,7 +34,7 @@ jobs:
         with:
           python-version: '3.12'
       - name: Install
-        run: pip install 'rdflib>=7.0' 'pyshacl>=0.26' mlcroissant
+        run: pip install 'rdflib>=7.0' 'pyshacl>=0.26' mlcroissant jsonschema
       - name: Refresh the schema.org term list
         run: python tools/fetch_schemaorg_terms.py
       - name: Check ontology, context, shape mirrors and examples
