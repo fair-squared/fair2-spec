@@ -580,7 +580,20 @@
 - A `Place` may carry a name, description, and identifier.
 - **schema:geo**: a geometry, either a `GeoShape` (bounding box / polygon) or a `GeoCoordinates` point.
 - **schema:geoWithin**: an enclosing region.
-- **schema:containsPlace**: nested Places — the shape is recursive, modelling e.g. a bounding box → convex hull → individual sampling sites.
+- **schema:containsPlace**: nested Places — the shape is recursive.
+
+!!! note "Spatial coverage is aggregate-only"
+    `spatialCoverage` describes the **extent** of a dataset, not its
+    observations. Give the bounding box, and a convex hull or polygon where
+    a tighter envelope is useful. Do **not** enumerate individual sampling
+    sites as nested `Place` nodes: their coordinates and codes already live
+    in the record sets, so the enumeration is duplicated content that scales
+    with the data rather than with the description of it. STAC, OGC CSW,
+    DataCite and Zenodo all draw the same line, and Google Dataset Search
+    indexes only the top-level `GeoShape`.
+
+    `schema:containsPlace` remains available for genuine place *hierarchies*
+    — a region containing sub-regions — not for point-level enumeration.
 
 </details>
 
