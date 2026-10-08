@@ -10340,12 +10340,12 @@
           "description": "The datasheet encompasses metadata and biodiversity data related to diverse aquatic environments. It includes information on taxonomic groups, site-specific sampling identifiers, sampling methods, and descriptions of instruments used. Examples include fish and Gillnetting, with references to specific sites like LTER_400. The data covers various descriptive fields such as taxonomic classification, site, and method details, providing a comprehensive overview of aquatic biodiversity research.",
           "field": [
             {
-              "@id": "record-sets/README/fields/SHEET",
+              "@id": "record-sets/README/fields/sheet",
               "@type": "Field",
               "dataType": "Text",
               "description": "Indicates the specific sheet within the dataset file, typically used to categorize different types of data such as metadata, biodiversity data, and method information. This field helps in organizing and distinguishing between various sections of the dataset.",
               "isExperimentRelated": false,
-              "name": "SHEET",
+              "name": "sheet",
               "source": {
                 "extract": {
                   "column": "SHEET"
@@ -10412,12 +10412,12 @@
               }
             },
             {
-              "@id": "record-sets/README/fields/DATA+TYPE",
+              "@id": "record-sets/README/fields/data_type",
               "@type": "Field",
               "dataType": "Text",
               "description": "Specifies the type of data contained in each dataset entry, such as taxonomic information, site information, or sampling date. This field is essential for understanding the nature of the data and its relevance to the study.",
               "isExperimentRelated": false,
-              "name": "DATA+TYPE",
+              "name": "data_type",
               "source": {
                 "extract": {
                   "column": "DATA TYPE"
@@ -10484,12 +10484,12 @@
               }
             },
             {
-              "@id": "record-sets/README/fields/COLUMN",
+              "@id": "record-sets/README/fields/column",
               "@type": "Field",
               "dataType": "Text",
               "description": "Represents the specific columns in the dataset, which could include taxonomic group, sampling protocol, site ID, and other parameters. This field provides clarity on what each column in the dataset represents, aiding in data analysis and interpretation.",
               "isExperimentRelated": false,
-              "name": "COLUMN",
+              "name": "column",
               "source": {
                 "extract": {
                   "column": "COLUMN"
@@ -10556,12 +10556,12 @@
               }
             },
             {
-              "@id": "record-sets/README/fields/DESCRIPTION",
+              "@id": "record-sets/README/fields/description",
               "@type": "Field",
               "dataType": "Text",
               "description": "Provides detailed descriptions for each dataset entry, offering context such as classification of taxa, sampling methods, and site-specific identifiers. This field enhances the understanding of the dataset by providing additional information about each entry.",
               "isExperimentRelated": false,
-              "name": "DESCRIPTION",
+              "name": "description",
               "source": {
                 "extract": {
                   "column": "DESCRIPTION"
@@ -10628,12 +10628,12 @@
               }
             },
             {
-              "@id": "record-sets/README/fields/EXAMPLE",
+              "@id": "record-sets/README/fields/example",
               "@type": "Field",
               "dataType": "Text",
               "description": "Offers examples of data entries, illustrating potential values for fields such as taxa classification, sampling methods, and site identifiers. This field is crucial for helping users understand the format and type of data expected in each entry.",
               "isExperimentRelated": false,
-              "name": "EXAMPLE",
+              "name": "example",
               "source": {
                 "extract": {
                   "column": "EXAMPLE"
@@ -17875,7 +17875,7 @@
           "description": "The datasheet contains information on environmental sampling protocols, detailing various taxa groups like sediments, water, and biota, alongside the instruments used, sampling protocols, and references to related documentation. Descriptions provide insights into the sampling frequency and methodology in different environments, such as coastal and estuarine areas. The data offers metadata linked to scientific studies and protocols, emphasizing the procedural aspects of environmental monitoring.",
           "field": [
             {
-              "@id": "record-sets/METHOD.csv/fields/taxagroup",
+              "@id": "record-sets/METHOD/fields/taxagroup",
               "@type": "Field",
               "alternateName": "Taxa Group",
               "dataType": "Text",
@@ -17948,7 +17948,7 @@
               }
             },
             {
-              "@id": "record-sets/METHOD.csv/fields/samplingprotocol",
+              "@id": "record-sets/METHOD/fields/samplingprotocol",
               "@type": "Field",
               "alternateName": "Sampling Protocol",
               "dataType": "Text",
@@ -18021,7 +18021,7 @@
               }
             },
             {
-              "@id": "record-sets/METHOD.csv/fields/instrument",
+              "@id": "record-sets/METHOD/fields/instrument",
               "@type": "Field",
               "alternateName": "Instrument",
               "dataType": "Text",
@@ -18094,7 +18094,7 @@
               }
             },
             {
-              "@id": "record-sets/METHOD.csv/fields/references",
+              "@id": "record-sets/METHOD/fields/references",
               "@type": "Field",
               "alternateName": "References",
               "dataType": "Text",
@@ -18167,7 +18167,7 @@
               }
             },
             {
-              "@id": "record-sets/METHOD.csv/fields/description",
+              "@id": "record-sets/METHOD/fields/description",
               "@type": "Field",
               "alternateName": "Description",
               "dataType": "Text",
@@ -18248,12 +18248,12 @@
           "description": "The datasheet contains information about authors, including their last names, first names, and middle initials. It includes details on whether they are in the author list, their email addresses, ORCID identifiers, and affiliations with departments and institutions. Additionally, it provides institutional details such as street addresses, city, zip code, and country. Most authors are affiliated with AZTI and are based in Spain, with Pasaia being a frequent city of affiliation.",
           "field": [
             {
-              "@id": "record-sets/AUTHORS/fields/Last+name",
+              "@id": "record-sets/AUTHORS/fields/last_name",
               "@type": "Field",
               "dataType": "Text",
               "description": "This field captures the last names of the authors involved in the study. It helps in identifying and attributing contributions to specific individuals in the dataset and any related publications or reports. The uniqueness of last names assists in distinguishing between different contributors.",
               "isExperimentRelated": false,
-              "name": "Last+name",
+              "name": "last_name",
               "source": {
                 "extract": {
                   "column": "Last name"
@@ -18320,12 +18320,12 @@
               }
             },
             {
-              "@id": "record-sets/AUTHORS/fields/First+Name%0A%28and+Middle+initials+if+any%29",
+              "@id": "record-sets/AUTHORS/fields/first_name_and_middle_initials_if_any",
               "@type": "Field",
               "dataType": "Text",
               "description": "This field contains the first names and middle initials (if any) of the authors, providing additional identification details for each contributor. It complements the last name field to ensure full identification of the authors involved in the research.",
               "isExperimentRelated": false,
-              "name": "First+Name%0A%28and+Middle+initials+if+any%29",
+              "name": "first_name_and_middle_initials_if_any",
               "source": {
                 "extract": {
                   "column": "First Name\n(and Middle initials if any)"
@@ -18392,12 +18392,12 @@
               }
             },
             {
-              "@id": "record-sets/AUTHORS/fields/in+author+list%3F",
+              "@id": "record-sets/AUTHORS/fields/in_author_list",
               "@type": "Field",
               "dataType": "Text",
               "description": "This field indicates whether the individual is listed as an author in the author list of the publication or dataset. It serves as a verification of authorship and contribution to the research work.",
               "isExperimentRelated": false,
-              "name": "in+author+list%3F",
+              "name": "in_author_list",
               "source": {
                 "extract": {
                   "column": "in author list?"
@@ -18464,12 +18464,12 @@
               }
             },
             {
-              "@id": "record-sets/AUTHORS/fields/email+address",
+              "@id": "record-sets/AUTHORS/fields/email_address",
               "@type": "Field",
               "dataType": "Text",
               "description": "This field contains the email addresses of the authors, facilitating communication and collaboration among researchers and with external parties interested in the study. It is crucial for networking and further inquiries regarding the dataset or research findings.",
               "isExperimentRelated": false,
-              "name": "email+address",
+              "name": "email_address",
               "source": {
                 "extract": {
                   "column": "email address"
@@ -18536,13 +18536,13 @@
               }
             },
             {
-              "@id": "record-sets/AUTHORS/fields/ORCID",
+              "@id": "record-sets/AUTHORS/fields/orcid",
               "@type": "Field",
               "alternateName": "ORCID",
               "dataType": "Text",
               "description": "Unique ORCID identifier for the author",
               "isExperimentRelated": false,
-              "name": "ORCID",
+              "name": "orcid",
               "source": {
                 "extract": {
                   "column": "ORCID"
@@ -18609,12 +18609,12 @@
               }
             },
             {
-              "@id": "record-sets/AUTHORS/fields/Department%2FFaculty",
+              "@id": "record-sets/AUTHORS/fields/department_faculty",
               "@type": "Field",
               "dataType": "Text",
               "description": "This field indicates the department or faculty associated with each author in the dataset. It helps identify the academic or research division to which the authors belong, providing context about their expertise or research focus. For example, the 'Marine Research Division' is frequently mentioned, indicating a focus on marine studies.",
               "isExperimentRelated": false,
-              "name": "Department%2FFaculty",
+              "name": "department_faculty",
               "source": {
                 "extract": {
                   "column": "Department/Faculty"
@@ -18681,13 +18681,13 @@
               }
             },
             {
-              "@id": "record-sets/AUTHORS/fields/Institution",
+              "@id": "record-sets/AUTHORS/fields/institution",
               "@type": "Field",
               "alternateName": "Institution",
               "dataType": "Text",
               "description": "Primary institution or organization associated with the author",
               "isExperimentRelated": false,
-              "name": "Institution",
+              "name": "institution",
               "source": {
                 "extract": {
                   "column": "Institution"
@@ -18754,12 +18754,12 @@
               }
             },
             {
-              "@id": "record-sets/AUTHORS/fields/Institution+Street+and+number",
+              "@id": "record-sets/AUTHORS/fields/institution_street_and_number",
               "@type": "Field",
               "dataType": "Text",
               "description": "This field provides the street address and number of the institution affiliated with each author. It is essential for locating the physical premises of the research institutions and understanding their geographic distribution, which can be relevant for logistical considerations in collaborative research efforts.",
               "isExperimentRelated": false,
-              "name": "Institution+Street+and+number",
+              "name": "institution_street_and_number",
               "source": {
                 "extract": {
                   "column": "Institution Street and number"
@@ -18826,12 +18826,12 @@
               }
             },
             {
-              "@id": "record-sets/AUTHORS/fields/Institution+city",
+              "@id": "record-sets/AUTHORS/fields/institution_city",
               "@type": "Field",
               "dataType": "Text",
               "description": "This field denotes the city where each affiliated institution is located. It adds to the geographical context of the research and can be valuable for understanding regional research networks and collaboration dynamics. Pasaia is a notable city here, indicating a hub for marine research.",
               "isExperimentRelated": false,
-              "name": "Institution+city",
+              "name": "institution_city",
               "source": {
                 "extract": {
                   "column": "Institution city"
@@ -18898,12 +18898,12 @@
               }
             },
             {
-              "@id": "record-sets/AUTHORS/fields/Institution+zip+code",
+              "@id": "record-sets/AUTHORS/fields/institution_zip_code",
               "@type": "Field",
               "dataType": "Integer",
               "description": "This field specifies the postal code of the institution's location, providing a more detailed geographical identification. It is crucial for mailing purposes and can assist in demographic analysis of research activities based on geographic locations.",
               "isExperimentRelated": false,
-              "name": "Institution+zip+code",
+              "name": "institution_zip_code",
               "source": {
                 "extract": {
                   "column": "Institution zip code"
@@ -18975,12 +18975,12 @@
               }
             },
             {
-              "@id": "record-sets/AUTHORS/fields/Institution+country",
+              "@id": "record-sets/AUTHORS/fields/institution_country",
               "@type": "Field",
               "dataType": "Text",
               "description": "This field represents the country of the institution associated with the dataset authors. It provides geographic context to the data, indicating that all listed authors are from institutions based in Spain. The uniformity of this data (all entries are 'Spain') suggests that the study or data collection might be regionally focused or that the research collaboration is limited to Spanish institutions. This can be relevant in understanding the scope and potential regional influences on the research outcomes. As this field is not directly indicative of an experimental measurement or design, it is not considered experiment-related.",
               "isExperimentRelated": false,
-              "name": "Institution+country",
+              "name": "institution_country",
               "source": {
                 "extract": {
                   "column": "Institution country"
@@ -19055,10 +19055,10 @@
           "description": "The datasheet provides analytical data on various environmental subgroups, detailing chemical parameters and their respective units. It includes information on analysis methods and codes, capturing diverse testing techniques like gas chromatography and mass spectrometry. The fields cover distinct categories such as sediments, water, and biota, and feature alphanumeric codes for specific chemicals or compounds analyzed. The datasheet appears to structure metadata essential for understanding environmental chemical analysis.",
           "field": [
             {
-              "@id": "record-sets/ANALYTICAL_METHODS/Subgroup",
+              "@id": "record-sets/ANALYTICAL_METHODS/fields/subgroup",
               "@type": "Field",
               "dataType": "Text",
-              "name": "Subgroup",
+              "name": "subgroup",
               "source": {
                 "extract": {
                   "column": "Subgroup"
@@ -19121,10 +19121,10 @@
               "description": "Subgroup classification of the analytical parameter."
             },
             {
-              "@id": "record-sets/ANALYTICAL_METHODS/Alfanumeric+code",
+              "@id": "record-sets/ANALYTICAL_METHODS/fields/alfanumeric_code",
               "@type": "Field",
               "dataType": "Text",
-              "name": "Alfanumeric+code",
+              "name": "alfanumeric_code",
               "source": {
                 "extract": {
                   "column": "Alfanumeric code"
@@ -19187,10 +19187,10 @@
               "description": "Alphanumeric code identifying the parameter."
             },
             {
-              "@id": "record-sets/ANALYTICAL_METHODS/Parameter",
+              "@id": "record-sets/ANALYTICAL_METHODS/fields/parameter",
               "@type": "Field",
               "dataType": "Text",
-              "name": "Parameter",
+              "name": "parameter",
               "source": {
                 "extract": {
                   "column": "Parameter"
@@ -19253,10 +19253,10 @@
               "description": "Name of the measured parameter."
             },
             {
-              "@id": "record-sets/ANALYTICAL_METHODS/Units",
+              "@id": "record-sets/ANALYTICAL_METHODS/fields/units",
               "@type": "Field",
               "dataType": "Text",
-              "name": "Units",
+              "name": "units",
               "source": {
                 "extract": {
                   "column": "Units"
@@ -19319,10 +19319,10 @@
               "description": "Measurement units for the reported parameter."
             },
             {
-              "@id": "record-sets/ANALYTICAL_METHODS/Analysis+method+code",
+              "@id": "record-sets/ANALYTICAL_METHODS/fields/analysis_method_code",
               "@type": "Field",
               "dataType": "Text",
-              "name": "Analysis+method+code",
+              "name": "analysis_method_code",
               "source": {
                 "extract": {
                   "column": "Analysis method code"
@@ -19385,10 +19385,10 @@
               "description": "Code identifying the analytical method used."
             },
             {
-              "@id": "record-sets/ANALYTICAL_METHODS/Analysis+method",
+              "@id": "record-sets/ANALYTICAL_METHODS/fields/analysis_method",
               "@type": "Field",
               "dataType": "Text",
-              "name": "Analysis+method",
+              "name": "analysis_method",
               "source": {
                 "extract": {
                   "column": "Analysis method"
