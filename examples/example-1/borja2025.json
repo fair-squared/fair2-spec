@@ -480,6 +480,13 @@
     "methodSection": {
       "@id": "fair2:methodSection"
     },
+    "metadataVersion": {
+      "@id": "fair2:metadataVersion"
+    },
+    "metadataModified": {
+      "@id": "fair2:metadataModified",
+      "@type": "xsd:date"
+    },
     "name": {
       "@id": "schema:name"
     },
@@ -623,14 +630,7 @@
     "uri": "@id",
     "identifier": {
       "@id": "schema:identifier"
-    },
-    "_meta": null
-  },
-  "_meta": {
-    "conformsTo": "https://fair2.ai/spec/v1.3.0",
-    "version": "1.0.0",
-    "dateCreated": "2025-03-03",
-    "dateModified": "2026-04-20"
+    }
   },
   "@id": "https://doi.org/10.71728/r1rj-f947",
   "@type": "Dataset",
@@ -1044,7 +1044,10 @@
   "citation": "https://doi.org/10.3389/focsu.2024.1528837",
   "citeAs": "Borja Á, Adarraga I, Bald J, Belzunce-Segarra MJ, Cruz I, Franco J, Garmendia JM, Larreta J, Laza-Martínez A, Manzanos A, Marquiegui MA, Martín I, Martínez J, Menchaca I, Pouso S, Revilla M, Rodríguez JG, Ruiz JM, Sagarmínaga Y, Solaun O, Uriarte A, Zorita I and Muxika I (2024). Marine Biodiversity and Environmental Data: An AI-Ready, Open Dataset from the long term (1995–2023) Basque Country Monitoring Network. Front. Ocean Sustain. 2:1528837. doi: 10.3389/focsu.2024.1528837",
   "citationKey": "Borja2024a",
-  "conformsTo": "http://mlcommons.org/croissant/1.0",
+  "conformsTo": [
+    "http://mlcommons.org/croissant/1.0",
+    "https://fair2.ai/spec/v1.4.0"
+  ],
   "contentUrl": "fair2.json",
   "contributor": [
     {
@@ -11583,6 +11586,8 @@
     "url": "http://fair2.ai/spec/0.1.0-beta"
   },
   "version": "1.2",
+  "metadataVersion": "1.0.0",
+  "metadataModified": "2026-04-20",
   "url": "https://sen.science/doi/10.71728/r1rj-f947",
   "included": [
     {

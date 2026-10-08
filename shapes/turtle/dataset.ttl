@@ -26,7 +26,34 @@ fair2s:DatasetShape
     sh:property [ sh:path schema:url ; sh:minCount 1 ; sh:node fair2s:IdentifierShape ] ;
     sh:property [ sh:path schema:keywords ; sh:minCount 1 ; sh:node fair2s:TextShape ] ;
 
-    sh:property [ sh:path dct:conformsTo ; sh:minCount 1 ; sh:node fair2s:IdentifierShape] ;
+    sh:property [ sh:path dct:conformsTo ; sh:minCount 1 ; sh:node fair2s:IdentifierShape ] ;
+
+    # The FAIR2 spec version the document was produced against. Carried as one
+    # of the dct:conformsTo values, alongside the Croissant version. Until
+    # v1.4.0 this lived in a non-RDF _meta block and had to be enforced outside
+    # SHACL; it is an ordinary constraint now.
+    sh:property [
+        sh:path dct:conformsTo ;
+        sh:qualifiedValueShape [ sh:pattern "^https://fair2\\.ai/spec/v[0-9]+\\.[0-9]+\\.[0-9]+$" ] ;
+        sh:qualifiedMinCount 1 ;
+        sh:message "A dataset must declare the FAIR2 spec version it conforms to, as a https://fair2.ai/spec/vX.Y.Z value of dct:conformsTo."
+    ] ;
+
+    # The metadata document's own version and edit date, distinct from the
+    # dataset's. Both were required fields of the _meta block before v1.4.0.
+    sh:property [
+        sh:path fair2:metadataVersion ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:pattern "^[0-9]+\\.[0-9]+\\.[0-9]+$" ;
+        sh:message "metadataVersion must be a MAJOR.MINOR.PATCH version for the fair2.json document itself."
+    ] ;
+    sh:property [
+        sh:path fair2:metadataModified ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:date
+    ] ;
     sh:property [ sh:path cr:citeAs ; sh:node fair2s:TextShape ] ;
 
     sh:property [

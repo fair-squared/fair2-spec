@@ -6,13 +6,11 @@ A FAIR² data package is serialised as a single JSON-LD document named
 ## Top-level structure
 
 A `fair2.json` file is a single JSON-LD node object describing the Dataset.
-It MUST carry `@context` and `_meta`, followed by the Dataset's own
-properties:
+It MUST carry `@context`, followed by the Dataset's own properties:
 
 ```json
 {
   "@context": { ... },
-  "_meta":    { ... },
   "@id":      "https://doi.org/10.1234/dataset",
   "@type":    "Dataset",
   "...":      "..."
@@ -22,7 +20,6 @@ properties:
 | Key | Purpose |
 |-----|---------|
 | `@context` | JSON-LD context. Aliases every term used in the payload so property names appear without bare prefixes. |
-| `_meta` | File-level metadata (version, dates). See below. Mapped to `null` in the context, so it produces no RDF. |
 | `@type` | `Dataset`. The document *is* the Dataset. |
 | `included` | Optional. Bodies of nodes referenced from more than one place. See below. |
 
@@ -31,12 +28,11 @@ properties:
 ## Document structure
 
 A `fair2.json` is **single-rooted**: the document *is* the Dataset. Its
-properties sit at the top level, alongside `@context` and `_meta`.
+properties sit at the top level, alongside `@context`.
 
 ```json
 {
   "@context": { "...": "..." },
-  "_meta": { "...": "..." },
   "@id": "https://doi.org/10.1234/dataset",
   "@type": "Dataset",
   "name": "...",
@@ -111,63 +107,3 @@ sites point at.
     datasets use.
 
 ---
-
-## The `_meta` block
-
-`_meta` carries file-level administrative information. It is deliberately
-outside `@graph` and the FAIR² context maps `_meta` to `null`, which is what
-keeps it out of the RDF; it therefore needs no SHACL shape. The mapping is
-required, not cosmetic: the context sets `@vocab`, so an unmapped top-level
-key would **not** be ignored — it would expand to `https://schema.org/_meta`
-and emit a triple against a property that does not exist. The leading
-underscore signals to human readers that this block is not part of the
-linked-data model.
-
-### Fields
-
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-| `conformsTo` | string (URL) | Yes | The FAIR² **spec** version this file was produced against, as `https://fair2.ai/spec/v<MAJOR>.<MINOR>.<PATCH>` — matching the `fair2-spec` release tag. Distinct from `version` (the file version) and from `Dataset.conformsTo` (Croissant). See [Versioning & Conformance](versioning.md). |
-| `version` | string (semver) | Yes | Version of the `fair2.json` file itself. Follows `MAJOR.MINOR.PATCH`. Independent of `Dataset.version`. |
-| `dateCreated` | string (ISO 8601 date) | Yes | Date the file was first created. Set once. |
-| `dateModified` | string (ISO 8601 date) | Yes | Date of the most recent modification. MUST be updated on every edit. |
-
-### Versioning rules for `_meta.version`
-
-| Change type | Bump | Examples |
-|-------------|------|----------|
-| **Patch** (`x.x.N`) | metadata-only correction | typo fix, URL correction, date fix |
-| **Minor** (`x.N.0`) | additive change | new contributor, new distribution file, new field, new entity added |
-| **Major** (`N.0.0`) | breaking structural change | entity model redesign, `@context` schema change, entity removal |
-
-`_meta.version` is independent of `Dataset.version`. A dataset published at
-`"1.1"` may have a `fair2.json` file at `_meta.version: "1.3.2"` after several
-metadata corrections.
-
-### Example
-
-```json
-{
-  "@context": { "...": "..." },
-  "_meta": {
-    "conformsTo": "https://fair2.ai/spec/v1.2.0",
-    "version": "1.0.0",
-    "dateCreated": "2025-03-03",
-    "dateModified": "2026-04-20"
-  },
-  "@type": "Dataset",
-  "...": "..."
-}
-```
-
-### Validation
-
-`_meta` is validated outside of SHACL (it is document metadata, not an RDF
-graph node) — the `fair2-validator` tool checks it deterministically, and
-producer-side linting or a JSON Schema check is equivalent. Required checks:
-
-- All four fields are present
-- `conformsTo` matches `https://fair2.ai/spec/vMAJOR.MINOR.PATCH`
-- `version` matches the `MAJOR.MINOR.PATCH` regex
-- `dateCreated` and `dateModified` are valid ISO 8601 dates
-- `dateModified >= dateCreated`

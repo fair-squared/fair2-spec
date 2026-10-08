@@ -29,6 +29,12 @@
     "sh:nodeKind": "sh:IRI",
     "sh:property": [
         {
+            "sh:path": "fair2:metadataModified",
+            "sh:minCount": 1,
+            "sh:maxCount": 1,
+            "sh:datatype": "xsd:date"
+        },
+        {
             "sh:path": "schema:dateCreated",
             "sh:datatype": "xsd:date"
         },
@@ -55,6 +61,21 @@
             "sh:path": "fair2:dataPortal",
             "sh:nodeKind": "sh:IRI",
             "sh:description": "The data portal, by its own identifier."
+        },
+        {
+            "sh:path": "fair2:metadataVersion",
+            "sh:minCount": 1,
+            "sh:maxCount": 1,
+            "sh:message": "metadataVersion must be a MAJOR.MINOR.PATCH version for the fair2.json document itself.",
+            "sh:pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+        },
+        {
+            "sh:path": "dct:conformsTo",
+            "sh:message": "A dataset must declare the FAIR2 spec version it conforms to, as a https://fair2.ai/spec/vX.Y.Z value of dct:conformsTo.",
+            "sh:qualifiedMinCount": 1,
+            "sh:qualifiedValueShape": {
+                "sh:pattern": "^https://fair2\\.ai/spec/v[0-9]+\\.[0-9]+\\.[0-9]+$"
+            }
         },
         {
             "sh:path": "schema:name",

@@ -86,6 +86,8 @@ The FAIR² properties define relationships between datasets, methods, contributo
 | `fair2:verificationEndpoint` | verificationEndpoint | Endpoint at which the certification can be verified. |
 | `fair2:validationReport` | validationReport | The validation report backing a certification or validation claim. |
 | `fair2:fundingScheme` | fundingScheme | The funding programme a grant was awarded under. |
+| `fair2:metadataVersion` | metadataVersion | Version of the `fair2.json` document itself, independent of the dataset's `version`. |
+| `fair2:metadataModified` | metadataModified | Date the `fair2.json` document was last edited. |
 ---
 
 ---

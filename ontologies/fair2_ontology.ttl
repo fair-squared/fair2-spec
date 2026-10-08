@@ -343,3 +343,17 @@ fair2:ProcessAttestation a fair2:CertificationScope ;
 fair2:TemporalProof a fair2:CertificationScope ;
   rdfs:label "temporalProof" ;
   rdfs:comment "An RFC 3161 timestamp or blockchain anchor is attached to the certification." .
+
+fair2:metadataVersion a rdf:Property ;
+  rdfs:label "metadataVersion" ;
+  rdfs:comment "Version of the fair2.json document itself, as MAJOR.MINOR.PATCH. Independent of schema:version, which is the dataset's own release: a dataset at 1.2 may have a metadata document at 1.3.2 after several corrections. Patch for a metadata-only correction, minor for an additive change, major for a structural one." ;
+  schema:domainIncludes schema:Dataset ;
+  schema:rangeIncludes schema:Text ;
+  vs:term_status "stable" .
+
+fair2:metadataModified a rdf:Property ;
+  rdfs:label "metadataModified" ;
+  rdfs:comment "Date the fair2.json document was last edited. Distinct from schema:dateModified, which is when the dataset itself last changed; a metadata correction moves this and not that." ;
+  schema:domainIncludes schema:Dataset ;
+  schema:rangeIncludes schema:Date ;
+  vs:term_status "stable" .

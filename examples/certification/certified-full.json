@@ -478,6 +478,13 @@
     "methodSection": {
       "@id": "fair2:methodSection"
     },
+    "metadataVersion": {
+      "@id": "fair2:metadataVersion"
+    },
+    "metadataModified": {
+      "@id": "fair2:metadataModified",
+      "@type": "xsd:date"
+    },
     "name": {
       "@id": "schema:name"
     },
@@ -621,8 +628,7 @@
     "uri": "@id",
     "identifier": {
       "@id": "schema:identifier"
-    },
-    "_meta": null
+    }
   },
   "@id": "https://sen.science/certifications/10.71728/r1rj-f947#cert",
   "@type": "Certification",
