@@ -34,6 +34,9 @@
       "Boolean": {
         "@id": "schema:Boolean"
       },
+      "Attribution": {
+        "@id": "prov:Attribution"
+      },
       "Certification": {
         "@id": "fair2:Certification"
       },
@@ -180,6 +183,10 @@
       },
       "affiliation": {
         "@id": "schema:affiliation"
+      },
+      "agent": {
+        "@id": "prov:agent",
+        "@type": "@id"
       },
       "algorithm": {
         "@id": "schema:algorithm"
@@ -632,6 +639,12 @@
       "uri": "@id",
       "identifier": {
         "@id": "schema:identifier"
+      },
+      "qualifiedAttribution": {
+        "@id": "prov:qualifiedAttribution"
+      },
+      "position": {
+        "@id": "fair2:position"
       }
     }
   ]

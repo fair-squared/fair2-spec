@@ -70,9 +70,13 @@ fair2s:DatasetShape
         sh:minCount 1 ;
         sh:node fair2s:PersonOrOrganizationShape
     ] ;
+    # Roles are stated on the attribution, not on the person: prov:hadRole has
+    # domain prov:Influence, and a role held with no stated relationship is not
+    # scoped to this dataset. schema:contributor is gone - it duplicated
+    # schema:creator, and schema.org's contributor means a secondary one.
     sh:property [
-        sh:path schema:contributor ;
-        sh:node fair2s:ContributorShape
+        sh:path prov:qualifiedAttribution ;
+        sh:node fair2s:AttributionShape
     ] ;
     sh:property [
         sh:path schema:funding ;

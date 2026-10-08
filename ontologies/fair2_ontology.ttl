@@ -357,3 +357,10 @@ fair2:metadataModified a rdf:Property ;
   schema:domainIncludes schema:Dataset ;
   schema:rangeIncludes schema:Date ;
   vs:term_status "stable" .
+
+fair2:position a rdf:Property ;
+  rdfs:label "position" ;
+  rdfs:comment "Ordinal position of an agent in the author or contributor list, counting from 1. JSON-LD arrays are unordered sets in RDF, so author order does not survive conversion; the qualified attribution is the only place it can be stated." ;
+  schema:domainIncludes prov:Attribution ;
+  schema:rangeIncludes schema:Integer ;
+  vs:term_status "stable" .
