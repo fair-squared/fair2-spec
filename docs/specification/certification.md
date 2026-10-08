@@ -212,14 +212,70 @@ Given a `Certification` pointer node in a `fair2.json`:
 4. **Check revocation** through the credential's `credentialStatus`
    Bitstring Status List. There is no expiry to check; `validUntil` is
    deliberately absent.
-5. **Recompute the digest** of the `fair2.json` and compare it with the one
-   in the credential. A mismatch means the package has changed since it was
-   certified, so the certification no longer applies to this document.
+5. **Recompute the digests** and compare, in the order given under
+   [What a certification is bound to](#what-a-certification-is-bound-to):
+   the byte digest first, the graph digest only if it fails.
 
 A **FAIR²-Validated** claim is verified differently, because it has no
 issuer and no credential: re-run the validator named in `wasGeneratedBy`
 against the profile named in `conformsTo`, and compare with
 `validationReport`. It cannot be revoked — only contradicted.
+
+
+---
+
+## What a certification is bound to
+
+Decision C binds a certification to one exact package version: the DOI, the
+package version, and a digest of the `fair2.json`. It carries **two**
+digests, because "the same file" and "the same content" are different
+claims and neither alone is enough.
+
+| Property | Covers | Cost to verify |
+|---|---|---|
+| `sec:digestMultibase` | the published bytes | ~0.1 ms, `sha256sum` |
+| `fair2:graphDigestMultibase` | the RDFC-1.0 canonical graph | ~90 ms, needs a JSON-LD processor |
+
+```json
+"credentialSubject": {
+  "id": "https://doi.org/10.71728/r1rj-f947",
+  "conformsTo": "https://fair2.ai/spec/v1.4.0",
+  "metadataVersion": "1.0.0",
+  "digestMultibase":      "uEiDixlVqFfWrgYrq6dQttW6sa336WgzxLL3YxsyIxAFsYQ",
+  "graphDigestMultibase": "uEiCdaRhI_cl636VHp2O5fmXhaTiciRWa40UiHLMl5JoVAQ"
+}
+```
+
+Both are multibase-encoded multihashes (`u` = base64url, `0x12 0x20` =
+sha2-256). The graph digest is taken over the canonical n-quads produced by
+[RDFC-1.0](https://www.w3.org/TR/rdf-canon/).
+
+### Verify in that order
+
+1. **Byte digest matches.** Done. This is the common case and it costs
+   nothing — anyone with `sha256sum` can check it, with no JSON-LD stack and
+   no network.
+2. **Byte digest fails, graph digest matches.** The file was reformatted,
+   minified or round-tripped through a JSON-LD tool; the description is
+   intact. Report **equivalent, not identical** — a warning, not a failure.
+3. **Both fail.** The package has changed. Per Decision C the certification
+   no longer applies, and the new version needs its own.
+
+### Why not one digest
+
+A byte digest alone reports any reserialisation as tampering: pretty-print
+the file, or let a JSON-LD library round-trip it, and verification fails
+although nothing changed. A graph digest alone is blind to anything outside
+the RDF — and is 900× more expensive, which matters when the check runs on a
+landing page or in a crawler.
+
+!!! note "Why the graph digest became worth having"
+    Before v1.4.0 a graph digest would have been actively misleading: the
+    `_meta` block was deliberately outside the RDF, so changing
+    `_meta.version` left the graph digest untouched. With `_meta` folded onto
+    the Dataset, everything material is in the graph, and the two digests
+    now differ only in what kind of change they tolerate rather than in what
+    they can see.
 
 ---
 

@@ -89,6 +89,7 @@ The FAIR² properties define relationships between datasets, methods, contributo
 | `fair2:metadataVersion` | metadataVersion | Version of the `fair2.json` document itself, independent of the dataset's `version`. |
 | `fair2:metadataModified` | metadataModified | Date the `fair2.json` document was last edited. |
 | `fair2:position` | position | Ordinal position of an agent in the author list, counting from 1. |
+| `fair2:graphDigestMultibase` | graphDigestMultibase | Multihash of a `fair2.json`'s RDFC-1.0 canonical graph, companion to `sec:digestMultibase` over its bytes. |
 ---
 
 ---

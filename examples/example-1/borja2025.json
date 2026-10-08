@@ -643,6 +643,13 @@
     },
     "position": {
       "@id": "fair2:position"
+    },
+    "sec": "https://w3id.org/security#",
+    "digestMultibase": {
+      "@id": "sec:digestMultibase"
+    },
+    "graphDigestMultibase": {
+      "@id": "fair2:graphDigestMultibase"
     }
   },
   "@id": "https://doi.org/10.71728/r1rj-f947",

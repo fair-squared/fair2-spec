@@ -11,6 +11,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sec: <https://w3id.org/security#> .
 
 # FAIR2 Ontology — 2026-03-30T12:00:00.000000Z
 # Includes only terms used in published datasets.
@@ -363,4 +364,11 @@ fair2:position a rdf:Property ;
   rdfs:comment "Ordinal position of an agent in the author or contributor list, counting from 1. JSON-LD arrays are unordered sets in RDF, so author order does not survive conversion; the qualified attribution is the only place it can be stated." ;
   schema:domainIncludes prov:Attribution ;
   schema:rangeIncludes schema:Integer ;
+  vs:term_status "stable" .
+
+fair2:graphDigestMultibase a rdf:Property ;
+  rdfs:label "graphDigestMultibase" ;
+  rdfs:comment "Multibase-encoded multihash of the RDFC-1.0 canonical form of a fair2.json, as sha2-256 over the canonical n-quads. Companion to sec:digestMultibase, which covers the published bytes: the byte digest proves the file is unchanged, this one proves the graph is, so a document that was reserialised can be recognised as equivalent rather than reported as altered." ;
+  schema:domainIncludes fair2:Certification ;
+  schema:rangeIncludes schema:Text ;
   vs:term_status "stable" .
