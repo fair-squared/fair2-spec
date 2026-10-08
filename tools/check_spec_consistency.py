@@ -274,6 +274,53 @@ def check_no_vocab_fallthrough() -> None:
                             f"(they fall through @vocab):", sorted(undefined))
 
 
+def check_id_constraints() -> None:
+    """Identifier rules that nothing else enforces (Issue 18).
+
+    1. An entity's @id must not equal the @id of its own identifier.
+       mlcroissant indexes nodes by @id and its expander mutates shared
+       nodes destructively, so the second visit raises KeyError and the
+       document does not load at all.
+    2. @id must be unique among node definitions within a document.
+    """
+    for path in example_files():
+        doc = json.loads(path.read_text())
+        self_ref, seen, dupes = [], {}, []
+
+        def walk(node) -> None:
+            if isinstance(node, dict):
+                nid = node.get("@id")
+                if isinstance(nid, str):
+                    # Only a node-valued identifier collides: it makes two nodes
+                    # share one @id. A plain string equal to the @id is merely
+                    # redundant, and the Dataset shape requires one for harvesters.
+                    ident = node.get("identifier")
+                    for i in (ident if isinstance(ident, list) else [ident]):
+                        if isinstance(i, dict) and i.get("@id") == nid:
+                            self_ref.append(nid)
+                    # a definition carries more than just @id
+                    if len(node) > 1:
+                        if nid in seen and seen[nid] != _fingerprint(node):
+                            dupes.append(nid)
+                        seen[nid] = _fingerprint(node)
+                for value in node.values():
+                    walk(value)
+            elif isinstance(node, list):
+                for item in node:
+                    walk(item)
+
+        def _fingerprint(node) -> str:
+            return json.dumps(node, sort_keys=True)
+
+        walk({k: v for k, v in doc.items() if k != "@context"})
+        if self_ref:
+            fail("identifiers", f"{path.relative_to(ROOT)}: nodes whose @id equals their own "
+                                f"identifier (breaks the mlcroissant expander):", sorted(set(self_ref)))
+        if dupes:
+            fail("identifiers", f"{path.relative_to(ROOT)}: one @id used for two different "
+                                f"node definitions:", sorted(set(dupes)))
+
+
 def check_examples_validate(shapes: rdflib.Graph) -> None:
     import pyshacl
 
@@ -324,6 +371,7 @@ def main() -> int:
     check_shape_mirrors()
     check_example_contexts(ctx_inline)
     check_no_vocab_fallthrough()
+    check_id_constraints()
     check_examples_validate(shapes)
     check_examples_load_in_mlcroissant()
 
