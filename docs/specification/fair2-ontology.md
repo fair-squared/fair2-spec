@@ -30,7 +30,6 @@ The following classes define the core conceptual entities in FAIR². Each class 
 | `@id` | `rdfs:label` | `rdfs:comment` | `rdfs:subClassOf` |
 |:------|:--------------|:----------------|:------------------|
 | `fair2:DataArticle` | DataArticle | Scholarly article describing and linking an open dataset with methods and reuse guidance. | `schema:ScholarlyArticle` |
-| `fair2:OpenDataArticle` | OpenDataArticle | Legacy alias for `fair2:DataArticle`; retained for backward compatibility. | `schema:ScholarlyArticle` |
 | `fair2:DataPortal` | DataPortal | An authored, versioned web application presenting a single FAIR² dataset — an interactive explorer or landing site, not a catalogue and not a bare API endpoint. | `schema:CreativeWork` |
 | `fair2:DataArchive` | DataArchive | A long-term archive or repository that preserves the dataset. | `schema:CreativeWork` |
 | `fair2:Section` | Section | Structured methodology section grouping procedural steps. | `schema:HowToSection` |
@@ -39,16 +38,12 @@ The following classes define the core conceptual entities in FAIR². Each class 
 | `fair2:Substep` | Substep | Subordinate procedural instruction nested under a Step. | `schema:HowToStep` |
 | `fair2:AuthorRole` | AuthorRole | Role played by an author in producing the dataset (e.g. Corresponding Author). | `schema:Role` |
 | `fair2:ContributorRole` | ContributorRole | Contributor role drawn from CRediT/CRO vocabularies. | `schema:Role` |
-| `fair2:RecordSet` | RecordSet | A coherent subset of a dataset used for analysis or curation. | `schema:Dataset` |
-| `fair2:Visualization` | Visualization | A visual artifact (plot, figure, dashboard) derived from the dataset. | `schema:CreativeWork` |
 | `fair2:DescriptiveStatistics` | DescriptiveStatistics | Summary statistics computed over a RecordSet or Dataset. | `schema:Dataset` |
 | `fair2:Submission` | Submission | Submission package that groups dataset, article, and supporting materials for review. | `schema:CreativeWork` |
-| `fair2:Audience` | Audience | Intended audience for a dataset or article. | `schema:Audience` |
 | `fair2:Certification` | Certification | Pointer node asserting the FAIR² certification or validation status of a package, and referencing the external credential. | `schema:CreativeWork` |
-| `fair2:ExperimentDataset` | ExperimentDataset | A dataset produced by an experiment, as distinct from an observational or derived one. Applied as an additional type alongside schema:Dataset. | `schema:Dataset` |
-| `fair2:OpenDataArticleSection` | OpenDataArticleSection | A titled section of an open data article. | `schema:CreativeWork` |
-| `fair2:Role` | Role | A role played by an agent in relation to a dataset or article. | `schema:Role` |
 | `fair2:StepCase` | StepCase | Conditional branch within a method, carrying the condition and the path taken when it holds. Sits in the same fair2:step list as a Step. | `schema:HowToStep` |
+| `fair2:ComplianceLevel` | ComplianceLevel | A FAIR² compliance status asserted for a package. | `skos:Concept` |
+| `fair2:CertificationScope` | CertificationScope | A facet of a package that a certification covers. | `skos:Concept` |
 
 ---
 
@@ -58,17 +53,13 @@ The FAIR² properties define relationships between datasets, methods, contributo
 
 | `@id` | `rdfs:label` | `rdfs:comment` |
 |:------|:--------------|:----------------|
-| `fair2:activities` | activities | Groups workflow or provenance activities related to an entity. |
 | `fair2:attachment` | attachment | Points to a supporting file or supplemental material. |
-| `fair2:builds` | builds | Indicates that one artifact is built from or extends another artifact. |
 | `fair2:bugFixes` | bugFixes | Bug-fix entries on a changelog `UpdateAction`. |
 | `fair2:citationKey` | citationKey | Short citation key identifying the dataset. |
-| `fair2:contributorRole` | contributorRole | Links a contribution to a contributor role term. |
 | `fair2:dataArchive` | dataArchive | Links a dataset to the archive that preserves it. |
 | `fair2:dataArticle` | dataArticle | Links a dataset or submission to its associated scholarly data article. |
 | `fair2:dataPortal` | dataPortal | Links a dataset to the portal that hosts and serves it. |
 | `fair2:dataset` | dataset | References the dataset resource associated with the entity. |
-| `fair2:digest` | digest | Provides a short textual or hash-based digest for quick identification. |
 | `fair2:domain` | domain | Subject-domain classification of the dataset (e.g. a Wikidata concept). |
 | `fair2:generated` | generated | Links a method step to the RecordSet fields or artifacts it produced (lineage). |
 | `fair2:improvements` | improvements | Improvement entries on a changelog `UpdateAction`. |
@@ -80,22 +71,18 @@ The FAIR² properties define relationships between datasets, methods, contributo
 | `fair2:nextTrue` | nextTrue | Conditional branch target taken when a StepCase condition holds. |
 | `fair2:otherInformation` | otherInformation | Miscellaneous notes on a changelog `UpdateAction`. |
 | `fair2:qualifiedUsage` | qualifiedUsage | Condition guarding a conditional method step (StepCase). |
-| `fair2:roleName` | roleName | Human-readable label for a contributor role. |
 | `fair2:statistics` | statistics | Links to computed descriptive statistics. |
 | `fair2:step` | step | Connects a Section with its constituent Step items. |
 | `fair2:store` | store | Indicates the storage location or repository endpoint for an asset. |
 | `fair2:substep` | substep | Connects a Step with its constituent Substep items. |
 | `fair2:unit` | unit | Unit of measurement for a field or variable. |
-| `fair2:variables` | variables | Lists variable or feature definitions referenced by an analysis or record set. |
-| `fair2:visualization` | visualization | Links to a visualization derived from the dataset or record set. |
 
 | `fair2:certificationDocument` | certificationDocument | Reference to the external credential document backing the certification. |
-| `fair2:certificationScope` | certificationScope | What the certification covers (e.g. metadata-conformance, data-integrity). |
+| `fair2:certificationScope` | certificationScope | What the certification covers (e.g. metadataConformance, dataIntegrity). |
 | `fair2:certifiedBy` | certifiedBy | The organisation issuing the certification. |
 | `fair2:changeLog` | changeLog | Record of updates made to a dataset, article, archive or portal. |
 | `fair2:dateIssued` | dateIssued | Date the certification was issued. |
 | `fair2:fair2ComplianceLevel` | fair2ComplianceLevel | The FAIR² compliance level asserted for the package. |
-| `fair2:variable` | variable | A variable or feature definition referenced by an analysis or record set. Singular form of fair2:variables. |
 | `fair2:verificationEndpoint` | verificationEndpoint | Endpoint at which the certification can be verified. |
 | `fair2:validationReport` | validationReport | The validation report backing a certification or validation claim. |
 | `fair2:fundingScheme` | fundingScheme | The funding programme a grant was awarded under. |
@@ -103,10 +90,33 @@ The FAIR² properties define relationships between datasets, methods, contributo
 
 ---
 
+---
+
+## Certification vocabulary
+
+Two small controlled vocabularies. The compliance level says **who vouches**;
+the scope says **what was checked** — there is no metadata-only level.
+
+| Individual | Type | Meaning |
+|:-----------|:-----|:--------|
+| `fair2:Certified` | `fair2:ComplianceLevel` | An authority assertion, backed by a credential signed by an authorised certifier. |
+| `fair2:Validated` | `fair2:ComplianceLevel` | A quality status: the automated checks pass. Self-assertable, provided the claim carries its evidence. |
+| `fair2:MetadataConformance` | `fair2:CertificationScope` | The metadata conforms to the declared FAIR² profile. |
+| `fair2:DataIntegrity` | `fair2:CertificationScope` | The data files were retrieved and checked against their digests. |
+| `fair2:LicenseVerification` | `fair2:CertificationScope` | The declared licence was checked. |
+| `fair2:ProcessAttestation` | `fair2:CertificationScope` | The production process was attested by the certifier. |
+
+A certification whose scope omits `dataIntegrity` MUST be rendered as
+**“FAIR²-Certified (metadata only)”**. That is a requirement on consumers —
+SHACL can check the scope tokens, but not how they are displayed.
+
+
 ## Reserved terms
 
-The following are declared so that existing documents keep resolving, but they
-have no shape, no example and no stated domain or range. They carry
+These four are declared so that existing documents keep resolving, but they
+have no shape, no example and no stated domain or range. Other unused terms
+have been removed; these are retained because the FAIR² specification has
+published them as reserved. They carry
 `vs:term_status "unstable"` in the ontology. **Consumers should not rely on
 them, and producers should not emit them**, until they are specified.
 
@@ -116,9 +126,6 @@ them, and producers should not emit them**, until they are specified.
 | `fair2:manuscript` | Reference to a manuscript file in a submission package. |
 | `fair2:attachment` | Reference to supplemental material in a submission package. |
 | `fair2:store` | Storage location or repository endpoint for an asset. Its relationship to `schema:contentUrl` on a `FileObject` and to `fair2:dataArchive` is undefined. |
-| `fair2:activities` | Grouping of provenance activities for an entity. |
-| `fair2:builds` | Record that one artifact extends another. |
-| `fair2:digest` | Short digest for quick identification. |
 
 
 ## Notes

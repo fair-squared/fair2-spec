@@ -28,9 +28,6 @@
       "Article": {
         "@id": "schema:Article"
       },
-      "Audience": {
-        "@id": "fair2:Audience"
-      },
       "AuthorRole": {
         "@id": "fair2:AuthorRole"
       },
@@ -85,9 +82,6 @@
       "Event": {
         "@id": "schema:Event"
       },
-      "ExperimentDataset": {
-        "@id": "fair2:ExperimentDataset"
-      },
       "Field": {
         "@id": "cr:Field"
       },
@@ -127,8 +121,8 @@
       "Offer": {
         "@id": "schema:Offer"
       },
-      "OpenDataArticleSection": {
-        "@id": "fair2:OpenDataArticleSection"
+      "MethodSection": {
+        "@id": "fair2:MethodSection"
       },
       "Organization": {
         "@id": "schema:Organization"
@@ -151,14 +145,11 @@
       "Rating": {
         "@id": "schema:Rating"
       },
-      "RecordSet": {
-        "@id": "cr:RecordSet"
-      },
-      "Role": {
-        "@id": "fair2:Role"
-      },
       "ScholarlyArticle": {
         "@id": "schema:ScholarlyArticle"
+      },
+      "RecordSet": {
+        "@id": "cr:RecordSet"
       },
       "Section": {
         "@id": "fair2:Section"
@@ -184,14 +175,8 @@
       "Text": {
         "@id": "schema:Text"
       },
-      "Visualization": {
-        "@id": "fair2:Visualization"
-      },
       "accessRights": {
         "@id": "dct:accessRights"
-      },
-      "activities": {
-        "@id": "fair2:activities"
       },
       "address": {
         "@id": "schema:address"
@@ -232,17 +217,27 @@
       "bugFixes": {
         "@id": "fair2:bugFixes"
       },
-      "builds": {
-        "@id": "fair2:builds"
-      },
       "certificationDocument": {
         "@id": "fair2:certificationDocument"
       },
       "certificationScope": {
-        "@id": "fair2:certificationScope"
+        "@id": "fair2:certificationScope",
+        "@type": "@vocab"
       },
       "certifiedBy": {
         "@id": "fair2:certifiedBy"
+      },
+      "metadataConformance": {
+        "@id": "fair2:MetadataConformance"
+      },
+      "dataIntegrity": {
+        "@id": "fair2:DataIntegrity"
+      },
+      "licenseVerification": {
+        "@id": "fair2:LicenseVerification"
+      },
+      "processAttestation": {
+        "@id": "fair2:ProcessAttestation"
       },
       "changeLog": {
         "@id": "fair2:changeLog"
@@ -273,9 +268,6 @@
       },
       "contributor": {
         "@id": "schema:contributor"
-      },
-      "contributorRole": {
-        "@id": "fair2:contributorRole"
       },
       "creator": {
         "@id": "schema:creator"
@@ -376,9 +368,6 @@
       "description": {
         "@id": "schema:description"
       },
-      "digest": {
-        "@id": "fair2:digest"
-      },
       "distribution": {
         "@id": "schema:distribution"
       },
@@ -387,6 +376,10 @@
       },
       "email": {
         "@id": "schema:email"
+      },
+      "startedAtTime": {
+        "@id": "prov:startedAtTime",
+        "@type": "xsd:dateTime"
       },
       "encoding": {
         "@id": "schema:encoding"
@@ -398,7 +391,12 @@
         "@id": "cr:extract"
       },
       "fair2ComplianceLevel": {
-        "@id": "fair2:fair2ComplianceLevel"
+        "@id": "fair2:fair2ComplianceLevel",
+        "@type": "@id"
+      },
+      "endedAtTime": {
+        "@id": "prov:endedAtTime",
+        "@type": "xsd:dateTime"
       },
       "familyName": {
         "@id": "schema:familyName"
@@ -541,9 +539,6 @@
       "recordSet": {
         "@id": "cr:recordSet"
       },
-      "roleName": {
-        "@id": "fair2:roleName"
-      },
       "runtimePlatform": {
         "@id": "schema:runtimePlatform"
       },
@@ -599,28 +594,18 @@
       "value": {
         "@id": "schema:value"
       },
-      "variable": {
-        "@id": "fair2:variable",
-        "@type": "@id"
-      },
       "variableMeasured": {
         "@id": "schema:variableMeasured"
-      },
-      "variables": {
-        "@id": "fair2:variables",
-        "@type": "@id"
       },
       "validationReport": {
         "@id": "fair2:validationReport"
       },
       "verificationEndpoint": {
-        "@id": "fair2:verificationEndpoint"
+        "@id": "fair2:verificationEndpoint",
+        "@type": "@id"
       },
       "version": {
         "@id": "schema:version"
-      },
-      "visualization": {
-        "@id": "fair2:visualization"
       },
       "wasAssociatedWith": {
         "@id": "prov:wasAssociatedWith"

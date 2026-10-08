@@ -5,7 +5,7 @@
     SHACL shape in this document are **drafts**. Three governance questions
     (Decisions A, B, and C at the end of this page) are unresolved. Producers
     and consumers SHOULD NOT rely on the binding semantics of
-    `fair2:FAIR2-Certified` or `fair2:FAIR2-Validated` until these decisions
+    `fair2:Certified` or `fair2:Validated` until these decisions
     are finalised by the FAIR² governance body.
 
 ## Overview
@@ -70,18 +70,18 @@ external credential.
 
 | Token | Meaning |
 |-------|---------|
-| `metadata-conformance` | SHACL validation passed at the declared compliance level |
-| `data-integrity` | SHA-256 checksums verified against actual file downloads |
-| `license-verification` | License URI resolves; access rights consistent with declared level |
-| `process-attestation` | Provenance activity and software-agent records reviewed |
+| `metadataConformance` | SHACL validation passed at the declared compliance level |
+| `dataIntegrity` | SHA-256 checksums verified against actual file downloads |
+| `licenseVerification` | License URI resolves; access rights consistent with declared level |
+| `processAttestation` | Provenance activity and software-agent records reviewed |
 | `temporal-proof` | RFC 3161 timestamp or blockchain anchor attached |
 
 ### Standard scope combinations
 
 - **Full scope** (recommended for Level 0 / open access):
-  `["metadata-conformance", "data-integrity", "license-verification", "process-attestation"]`
+  `["metadataConformance", "dataIntegrity", "licenseVerification", "processAttestation"]`
 - **Metadata-only** (restricted datasets where the certifier has no access
-  to the files): `["metadata-conformance", "license-verification"]`
+  to the files): `["metadataConformance", "licenseVerification"]`
 
 ---
 
@@ -101,14 +101,14 @@ credential:
     "identifier": "https://sen.science/"
   },
   "dateIssued": "2026-04-16",
-  "fair2ComplianceLevel": "fair2:FAIR2-Certified",
+  "fair2ComplianceLevel": "fair2:Certified",
   "certificationDocument": "https://sen.science/certifications/10.71728/r1rj-f947/fair2-cert.json",
   "verificationEndpoint": "https://sen.science/certifications/10.71728/r1rj-f947",
   "certificationScope": [
-    "metadata-conformance",
-    "data-integrity",
-    "license-verification",
-    "process-attestation"
+    "metadataConformance",
+    "dataIntegrity",
+    "licenseVerification",
+    "processAttestation"
   ]
 }
 ```
@@ -135,7 +135,7 @@ statistics, so consumers that already read one can read the other.
 {
   "@id": "certification/fair2-cert-2026",
   "@type": "Certification",
-  "fair2ComplianceLevel": "fair2:FAIR2-Validated",
+  "fair2ComplianceLevel": "fair2:Validated",
   "conformsTo": "https://fair2.ai/spec/v1.3.0",
   "validationReport": "https://sen.science/certifications/10.71728/r1rj-f947/report.json",
   "wasGeneratedBy": {
@@ -173,7 +173,7 @@ trademark licence.
   `certifiedBy`.
 - **Scope limitation for restricted data.** Certifiers without access to
   the data files MUST declare `certificationScope` as
-  `["metadata-conformance", "license-verification"]` only.
+  `["metadataConformance", "licenseVerification"]` only.
 - **Non-commercial licence rule.** Third-party certifiers operating under
   the non-commercial FAIR² trademark licence MUST NOT certify datasets
   hosted on commercial platforms without upgrading to a commercial licence.
@@ -203,7 +203,7 @@ semantics described above are provisional pending these decisions.
 
 ### Decision A — Scope label for partial certification
 
-Does metadata-only scope still carry the `fair2:FAIR2-Certified` compliance
+Does metadata-only scope still carry the `fair2:Certified` compliance
 level, or should restricted-data packages receive a distinct label (e.g.,
 `fair2:FAIR2-Certified-Metadata`)? Implications: discoverability, consumer
 trust, and whether partial certification is a first-class status or a
@@ -212,7 +212,7 @@ downgrade.
 ### Decision B — Self-assertability of FAIR²-Validated
 
 Can a data producer run a conformant validator locally and embed
-`fair2ComplianceLevel: "fair2:FAIR2-Validated"` in their own metadata
+`fair2ComplianceLevel: "fair2:Validated"` in their own metadata
 without involving an authorised validator? If yes, Validated is a
 declaration, not a credential — low trademark exposure but potential brand
 dilution. If no, even Validated requires an authorised issuer (a
