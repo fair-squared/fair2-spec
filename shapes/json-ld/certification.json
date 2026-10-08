@@ -1,10 +1,13 @@
 {
     "@context": {
-        "sh": "http://www.w3.org/ns/shacl#",
+        "prov": "http://www.w3.org/ns/prov#",
         "schema": "https://schema.org/",
+        "sh": "http://www.w3.org/ns/shacl#",
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
         "fair2": "https://fair2.ai/ns/",
         "fair2s": "https://fair2.ai/shapes/",
-        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "dct": "http://purl.org/dc/terms/",
         "sh:path": {
             "@type": "@id"
         },
@@ -20,57 +23,210 @@
         "sh:datatype": {
             "@type": "@id"
         },
-        "dct": "http://purl.org/dc/terms/",
-        "prov": "http://www.w3.org/ns/prov#"
+        "sh:severity": {
+            "@type": "@id"
+        },
+        "sh:hasValue": {
+            "@type": "@id"
+        },
+        "sh:or": {
+            "@container": "@list"
+        },
+        "sh:in": {
+            "@container": "@list"
+        }
     },
-    "_note": "DRAFT — pending governance decisions A, B, C. See docs/specification/certification.md.",
-    "@id": "fair2s:CertificationShape",
-    "@type": "sh:NodeShape",
-    "sh:targetClass": "fair2:Certification",
-    "sh:property": [
+    "@graph": [
         {
-            "sh:path": "fair2:certifiedBy",
-            "sh:minCount": 1,
-            "sh:node": "fair2s:OrganizationShape"
+            "@id": "fair2s:CertificationOptionalShape",
+            "@type": "sh:NodeShape",
+            "sh:property": [
+                {
+                    "sh:path": "fair2:verificationEndpoint",
+                    "sh:nodeKind": "sh:IRI",
+                    "sh:description": "Endpoint at which the certification can be verified."
+                }
+            ],
+            "sh:targetClass": "fair2:Certification"
         },
         {
-            "sh:path": "fair2:dateIssued",
-            "sh:minCount": 1,
-            "sh:datatype": "xsd:date"
+            "@id": "fair2s:CertificationShape",
+            "@type": "sh:NodeShape",
+            "sh:property": [
+                {
+                    "sh:path": "fair2:fair2ComplianceLevel",
+                    "sh:minCount": 1,
+                    "sh:maxCount": 1,
+                    "sh:nodeKind": "sh:IRI",
+                    "sh:in": [
+                        {
+                            "@id": "fair2:Certified"
+                        },
+                        {
+                            "@id": "fair2:Validated"
+                        }
+                    ],
+                    "sh:message": "fair2ComplianceLevel must be fair2:Certified or fair2:Validated."
+                },
+                {
+                    "sh:path": "fair2:certificationScope",
+                    "sh:minCount": 1,
+                    "sh:in": [
+                        {
+                            "@id": "fair2:MetadataConformance"
+                        },
+                        {
+                            "@id": "fair2:DataIntegrity"
+                        },
+                        {
+                            "@id": "fair2:LicenseVerification"
+                        },
+                        {
+                            "@id": "fair2:ProcessAttestation"
+                        }
+                    ],
+                    "sh:message": "certificationScope must draw on the canonical scope tokens. A scope omitting dataIntegrity must be rendered as FAIR2-Certified (metadata only)."
+                }
+            ],
+            "sh:targetClass": "fair2:Certification"
         },
         {
-            "sh:path": "fair2:fair2ComplianceLevel",
-            "sh:minCount": 1,
-            "sh:node": "fair2s:IdentifierShape"
+            "@id": "fair2s:CertifiedRequirementsShape",
+            "@type": "sh:NodeShape",
+            "sh:message": "A FAIR2-Certified node must carry certifiedBy, dateIssued and certificationDocument.",
+            "sh:or": [
+                {
+                    "sh:not": {
+                        "sh:property": [
+                            {
+                                "sh:path": "fair2:fair2ComplianceLevel",
+                                "sh:hasValue": "fair2:Certified"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "sh:property": [
+                        {
+                            "sh:path": "fair2:dateIssued",
+                            "sh:minCount": 1,
+                            "sh:datatype": "xsd:date"
+                        },
+                        {
+                            "sh:path": "fair2:certificationDocument",
+                            "sh:minCount": 1,
+                            "sh:node": "fair2s:IdentifierShape"
+                        },
+                        {
+                            "sh:path": "fair2:certifiedBy",
+                            "sh:minCount": 1,
+                            "sh:node": "fair2s:OrganizationShape"
+                        }
+                    ]
+                }
+            ],
+            "sh:targetClass": "fair2:Certification"
         },
         {
-            "sh:path": "fair2:certificationDocument",
-            "sh:minCount": 1,
-            "sh:node": "fair2s:IdentifierShape"
+            "@id": "fair2s:ValidatedEvidenceShape",
+            "@type": "sh:NodeShape",
+            "sh:property": [
+                {
+                    "sh:path": "dct:conformsTo",
+                    "sh:minCount": 1,
+                    "sh:node": "fair2s:IdentifierShape"
+                },
+                {
+                    "sh:path": "fair2:validationReport",
+                    "sh:minCount": 1,
+                    "sh:node": "fair2s:IdentifierShape"
+                },
+                {
+                    "sh:path": "prov:wasGeneratedBy",
+                    "sh:minCount": 1,
+                    "sh:node": {
+                        "sh:property": [
+                            {
+                                "sh:path": "prov:wasAssociatedWith",
+                                "sh:minCount": 1,
+                                "sh:node": {
+                                    "sh:property": [
+                                        {
+                                            "sh:path": "schema:name",
+                                            "sh:minCount": 1,
+                                            "sh:node": "fair2s:TextShape"
+                                        },
+                                        {
+                                            "sh:path": "schema:softwareVersion",
+                                            "sh:minCount": 1,
+                                            "sh:node": "fair2s:TextShape"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "sh:path": "prov:endedAtTime",
+                                "sh:minCount": 1
+                            }
+                        ]
+                    }
+                }
+            ]
         },
         {
-            "sh:path": "fair2:verificationEndpoint",
-            "sh:nodeKind": "sh:IRI"
+            "@id": "fair2s:ValidatedLegacyShape",
+            "@type": "sh:NodeShape",
+            "sh:message": "Deprecated: this FAIR2-Validated node relies on certifiedBy and dateIssued rather than carrying its evidence. Add conformsTo, wasGeneratedBy and validationReport; the issuer-based form will be removed in a later release.",
+            "sh:or": [
+                {
+                    "sh:not": {
+                        "sh:property": [
+                            {
+                                "sh:path": "fair2:fair2ComplianceLevel",
+                                "sh:hasValue": "fair2:Validated"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "sh:node": "fair2s:ValidatedEvidenceShape"
+                }
+            ],
+            "sh:severity": "sh:Warning",
+            "sh:targetClass": "fair2:Certification"
         },
         {
-            "sh:path": "fair2:certificationScope",
-            "sh:minCount": 1,
-            "sh:node": "fair2s:TextShape"
-        },
-        {
-            "sh:path": "dct:conformsTo",
-            "sh:description": "The FAIR2 spec or profile version validated against, as a resolvable https://fair2.ai/spec/vX.Y.Z URI. Carried as a plain string, matching how Croissant conformance is declared on the Dataset.",
-            "sh:node": "fair2s:IdentifierShape"
-        },
-        {
-            "sh:path": "prov:wasGeneratedBy",
-            "sh:node": "fair2s:ActivityShape",
-            "sh:description": "The validation run, carrying the validator as a prov:SoftwareAgent with its version - the same pattern used for descriptive statistics."
-        },
-        {
-            "sh:path": "fair2:validationReport",
-            "sh:node": "fair2s:IdentifierShape",
-            "sh:description": "The validation report backing the claim."
+            "@id": "fair2s:ValidatedRequirementsShape",
+            "@type": "sh:NodeShape",
+            "sh:message": "A FAIR2-Validated node must carry its evidence: conformsTo, wasGeneratedBy (an Activity with endedAtTime, associated with a SoftwareAgent having name and softwareVersion) and validationReport.",
+            "sh:or": [
+                {
+                    "sh:not": {
+                        "sh:property": [
+                            {
+                                "sh:path": "fair2:fair2ComplianceLevel",
+                                "sh:hasValue": "fair2:Validated"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "sh:node": "fair2s:ValidatedEvidenceShape"
+                },
+                {
+                    "sh:property": [
+                        {
+                            "sh:path": "fair2:certifiedBy",
+                            "sh:minCount": 1
+                        },
+                        {
+                            "sh:path": "fair2:dateIssued",
+                            "sh:minCount": 1
+                        }
+                    ]
+                }
+            ],
+            "sh:targetClass": "fair2:Certification"
         }
     ]
 }

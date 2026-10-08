@@ -33,6 +33,7 @@ ONTOLOGY_DOC = ROOT / "docs" / "specification" / "fair2-ontology.md"
 SCHEMAORG_TERMS = Path(__file__).resolve().parent / "schemaorg-terms.json"
 CONTEXT = ROOT / "context" / "metadata" / "fair2_context.json"
 EXAMPLES = ROOT / "examples"
+CERT_FIXTURES = EXAMPLES / "certification"
 
 # Keys an individual document may add to its own copy of the shared context.
 DOCUMENT_LOCAL_CONTEXT_KEYS = {"@base", "@language"}
@@ -99,7 +100,7 @@ def check_ontology_documented() -> None:
 
     ontology = rdflib.Graph().parse(ONTOLOGY, format="turtle")
     declared = {t for t in (local(s) for s in ontology.subjects(rdflib.RDF.type, None)) if t}
-    documented = set(re.findall(r"`fair2:(\w+)`", ONTOLOGY_DOC.read_text()))
+    documented = set(re.findall(r"`fair2:([\w-]+)`", ONTOLOGY_DOC.read_text()))
     if missing := declared - documented:
         fail("docs", f"terms declared in the ontology but absent from "
                      f"{ONTOLOGY_DOC.relative_to(ROOT)}:", [f"fair2:{t}" for t in missing])
@@ -221,7 +222,9 @@ def example_files() -> list[Path]:
         candidates = [ROOT / line for line in out]
     except (subprocess.CalledProcessError, FileNotFoundError):
         candidates = sorted(EXAMPLES.rglob("*.json"))
-    return [p for p in candidates if p.exists() and "@context" in p.read_text()]
+    return [p for p in candidates
+            if p.exists() and CERT_FIXTURES not in p.parents
+            and "@context" in p.read_text()]
 
 
 def check_example_contexts(ctx_inline: dict) -> None:
@@ -321,12 +324,24 @@ def check_id_constraints() -> None:
                                 f"node definitions:", sorted(set(dupes)))
 
 
+def ontology_graph() -> rdflib.Graph:
+    """The ontology is part of validation, not documentation.
+
+    SHACL class targets follow rdf:type/rdfs:subClassOf*, but only over the
+    triples the validator is given. Without this graph, fair2s:ArticleShape
+    never reaches a node typed fair2:DataArticle, and the body goes
+    unvalidated while the report still says it conforms.
+    """
+    return rdflib.Graph().parse(ONTOLOGY, format="turtle")
+
+
 def check_examples_validate(shapes: rdflib.Graph) -> None:
     import pyshacl
 
+    ont = ontology_graph()
     for path in example_files():
         data = rdflib.Graph().parse(path, format="json-ld")
-        conforms, _, text = pyshacl.validate(data, shacl_graph=shapes, advanced=True)
+        conforms, _, text = pyshacl.validate(data, shacl_graph=shapes, ont_graph=ont, advanced=True)
         if not conforms:
             fail("shacl", f"{path.relative_to(ROOT)} does not conform to the shapes "
                           f"({text.count('Constraint Violation')} violations)")
@@ -359,6 +374,36 @@ def check_examples_load_in_mlcroissant() -> None:
                               f"{type(exc).__name__}" + (f" — {first[:120]}" if first else ""))
 
 
+def check_certification_fixtures(shapes: rdflib.Graph) -> None:
+    """Each certification fixture must behave as examples/certification/expectations.json says.
+
+    valid   - conforms outright
+    warn    - conforms only once warnings are allowed (the deprecated path)
+    invalid - produces a Violation
+    """
+    manifest = CERT_FIXTURES / "expectations.json"
+    if not manifest.exists():
+        return
+    import pyshacl
+
+    ont = ontology_graph()
+    expected = {k: v for k, v in json.loads(manifest.read_text()).items() if not k.startswith("_")}
+    present = {p.name for p in CERT_FIXTURES.glob("*.json")} - {"expectations.json"}
+    if unlisted := present - set(expected):
+        fail("fixtures", "certification fixtures with no entry in expectations.json:", sorted(unlisted))
+    if missing := set(expected) - present:
+        fail("fixtures", "expectations.json lists fixtures that do not exist:", sorted(missing))
+
+    for name in sorted(present & set(expected)):
+        data = rdflib.Graph().parse(CERT_FIXTURES / name, format="json-ld")
+        strict, _, _ = pyshacl.validate(data, shacl_graph=shapes, ont_graph=ont, advanced=True)
+        lenient, _, _ = pyshacl.validate(data, shacl_graph=shapes, ont_graph=ont, advanced=True,
+                                         allow_warnings=True)
+        got = "valid" if strict else ("warn" if lenient else "invalid")
+        if got != expected[name]:
+            fail("fixtures", f"certification/{name}: expected {expected[name]}, got {got}")
+
+
 def main() -> int:
     shapes = shapes_graph()
     ctx_inline, ctx_fair2 = context_terms()
@@ -374,6 +419,7 @@ def main() -> int:
     check_id_constraints()
     check_examples_validate(shapes)
     check_examples_load_in_mlcroissant()
+    check_certification_fixtures(shapes)
 
     if failures:
         print("Spec consistency check FAILED\n")

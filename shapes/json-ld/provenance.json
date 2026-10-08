@@ -1,11 +1,12 @@
 {
     "@context": {
-        "sh": "http://www.w3.org/ns/shacl#",
-        "schema": "https://schema.org/",
         "prov": "http://www.w3.org/ns/prov#",
+        "schema": "https://schema.org/",
+        "sh": "http://www.w3.org/ns/shacl#",
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
         "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-        "fair2s": "https://fair2.ai/shapes/",
         "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "fair2s": "https://fair2.ai/shapes/",
         "sh:path": {
             "@type": "@id"
         },
@@ -24,73 +25,18 @@
     },
     "@graph": [
         {
-            "@id": "fair2s:DigitalDocumentShape",
-            "@type": "sh:NodeShape",
-            "sh:targetClass": "schema:DigitalDocument",
-            "sh:nodeKind": "sh:IRI",
-            "sh:property": [
-                {
-                    "sh:path": "schema:name",
-                    "sh:minCount": 1,
-                    "sh:node": "fair2s:TextShape"
-                },
-                {
-                    "sh:path": "schema:pagination",
-                    "sh:node": "fair2s:TextShape",
-                    "sh:description": "Relative file path to the document within the dataset package."
-                },
-                {
-                    "sh:path": "schema:encodingFormat",
-                    "sh:node": "fair2s:TextShape"
-                },
-                {
-                    "sh:path": "schema:url",
-                    "sh:node": "fair2s:IdentifierShape"
-                }
-            ]
-        },
-        {
-            "@id": "fair2s:SoftwareSourceCodeShape",
-            "@type": "sh:NodeShape",
-            "sh:targetClass": "schema:SoftwareSourceCode",
-            "sh:nodeKind": "sh:IRI",
-            "sh:property": [
-                {
-                    "sh:path": "schema:name",
-                    "sh:minCount": 1,
-                    "sh:node": "fair2s:TextShape"
-                },
-                {
-                    "sh:path": "schema:identifier",
-                    "sh:node": "fair2s:TextShape",
-                    "sh:description": "Relative path or persistent identifier for the script."
-                },
-                {
-                    "sh:path": "schema:encodingFormat",
-                    "sh:node": "fair2s:TextShape",
-                    "sh:description": "MIME type of the source file (e.g., text/x-python)."
-                },
-                {
-                    "sh:path": "schema:url",
-                    "sh:node": "fair2s:IdentifierShape"
-                },
-                {
-                    "sh:path": "schema:programmingLanguage",
-                    "sh:node": "fair2s:TextShape"
-                },
-                {
-                    "sh:path": "schema:runtimePlatform",
-                    "sh:node": "fair2s:TextShape",
-                    "sh:description": "Runtime environment (e.g., Python 3.11, R 4.3)."
-                }
-            ]
-        },
-        {
             "@id": "fair2s:ActivityShape",
             "@type": "sh:NodeShape",
-            "sh:targetClass": "prov:Activity",
             "sh:nodeKind": "sh:BlankNodeOrIRI",
             "sh:property": [
+                {
+                    "sh:path": "schema:endTime",
+                    "sh:datatype": "xsd:dateTime"
+                },
+                {
+                    "sh:path": "schema:startTime",
+                    "sh:datatype": "xsd:dateTime"
+                },
                 {
                     "sh:path": "rdfs:label",
                     "sh:minCount": 1,
@@ -101,42 +47,97 @@
                     "sh:path": "prov:wasAssociatedWith",
                     "sh:nodeKind": "sh:BlankNodeOrIRI",
                     "sh:description": "The agent (SoftwareAgent, Person, Organization) responsible for this activity."
-                },
-                {
-                    "sh:path": "schema:startTime",
-                    "sh:datatype": "xsd:dateTime"
-                },
-                {
-                    "sh:path": "schema:endTime",
-                    "sh:datatype": "xsd:dateTime"
                 }
-            ]
+            ],
+            "sh:targetClass": "prov:Activity"
         },
         {
-            "@id": "fair2s:SoftwareAgentShape",
+            "@id": "fair2s:DigitalDocumentShape",
             "@type": "sh:NodeShape",
-            "sh:targetClass": "prov:SoftwareAgent",
-            "sh:nodeKind": "sh:BlankNodeOrIRI",
+            "sh:nodeKind": "sh:IRI",
             "sh:property": [
+                {
+                    "sh:path": "schema:pagination",
+                    "sh:node": "fair2s:TextShape",
+                    "sh:description": "Relative file path to the document within the dataset package."
+                },
                 {
                     "sh:path": "schema:name",
                     "sh:minCount": 1,
                     "sh:node": "fair2s:TextShape"
                 },
                 {
+                    "sh:path": "schema:url",
+                    "sh:node": "fair2s:IdentifierShape"
+                },
+                {
+                    "sh:path": "schema:encodingFormat",
+                    "sh:node": "fair2s:TextShape"
+                }
+            ],
+            "sh:targetClass": "schema:DigitalDocument"
+        },
+        {
+            "@id": "fair2s:SoftwareAgentShape",
+            "@type": "sh:NodeShape",
+            "sh:nodeKind": "sh:BlankNodeOrIRI",
+            "sh:property": [
+                {
                     "sh:path": "schema:identifier",
                     "sh:node": "fair2s:IdentifierShape",
                     "sh:description": "Persistent identifier or homepage URL for the software."
                 },
                 {
-                    "sh:path": "schema:softwareVersion",
+                    "sh:path": "schema:name",
+                    "sh:minCount": 1,
                     "sh:node": "fair2s:TextShape"
                 },
                 {
                     "sh:path": "schema:programmingLanguage",
                     "sh:node": "fair2s:TextShape"
+                },
+                {
+                    "sh:path": "schema:softwareVersion",
+                    "sh:node": "fair2s:TextShape"
                 }
-            ]
+            ],
+            "sh:targetClass": "prov:SoftwareAgent"
+        },
+        {
+            "@id": "fair2s:SoftwareSourceCodeShape",
+            "@type": "sh:NodeShape",
+            "sh:nodeKind": "sh:IRI",
+            "sh:property": [
+                {
+                    "sh:path": "schema:encodingFormat",
+                    "sh:node": "fair2s:TextShape",
+                    "sh:description": "MIME type of the source file (e.g., text/x-python)."
+                },
+                {
+                    "sh:path": "schema:identifier",
+                    "sh:node": "fair2s:TextShape",
+                    "sh:description": "Relative path or persistent identifier for the script."
+                },
+                {
+                    "sh:path": "schema:runtimePlatform",
+                    "sh:node": "fair2s:TextShape",
+                    "sh:description": "Runtime environment (e.g., Python 3.11, R 4.3)."
+                },
+                {
+                    "sh:path": "schema:name",
+                    "sh:minCount": 1,
+                    "sh:node": "fair2s:TextShape"
+                },
+                {
+                    "sh:path": "schema:url",
+                    "sh:node": "fair2s:IdentifierShape"
+                },
+                {
+                    "sh:path": "schema:programmingLanguage",
+                    "sh:node": "fair2s:TextShape"
+                }
+            ],
+            "sh:targetClass": "schema:SoftwareSourceCode"
         }
     ]
 }
