@@ -158,61 +158,82 @@ shape, no context mapping and no implementation. **Do not emit them.**
 
 ---
 
-## 5. Statistics Model (Optional but Supported)
+## 5. Statistics Model
 
-Statistics are **derived metadata** about variables. They are:
+Statistics are **derived metadata** about a field: optional, repeatable,
+provenance-bearing.
 
-- Optional
-- Repeatable
-- Provenance-bearing
-- Variable-specific
+### Croissant's annotation mechanism (normative)
 
-Statistics MUST NOT be encoded as fixed columns in the Core dictionary.
-
-### 5.1 JSON-LD Statistics Pattern (Normative)
-
-Statistics are represented as a `fair2:DescriptiveStatistics` object attached to a field via `fair2:statistics`.
+A statistic is a `cr:Field` attached through `cr:annotation`, carrying a
+`value` instead of a `source`. This is
+[Croissant 1.1's own representation](https://docs.mlcommons.org/croissant/docs/croissant-spec-1.1.html#application-representing-descriptive-statistics),
+and using it means Croissant tooling can read FAIR² statistics — `mlcroissant`
+surfaces them on `field.annotations`.
 
 ```jsonld
-"statistics": {
-  "@type": "DescriptiveStatistics",
-  "variableMeasured": [
-    { "@type": "PropertyValue", "name": "count", "value": 4 },
-    { "@type": "PropertyValue", "name": "unique", "value": 4 },
-    { "@type": "PropertyValue", "name": "missing_values", "value": 36 }
+{
+  "@id": "record-sets/WATER/fields/parameter_value",
+  "@type": "Field",
+  "name": "parameter_value",
+  "dataType": "Number",
+  "source": { "fileObject": { "@id": "resources/WATER" },
+              "extract": { "column": "parameter_value" } },
+
+  "annotation": [
+    { "@id": "record-sets/WATER/fields/parameter_value/stats/count",
+      "@type": "Field", "name": "count", "value": 271925 },
+    { "@id": "record-sets/WATER/fields/parameter_value/stats/missing_values",
+      "@type": "Field", "name": "missing_values", "value": 0 }
   ],
-  "wasGeneratedBy": {
-    "@type": "Activity",
-    "label": "Pandas .statistics() computation",
-    "wasAssociatedWith": {
-      "@type": "SoftwareAgent",
-      "name": "Pandas",
-      "softwareVersion": "2.1.1",
-      "programmingLanguage": "Python",
-      "identifier": "https://pandas.pydata.org/"
-    }
-  }
+
+  "wasGeneratedBy": { "@id": "activities/pandas-statistics" }
 }
 ```
 
-This is the one place `schema:variableMeasured` is used in FAIR²: it lists the
-individual statistics, not the dataset's variables.
+Each annotation needs a stable `@id`, a `name` saying what it reports, and a
+`value`. `fair2s:AnnotationShape` enforces that. Note that
+`fair2s:FieldShape` targets the objects of `cr:field` rather than every
+`cr:Field`, so a data field's `description`, `dataType` and `source`
+requirements do not reach an annotation.
 
-### 5.2 CSV / Excel Statistics Table (Normative)
+### Provenance sits on the field, not on each statistic
 
-Statistics MUST be exported as a **separate long-form table**.
+One run produces all of a field's statistics, so `prov:wasGeneratedBy` is
+stated once per field and points at a single activity held under `included`:
 
-| Column | Description |
-|------|------------|
-| variable_id | Variable identifier |
-| statistic_name | Name of statistic (`count`, `mean`, `unique`, etc.) |
-| statistic_value | Value (numeric or string) |
-| statistic_unit | Unit (if applicable) |
-| statistic_description | Optional notes |
-| generated_by_activity | Provenance activity ID |
-| software_name | Software used |
-| software_version | Software version |
-| programming_language | Language/environment |
+```jsonld
+"included": [
+  { "@id": "activities/pandas-statistics",
+    "@type": "Activity",
+    "label": "Pandas .statistics() computation",
+    "wasAssociatedWith": { "@id": "agents/pandas" } },
+  { "@id": "agents/pandas",
+    "@type": "SoftwareAgent",
+    "name": "Pandas", "softwareVersion": "2.1.1",
+    "programmingLanguage": "Python",
+    "identifier": "https://pandas.pydata.org/" }
+]
+```
+
+### Typing the kind of statistic
+
+Croissant types each statistic with a resolvable term in `cr:dataType` —
+its own example uses DDI-CDI `SummaryStatisticType` and Wikidata. FAIR²
+permits this and `fair2s:AnnotationShape` accepts an optional `cr:dataType`,
+but **does not yet prescribe a vocabulary**. Until one is settled, `name`
+carries the kind. Some statistics are unlikely to map: `missing_values` and
+`expected_number_of_values` describe completeness of the extraction rather
+than a distribution.
+
+!!! note "Changed in v1.5.0"
+    Up to v1.4.0 statistics used a FAIR²-specific `fair2:statistics` property
+    pointing at a `fair2:DescriptiveStatistics` wrapper whose
+    `schema:variableMeasured` held `PropertyValue` pairs. That was a parallel
+    mechanism beside one the base specification already had, and it was
+    invisible to Croissant consumers: `mlcroissant` exposes
+    `field.annotations`, and for FAIR² documents it was empty. Both terms are
+    deprecated and retained only so existing references resolve.
 
 ---
 
@@ -291,7 +312,8 @@ round:
 - Every field MUST declare `cr:source`
 - Units SHOULD use `fair2:unit` referencing a QUDT unit IRI
 - Method provenance runs from step to field, via `fair2:generated`
-- Statistics MUST be optional and provenance-bearing
+- Statistics MUST use `cr:annotation`, each with an `@id`, a `name` and a `value`
+- Statistics provenance MUST sit on the field, not on each statistic
 
 ---
 

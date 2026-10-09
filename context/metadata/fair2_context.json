@@ -194,6 +194,9 @@
       "alternateName": {
         "@id": "schema:alternateName"
       },
+      "annotation": {
+        "@id": "cr:annotation"
+      },
       "annotationsPerItem": {
         "@id": "rai:annotationsPerItem"
       },

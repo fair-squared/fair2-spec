@@ -16,9 +16,39 @@
         },
         "sh:nodeKind": {
             "@type": "@id"
+        },
+        "sh:targetObjectsOf": {
+            "@type": "@id"
         }
     },
     "@graph": [
+        {
+            "@id": "fair2s:AnnotationShape",
+            "@type": "sh:NodeShape",
+            "sh:nodeKind": "sh:IRI",
+            "sh:description": "A statistic or other annotation on a RecordSet or Field, per Croissant's annotation mechanism. It carries a value instead of a source.",
+            "sh:property": [
+                {
+                    "sh:path": "cr:dataType",
+                    "sh:maxCount": 1,
+                    "sh:nodeKind": "sh:IRI",
+                    "sh:description": "Optional: the kind of statistic, as a resolvable term. A controlled vocabulary for these is not yet settled."
+                },
+                {
+                    "sh:path": "schema:value",
+                    "sh:minCount": 1,
+                    "sh:maxCount": 1,
+                    "sh:description": "The value. Its datatype varies by statistic, so none is imposed."
+                },
+                {
+                    "sh:path": "schema:name",
+                    "sh:minCount": 1,
+                    "sh:node": "fair2s:TextShape",
+                    "sh:description": "What the annotation reports, e.g. mean or missing_values."
+                }
+            ],
+            "sh:targetObjectsOf": "cr:annotation"
+        },
         {
             "@id": "fair2s:FieldShape",
             "@type": "sh:NodeShape",
@@ -49,7 +79,7 @@
                     "sh:message": "Name must be a string or a language-tagged string."
                 }
             ],
-            "sh:targetClass": "cr:Field"
+            "sh:targetObjectsOf": "cr:field"
         },
         {
             "@id": "fair2s:RecordSetShape",

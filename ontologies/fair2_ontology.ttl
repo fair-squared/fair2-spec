@@ -33,7 +33,8 @@ fair2:Substep a rdfs:Class ;
 
 fair2:DescriptiveStatistics a rdfs:Class ;
   rdfs:label "DescriptiveStatistics" ;
-  rdfs:comment "Summary statistics computed over a field, RecordSet or Dataset. A bundle of measured values, not a dataset in its own right: declaring it a schema:Dataset made every statistics block a target of fair2s:DatasetShape." ;
+  rdfs:comment "Deprecated. Croissant 1.1 models statistics with cr:annotation, attaching a cr:Field that carries a value rather than a source; FAIR2 documents use that from v1.5.0. This class described the wrapper the superseded fair2:statistics property pointed at, and is retained only so existing references resolve." ;
+  vs:term_status "deprecated" ;
   rdfs:subClassOf schema:StructuredValue .
 
 fair2:Submission a rdfs:Class ;
@@ -78,6 +79,7 @@ fair2:manuscript a rdf:Property ;
 
 fair2:statistics a rdf:Property ;
   rdfs:label "statistics" ;
+  vs:term_status "deprecated" ;
   rdfs:comment "Links to computed descriptive statistics." ;
   schema:domainIncludes cr:Field ;
   schema:rangeIncludes fair2:DescriptiveStatistics ;
