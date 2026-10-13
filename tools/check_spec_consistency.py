@@ -36,6 +36,7 @@ EXAMPLES = ROOT / "examples"
 CERT_FIXTURES = EXAMPLES / "certification"
 CREDENTIALS = EXAMPLES / "credentials"
 SCHEMAS = ROOT / "schemas"
+CONTEXT_DIR = ROOT / "context"
 
 # Keys an individual document may add to its own copy of the shared context.
 DOCUMENT_LOCAL_CONTEXT_KEYS = {"@base", "@language"}
@@ -449,6 +450,31 @@ def check_credential_examples() -> None:
             fail("credentials", f"{example.relative_to(ROOT)} does not satisfy {schema_name}: {first[:140]}")
 
 
+def check_published_contexts(ctx_inline: dict) -> None:
+    """A published context must match the working source it was cut from.
+
+    context/vX.Y.Z.jsonld is immutable once released, so this does not allow
+    one to drift from context/metadata/fair2_context.json unnoticed: either
+    the working source changed and a new version is due, or someone edited a
+    frozen file.
+    """
+    import re as _re
+
+    published = sorted(CONTEXT_DIR.glob("v*.jsonld"))
+    if not published:
+        return
+    latest = max(published, key=lambda p: [int(n) for n in _re.findall(r"\d+", p.stem)])
+    terms = json.loads(latest.read_text())["@context"]
+    terms = {k: v for k, v in terms.items() if k != "@version"}
+    if terms != ctx_inline:
+        differing = sorted(
+            k for k in set(terms) | set(ctx_inline)
+            if terms.get(k) != ctx_inline.get(k)
+        )
+        fail("context", f"{latest.relative_to(ROOT)} differs from the working source "
+                        f"- cut a new version, or revert the edit:", differing[:12])
+
+
 def main() -> int:
     shapes = shapes_graph()
     ctx_inline, ctx_fair2 = context_terms()
@@ -456,6 +482,7 @@ def main() -> int:
     check_term_coverage(shapes, ctx_inline, ctx_fair2)
     check_ontology_documented()
     check_context_coercions(ctx_inline)
+    check_published_contexts(ctx_inline)
     check_schemaorg_terms_exist(ctx_inline)
     check_types_are_mapped()
     check_shape_mirrors()

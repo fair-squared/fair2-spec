@@ -76,6 +76,49 @@ not change.
     Consumers reading pre-v1.4.0 documents will still find `_meta` at the
     root.
 
+## The versioned context
+
+Each release freezes the JSON-LD context as `context/vX.Y.Z.jsonld` and
+publishes it at `https://fair2.ai/context/vX.Y.Z.jsonld`. A published
+context is **immutable**: documents point at it, so changing one would change
+the meaning of every document already referring to it.
+
+```json
+{
+  "@context": "https://fair2.ai/context/v1.5.0.jsonld",
+  "@id": "https://doi.org/10.1234/dataset",
+  "@type": "Dataset"
+}
+```
+
+| File | Role |
+|---|---|
+| `context/metadata/fair2_context.json` | the working source, edited by hand |
+| `context/vX.Y.Z.jsonld` | the frozen release, generated and never edited |
+
+`tools/build_context.py vX.Y.Z` renders one from the other and refuses to
+overwrite an existing version; the consistency guard fails if a published
+context and the working source disagree. The relationship is the same one
+`shapes/json-ld/` has to `shapes/turtle/`: generated, checked, not
+hand-maintained.
+
+**The published form is flattened.** The working source is a context array —
+schema.org, Croissant, then the inline terms — while the published file
+carries only the term map. That resolves in a single request, works offline
+behind a [document loader](https://www.w3.org/TR/json-ld11-api/), and cannot
+be altered by an upstream change to either vocabulary. Nothing is lost: the
+reference example has used the flattened form throughout, and both
+`mlcroissant` and `pyshacl` read it to the same graph.
+
+!!! note "Not yet referenced by URL"
+    Documents still carry the context inline. Switching `@context` to the URL
+    waits until the file is actually served at `fair2.ai`, because until then
+    every consumer would fail to resolve it. The frozen file is generated and
+    guarded from v1.5.0 so that the switch is a one-line change per document
+    when the hosting is in place.
+
+---
+
 ## Versioned documentation
 
 The specification site is versioned with
