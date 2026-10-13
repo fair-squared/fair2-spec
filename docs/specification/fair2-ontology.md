@@ -44,6 +44,7 @@ The following classes define the core conceptual entities in FAIR². Each class 
 | `fair2:StepCase` | StepCase | Conditional branch within a method, carrying the condition and the path taken when it holds. Sits in the same fair2:step list as a Step. | `schema:HowToStep` |
 | `fair2:ComplianceLevel` | ComplianceLevel | A FAIR² compliance status asserted for a package. | `skos:Concept` |
 | `fair2:CertificationScope` | CertificationScope | A facet of a package that a certification covers. | `skos:Concept` |
+| `fair2:SummaryStatistic` | SummaryStatistic | A kind of descriptive statistic, named in `cr:dataType`. | `skos:Concept` |
 | `fair2:FAIR2CertificationCredential` | FAIR2CertificationCredential | A W3C Verifiable Credential asserting a package's certification status. | `schema:CreativeWork` |
 | `fair2:FAIR2CertifierRegistry` | FAIR2CertifierRegistry | The signed list of entities authorised to issue FAIR² certifications. | `schema:CreativeWork` |
 
@@ -115,6 +116,10 @@ the scope says **what was checked** — there is no metadata-only level.
 | `fair2:LicenseVerification` | `fair2:CertificationScope` | The declared licence was checked. |
 | `fair2:ProcessAttestation` | `fair2:CertificationScope` | The production process was attested by the certifier. |
 | `fair2:TemporalProof` | `fair2:CertificationScope` | An RFC 3161 timestamp or blockchain anchor is attached. |
+| `fair2:DistinctValueCount` | `fair2:SummaryStatistic` | Number of distinct values. DDI-CDI has no equivalent. |
+| `fair2:ModalFrequency` | `fair2:SummaryStatistic` | How often the modal value occurs; DDI names the mode but not its frequency. |
+| `fair2:ExpectedValueCount` | `fair2:SummaryStatistic` | Values the extraction expected to find — completeness, not distribution. |
+| `fair2:FrequencyDistribution` | `fair2:SummaryStatistic` | Frequency of the most common values, as an `rdf:JSON` literal. |
 
 A certification whose scope omits `dataIntegrity` MUST be rendered as
 **“FAIR²-Certified (metadata only)”**. That is a requirement on consumers —

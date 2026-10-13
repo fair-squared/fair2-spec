@@ -264,6 +264,11 @@ def check_no_vocab_fallthrough() -> None:
 
         def walk(node) -> None:
             if isinstance(node, dict):
+                # An rdf:JSON literal is opaque: its keys are data, not terms.
+                # Croissant uses this for cr:data and cr:examples, FAIR2 for
+                # frequency distributions.
+                if node.get("@type") == "@json":
+                    return
                 for key, value in node.items():
                     if not key.startswith("@") and key not in defined:
                         if ":" not in key or key.split(":", 1)[0] not in prefixes:
