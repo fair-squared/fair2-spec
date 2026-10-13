@@ -475,6 +475,37 @@ def check_published_contexts(ctx_inline: dict) -> None:
                         f"- cut a new version, or revert the edit:", differing[:12])
 
 
+def check_examples_declare_current_spec() -> None:
+    """An example must declare the spec version it ships with.
+
+    versioning.md's release checklist says to bump conformsTo in the examples
+    when cutting a release. v1.5.0 shipped declaring v1.4.0 because that step
+    was missed and nothing checked it. The published context is the anchor:
+    context/vX.Y.Z.jsonld is cut per release, so the newest one names the
+    version the repository is currently on.
+    """
+    import re as _re
+
+    published = sorted(CONTEXT_DIR.glob("v*.jsonld"))
+    if not published:
+        return
+    current = max(published, key=lambda p: [int(n) for n in _re.findall(r"\d+", p.stem)]).stem
+    expected = f"https://fair2.ai/spec/{current}"
+
+    for path in example_files():
+        doc = json.loads(path.read_text())
+        values = doc.get("conformsTo")
+        values = values if isinstance(values, list) else [values]
+        spec_values = [v for v in values
+                       if isinstance(v, str) and v.startswith("https://fair2.ai/spec/")]
+        if not spec_values:
+            continue  # absence is DatasetShape's job
+        if expected not in spec_values:
+            fail("version", f"{path.relative_to(ROOT)} declares {spec_values[0]} but the "
+                            f"repository is on {current}",
+                 ["bump conformsTo, or cut the matching context version"])
+
+
 def main() -> int:
     shapes = shapes_graph()
     ctx_inline, ctx_fair2 = context_terms()
@@ -483,6 +514,7 @@ def main() -> int:
     check_ontology_documented()
     check_context_coercions(ctx_inline)
     check_published_contexts(ctx_inline)
+    check_examples_declare_current_spec()
     check_schemaorg_terms_exist(ctx_inline)
     check_types_are_mapped()
     check_shape_mirrors()

@@ -140,9 +140,23 @@ to the current release.
 
 ## Cutting a new spec version
 
+The order matters: everything that names the version must be in the commit
+the tag points at.
+
 1. Land the spec changes on `main`.
-2. Tag the release: `git tag -a vX.Y.Z -m "…" && git push origin vX.Y.Z`.
-   The docs workflow publishes `vX.Y.Z`, updates the `latest` alias, and sets it
+2. Generate the frozen context: `python tools/build_context.py vX.Y.Z`.
+3. Bump `conformsTo` in the example(s) to `https://fair2.ai/spec/vX.Y.Z`.
+4. Run `python tools/check_spec_consistency.py`. It fails if an example
+   declares a different version from the newest frozen context, so steps 2
+   and 3 cannot be half-done.
+5. Commit, then tag: `git tag -a vX.Y.Z -m "…" && git push origin vX.Y.Z`.
+   The docs workflow publishes `vX.Y.Z`, moves the `latest` alias and sets it
    as the site default.
-3. Bump `_meta.conformsTo` in the example(s) to `https://fair2.ai/spec/vX.Y.Z`.
-4. In consumers, pin/advance the `fair2-spec` reference to the new tag.
+6. In consumers, advance the `fair2-spec` reference to the new tag.
+
+!!! warning "This list used to be in the wrong order"
+    Bumping `conformsTo` was step 3, *after* tagging — so following it
+    faithfully produced a tag whose example declared the previous version.
+    v1.5.0 shipped that way and was corrected in v1.5.1. The guard check added
+    with the fix makes the mistake unrepeatable, but the ordering above is
+    what makes it unnecessary.
