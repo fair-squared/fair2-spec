@@ -27,6 +27,8 @@ SH = rdflib.Namespace("http://www.w3.org/ns/shacl#")
 ROOT = Path(__file__).resolve().parent.parent
 TURTLE_DIR = ROOT / "shapes" / "turtle"
 JSONLD_DIR = ROOT / "shapes" / "json-ld"
+ONTOLOGY_TTL = ROOT / "ontologies" / "fair2_ontology.ttl"
+ONTOLOGY_JSONLD = ROOT / "ontologies" / "fair2_ontology.jsonld"
 
 # Properties whose values are IRIs, and those whose values are RDF lists.
 IRI_VALUED = ["sh:path", "sh:node", "sh:targetClass", "sh:nodeKind", "sh:datatype",
@@ -118,6 +120,54 @@ def build(path: Path) -> dict:
     return {"@context": context, "@graph": bodies}
 
 
+def build_ontology(path: Path) -> dict:
+    """The ontology as JSON-LD: one node per term, sorted, IRIs as {"@id"}.
+
+    The ontology has no blank nodes and only plain literals, so a flat node per
+    subject is a complete rendering; both are asserted rather than assumed.
+    """
+    g = rdflib.Graph().parse(path, format="turtle")
+    assert not any(isinstance(x, rdflib.BNode) for t in g for x in t), "ontology has blank nodes"
+    nm = g.namespace_manager
+    context = {prefix: str(ns) for prefix, ns in sorted(nm.namespaces())
+               if prefix and any(str(x).startswith(str(ns)) for t in g for x in t)}
+
+    def value(o):
+        if isinstance(o, rdflib.URIRef):
+            return {"@id": compact(g, o)}
+        assert isinstance(o, rdflib.Literal) and not o.language and not o.datatype, o
+        return str(o)
+
+    nodes = []
+    for subject in sorted(set(g.subjects()), key=lambda t: compact(g, t)):
+        node = {"@id": compact(g, subject)}
+        types = sorted(compact(g, o) for o in g.objects(subject, rdflib.RDF.type))
+        if types:
+            node["@type"] = types[0] if len(types) == 1 else types
+        for pred in sorted(set(g.predicates(subject)) - {rdflib.RDF.type},
+                           key=lambda t: compact(g, t)):
+            values = sorted((value(o) for o in g.objects(subject, pred)),
+                            key=lambda v: json.dumps(v, sort_keys=True))
+            node[compact(g, pred)] = values[0] if len(values) == 1 else values
+        nodes.append(node)
+    return {"@context": context, "@graph": nodes}
+
+
+def sync_ontology(check: bool) -> list[str]:
+    text = json.dumps(build_ontology(ONTOLOGY_TTL), indent=2, ensure_ascii=False) + "\n"
+    if check:
+        return [] if ONTOLOGY_JSONLD.exists() and ONTOLOGY_JSONLD.read_text() == text \
+            else [ONTOLOGY_JSONLD.name]
+    ONTOLOGY_JSONLD.write_text(text)
+    a = to_isomorphic(rdflib.Graph().parse(ONTOLOGY_TTL, format="turtle"))
+    b = to_isomorphic(rdflib.Graph().parse(ONTOLOGY_JSONLD, format="json-ld"))
+    _, only_ttl, only_json = graph_diff(a, b)
+    status = "ok" if not len(only_ttl) and not len(only_json) else \
+             f"MISMATCH {len(only_ttl)}/{len(only_json)}"
+    print(f"  {ONTOLOGY_JSONLD.name:26} {status}")
+    return [] if status == "ok" else [ONTOLOGY_JSONLD.name]
+
+
 def main() -> int:
     check = "--check" in sys.argv
     problems = []
@@ -138,6 +188,7 @@ def main() -> int:
         if status != "ok":
             problems.append(out.name)
 
+    problems += sync_ontology(check)
     if problems:
         print(("stale (run without --check to regenerate): " if check else "mismatched: ")
               + ", ".join(problems))

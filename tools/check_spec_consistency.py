@@ -109,6 +109,21 @@ def check_ontology_documented() -> None:
                      f"{ONTOLOGY_DOC.relative_to(ROOT)}:", [f"fair2:{t}" for t in missing])
 
 
+def check_single_term_status() -> None:
+    """A term has one lifecycle status. Deprecating a term by adding a second
+    vs:term_status, without removing the first, leaves it both stable and
+    deprecated - fair2:statistics shipped that way in v1.5.0-v1.5.2."""
+    ontology = rdflib.Graph().parse(ONTOLOGY, format="turtle")
+    status = rdflib.URIRef("http://www.w3.org/2003/06/sw-vocab-status/ns#term_status")
+    conflicting = sorted(
+        f"fair2:{local(s)}: {', '.join(sorted(str(o) for o in ontology.objects(s, status)))}"
+        for s in set(ontology.subjects(status, None))
+        if len(set(ontology.objects(s, status))) > 1
+    )
+    if conflicting:
+        fail("ontology", "terms with more than one vs:term_status:", conflicting)
+
+
 def check_context_coercions(ctx_inline: dict) -> None:
     """@type in a term definition is value coercion, not a subclass axiom.
 
@@ -205,8 +220,16 @@ def check_shape_mirrors() -> None:
         _, only_ttl, only_json = graph_diff(t, j)
         if len(only_ttl) or len(only_json):
             drifted.append(f"{mirror.name}: {len(only_ttl)} triples only in .ttl, {len(only_json)} only in .json")
+    ontology_jsonld = ONTOLOGY.with_suffix(".jsonld")
+    t = to_isomorphic(rdflib.Graph().parse(ONTOLOGY, format="turtle"))
+    j = to_isomorphic(rdflib.Graph().parse(ontology_jsonld, format="json-ld"))
+    _, only_ttl, only_json = graph_diff(t, j)
+    if len(only_ttl) or len(only_json):
+        drifted.append(f"{ontology_jsonld.name}: {len(only_ttl)} triples only in .ttl, "
+                       f"{len(only_json)} only in .jsonld")
     if drifted:
-        fail("mirrors", "JSON-LD shape mirrors no longer match their Turtle source:", drifted)
+        fail("mirrors", "JSON-LD mirrors no longer match their Turtle source "
+                        "(run tools/sync_shape_mirrors.py):", drifted)
 
 
 def example_files() -> list[Path]:
@@ -544,6 +567,7 @@ def main() -> int:
 
     check_term_coverage(shapes, ctx_inline, ctx_fair2)
     check_ontology_documented()
+    check_single_term_status()
     check_context_coercions(ctx_inline)
     check_published_contexts(ctx_inline)
     check_context_cut_for_latest_tag()

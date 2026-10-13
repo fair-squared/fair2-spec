@@ -1,193 +1,771 @@
 {
   "@context": {
-    "schema": "https://schema.org/",
-    "prov": "http://www.w3.org/ns/prov#",
     "cr": "http://mlcommons.org/croissant/",
-    "credit": "https://credit.niso.org/contributor-roles/",
-    "qudt": "http://qudt.org/schema/qudt/",
-    "unit": "http://qudt.org/vocab/unit/",
+    "ddi-stats": "http://rdf-vocabulary.ddialliance.org/cv/SummaryStatisticType/2.1.2/",
     "fair2": "https://fair2.ai/ns/",
-    "fair2s": "https://fair2.ai/shapes/",
-    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "qudt": "http://qudt.org/schema/qudt/",
     "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-    "xsd": "http://www.w3.org/2001/XMLSchema#",
-    "@vocab": "https://fair2.ai/ns/"
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "https://schema.org/",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "vs": "http://www.w3.org/2003/06/sw-vocab-status/ns#"
   },
   "@graph": [
     {
-      "@id": "fair2:OpenDataArticle",
+      "@id": "fair2:AuthorRole",
       "@type": "rdfs:Class",
-      "rdfs:label": "OpenDataArticle",
-      "rdfs:comment": "Scholarly work describing and linking an open dataset with methods and reuse guidance.",
-      "rdfs:subClassOf": "schema:ScholarlyArticle"
+      "rdfs:comment": "Role played by an author in producing the dataset (e.g. Corresponding Author).",
+      "rdfs:label": "AuthorRole",
+      "rdfs:subClassOf": {
+        "@id": "schema:Role"
+      }
     },
     {
-      "@id": "fair2:MethodSection",
+      "@id": "fair2:Certification",
       "@type": "rdfs:Class",
-      "rdfs:label": "MethodSection",
-      "rdfs:comment": "Structured section grouping procedural steps for a method.",
-      "rdfs:subClassOf": "schema:HowToSection"
+      "rdfs:comment": "Pointer node asserting the FAIR² certification or validation status of a package, and referencing the external credential.",
+      "rdfs:label": "Certification",
+      "rdfs:subClassOf": {
+        "@id": "schema:CreativeWork"
+      }
     },
     {
-      "@id": "fair2:Step",
+      "@id": "fair2:CertificationScope",
       "@type": "rdfs:Class",
-      "rdfs:label": "Step",
-      "rdfs:comment": "Atomic procedural instruction within a method.",
-      "rdfs:subClassOf": "schema:HowToStep"
+      "rdfs:comment": "A facet of a package that a certification covers.",
+      "rdfs:label": "CertificationScope",
+      "rdfs:subClassOf": {
+        "@id": "skos:Concept"
+      },
+      "vs:term_status": "stable"
     },
     {
-      "@id": "fair2:Substep",
-      "@type": "rdfs:Class",
-      "rdfs:label": "Substep",
-      "rdfs:comment": "Subordinate procedural instruction nested under a Step.",
-      "rdfs:subClassOf": "schema:HowToStep"
+      "@id": "fair2:Certified",
+      "@type": "fair2:ComplianceLevel",
+      "rdfs:comment": "An authority assertion, backed by a credential signed by an authorised certifier. There is no metadata-only variant: fair2:certificationScope records what was checked.",
+      "rdfs:label": "FAIR²-Certified",
+      "vs:term_status": "stable"
     },
     {
-      "@id": "fair2:RecordSet",
+      "@id": "fair2:ComplianceLevel",
       "@type": "rdfs:Class",
-      "rdfs:label": "RecordSet",
-      "rdfs:comment": "A coherent subset of a dataset used for analysis or curation.",
-      "rdfs:subClassOf": "schema:Dataset"
+      "rdfs:comment": "A FAIR² compliance status asserted for a package.",
+      "rdfs:label": "ComplianceLevel",
+      "rdfs:subClassOf": {
+        "@id": "skos:Concept"
+      },
+      "vs:term_status": "stable"
     },
     {
-      "@id": "fair2:Visualization",
+      "@id": "fair2:ContributorRole",
       "@type": "rdfs:Class",
-      "rdfs:label": "Visualization",
-      "rdfs:comment": "A visual artifact (plot, figure, dashboard) derived from the dataset.",
-      "rdfs:subClassOf": "schema:CreativeWork"
-    },
-    {
-      "@id": "fair2:DescriptiveStatistics",
-      "@type": "rdfs:Class",
-      "rdfs:label": "DescriptiveStatistics",
-      "rdfs:comment": "Summary statistics computed over a RecordSet or Dataset.",
-      "rdfs:subClassOf": "schema:Dataset"
-    },
-    {
-      "@id": "fair2:Submission",
-      "@type": "rdfs:Class",
-      "rdfs:label": "Submission",
-      "rdfs:comment": "Submission package that groups dataset, article, and supporting materials for review.",
-      "rdfs:subClassOf": "schema:CreativeWork"
-    },
-    {
-      "@id": "fair2:DataPortal",
-      "@type": "rdfs:Class",
-      "rdfs:label": "DataPortal",
-      "rdfs:comment": "A web portal that provides access to and discovery of FAIR² datasets.",
-      "rdfs:subClassOf": "schema:CreativeWork"
+      "rdfs:comment": "Contributor role drawn from the CRediT or CRO vocabularies.",
+      "rdfs:label": "ContributorRole",
+      "rdfs:subClassOf": {
+        "@id": "schema:Role"
+      }
     },
     {
       "@id": "fair2:DataArchive",
       "@type": "rdfs:Class",
-      "rdfs:label": "DataArchive",
       "rdfs:comment": "An archive component that stores and preserves datasets for long-term access.",
-      "rdfs:subClassOf": "schema:ArchiveComponent"
+      "rdfs:label": "DataArchive",
+      "rdfs:subClassOf": {
+        "@id": "schema:ArchiveComponent"
+      }
     },
     {
-      "@id": "fair2:activities",
+      "@id": "fair2:DataArticle",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Scholarly article describing a dataset, its methods and its reuse.",
+      "rdfs:label": "DataArticle",
+      "rdfs:subClassOf": {
+        "@id": "schema:ScholarlyArticle"
+      }
+    },
+    {
+      "@id": "fair2:DataIntegrity",
+      "@type": "fair2:CertificationScope",
+      "rdfs:comment": "The data files were retrieved and checked against their recorded digests. A certification whose scope omits this token must be rendered as \"FAIR²-Certified (metadata only)\".",
+      "rdfs:label": "dataIntegrity"
+    },
+    {
+      "@id": "fair2:DataPortal",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "An authored, versioned web application presenting a single FAIR² dataset - an interactive explorer or landing site, not a catalogue of many datasets and not a bare API endpoint. Hence the required author, version and keywords, and the optional changeLog.",
+      "rdfs:label": "DataPortal",
+      "rdfs:subClassOf": {
+        "@id": "schema:CreativeWork"
+      }
+    },
+    {
+      "@id": "fair2:DescriptiveStatistics",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Deprecated. Croissant 1.1 models statistics with cr:annotation, attaching a cr:Field that carries a value rather than a source; FAIR2 documents use that from v1.5.0. This class described the wrapper the superseded fair2:statistics property pointed at, and is retained only so existing references resolve.",
+      "rdfs:label": "DescriptiveStatistics",
+      "rdfs:subClassOf": {
+        "@id": "schema:StructuredValue"
+      },
+      "vs:term_status": "deprecated"
+    },
+    {
+      "@id": "fair2:DistinctValueCount",
+      "@type": "fair2:SummaryStatistic",
+      "rdfs:comment": "Number of distinct values in the field. DDI-CDI SummaryStatisticType has no equivalent.",
+      "rdfs:label": "unique",
+      "skos:closeMatch": {
+        "@id": "ddi-stats:c646dd8"
+      }
+    },
+    {
+      "@id": "fair2:ExpectedValueCount",
+      "@type": "fair2:SummaryStatistic",
+      "rdfs:comment": "How many values the extraction expected to find, against which count and missing_values are read. Describes completeness of the extraction rather than a distribution, so it is deliberately FAIR2-local.",
+      "rdfs:label": "expected_number_of_values"
+    },
+    {
+      "@id": "fair2:FAIR2CertificationCredential",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A W3C Verifiable Credential asserting the FAIR² certification status of one exact package version. Published as fair2-cert.json and referenced by fair2:certificationDocument.",
+      "rdfs:label": "FAIR2CertificationCredential",
+      "rdfs:subClassOf": {
+        "@id": "schema:CreativeWork"
+      },
+      "vs:term_status": "stable"
+    },
+    {
+      "@id": "fair2:FAIR2CertifierRegistry",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "The signed list of entities authorised to issue FAIR² certifications, published by the governance body.",
+      "rdfs:label": "FAIR2CertifierRegistry",
+      "rdfs:subClassOf": {
+        "@id": "schema:CreativeWork"
+      },
+      "vs:term_status": "stable"
+    },
+    {
+      "@id": "fair2:FrequencyDistribution",
+      "@type": "fair2:SummaryStatistic",
+      "rdfs:comment": "Frequency of the most common values, as a JSON object mapping label to count. Carried as an rdf:JSON literal, the same mechanism Croissant uses for cr:data and cr:examples.",
+      "rdfs:label": "top_10_freq"
+    },
+    {
+      "@id": "fair2:LicenseVerification",
+      "@type": "fair2:CertificationScope",
+      "rdfs:comment": "The declared licence was checked for presence and internal consistency.",
+      "rdfs:label": "licenseVerification"
+    },
+    {
+      "@id": "fair2:MetadataConformance",
+      "@type": "fair2:CertificationScope",
+      "rdfs:comment": "The metadata conforms to the declared FAIR² profile.",
+      "rdfs:label": "metadataConformance"
+    },
+    {
+      "@id": "fair2:MethodSection",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Legacy alias for fair2:Section, retained so existing documents keep resolving. Declared a subclass of fair2:Section rather than of schema:HowToSection directly, so that fair2s:MethodSectionShape reaches legacy nodes too; fair2:Section supplies the schema:HowToSection parent.",
+      "rdfs:label": "MethodSection",
+      "rdfs:subClassOf": {
+        "@id": "fair2:Section"
+      }
+    },
+    {
+      "@id": "fair2:ModalFrequency",
+      "@type": "fair2:SummaryStatistic",
+      "rdfs:comment": "How often the modal value occurs. Pairs with the mode itself, which is ddi-stats:650be61; DDI names the mode but not its frequency.",
+      "rdfs:label": "freq",
+      "skos:closeMatch": {
+        "@id": "ddi-stats:650be61"
+      }
+    },
+    {
+      "@id": "fair2:ProcessAttestation",
+      "@type": "fair2:CertificationScope",
+      "rdfs:comment": "The production process was attested by the certifier.",
+      "rdfs:label": "processAttestation"
+    },
+    {
+      "@id": "fair2:Section",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Structured methodology section grouping procedural steps. Target of fair2s:MethodSectionShape; fair2:MethodSection is a legacy alias.",
+      "rdfs:label": "Section",
+      "rdfs:subClassOf": {
+        "@id": "schema:HowToSection"
+      }
+    },
+    {
+      "@id": "fair2:Step",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Atomic procedural instruction within a method.",
+      "rdfs:label": "Step",
+      "rdfs:subClassOf": {
+        "@id": "schema:HowToStep"
+      }
+    },
+    {
+      "@id": "fair2:StepCase",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Conditional branch within a method, carrying the condition and the path taken when it holds. Sits in the same fair2:step list as a Step.",
+      "rdfs:label": "StepCase",
+      "rdfs:subClassOf": {
+        "@id": "schema:HowToStep"
+      }
+    },
+    {
+      "@id": "fair2:Submission",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Reserved. Intended as a submission package grouping dataset, article and supporting materials for review; it has no shape or example, and whether it appears in a published fair2.json is not yet decided. Do not rely on it.",
+      "rdfs:label": "Submission",
+      "rdfs:subClassOf": {
+        "@id": "schema:CreativeWork"
+      },
+      "vs:term_status": "unstable"
+    },
+    {
+      "@id": "fair2:Substep",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Subordinate procedural instruction nested under a Step.",
+      "rdfs:label": "Substep",
+      "rdfs:subClassOf": {
+        "@id": "schema:HowToStep"
+      }
+    },
+    {
+      "@id": "fair2:SummaryStatistic",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A kind of descriptive statistic, named in cr:dataType on a cr:annotation. FAIR2 uses DDI-CDI SummaryStatisticType where it has a term; these three cover statistics it does not.",
+      "rdfs:label": "SummaryStatistic",
+      "rdfs:subClassOf": {
+        "@id": "skos:Concept"
+      },
+      "vs:term_status": "stable"
+    },
+    {
+      "@id": "fair2:TemporalProof",
+      "@type": "fair2:CertificationScope",
+      "rdfs:comment": "An RFC 3161 timestamp or blockchain anchor is attached to the certification.",
+      "rdfs:label": "temporalProof"
+    },
+    {
+      "@id": "fair2:Validated",
+      "@type": "fair2:ComplianceLevel",
+      "rdfs:comment": "A quality status asserting that the automated conformance checks pass. Self-assertable, provided the claim carries its evidence: the profile validated against, the validation run and its software agent, and the report.",
+      "rdfs:label": "FAIR²-Validated",
+      "vs:term_status": "stable"
+    },
+    {
+      "@id": "fair2:allowedScopes",
       "@type": "rdf:Property",
-      "rdfs:label": "activities",
-      "rdfs:comment": "Groups workflow or provenance activities related to an entity."
+      "rdfs:comment": "The certification scopes a certifier is authorised to assert. A credential declaring a scope outside this set does not verify.",
+      "rdfs:label": "allowedScopes",
+      "schema:domainIncludes": {
+        "@id": "fair2:FAIR2CertifierRegistry"
+      },
+      "schema:rangeIncludes": {
+        "@id": "fair2:CertificationScope"
+      },
+      "vs:term_status": "stable"
     },
     {
       "@id": "fair2:attachment",
       "@type": "rdf:Property",
+      "rdfs:comment": "Reserved. Intended to reference supplemental material in a submission package, but no domain, range, shape or example is specified yet; do not rely on it.",
       "rdfs:label": "attachment",
-      "rdfs:comment": "Points to a supporting file or supplemental material."
+      "vs:term_status": "unstable"
     },
     {
-      "@id": "fair2:builds",
+      "@id": "fair2:bugFixes",
       "@type": "rdf:Property",
-      "rdfs:label": "builds",
-      "rdfs:comment": "Indicates that one artifact is built from or extends another artifact."
+      "rdfs:comment": "Corrections introduced by a change-log entry. A sibling property of schema:description on a schema:UpdateAction, not nested inside it.",
+      "rdfs:label": "bugFixes",
+      "schema:domainIncludes": {
+        "@id": "schema:UpdateAction"
+      },
+      "schema:rangeIncludes": {
+        "@id": "schema:Text"
+      }
     },
     {
-      "@id": "fair2:contributorRole",
+      "@id": "fair2:certificationDocument",
       "@type": "rdf:Property",
-      "rdfs:label": "contributorRole",
-      "rdfs:comment": "Links a contribution to a contributor role term."
+      "rdfs:comment": "Reference to the external credential document backing the certification.",
+      "rdfs:label": "certificationDocument",
+      "schema:domainIncludes": {
+        "@id": "fair2:Certification"
+      },
+      "schema:rangeIncludes": {
+        "@id": "schema:URL"
+      }
     },
     {
-      "@id": "fair2:dataArticle",
+      "@id": "fair2:certificationScope",
       "@type": "rdf:Property",
-      "rdfs:label": "dataArticle",
-      "rdfs:comment": "Links a dataset or submission to its associated scholarly data article."
+      "rdfs:comment": "What the certification covers (e.g. metadataConformance, dataIntegrity).",
+      "rdfs:label": "certificationScope",
+      "schema:domainIncludes": {
+        "@id": "fair2:Certification"
+      },
+      "schema:rangeIncludes": {
+        "@id": "schema:Text"
+      }
     },
     {
-      "@id": "fair2:dataset",
+      "@id": "fair2:certifiedBy",
       "@type": "rdf:Property",
-      "rdfs:label": "dataset",
-      "rdfs:comment": "References the dataset resource associated with the entity."
+      "rdfs:comment": "The organisation issuing the certification.",
+      "rdfs:label": "certifiedBy",
+      "schema:domainIncludes": {
+        "@id": "fair2:Certification"
+      },
+      "schema:rangeIncludes": {
+        "@id": "schema:Organization"
+      }
     },
     {
-      "@id": "fair2:digest",
+      "@id": "fair2:certifiedDocument",
       "@type": "rdf:Property",
-      "rdfs:label": "digest",
-      "rdfs:comment": "Provides a short textual or hash-based digest for quick identification."
+      "rdfs:comment": "The exact fair2.json a certification's digests were taken over. Stated by URL because the filename alone is ambiguous: a FAIR² governance document shares it.",
+      "rdfs:label": "certifiedDocument",
+      "schema:domainIncludes": {
+        "@id": "fair2:FAIR2CertificationCredential"
+      },
+      "schema:rangeIncludes": {
+        "@id": "schema:URL"
+      },
+      "vs:term_status": "stable"
     },
     {
-      "@id": "fair2:manuscript",
+      "@id": "fair2:changeLog",
       "@type": "rdf:Property",
-      "rdfs:label": "manuscript",
-      "rdfs:comment": "References a manuscript file associated with the submission."
+      "rdfs:comment": "Record of updates made to a dataset, article, archive or portal.",
+      "rdfs:label": "changeLog",
+      "schema:domainIncludes": [
+        {
+          "@id": "fair2:DataArchive"
+        },
+        {
+          "@id": "fair2:DataPortal"
+        },
+        {
+          "@id": "schema:Dataset"
+        },
+        {
+          "@id": "schema:ScholarlyArticle"
+        }
+      ],
+      "schema:rangeIncludes": {
+        "@id": "schema:UpdateAction"
+      }
     },
     {
-      "@id": "fair2:roleName",
+      "@id": "fair2:citationKey",
       "@type": "rdf:Property",
-      "rdfs:label": "roleName",
-      "rdfs:comment": "Human-readable label for a contributor role."
-    },
-    {
-      "@id": "fair2:statistics",
-      "@type": "rdf:Property",
-      "rdfs:label": "statistics",
-      "rdfs:comment": "Links to computed descriptive statistics."
-    },
-    {
-      "@id": "fair2:step",
-      "@type": "rdf:Property",
-      "rdfs:label": "step",
-      "rdfs:comment": "Connects a MethodSection with its constituent Step items."
-    },
-    {
-      "@id": "fair2:store",
-      "@type": "rdf:Property",
-      "rdfs:label": "store",
-      "rdfs:comment": "Indicates the storage location or repository endpoint for an asset."
-    },
-    {
-      "@id": "fair2:variables",
-      "@type": "rdf:Property",
-      "rdfs:label": "variables",
-      "rdfs:comment": "Lists variable or feature definitions referenced by an analysis or record set."
-    },
-    {
-      "@id": "fair2:visualization",
-      "@type": "rdf:Property",
-      "rdfs:label": "visualization",
-      "rdfs:comment": "Links to a visualization derived from the dataset or record set."
-    },
-    {
-      "@id": "fair2:dataPortal",
-      "@type": "rdf:Property",
-      "rdfs:label": "dataPortal",
-      "rdfs:comment": "Links a dataset to an associated data portal."
+      "rdfs:comment": "Short citation key for the dataset (e.g. a BibTeX key).",
+      "rdfs:label": "citationKey",
+      "schema:domainIncludes": {
+        "@id": "schema:Dataset"
+      },
+      "schema:rangeIncludes": {
+        "@id": "schema:Text"
+      }
     },
     {
       "@id": "fair2:dataArchive",
       "@type": "rdf:Property",
+      "rdfs:comment": "Links a dataset to an associated data archive.",
       "rdfs:label": "dataArchive",
-      "rdfs:comment": "Links a dataset to an associated data archive."
+      "schema:domainIncludes": {
+        "@id": "schema:Dataset"
+      },
+      "schema:rangeIncludes": {
+        "@id": "fair2:DataArchive"
+      },
+      "vs:term_status": "stable"
+    },
+    {
+      "@id": "fair2:dataArticle",
+      "@type": "rdf:Property",
+      "rdfs:comment": "Links a dataset or submission to its associated scholarly data article.",
+      "rdfs:label": "dataArticle",
+      "schema:domainIncludes": {
+        "@id": "schema:Dataset"
+      },
+      "schema:rangeIncludes": {
+        "@id": "fair2:DataArticle"
+      },
+      "vs:term_status": "stable"
+    },
+    {
+      "@id": "fair2:dataPortal",
+      "@type": "rdf:Property",
+      "rdfs:comment": "Links a dataset to an associated data portal.",
+      "rdfs:label": "dataPortal",
+      "schema:domainIncludes": {
+        "@id": "schema:Dataset"
+      },
+      "schema:rangeIncludes": {
+        "@id": "fair2:DataPortal"
+      },
+      "vs:term_status": "stable"
+    },
+    {
+      "@id": "fair2:dataset",
+      "@type": "rdf:Property",
+      "rdfs:comment": "References the dataset resource associated with the entity.",
+      "rdfs:label": "dataset",
+      "schema:domainIncludes": [
+        {
+          "@id": "fair2:DataArchive"
+        },
+        {
+          "@id": "fair2:DataPortal"
+        }
+      ],
+      "schema:rangeIncludes": {
+        "@id": "schema:Dataset"
+      },
+      "vs:term_status": "stable"
+    },
+    {
+      "@id": "fair2:dateIssued",
+      "@type": "rdf:Property",
+      "rdfs:comment": "Date the certification was issued.",
+      "rdfs:label": "dateIssued",
+      "schema:domainIncludes": {
+        "@id": "fair2:Certification"
+      },
+      "schema:rangeIncludes": {
+        "@id": "schema:Date"
+      }
+    },
+    {
+      "@id": "fair2:domain",
+      "@type": "rdf:Property",
+      "rdfs:comment": "Subject domain classifying the dataset.",
+      "rdfs:label": "domain",
+      "schema:domainIncludes": {
+        "@id": "schema:Dataset"
+      },
+      "schema:rangeIncludes": {
+        "@id": "schema:Thing"
+      }
+    },
+    {
+      "@id": "fair2:fair2ComplianceLevel",
+      "@type": "rdf:Property",
+      "rdfs:comment": "The FAIR² compliance level asserted for the package.",
+      "rdfs:label": "fair2ComplianceLevel",
+      "schema:domainIncludes": {
+        "@id": "fair2:Certification"
+      },
+      "schema:rangeIncludes": {
+        "@id": "schema:URL"
+      }
+    },
+    {
+      "@id": "fair2:fundingScheme",
+      "@type": "rdf:Property",
+      "rdfs:comment": "The funding programme a grant was awarded under. schema.org defines FundingScheme as a class but has no property of that name.",
+      "rdfs:label": "fundingScheme",
+      "schema:domainIncludes": {
+        "@id": "schema:Grant"
+      },
+      "schema:rangeIncludes": {
+        "@id": "schema:FundingScheme"
+      },
+      "vs:term_status": "stable"
     },
     {
       "@id": "fair2:generated",
       "@type": "rdf:Property",
+      "rdfs:comment": "Links a method step to the RecordSet fields or artifacts it produced (lineage).",
       "rdfs:label": "generated",
-      "rdfs:comment": "Links a method step to the RecordSet fields or artifacts it produced (lineage)."
+      "schema:domainIncludes": {
+        "@id": "fair2:Step"
+      },
+      "schema:rangeIncludes": {
+        "@id": "cr:Field"
+      },
+      "vs:term_status": "stable"
+    },
+    {
+      "@id": "fair2:graphDigestMultibase",
+      "@type": "rdf:Property",
+      "rdfs:comment": "Multibase-encoded multihash of the RDFC-1.0 canonical form of a fair2.json, as sha2-256 over the canonical n-quads. Companion to sec:digestMultibase, which covers the published bytes: the byte digest proves the file is unchanged, this one proves the graph is, so a document that was reserialised can be recognised as equivalent rather than reported as altered.",
+      "rdfs:label": "graphDigestMultibase",
+      "schema:domainIncludes": {
+        "@id": "fair2:Certification"
+      },
+      "schema:rangeIncludes": {
+        "@id": "schema:Text"
+      },
+      "vs:term_status": "stable"
+    },
+    {
+      "@id": "fair2:improvements",
+      "@type": "rdf:Property",
+      "rdfs:comment": "Refinements introduced by a change-log entry. A sibling property of schema:description on a schema:UpdateAction, not nested inside it.",
+      "rdfs:label": "improvements",
+      "schema:domainIncludes": {
+        "@id": "schema:UpdateAction"
+      },
+      "schema:rangeIncludes": {
+        "@id": "schema:Text"
+      }
+    },
+    {
+      "@id": "fair2:isExperimentRelated",
+      "@type": "rdf:Property",
+      "rdfs:comment": "Whether a field records an experimental observation rather than descriptive metadata.",
+      "rdfs:label": "isExperimentRelated",
+      "schema:domainIncludes": {
+        "@id": "cr:Field"
+      },
+      "schema:rangeIncludes": {
+        "@id": "schema:Boolean"
+      }
+    },
+    {
+      "@id": "fair2:licenceTier",
+      "@type": "rdf:Property",
+      "rdfs:comment": "The trademark licence under which a certifier operates: non-commercial or commercial.",
+      "rdfs:label": "licenceTier",
+      "schema:domainIncludes": {
+        "@id": "fair2:FAIR2CertifierRegistry"
+      },
+      "schema:rangeIncludes": {
+        "@id": "schema:Text"
+      },
+      "vs:term_status": "stable"
+    },
+    {
+      "@id": "fair2:manuscript",
+      "@type": "rdf:Property",
+      "rdfs:comment": "Reserved. Intended to reference a manuscript file in a submission package, but no domain, range, shape or example is specified yet; do not rely on it.",
+      "rdfs:label": "manuscript",
+      "vs:term_status": "unstable"
+    },
+    {
+      "@id": "fair2:metadataModified",
+      "@type": "rdf:Property",
+      "rdfs:comment": "Date the fair2.json document was last edited. Distinct from schema:dateModified, which is when the dataset itself last changed; a metadata correction moves this and not that.",
+      "rdfs:label": "metadataModified",
+      "schema:domainIncludes": {
+        "@id": "schema:Dataset"
+      },
+      "schema:rangeIncludes": {
+        "@id": "schema:Date"
+      },
+      "vs:term_status": "stable"
+    },
+    {
+      "@id": "fair2:metadataVersion",
+      "@type": "rdf:Property",
+      "rdfs:comment": "Version of the fair2.json document itself, as MAJOR.MINOR.PATCH. Independent of schema:version, which is the dataset's own release: a dataset at 1.2 may have a metadata document at 1.3.2 after several corrections. Patch for a metadata-only correction, minor for an additive change, major for a structural one.",
+      "rdfs:label": "metadataVersion",
+      "schema:domainIncludes": {
+        "@id": "schema:Dataset"
+      },
+      "schema:rangeIncludes": {
+        "@id": "schema:Text"
+      },
+      "vs:term_status": "stable"
+    },
+    {
+      "@id": "fair2:methodSection",
+      "@type": "rdf:Property",
+      "rdfs:comment": "Links a dataset to a methodology section.",
+      "rdfs:label": "methodSection",
+      "schema:domainIncludes": {
+        "@id": "schema:Dataset"
+      },
+      "schema:rangeIncludes": {
+        "@id": "fair2:Section"
+      }
+    },
+    {
+      "@id": "fair2:newFeatures",
+      "@type": "rdf:Property",
+      "rdfs:comment": "Additions introduced by a change-log entry. A sibling property of schema:description on a schema:UpdateAction, not nested inside it.",
+      "rdfs:label": "newFeatures",
+      "schema:domainIncludes": {
+        "@id": "schema:UpdateAction"
+      },
+      "schema:rangeIncludes": {
+        "@id": "schema:Text"
+      }
+    },
+    {
+      "@id": "fair2:next",
+      "@type": "rdf:Property",
+      "rdfs:comment": "References the following element in a method sequence, so order does not depend on array position.",
+      "rdfs:label": "next",
+      "schema:domainIncludes": [
+        {
+          "@id": "fair2:Section"
+        },
+        {
+          "@id": "fair2:Step"
+        },
+        {
+          "@id": "fair2:StepCase"
+        },
+        {
+          "@id": "fair2:Substep"
+        }
+      ],
+      "schema:rangeIncludes": [
+        {
+          "@id": "fair2:Section"
+        },
+        {
+          "@id": "fair2:Step"
+        },
+        {
+          "@id": "fair2:StepCase"
+        },
+        {
+          "@id": "fair2:Substep"
+        }
+      ]
+    },
+    {
+      "@id": "fair2:nextTrue",
+      "@type": "rdf:Property",
+      "rdfs:comment": "The path taken when a StepCase condition holds.",
+      "rdfs:label": "nextTrue",
+      "schema:domainIncludes": {
+        "@id": "fair2:StepCase"
+      },
+      "schema:rangeIncludes": {
+        "@id": "fair2:Step"
+      }
+    },
+    {
+      "@id": "fair2:otherInformation",
+      "@type": "rdf:Property",
+      "rdfs:comment": "Remaining notes for a change-log entry. A sibling property of schema:description on a schema:UpdateAction, not nested inside it.",
+      "rdfs:label": "otherInformation",
+      "schema:domainIncludes": {
+        "@id": "schema:UpdateAction"
+      },
+      "schema:rangeIncludes": {
+        "@id": "schema:Text"
+      }
+    },
+    {
+      "@id": "fair2:position",
+      "@type": "rdf:Property",
+      "rdfs:comment": "Ordinal position of an agent in the author or contributor list, counting from 1. JSON-LD arrays are unordered sets in RDF, so author order does not survive conversion; the qualified attribution is the only place it can be stated.",
+      "rdfs:label": "position",
+      "schema:domainIncludes": {
+        "@id": "prov:Attribution"
+      },
+      "schema:rangeIncludes": {
+        "@id": "schema:Integer"
+      },
+      "vs:term_status": "stable"
+    },
+    {
+      "@id": "fair2:qualifiedUsage",
+      "@type": "rdf:Property",
+      "rdfs:comment": "The condition governing a StepCase, as a string expression.",
+      "rdfs:label": "qualifiedUsage",
+      "schema:domainIncludes": {
+        "@id": "fair2:StepCase"
+      },
+      "schema:rangeIncludes": {
+        "@id": "schema:Text"
+      }
+    },
+    {
+      "@id": "fair2:statistics",
+      "@type": "rdf:Property",
+      "rdfs:comment": "Deprecated. Linked a field to computed descriptive statistics; superseded from v1.5.0 by cr:annotation, which attaches each statistic as a cr:Field carrying a value. Retained only so existing references resolve.",
+      "rdfs:label": "statistics",
+      "schema:domainIncludes": {
+        "@id": "cr:Field"
+      },
+      "schema:rangeIncludes": {
+        "@id": "fair2:DescriptiveStatistics"
+      },
+      "vs:term_status": "deprecated"
+    },
+    {
+      "@id": "fair2:step",
+      "@type": "rdf:Property",
+      "rdfs:comment": "Connects a MethodSection with its constituent Step items.",
+      "rdfs:label": "step",
+      "schema:domainIncludes": {
+        "@id": "fair2:Section"
+      },
+      "schema:rangeIncludes": [
+        {
+          "@id": "fair2:Step"
+        },
+        {
+          "@id": "fair2:StepCase"
+        }
+      ],
+      "vs:term_status": "stable"
+    },
+    {
+      "@id": "fair2:store",
+      "@type": "rdf:Property",
+      "rdfs:comment": "Reserved. Intended for the storage location or repository endpoint of an asset, but no domain, range, shape or example is specified yet; do not rely on it.",
+      "rdfs:label": "store",
+      "vs:term_status": "unstable"
+    },
+    {
+      "@id": "fair2:substep",
+      "@type": "rdf:Property",
+      "rdfs:comment": "Nests a subordinate procedural instruction under a Step.",
+      "rdfs:label": "substep",
+      "schema:domainIncludes": {
+        "@id": "fair2:Step"
+      },
+      "schema:rangeIncludes": {
+        "@id": "fair2:Substep"
+      }
+    },
+    {
+      "@id": "fair2:unit",
+      "@type": "rdf:Property",
+      "rdfs:comment": "Unit of measurement for a field, referenced by its QUDT IRI.",
+      "rdfs:label": "unit",
+      "schema:domainIncludes": {
+        "@id": "cr:Field"
+      },
+      "schema:rangeIncludes": {
+        "@id": "qudt:Unit"
+      }
+    },
+    {
+      "@id": "fair2:validationReport",
+      "@type": "rdf:Property",
+      "rdfs:comment": "The validation report backing a certification or validation claim.",
+      "rdfs:label": "validationReport",
+      "schema:domainIncludes": {
+        "@id": "fair2:Certification"
+      },
+      "schema:rangeIncludes": {
+        "@id": "schema:URL"
+      },
+      "vs:term_status": "stable"
+    },
+    {
+      "@id": "fair2:verificationEndpoint",
+      "@type": "rdf:Property",
+      "rdfs:comment": "Endpoint at which the certification can be verified.",
+      "rdfs:label": "verificationEndpoint",
+      "schema:domainIncludes": {
+        "@id": "fair2:Certification"
+      },
+      "schema:rangeIncludes": {
+        "@id": "schema:URL"
+      }
     }
-  ],
-  "rdfs:comment": "FAIR2 ontology subset defining only classes and properties actually used in published FAIR2 datasets.",
-  "schema:version": "0.5",
-  "schema:dateModified": "2026-03-30T12:00:00.000000Z"
+  ]
 }

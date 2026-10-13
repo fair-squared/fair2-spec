@@ -43,8 +43,8 @@ Dataset -> cr:recordSet -> cr:RecordSet -> cr:field -> cr:Field
 Earlier drafts of this page described variables as a flat
 `schema:variableMeasured` list on the Dataset, with `skos:definition` and
 `qudt:unit`. **That model was never implemented and is not normative.**
-`schema:variableMeasured` retains a narrower role in FAIR²: it carries the
-individual statistics inside a `DescriptiveStatistics` block (§5).
+Statistics are not variables either: from v1.5.0 they are attached to the
+field they describe through `cr:annotation` (§5).
 
 ### Mapping the dictionary onto a field
 
@@ -60,7 +60,7 @@ column when writing or reading `fair2.json`.
 | Physical location | `cr:source` → `cr:fileObject` + `cr:extract`/`cr:column` |
 | Unit | `fair2:unit` → the QUDT unit IRI (see §4.3) |
 | Experimental flag | `fair2:isExperimentRelated` |
-| Statistics | `fair2:statistics` (§5) |
+| Statistics | `cr:annotation` (§5) |
 | Method provenance | the inverse: `fair2:Step` → `fair2:generated` → the field |
 
 Note the direction of provenance. A field does **not** carry
@@ -123,7 +123,7 @@ them fails validation.
 | `schema:alternateName` | schema.org | Human-readable label |
 | `fair2:unit` | FAIR² | Unit of measurement, as a QUDT IRI |
 | `fair2:isExperimentRelated` | FAIR² | Experimental observation rather than descriptive metadata |
-| `fair2:statistics` | FAIR² | Descriptive statistics with provenance (§5) |
+| `cr:annotation` | Croissant | Descriptive statistics, one annotation field per statistic (§5) |
 
 ### 4.3 Units
 
