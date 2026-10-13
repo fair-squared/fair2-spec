@@ -1,0 +1,12 @@
+{
+  "@context": {
+    "schema": "https://schema.org/",
+    "fair2": "https://fair2.ai/ns/"
+  },
+  "@id": "fair2:AgreementLevel0",
+  "@type": "schema:DefinedTerm",
+  "schema:name": "Embargoed Access",
+  "schema:description": "Metadata are publicly visible, but the dataset itself is inaccessible until a specified release date. Enables early discoverability and citation without premature disclosure.",
+  "schema:text": "By viewing this dataset record, you agree to cite and acknowledge the dataset and its creators, respect the embargo period, and refrain from downloading or redistributing the data prior to release. Metadata and provenance must be preserved when referencing this record. The dataset will be released under ODC-BY 1.0 and the FAIR² sDUA on the date specified.",
+  "schema:url": "https://fair2.ai/ns/AgreementLevels/0"
+}
