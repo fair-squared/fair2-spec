@@ -680,11 +680,7 @@
       "@type": "Person",
       "affiliation": [
         {
-          "@id": "/organizations/0d6a7bd5-95ee-4b5a-9ea9-35747624b353",
-          "@type": "Organization",
-          "address": "Herrera Kaia Portualdea s/n, 20110 Pasaia, Spain",
-          "name": "AZTI, Marine Research, Basque Research and Technology Alliance (BRTA)",
-          "identifier": "https://ror.org/00jgbqj86"
+          "@id": "/organizations/0d6a7bd5-95ee-4b5a-9ea9-35747624b353"
         }
       ],
       "identifier": "https://orcid.org/0000-0003-1601-2025",
@@ -695,10 +691,7 @@
       "@type": "Person",
       "affiliation": [
         {
-          "@id": "/organizations/fa279d98-6169-442a-afa3-4cde20e8a433",
-          "@type": "Organization",
-          "address": "Zemoriya 2, 20013 San Sebastián, Spain",
-          "name": "Sociedad Cultural INSUB"
+          "@id": "/organizations/fa279d98-6169-442a-afa3-4cde20e8a433"
         }
       ],
       "identifier": "https://orcid.org/0000-0002-9600-8212",
@@ -709,11 +702,7 @@
       "@type": "Person",
       "affiliation": [
         {
-          "@id": "/organizations/0d6a7bd5-95ee-4b5a-9ea9-35747624b353",
-          "@type": "Organization",
-          "address": "Herrera Kaia Portualdea s/n, 20110 Pasaia, Spain",
-          "name": "AZTI, Marine Research, Basque Research and Technology Alliance (BRTA)",
-          "identifier": "https://ror.org/00jgbqj86"
+          "@id": "/organizations/0d6a7bd5-95ee-4b5a-9ea9-35747624b353"
         }
       ],
       "identifier": "https://orcid.org/0000-0002-8549-8092",
@@ -724,11 +713,7 @@
       "@type": "Person",
       "affiliation": [
         {
-          "@id": "/organizations/0d6a7bd5-95ee-4b5a-9ea9-35747624b353",
-          "@type": "Organization",
-          "address": "Herrera Kaia Portualdea s/n, 20110 Pasaia, Spain",
-          "name": "AZTI, Marine Research, Basque Research and Technology Alliance (BRTA)",
-          "identifier": "https://ror.org/00jgbqj86"
+          "@id": "/organizations/0d6a7bd5-95ee-4b5a-9ea9-35747624b353"
         }
       ],
       "identifier": "https://orcid.org/0000-0002-6533-7638",
@@ -739,10 +724,7 @@
       "@type": "Person",
       "affiliation": [
         {
-          "@id": "/organizations/fa279d98-6169-442a-afa3-4cde20e8a433",
-          "@type": "Organization",
-          "address": "Zemoriya 2, 20013 San Sebastián, Spain",
-          "name": "Sociedad Cultural INSUB"
+          "@id": "/organizations/fa279d98-6169-442a-afa3-4cde20e8a433"
         }
       ],
       "identifier": "https://orcid.org/0000-0002-9655-8126",
@@ -753,11 +735,7 @@
       "@type": "Person",
       "affiliation": [
         {
-          "@id": "/organizations/0d6a7bd5-95ee-4b5a-9ea9-35747624b353",
-          "@type": "Organization",
-          "address": "Herrera Kaia Portualdea s/n, 20110 Pasaia, Spain",
-          "name": "AZTI, Marine Research, Basque Research and Technology Alliance (BRTA)",
-          "identifier": "https://ror.org/00jgbqj86"
+          "@id": "/organizations/0d6a7bd5-95ee-4b5a-9ea9-35747624b353"
         }
       ],
       "identifier": "https://orcid.org/0000-0002-8629-3558",
@@ -768,11 +746,7 @@
       "@type": "Person",
       "affiliation": [
         {
-          "@id": "/organizations/0d6a7bd5-95ee-4b5a-9ea9-35747624b353",
-          "@type": "Organization",
-          "address": "Herrera Kaia Portualdea s/n, 20110 Pasaia, Spain",
-          "name": "AZTI, Marine Research, Basque Research and Technology Alliance (BRTA)",
-          "identifier": "https://ror.org/00jgbqj86"
+          "@id": "/organizations/0d6a7bd5-95ee-4b5a-9ea9-35747624b353"
         }
       ],
       "identifier": "https://orcid.org/0000-0002-9403-1777",
@@ -783,11 +757,7 @@
       "@type": "Person",
       "affiliation": [
         {
-          "@id": "/organizations/0d6a7bd5-95ee-4b5a-9ea9-35747624b353",
-          "@type": "Organization",
-          "address": "Herrera Kaia Portualdea s/n, 20110 Pasaia, Spain",
-          "name": "AZTI, Marine Research, Basque Research and Technology Alliance (BRTA)",
-          "identifier": "https://ror.org/00jgbqj86"
+          "@id": "/organizations/0d6a7bd5-95ee-4b5a-9ea9-35747624b353"
         }
       ],
       "identifier": "https://orcid.org/0000-0001-8276-9232",
@@ -798,15 +768,7 @@
       "@type": "Person",
       "affiliation": [
         {
-          "@id": "/organizations/5dacfbe0-deb1-40d8-95fb-40c072074a18",
-          "@type": "Organization",
-          "address": "48940 Leioa, Spain",
-          "name": "University of the Basque Country (UPV/EHU)",
-          "department": {
-            "@id": "/organizations/7492635b-c545-454c-9dd5-fca827c8d056",
-            "@type": "Organization",
-            "name": "Department of Plant Biology and Ecology"
-          }
+          "@id": "/organizations/5dacfbe0-deb1-40d8-95fb-40c072074a18"
         }
       ],
       "identifier": "https://orcid.org/0000-0001-8311-2603",
@@ -817,10 +779,7 @@
       "@type": "Person",
       "affiliation": [
         {
-          "@id": "/organizations/f4ead113-1498-449b-b909-f51902555eb3",
-          "@type": "Organization",
-          "address": "Orio 1-3, 01010, Vitoria-Gasteiz, Spain",
-          "name": "Basque Water Agency (URA)"
+          "@id": "/organizations/f4ead113-1498-449b-b909-f51902555eb3"
         }
       ],
       "name": "Alberto Manzanos"
@@ -830,10 +789,7 @@
       "@type": "Person",
       "affiliation": [
         {
-          "@id": "/organizations/fa279d98-6169-442a-afa3-4cde20e8a433",
-          "@type": "Organization",
-          "address": "Zemoriya 2, 20013 San Sebastián, Spain",
-          "name": "Sociedad Cultural INSUB"
+          "@id": "/organizations/fa279d98-6169-442a-afa3-4cde20e8a433"
         }
       ],
       "identifier": "https://orcid.org/0000-0003-0604-2204",
@@ -844,11 +800,7 @@
       "@type": "Person",
       "affiliation": [
         {
-          "@id": "/organizations/0d6a7bd5-95ee-4b5a-9ea9-35747624b353",
-          "@type": "Organization",
-          "address": "Herrera Kaia Portualdea s/n, 20110 Pasaia, Spain",
-          "name": "AZTI, Marine Research, Basque Research and Technology Alliance (BRTA)",
-          "identifier": "https://ror.org/00jgbqj86"
+          "@id": "/organizations/0d6a7bd5-95ee-4b5a-9ea9-35747624b353"
         }
       ],
       "identifier": "https://orcid.org/0000-0003-3467-6802",
@@ -859,10 +811,7 @@
       "@type": "Person",
       "affiliation": [
         {
-          "@id": "/organizations/fa279d98-6169-442a-afa3-4cde20e8a433",
-          "@type": "Organization",
-          "address": "Zemoriya 2, 20013 San Sebastián, Spain",
-          "name": "Sociedad Cultural INSUB"
+          "@id": "/organizations/fa279d98-6169-442a-afa3-4cde20e8a433"
         }
       ],
       "identifier": "https://orcid.org/0000-0003-0489-0656",
@@ -873,11 +822,7 @@
       "@type": "Person",
       "affiliation": [
         {
-          "@id": "/organizations/0d6a7bd5-95ee-4b5a-9ea9-35747624b353",
-          "@type": "Organization",
-          "address": "Herrera Kaia Portualdea s/n, 20110 Pasaia, Spain",
-          "name": "AZTI, Marine Research, Basque Research and Technology Alliance (BRTA)",
-          "identifier": "https://ror.org/00jgbqj86"
+          "@id": "/organizations/0d6a7bd5-95ee-4b5a-9ea9-35747624b353"
         }
       ],
       "identifier": "https://orcid.org/0000-0002-6285-9318",
@@ -888,11 +833,7 @@
       "@type": "Person",
       "affiliation": [
         {
-          "@id": "/organizations/0d6a7bd5-95ee-4b5a-9ea9-35747624b353",
-          "@type": "Organization",
-          "address": "Herrera Kaia Portualdea s/n, 20110 Pasaia, Spain",
-          "name": "AZTI, Marine Research, Basque Research and Technology Alliance (BRTA)",
-          "identifier": "https://ror.org/00jgbqj86"
+          "@id": "/organizations/0d6a7bd5-95ee-4b5a-9ea9-35747624b353"
         }
       ],
       "identifier": "https://orcid.org/0000-0003-3208-9882",
@@ -903,11 +844,7 @@
       "@type": "Person",
       "affiliation": [
         {
-          "@id": "/organizations/0d6a7bd5-95ee-4b5a-9ea9-35747624b353",
-          "@type": "Organization",
-          "address": "Herrera Kaia Portualdea s/n, 20110 Pasaia, Spain",
-          "name": "AZTI, Marine Research, Basque Research and Technology Alliance (BRTA)",
-          "identifier": "https://ror.org/00jgbqj86"
+          "@id": "/organizations/0d6a7bd5-95ee-4b5a-9ea9-35747624b353"
         }
       ],
       "identifier": "https://orcid.org/0000-0001-8085-1195",
@@ -918,11 +855,7 @@
       "@type": "Person",
       "affiliation": [
         {
-          "@id": "/organizations/0d6a7bd5-95ee-4b5a-9ea9-35747624b353",
-          "@type": "Organization",
-          "address": "Herrera Kaia Portualdea s/n, 20110 Pasaia, Spain",
-          "name": "AZTI, Marine Research, Basque Research and Technology Alliance (BRTA)",
-          "identifier": "https://ror.org/00jgbqj86"
+          "@id": "/organizations/0d6a7bd5-95ee-4b5a-9ea9-35747624b353"
         }
       ],
       "identifier": "https://orcid.org/0000-0003-1565-4851",
@@ -933,10 +866,7 @@
       "@type": "Person",
       "affiliation": [
         {
-          "@id": "/organizations/fa279d98-6169-442a-afa3-4cde20e8a433",
-          "@type": "Organization",
-          "address": "Zemoriya 2, 20013 San Sebastián, Spain",
-          "name": "Sociedad Cultural INSUB"
+          "@id": "/organizations/fa279d98-6169-442a-afa3-4cde20e8a433"
         }
       ],
       "identifier": "https://orcid.org/0000-0002-8495-261X",
@@ -947,11 +877,7 @@
       "@type": "Person",
       "affiliation": [
         {
-          "@id": "/organizations/0d6a7bd5-95ee-4b5a-9ea9-35747624b353",
-          "@type": "Organization",
-          "address": "Herrera Kaia Portualdea s/n, 20110 Pasaia, Spain",
-          "name": "AZTI, Marine Research, Basque Research and Technology Alliance (BRTA)",
-          "identifier": "https://ror.org/00jgbqj86"
+          "@id": "/organizations/0d6a7bd5-95ee-4b5a-9ea9-35747624b353"
         }
       ],
       "identifier": "https://orcid.org/0000-0001-6413-2705",
@@ -962,11 +888,7 @@
       "@type": "Person",
       "affiliation": [
         {
-          "@id": "/organizations/0d6a7bd5-95ee-4b5a-9ea9-35747624b353",
-          "@type": "Organization",
-          "address": "Herrera Kaia Portualdea s/n, 20110 Pasaia, Spain",
-          "name": "AZTI, Marine Research, Basque Research and Technology Alliance (BRTA)",
-          "identifier": "https://ror.org/00jgbqj86"
+          "@id": "/organizations/0d6a7bd5-95ee-4b5a-9ea9-35747624b353"
         }
       ],
       "identifier": "https://orcid.org/0000-0001-9524-4101",
@@ -977,11 +899,7 @@
       "@type": "Person",
       "affiliation": [
         {
-          "@id": "/organizations/0d6a7bd5-95ee-4b5a-9ea9-35747624b353",
-          "@type": "Organization",
-          "address": "Herrera Kaia Portualdea s/n, 20110 Pasaia, Spain",
-          "name": "AZTI, Marine Research, Basque Research and Technology Alliance (BRTA)",
-          "identifier": "https://ror.org/00jgbqj86"
+          "@id": "/organizations/0d6a7bd5-95ee-4b5a-9ea9-35747624b353"
         }
       ],
       "identifier": "https://orcid.org/0000-0002-9596-6451",
@@ -992,11 +910,7 @@
       "@type": "Person",
       "affiliation": [
         {
-          "@id": "/organizations/0d6a7bd5-95ee-4b5a-9ea9-35747624b353",
-          "@type": "Organization",
-          "address": "Herrera Kaia Portualdea s/n, 20110 Pasaia, Spain",
-          "name": "AZTI, Marine Research, Basque Research and Technology Alliance (BRTA)",
-          "identifier": "https://ror.org/00jgbqj86"
+          "@id": "/organizations/0d6a7bd5-95ee-4b5a-9ea9-35747624b353"
         }
       ],
       "identifier": "https://orcid.org/0000-0003-0718-8184",
@@ -1007,11 +921,7 @@
       "@type": "Person",
       "affiliation": [
         {
-          "@id": "/organizations/0d6a7bd5-95ee-4b5a-9ea9-35747624b353",
-          "@type": "Organization",
-          "address": "Herrera Kaia Portualdea s/n, 20110 Pasaia, Spain",
-          "name": "AZTI, Marine Research, Basque Research and Technology Alliance (BRTA)",
-          "identifier": "https://ror.org/00jgbqj86"
+          "@id": "/organizations/0d6a7bd5-95ee-4b5a-9ea9-35747624b353"
         }
       ],
       "identifier": "https://orcid.org/0000-0002-9181-3781",
@@ -1025,33 +935,22 @@
       "agent": "/authors/c1b96691-fbbf-4157-a2c5-e8fb78c799f1",
       "hadRole": [
         {
-          "@type": "AuthorRole",
-          "name": "Corresponding Author"
+          "@id": "roles/0a4a905b"
         },
         {
-          "@id": "http://purl.obolibrary.org/obo/CRO_0000039",
-          "@type": "ContributorRole",
-          "label": "Conceptualization"
+          "@id": "http://purl.obolibrary.org/obo/CRO_0000039"
         },
         {
-          "@id": "https://fair2.ai/ns/contributor-roles/DataIntegration",
-          "@type": "ContributorRole",
-          "label": "DataIntegration"
+          "@id": "https://fair2.ai/ns/contributor-roles/DataIntegration"
         },
         {
-          "@id": "http://purl.obolibrary.org/obo/CRO_0000027",
-          "@type": "ContributorRole",
-          "label": "Supervision"
+          "@id": "http://purl.obolibrary.org/obo/CRO_0000027"
         },
         {
-          "@id": "http://purl.obolibrary.org/obo/CRO_0000034",
-          "@type": "ContributorRole",
-          "label": "WritingOriginalDraft"
+          "@id": "http://purl.obolibrary.org/obo/CRO_0000034"
         },
         {
-          "@id": "http://purl.obolibrary.org/obo/CRO_0000026",
-          "@type": "ContributorRole",
-          "label": "ProjectAdministration"
+          "@id": "http://purl.obolibrary.org/obo/CRO_0000026"
         }
       ],
       "position": 1
@@ -1062,24 +961,16 @@
       "agent": "/authors/2ad3ba9b-5a32-4f97-b9ff-02b3ace52a05",
       "hadRole": [
         {
-          "@id": "https://fair2.ai/ns/contributor-roles/MacroalgaeSampling",
-          "@type": "ContributorRole",
-          "label": "MacroalgaeSampling"
+          "@id": "https://fair2.ai/ns/contributor-roles/MacroalgaeSampling"
         },
         {
-          "@id": "https://fair2.ai/ns/contributor-roles/SpeciesIdentification",
-          "@type": "ContributorRole",
-          "label": "SpeciesIdentification"
+          "@id": "https://fair2.ai/ns/contributor-roles/SpeciesIdentification"
         },
         {
-          "@id": "https://fair2.ai/ns/contributor-roles/DataPreprocessing",
-          "@type": "ContributorRole",
-          "label": "DataPreprocessing"
+          "@id": "https://fair2.ai/ns/contributor-roles/DataPreprocessing"
         },
         {
-          "@id": "http://purl.obolibrary.org/obo/CRO_0000035",
-          "@type": "ContributorRole",
-          "label": "WritingReviewEditing"
+          "@id": "http://purl.obolibrary.org/obo/CRO_0000035"
         }
       ],
       "position": 2
@@ -1090,24 +981,16 @@
       "agent": "/authors/7ab2eeaa-ccf2-4da5-b5bc-aae5610a07b6",
       "hadRole": [
         {
-          "@id": "http://purl.obolibrary.org/obo/CRO_0000001",
-          "@type": "ContributorRole",
-          "label": "DataCuration"
+          "@id": "http://purl.obolibrary.org/obo/CRO_0000001"
         },
         {
-          "@id": "https://fair2.ai/ns/contributor-roles/GeospatialAnalysis",
-          "@type": "ContributorRole",
-          "label": "GeospatialAnalysis"
+          "@id": "https://fair2.ai/ns/contributor-roles/GeospatialAnalysis"
         },
         {
-          "@id": "http://purl.obolibrary.org/obo/CRO_0000033",
-          "@type": "ContributorRole",
-          "label": "Visualization"
+          "@id": "http://purl.obolibrary.org/obo/CRO_0000033"
         },
         {
-          "@id": "http://purl.obolibrary.org/obo/CRO_0000035",
-          "@type": "ContributorRole",
-          "label": "WritingReviewEditing"
+          "@id": "http://purl.obolibrary.org/obo/CRO_0000035"
         }
       ],
       "position": 3
@@ -1118,19 +1001,13 @@
       "agent": "/authors/fc0f0feb-7c90-467d-b0f5-a8ff04d1b86a",
       "hadRole": [
         {
-          "@id": "http://purl.obolibrary.org/obo/CRO_0000001",
-          "@type": "ContributorRole",
-          "label": "DataCuration"
+          "@id": "http://purl.obolibrary.org/obo/CRO_0000001"
         },
         {
-          "@id": "http://purl.obolibrary.org/obo/CRO_0000005",
-          "@type": "ContributorRole",
-          "label": "FormalAnalysis"
+          "@id": "http://purl.obolibrary.org/obo/CRO_0000005"
         },
         {
-          "@id": "http://purl.obolibrary.org/obo/CRO_0000035",
-          "@type": "ContributorRole",
-          "label": "WritingReviewEditing"
+          "@id": "http://purl.obolibrary.org/obo/CRO_0000035"
         }
       ],
       "position": 4
@@ -1141,24 +1018,16 @@
       "agent": "/authors/b1e7e1cf-b184-4c1c-be77-3ea77a96571d",
       "hadRole": [
         {
-          "@id": "https://fair2.ai/ns/contributor-roles/MacroalgaeSampling",
-          "@type": "ContributorRole",
-          "label": "MacroalgaeSampling"
+          "@id": "https://fair2.ai/ns/contributor-roles/MacroalgaeSampling"
         },
         {
-          "@id": "https://fair2.ai/ns/contributor-roles/SpeciesIdentification",
-          "@type": "ContributorRole",
-          "label": "SpeciesIdentification"
+          "@id": "https://fair2.ai/ns/contributor-roles/SpeciesIdentification"
         },
         {
-          "@id": "https://fair2.ai/ns/contributor-roles/DataPreprocessing",
-          "@type": "ContributorRole",
-          "label": "DataPreprocessing"
+          "@id": "https://fair2.ai/ns/contributor-roles/DataPreprocessing"
         },
         {
-          "@id": "http://purl.obolibrary.org/obo/CRO_0000035",
-          "@type": "ContributorRole",
-          "label": "WritingReviewEditing"
+          "@id": "http://purl.obolibrary.org/obo/CRO_0000035"
         }
       ],
       "position": 5
@@ -1169,29 +1038,19 @@
       "agent": "/authors/58edc419-f85a-4b7c-a420-212433a30d77",
       "hadRole": [
         {
-          "@id": "http://purl.obolibrary.org/obo/CRO_0000023",
-          "@type": "ContributorRole",
-          "label": "Methodology"
+          "@id": "http://purl.obolibrary.org/obo/CRO_0000023"
         },
         {
-          "@id": "https://fair2.ai/ns/contributor-roles/StatisticalAnalysis",
-          "@type": "ContributorRole",
-          "label": "StatisticalAnalysis"
+          "@id": "https://fair2.ai/ns/contributor-roles/StatisticalAnalysis"
         },
         {
-          "@id": "http://purl.obolibrary.org/obo/CRO_0000001",
-          "@type": "ContributorRole",
-          "label": "DataCuration"
+          "@id": "http://purl.obolibrary.org/obo/CRO_0000001"
         },
         {
-          "@id": "http://purl.obolibrary.org/obo/CRO_0000029",
-          "@type": "ContributorRole",
-          "label": "FigurePreparation"
+          "@id": "http://purl.obolibrary.org/obo/CRO_0000029"
         },
         {
-          "@id": "http://purl.obolibrary.org/obo/CRO_0000035",
-          "@type": "ContributorRole",
-          "label": "WritingReviewEditing"
+          "@id": "http://purl.obolibrary.org/obo/CRO_0000035"
         }
       ],
       "position": 6
@@ -1202,24 +1061,16 @@
       "agent": "/authors/70d18870-7f86-47cc-9cdd-a107fc020865",
       "hadRole": [
         {
-          "@id": "http://purl.obolibrary.org/obo/CRO_0000001",
-          "@type": "ContributorRole",
-          "label": "DataCuration"
+          "@id": "http://purl.obolibrary.org/obo/CRO_0000001"
         },
         {
-          "@id": "https://fair2.ai/ns/contributor-roles/DataPreprocessing",
-          "@type": "ContributorRole",
-          "label": "DataPreprocessing"
+          "@id": "https://fair2.ai/ns/contributor-roles/DataPreprocessing"
         },
         {
-          "@id": "https://fair2.ai/ns/contributor-roles/MethodologyDevelopment",
-          "@type": "ContributorRole",
-          "label": "MethodologyDevelopment"
+          "@id": "https://fair2.ai/ns/contributor-roles/MethodologyDevelopment"
         },
         {
-          "@id": "http://purl.obolibrary.org/obo/CRO_0000035",
-          "@type": "ContributorRole",
-          "label": "WritingReviewEditing"
+          "@id": "http://purl.obolibrary.org/obo/CRO_0000035"
         }
       ],
       "position": 7
@@ -1230,29 +1081,19 @@
       "agent": "/authors/755ab500-40f0-4642-976b-740f22f719ff",
       "hadRole": [
         {
-          "@id": "https://fair2.ai/ns/contributor-roles/DataAnalysis",
-          "@type": "ContributorRole",
-          "label": "DataAnalysis"
+          "@id": "https://fair2.ai/ns/contributor-roles/DataAnalysis"
         },
         {
-          "@id": "http://purl.obolibrary.org/obo/CRO_0000001",
-          "@type": "ContributorRole",
-          "label": "DataCuration"
+          "@id": "http://purl.obolibrary.org/obo/CRO_0000001"
         },
         {
-          "@id": "https://fair2.ai/ns/contributor-roles/DataPreprocessing",
-          "@type": "ContributorRole",
-          "label": "DataPreprocessing"
+          "@id": "https://fair2.ai/ns/contributor-roles/DataPreprocessing"
         },
         {
-          "@id": "http://purl.obolibrary.org/obo/CRO_0000034",
-          "@type": "ContributorRole",
-          "label": "WritingOriginalDraft"
+          "@id": "http://purl.obolibrary.org/obo/CRO_0000034"
         },
         {
-          "@id": "http://purl.obolibrary.org/obo/CRO_0000035",
-          "@type": "ContributorRole",
-          "label": "WritingReviewEditing"
+          "@id": "http://purl.obolibrary.org/obo/CRO_0000035"
         }
       ],
       "position": 8
@@ -1263,14 +1104,10 @@
       "agent": "/authors/89ab5c4a-78d5-4646-9893-dce79501c391",
       "hadRole": [
         {
-          "@id": "https://fair2.ai/ns/contributor-roles/PhytoplanktonIdentification",
-          "@type": "ContributorRole",
-          "label": "PhytoplanktonIdentification"
+          "@id": "https://fair2.ai/ns/contributor-roles/PhytoplanktonIdentification"
         },
         {
-          "@id": "http://purl.obolibrary.org/obo/CRO_0000035",
-          "@type": "ContributorRole",
-          "label": "WritingReviewEditing"
+          "@id": "http://purl.obolibrary.org/obo/CRO_0000035"
         }
       ],
       "position": 9
@@ -1281,19 +1118,13 @@
       "agent": "/authors/ad100bf0-903f-456e-aa08-32765cda3f72",
       "hadRole": [
         {
-          "@id": "http://purl.obolibrary.org/obo/CRO_0000001",
-          "@type": "ContributorRole",
-          "label": "DataCuration"
+          "@id": "http://purl.obolibrary.org/obo/CRO_0000001"
         },
         {
-          "@id": "https://fair2.ai/ns/contributor-roles/QualityControl",
-          "@type": "ContributorRole",
-          "label": "QualityControl"
+          "@id": "https://fair2.ai/ns/contributor-roles/QualityControl"
         },
         {
-          "@id": "http://purl.obolibrary.org/obo/CRO_0000026",
-          "@type": "ContributorRole",
-          "label": "ProjectAdministration"
+          "@id": "http://purl.obolibrary.org/obo/CRO_0000026"
         }
       ],
       "position": 10
@@ -1304,24 +1135,16 @@
       "agent": "/authors/5f79751e-828f-4b79-8e4f-6c7afdd97ed1",
       "hadRole": [
         {
-          "@id": "https://fair2.ai/ns/contributor-roles/MacroalgaeSampling",
-          "@type": "ContributorRole",
-          "label": "MacroalgaeSampling"
+          "@id": "https://fair2.ai/ns/contributor-roles/MacroalgaeSampling"
         },
         {
-          "@id": "https://fair2.ai/ns/contributor-roles/SpeciesIdentification",
-          "@type": "ContributorRole",
-          "label": "SpeciesIdentification"
+          "@id": "https://fair2.ai/ns/contributor-roles/SpeciesIdentification"
         },
         {
-          "@id": "https://fair2.ai/ns/contributor-roles/DataPreprocessing",
-          "@type": "ContributorRole",
-          "label": "DataPreprocessing"
+          "@id": "https://fair2.ai/ns/contributor-roles/DataPreprocessing"
         },
         {
-          "@id": "http://purl.obolibrary.org/obo/CRO_0000035",
-          "@type": "ContributorRole",
-          "label": "WritingReviewEditing"
+          "@id": "http://purl.obolibrary.org/obo/CRO_0000035"
         }
       ],
       "position": 11
@@ -1332,14 +1155,10 @@
       "agent": "/authors/f1d6bf5e-4952-40ee-b071-6a0311d0dbb4",
       "hadRole": [
         {
-          "@id": "http://purl.obolibrary.org/obo/CRO_0000001",
-          "@type": "ContributorRole",
-          "label": "DataCuration"
+          "@id": "http://purl.obolibrary.org/obo/CRO_0000001"
         },
         {
-          "@id": "https://fair2.ai/ns/contributor-roles/QualityControl",
-          "@type": "ContributorRole",
-          "label": "QualityControl"
+          "@id": "https://fair2.ai/ns/contributor-roles/QualityControl"
         }
       ],
       "position": 12
@@ -1350,24 +1169,16 @@
       "agent": "/authors/a40420ba-c7e4-4cfe-8cde-721c943b3b9e",
       "hadRole": [
         {
-          "@id": "https://fair2.ai/ns/contributor-roles/MacroalgaeSampling",
-          "@type": "ContributorRole",
-          "label": "MacroalgaeSampling"
+          "@id": "https://fair2.ai/ns/contributor-roles/MacroalgaeSampling"
         },
         {
-          "@id": "https://fair2.ai/ns/contributor-roles/SpeciesIdentification",
-          "@type": "ContributorRole",
-          "label": "SpeciesIdentification"
+          "@id": "https://fair2.ai/ns/contributor-roles/SpeciesIdentification"
         },
         {
-          "@id": "https://fair2.ai/ns/contributor-roles/DataPreprocessing",
-          "@type": "ContributorRole",
-          "label": "DataPreprocessing"
+          "@id": "https://fair2.ai/ns/contributor-roles/DataPreprocessing"
         },
         {
-          "@id": "http://purl.obolibrary.org/obo/CRO_0000035",
-          "@type": "ContributorRole",
-          "label": "WritingReviewEditing"
+          "@id": "http://purl.obolibrary.org/obo/CRO_0000035"
         }
       ],
       "position": 13
@@ -1378,19 +1189,13 @@
       "agent": "/authors/2b106118-927a-49c0-af90-17b2b0a5c5c7",
       "hadRole": [
         {
-          "@id": "https://fair2.ai/ns/contributor-roles/DataCollection",
-          "@type": "ContributorRole",
-          "label": "DataCollection"
+          "@id": "https://fair2.ai/ns/contributor-roles/DataCollection"
         },
         {
-          "@id": "http://purl.obolibrary.org/obo/CRO_0000005",
-          "@type": "ContributorRole",
-          "label": "FormalAnalysis"
+          "@id": "http://purl.obolibrary.org/obo/CRO_0000005"
         },
         {
-          "@id": "http://purl.obolibrary.org/obo/CRO_0000035",
-          "@type": "ContributorRole",
-          "label": "WritingReviewEditing"
+          "@id": "http://purl.obolibrary.org/obo/CRO_0000035"
         }
       ],
       "position": 14
@@ -1401,14 +1206,10 @@
       "agent": "/authors/94f55faa-5c10-4448-b647-4468cf829c57",
       "hadRole": [
         {
-          "@id": "https://fair2.ai/ns/contributor-roles/DataIntegration",
-          "@type": "ContributorRole",
-          "label": "DataIntegration"
+          "@id": "https://fair2.ai/ns/contributor-roles/DataIntegration"
         },
         {
-          "@id": "http://purl.obolibrary.org/obo/CRO_0000035",
-          "@type": "ContributorRole",
-          "label": "WritingReviewEditing"
+          "@id": "http://purl.obolibrary.org/obo/CRO_0000035"
         }
       ],
       "position": 15
@@ -1419,24 +1220,16 @@
       "agent": "/authors/6c4bb5d1-01c9-45c7-82ba-84406e31f072",
       "hadRole": [
         {
-          "@id": "https://fair2.ai/ns/contributor-roles/DataCollection",
-          "@type": "ContributorRole",
-          "label": "DataCollection"
+          "@id": "https://fair2.ai/ns/contributor-roles/DataCollection"
         },
         {
-          "@id": "http://purl.obolibrary.org/obo/CRO_0000033",
-          "@type": "ContributorRole",
-          "label": "Visualization"
+          "@id": "http://purl.obolibrary.org/obo/CRO_0000033"
         },
         {
-          "@id": "http://purl.obolibrary.org/obo/CRO_0000005",
-          "@type": "ContributorRole",
-          "label": "FormalAnalysis"
+          "@id": "http://purl.obolibrary.org/obo/CRO_0000005"
         },
         {
-          "@id": "http://purl.obolibrary.org/obo/CRO_0000035",
-          "@type": "ContributorRole",
-          "label": "WritingReviewEditing"
+          "@id": "http://purl.obolibrary.org/obo/CRO_0000035"
         }
       ],
       "position": 16
@@ -1447,19 +1240,13 @@
       "agent": "/authors/ec8f02fa-21f5-40ed-a7ba-9cbd0f31badd",
       "hadRole": [
         {
-          "@id": "http://purl.obolibrary.org/obo/CRO_0000001",
-          "@type": "ContributorRole",
-          "label": "DataCuration"
+          "@id": "http://purl.obolibrary.org/obo/CRO_0000001"
         },
         {
-          "@id": "http://purl.obolibrary.org/obo/CRO_0000005",
-          "@type": "ContributorRole",
-          "label": "FormalAnalysis"
+          "@id": "http://purl.obolibrary.org/obo/CRO_0000005"
         },
         {
-          "@id": "http://purl.obolibrary.org/obo/CRO_0000035",
-          "@type": "ContributorRole",
-          "label": "WritingReviewEditing"
+          "@id": "http://purl.obolibrary.org/obo/CRO_0000035"
         }
       ],
       "position": 17
@@ -1470,24 +1257,16 @@
       "agent": "/authors/68615f53-707a-40f7-b37f-beaef70a3aec",
       "hadRole": [
         {
-          "@id": "https://fair2.ai/ns/contributor-roles/MacroalgaeSampling",
-          "@type": "ContributorRole",
-          "label": "MacroalgaeSampling"
+          "@id": "https://fair2.ai/ns/contributor-roles/MacroalgaeSampling"
         },
         {
-          "@id": "https://fair2.ai/ns/contributor-roles/SpeciesIdentification",
-          "@type": "ContributorRole",
-          "label": "SpeciesIdentification"
+          "@id": "https://fair2.ai/ns/contributor-roles/SpeciesIdentification"
         },
         {
-          "@id": "https://fair2.ai/ns/contributor-roles/DataPreprocessing",
-          "@type": "ContributorRole",
-          "label": "DataPreprocessing"
+          "@id": "https://fair2.ai/ns/contributor-roles/DataPreprocessing"
         },
         {
-          "@id": "http://purl.obolibrary.org/obo/CRO_0000035",
-          "@type": "ContributorRole",
-          "label": "WritingReviewEditing"
+          "@id": "http://purl.obolibrary.org/obo/CRO_0000035"
         }
       ],
       "position": 18
@@ -1498,14 +1277,10 @@
       "agent": "/authors/e559b4d8-6872-44b0-bbad-bef503ce2669",
       "hadRole": [
         {
-          "@id": "http://purl.obolibrary.org/obo/CRO_0000005",
-          "@type": "ContributorRole",
-          "label": "FormalAnalysis"
+          "@id": "http://purl.obolibrary.org/obo/CRO_0000005"
         },
         {
-          "@id": "http://purl.obolibrary.org/obo/CRO_0000035",
-          "@type": "ContributorRole",
-          "label": "WritingReviewEditing"
+          "@id": "http://purl.obolibrary.org/obo/CRO_0000035"
         }
       ],
       "position": 19
@@ -1516,19 +1291,13 @@
       "agent": "/authors/a4a62167-b607-453c-be6b-41c9a848f862",
       "hadRole": [
         {
-          "@id": "https://fair2.ai/ns/contributor-roles/DataCollection",
-          "@type": "ContributorRole",
-          "label": "DataCollection"
+          "@id": "https://fair2.ai/ns/contributor-roles/DataCollection"
         },
         {
-          "@id": "http://purl.obolibrary.org/obo/CRO_0000005",
-          "@type": "ContributorRole",
-          "label": "FormalAnalysis"
+          "@id": "http://purl.obolibrary.org/obo/CRO_0000005"
         },
         {
-          "@id": "http://purl.obolibrary.org/obo/CRO_0000035",
-          "@type": "ContributorRole",
-          "label": "WritingReviewEditing"
+          "@id": "http://purl.obolibrary.org/obo/CRO_0000035"
         }
       ],
       "position": 20
@@ -1539,24 +1308,16 @@
       "agent": "/authors/0b2c265b-cbbb-4a84-a6e0-8561a03f7617",
       "hadRole": [
         {
-          "@id": "https://fair2.ai/terms/contributor-roles/DataCollection",
-          "@type": "ContributorRole",
-          "label": "DataCollection"
+          "@id": "https://fair2.ai/terms/contributor-roles/DataCollection"
         },
         {
-          "@id": "https://fair2.ai/ns/contributor-roles/EnvironmentalAnalysis",
-          "@type": "ContributorRole",
-          "label": "EnvironmentalAnalysis"
+          "@id": "https://fair2.ai/ns/contributor-roles/EnvironmentalAnalysis"
         },
         {
-          "@id": "http://purl.obolibrary.org/obo/CRO_0000033",
-          "@type": "ContributorRole",
-          "label": "Visualization"
+          "@id": "http://purl.obolibrary.org/obo/CRO_0000033"
         },
         {
-          "@id": "http://purl.obolibrary.org/obo/CRO_0000035",
-          "@type": "ContributorRole",
-          "label": "WritingReviewEditing"
+          "@id": "http://purl.obolibrary.org/obo/CRO_0000035"
         }
       ],
       "position": 21
@@ -1567,29 +1328,19 @@
       "agent": "/authors/558ed9d2-2e21-4016-9f93-474fbec7260b",
       "hadRole": [
         {
-          "@id": "https://fair2.ai/ns/contributor-roles/TechnicalOversight",
-          "@type": "ContributorRole",
-          "label": "TechnicalOversight"
+          "@id": "https://fair2.ai/ns/contributor-roles/TechnicalOversight"
         },
         {
-          "@id": "https://fair2.ai/terms/contributor-roles/DataProcessing",
-          "@type": "ContributorRole",
-          "label": "DataProcessing"
+          "@id": "https://fair2.ai/terms/contributor-roles/DataProcessing"
         },
         {
-          "@id": "https://fair2.ai/terms/contributor-roles/MethodologyDevelopment",
-          "@type": "ContributorRole",
-          "label": "MethodologyDevelopment"
+          "@id": "https://fair2.ai/terms/contributor-roles/MethodologyDevelopment"
         },
         {
-          "@id": "http://purl.obolibrary.org/obo/CRO_0000029",
-          "@type": "ContributorRole",
-          "label": "FigurePreparation"
+          "@id": "http://purl.obolibrary.org/obo/CRO_0000029"
         },
         {
-          "@id": "http://purl.obolibrary.org/obo/CRO_0000035",
-          "@type": "ContributorRole",
-          "label": "WritingReviewEditing"
+          "@id": "http://purl.obolibrary.org/obo/CRO_0000035"
         }
       ],
       "position": 22
@@ -1600,19 +1351,13 @@
       "agent": "/authors/9fab328f-b9b4-4884-acc2-73292114c42f",
       "hadRole": [
         {
-          "@id": "https://fair2.ai/ns/contributor-roles/StatisticalAnalysis",
-          "@type": "ContributorRole",
-          "label": "StatisticalAnalysis"
+          "@id": "https://fair2.ai/ns/contributor-roles/StatisticalAnalysis"
         },
         {
-          "@id": "http://purl.obolibrary.org/obo/CRO_0000033",
-          "@type": "ContributorRole",
-          "label": "Visualization"
+          "@id": "http://purl.obolibrary.org/obo/CRO_0000033"
         },
         {
-          "@id": "http://purl.obolibrary.org/obo/CRO_0000035",
-          "@type": "ContributorRole",
-          "label": "WritingReviewEditing"
+          "@id": "http://purl.obolibrary.org/obo/CRO_0000035"
         }
       ],
       "position": 23
@@ -2565,9 +2310,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -2633,9 +2376,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -2701,9 +2442,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -2769,9 +2508,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -2837,9 +2574,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -2914,9 +2649,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -2983,9 +2716,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -3052,9 +2783,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -3121,9 +2850,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -3190,9 +2917,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -3259,9 +2984,7 @@
             }
           },
           "unit": {
-            "label": "Decimal Degree",
-            "symbol": "°",
-            "uri": "http://qudt.org/vocab/unit/DEG"
+            "@id": "http://qudt.org/vocab/unit/DEG"
           },
           "annotation": [
             {
@@ -3334,9 +3057,7 @@
             }
           },
           "unit": {
-            "label": "Decimal Degree",
-            "symbol": "°",
-            "uri": "http://qudt.org/vocab/unit/DEG"
+            "@id": "http://qudt.org/vocab/unit/DEG"
           },
           "annotation": [
             {
@@ -3409,9 +3130,7 @@
             }
           },
           "unit": {
-            "label": "Year",
-            "symbol": "yr",
-            "uri": "http://qudt.org/vocab/unit/YR"
+            "@id": "http://qudt.org/vocab/unit/YR"
           },
           "annotation": [
             {
@@ -3484,9 +3203,7 @@
             }
           },
           "unit": {
-            "label": "Year",
-            "symbol": "yr",
-            "uri": "http://qudt.org/vocab/unit/YR"
+            "@id": "http://qudt.org/vocab/unit/YR"
           },
           "annotation": [
             {
@@ -3559,9 +3276,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -3628,9 +3343,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -3697,9 +3410,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -3766,9 +3477,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -3835,9 +3544,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -3904,9 +3611,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -3973,9 +3678,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -4050,9 +3753,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -4119,9 +3820,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -4188,9 +3887,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -4257,9 +3954,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -4326,9 +4021,7 @@
             }
           },
           "unit": {
-            "label": "Meter",
-            "symbol": "m",
-            "uri": "http://qudt.org/vocab/unit/M"
+            "@id": "http://qudt.org/vocab/unit/M"
           },
           "annotation": [
             {
@@ -4401,9 +4094,7 @@
             }
           },
           "unit": {
-            "label": "Meter",
-            "symbol": "m",
-            "uri": "http://qudt.org/vocab/unit/M"
+            "@id": "http://qudt.org/vocab/unit/M"
           },
           "annotation": [
             {
@@ -4476,9 +4167,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -4545,9 +4234,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -4614,9 +4301,7 @@
             }
           },
           "unit": {
-            "label": "Varies by parameter",
-            "symbol": "Varies by parameter",
-            "uri": "http://qudt.org/vocab/unit/UNKNOWN"
+            "@id": "http://qudt.org/vocab/unit/UNKNOWN"
           },
           "annotation": [
             {
@@ -4683,9 +4368,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -4760,9 +4443,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -4829,9 +4510,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -4898,9 +4577,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -4967,9 +4644,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -5036,9 +4711,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -5105,9 +4778,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -5174,9 +4845,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -5243,9 +4912,7 @@
             }
           },
           "unit": {
-            "label": "Number",
-            "symbol": "#",
-            "uri": "http://qudt.org/vocab/unit/NUMBER"
+            "@id": "http://qudt.org/vocab/unit/NUMBER"
           },
           "annotation": [
             {
@@ -5318,9 +4985,7 @@
             }
           },
           "unit": {
-            "label": "Kilogram",
-            "symbol": "kg",
-            "uri": "http://qudt.org/vocab/unit/KiloGM"
+            "@id": "http://qudt.org/vocab/unit/KiloGM"
           },
           "annotation": [
             {
@@ -5387,9 +5052,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -5456,9 +5119,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -5525,9 +5186,7 @@
             }
           },
           "unit": {
-            "label": "Milligrams per Kilogram",
-            "symbol": "mg/kg",
-            "uri": "http://qudt.org/vocab/unit/MilliGM-PER-KiloGM"
+            "@id": "http://qudt.org/vocab/unit/MilliGM-PER-KiloGM"
           },
           "annotation": [
             {
@@ -5602,9 +5261,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -5671,9 +5328,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -5740,9 +5395,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -5809,9 +5462,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -5878,9 +5529,7 @@
             }
           },
           "unit": {
-            "label": "Meter",
-            "symbol": "m",
-            "uri": "http://qudt.org/vocab/unit/M"
+            "@id": "http://qudt.org/vocab/unit/M"
           },
           "annotation": [
             {
@@ -5947,9 +5596,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -6016,9 +5663,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -6085,9 +5730,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -6154,9 +5797,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -6223,9 +5864,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -6300,9 +5939,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -6369,9 +6006,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -6438,9 +6073,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -6507,9 +6140,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -6576,9 +6207,7 @@
             }
           },
           "unit": {
-            "label": "Meter",
-            "symbol": "m",
-            "uri": "http://qudt.org/vocab/unit/M"
+            "@id": "http://qudt.org/vocab/unit/M"
           },
           "annotation": [
             {
@@ -6651,9 +6280,7 @@
             }
           },
           "unit": {
-            "label": "Meter",
-            "symbol": "m",
-            "uri": "http://qudt.org/vocab/unit/M"
+            "@id": "http://qudt.org/vocab/unit/M"
           },
           "annotation": [
             {
@@ -6726,9 +6353,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -6795,9 +6420,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -6870,9 +6493,7 @@
             }
           },
           "unit": {
-            "label": "Milliliter",
-            "symbol": "mL",
-            "uri": "http://qudt.org/vocab/unit/ML"
+            "@id": "http://qudt.org/vocab/unit/ML"
           },
           "annotation": [
             {
@@ -6939,9 +6560,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -7008,9 +6627,7 @@
             }
           },
           "unit": {
-            "label": "Cells per Milliliter",
-            "symbol": "cel/ml",
-            "uri": "http://qudt.org/vocab/unit/CEL-PER-ML"
+            "@id": "http://qudt.org/vocab/unit/CEL-PER-ML"
           },
           "annotation": [
             {
@@ -7083,9 +6700,7 @@
             }
           },
           "unit": {
-            "label": "Cells per Milliliter",
-            "symbol": "cel/ml",
-            "uri": "http://qudt.org/vocab/unit/CEL-PER-ML"
+            "@id": "http://qudt.org/vocab/unit/CEL-PER-ML"
           },
           "annotation": [
             {
@@ -7160,9 +6775,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -7229,9 +6842,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -7298,9 +6909,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -7367,9 +6976,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -7436,9 +7043,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -7505,9 +7110,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -7574,9 +7177,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -7643,9 +7244,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -7718,9 +7317,7 @@
             }
           },
           "unit": {
-            "label": "Square Meter",
-            "symbol": "m²",
-            "uri": "http://qudt.org/vocab/unit/M2"
+            "@id": "http://qudt.org/vocab/unit/M2"
           },
           "annotation": [
             {
@@ -7787,9 +7384,7 @@
             }
           },
           "unit": {
-            "label": "Percent",
-            "symbol": "%",
-            "uri": "http://qudt.org/vocab/unit/PERCENT"
+            "@id": "http://qudt.org/vocab/unit/PERCENT"
           },
           "annotation": [
             {
@@ -7856,9 +7451,7 @@
             }
           },
           "unit": {
-            "label": "Percent",
-            "symbol": "%",
-            "uri": "http://qudt.org/vocab/unit/PERCENT"
+            "@id": "http://qudt.org/vocab/unit/PERCENT"
           },
           "annotation": [
             {
@@ -7931,9 +7524,7 @@
             }
           },
           "unit": {
-            "label": "Percent",
-            "symbol": "%",
-            "uri": "http://qudt.org/vocab/unit/PERCENT"
+            "@id": "http://qudt.org/vocab/unit/PERCENT"
           },
           "annotation": [
             {
@@ -8008,9 +7599,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -8077,9 +7666,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -8146,9 +7733,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -8215,9 +7800,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -8284,9 +7867,7 @@
             }
           },
           "unit": {
-            "label": "Meter",
-            "symbol": "m",
-            "uri": "http://qudt.org/vocab/unit/M"
+            "@id": "http://qudt.org/vocab/unit/M"
           },
           "annotation": [
             {
@@ -8353,9 +7934,7 @@
             }
           },
           "unit": {
-            "label": "Meter",
-            "symbol": "m",
-            "uri": "http://qudt.org/vocab/unit/M"
+            "@id": "http://qudt.org/vocab/unit/M"
           },
           "annotation": [
             {
@@ -8422,9 +8001,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -8491,9 +8068,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -8566,9 +8141,7 @@
             }
           },
           "unit": {
-            "label": "Square Meter",
-            "symbol": "m²",
-            "uri": "http://qudt.org/vocab/unit/M2"
+            "@id": "http://qudt.org/vocab/unit/M2"
           },
           "annotation": [
             {
@@ -8635,9 +8208,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -8704,9 +8275,7 @@
             }
           },
           "unit": {
-            "label": "Individuals per Square Meter",
-            "symbol": "Ind/m²",
-            "uri": "http://qudt.org/vocab/unit/IND-PER-M2"
+            "@id": "http://qudt.org/vocab/unit/IND-PER-M2"
           },
           "annotation": [
             {
@@ -8779,9 +8348,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -8856,9 +8423,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -8925,9 +8490,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -8994,9 +8557,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -9063,9 +8624,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -9132,9 +8691,7 @@
             }
           },
           "unit": {
-            "label": "Meter",
-            "symbol": "m",
-            "uri": "http://qudt.org/vocab/unit/M"
+            "@id": "http://qudt.org/vocab/unit/M"
           },
           "annotation": [
             {
@@ -9207,9 +8764,7 @@
             }
           },
           "unit": {
-            "label": "Meter",
-            "symbol": "m",
-            "uri": "http://qudt.org/vocab/unit/M"
+            "@id": "http://qudt.org/vocab/unit/M"
           },
           "annotation": [
             {
@@ -9282,9 +8837,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -9351,9 +8904,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -9426,9 +8977,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -9495,9 +9044,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -9564,9 +9111,7 @@
             }
           },
           "unit": {
-            "label": "Individual",
-            "symbol": "ind",
-            "uri": "http://qudt.org/vocab/unit/IND"
+            "@id": "http://qudt.org/vocab/unit/IND"
           },
           "annotation": [
             {
@@ -9639,9 +9184,7 @@
             }
           },
           "unit": {
-            "label": "Individual",
-            "symbol": "ind",
-            "uri": "http://qudt.org/vocab/unit/IND"
+            "@id": "http://qudt.org/vocab/unit/IND"
           },
           "annotation": [
             {
@@ -9716,9 +9259,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -9785,9 +9326,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -9854,9 +9393,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -9923,9 +9460,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -9992,9 +9527,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -10068,9 +9601,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -10136,9 +9667,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -10204,9 +9733,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -10272,9 +9799,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -10341,9 +9866,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -10409,9 +9932,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -10478,9 +9999,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -10546,9 +10065,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -10614,9 +10131,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -10682,9 +10197,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -10756,9 +10269,7 @@
             }
           },
           "unit": {
-            "label": "Unitless",
-            "symbol": "-",
-            "uri": "http://qudt.org/vocab/unit/UNITLESS"
+            "@id": "http://qudt.org/vocab/unit/UNITLESS"
           },
           "annotation": [
             {
@@ -11316,6 +10827,241 @@
       "identifier": "https://pandas.pydata.org/",
       "softwareVersion": "2.1.1",
       "programmingLanguage": "Python"
+    },
+    {
+      "@id": "/organizations/0d6a7bd5-95ee-4b5a-9ea9-35747624b353",
+      "@type": "Organization",
+      "address": "Herrera Kaia Portualdea s/n, 20110 Pasaia, Spain",
+      "name": "AZTI, Marine Research, Basque Research and Technology Alliance (BRTA)",
+      "identifier": "https://ror.org/00jgbqj86"
+    },
+    {
+      "@id": "/organizations/fa279d98-6169-442a-afa3-4cde20e8a433",
+      "@type": "Organization",
+      "address": "Zemoriya 2, 20013 San Sebastián, Spain",
+      "name": "Sociedad Cultural INSUB"
+    },
+    {
+      "@id": "/organizations/5dacfbe0-deb1-40d8-95fb-40c072074a18",
+      "@type": "Organization",
+      "address": "48940 Leioa, Spain",
+      "name": "University of the Basque Country (UPV/EHU)",
+      "department": {
+        "@id": "/organizations/7492635b-c545-454c-9dd5-fca827c8d056",
+        "@type": "Organization",
+        "name": "Department of Plant Biology and Ecology"
+      }
+    },
+    {
+      "@id": "/organizations/f4ead113-1498-449b-b909-f51902555eb3",
+      "@type": "Organization",
+      "address": "Orio 1-3, 01010, Vitoria-Gasteiz, Spain",
+      "name": "Basque Water Agency (URA)"
+    },
+    {
+      "@type": "AuthorRole",
+      "name": "Corresponding Author",
+      "@id": "roles/0a4a905b"
+    },
+    {
+      "@id": "http://purl.obolibrary.org/obo/CRO_0000039",
+      "@type": "ContributorRole",
+      "label": "Conceptualization"
+    },
+    {
+      "@id": "https://fair2.ai/ns/contributor-roles/DataIntegration",
+      "@type": "ContributorRole",
+      "label": "DataIntegration"
+    },
+    {
+      "@id": "http://purl.obolibrary.org/obo/CRO_0000027",
+      "@type": "ContributorRole",
+      "label": "Supervision"
+    },
+    {
+      "@id": "http://purl.obolibrary.org/obo/CRO_0000034",
+      "@type": "ContributorRole",
+      "label": "WritingOriginalDraft"
+    },
+    {
+      "@id": "http://purl.obolibrary.org/obo/CRO_0000026",
+      "@type": "ContributorRole",
+      "label": "ProjectAdministration"
+    },
+    {
+      "@id": "https://fair2.ai/ns/contributor-roles/MacroalgaeSampling",
+      "@type": "ContributorRole",
+      "label": "MacroalgaeSampling"
+    },
+    {
+      "@id": "https://fair2.ai/ns/contributor-roles/SpeciesIdentification",
+      "@type": "ContributorRole",
+      "label": "SpeciesIdentification"
+    },
+    {
+      "@id": "https://fair2.ai/ns/contributor-roles/DataPreprocessing",
+      "@type": "ContributorRole",
+      "label": "DataPreprocessing"
+    },
+    {
+      "@id": "http://purl.obolibrary.org/obo/CRO_0000035",
+      "@type": "ContributorRole",
+      "label": "WritingReviewEditing"
+    },
+    {
+      "@id": "http://purl.obolibrary.org/obo/CRO_0000001",
+      "@type": "ContributorRole",
+      "label": "DataCuration"
+    },
+    {
+      "@id": "https://fair2.ai/ns/contributor-roles/GeospatialAnalysis",
+      "@type": "ContributorRole",
+      "label": "GeospatialAnalysis"
+    },
+    {
+      "@id": "http://purl.obolibrary.org/obo/CRO_0000033",
+      "@type": "ContributorRole",
+      "label": "Visualization"
+    },
+    {
+      "@id": "http://purl.obolibrary.org/obo/CRO_0000005",
+      "@type": "ContributorRole",
+      "label": "FormalAnalysis"
+    },
+    {
+      "@id": "http://purl.obolibrary.org/obo/CRO_0000023",
+      "@type": "ContributorRole",
+      "label": "Methodology"
+    },
+    {
+      "@id": "https://fair2.ai/ns/contributor-roles/StatisticalAnalysis",
+      "@type": "ContributorRole",
+      "label": "StatisticalAnalysis"
+    },
+    {
+      "@id": "http://purl.obolibrary.org/obo/CRO_0000029",
+      "@type": "ContributorRole",
+      "label": "FigurePreparation"
+    },
+    {
+      "@id": "https://fair2.ai/ns/contributor-roles/MethodologyDevelopment",
+      "@type": "ContributorRole",
+      "label": "MethodologyDevelopment"
+    },
+    {
+      "@id": "https://fair2.ai/ns/contributor-roles/DataAnalysis",
+      "@type": "ContributorRole",
+      "label": "DataAnalysis"
+    },
+    {
+      "@id": "https://fair2.ai/ns/contributor-roles/PhytoplanktonIdentification",
+      "@type": "ContributorRole",
+      "label": "PhytoplanktonIdentification"
+    },
+    {
+      "@id": "https://fair2.ai/ns/contributor-roles/QualityControl",
+      "@type": "ContributorRole",
+      "label": "QualityControl"
+    },
+    {
+      "@id": "https://fair2.ai/ns/contributor-roles/DataCollection",
+      "@type": "ContributorRole",
+      "label": "DataCollection"
+    },
+    {
+      "@id": "https://fair2.ai/terms/contributor-roles/DataCollection",
+      "@type": "ContributorRole",
+      "label": "DataCollection"
+    },
+    {
+      "@id": "https://fair2.ai/ns/contributor-roles/EnvironmentalAnalysis",
+      "@type": "ContributorRole",
+      "label": "EnvironmentalAnalysis"
+    },
+    {
+      "@id": "https://fair2.ai/ns/contributor-roles/TechnicalOversight",
+      "@type": "ContributorRole",
+      "label": "TechnicalOversight"
+    },
+    {
+      "@id": "https://fair2.ai/terms/contributor-roles/DataProcessing",
+      "@type": "ContributorRole",
+      "label": "DataProcessing"
+    },
+    {
+      "@id": "https://fair2.ai/terms/contributor-roles/MethodologyDevelopment",
+      "@type": "ContributorRole",
+      "label": "MethodologyDevelopment"
+    },
+    {
+      "@id": "http://qudt.org/vocab/unit/UNITLESS",
+      "label": "Unitless",
+      "symbol": "-"
+    },
+    {
+      "@id": "http://qudt.org/vocab/unit/DEG",
+      "label": "Decimal Degree",
+      "symbol": "°"
+    },
+    {
+      "@id": "http://qudt.org/vocab/unit/YR",
+      "label": "Year",
+      "symbol": "yr"
+    },
+    {
+      "@id": "http://qudt.org/vocab/unit/M",
+      "label": "Meter",
+      "symbol": "m"
+    },
+    {
+      "@id": "http://qudt.org/vocab/unit/UNKNOWN",
+      "label": "Varies by parameter",
+      "symbol": "Varies by parameter"
+    },
+    {
+      "@id": "http://qudt.org/vocab/unit/NUMBER",
+      "label": "Number",
+      "symbol": "#"
+    },
+    {
+      "@id": "http://qudt.org/vocab/unit/KiloGM",
+      "label": "Kilogram",
+      "symbol": "kg"
+    },
+    {
+      "@id": "http://qudt.org/vocab/unit/MilliGM-PER-KiloGM",
+      "label": "Milligrams per Kilogram",
+      "symbol": "mg/kg"
+    },
+    {
+      "@id": "http://qudt.org/vocab/unit/ML",
+      "label": "Milliliter",
+      "symbol": "mL"
+    },
+    {
+      "@id": "http://qudt.org/vocab/unit/CEL-PER-ML",
+      "label": "Cells per Milliliter",
+      "symbol": "cel/ml"
+    },
+    {
+      "@id": "http://qudt.org/vocab/unit/M2",
+      "label": "Square Meter",
+      "symbol": "m²"
+    },
+    {
+      "@id": "http://qudt.org/vocab/unit/PERCENT",
+      "label": "Percent",
+      "symbol": "%"
+    },
+    {
+      "@id": "http://qudt.org/vocab/unit/IND-PER-M2",
+      "label": "Individuals per Square Meter",
+      "symbol": "Ind/m²"
+    },
+    {
+      "@id": "http://qudt.org/vocab/unit/IND",
+      "label": "Individual",
+      "symbol": "ind"
     }
   ]
 }

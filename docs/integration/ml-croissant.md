@@ -173,11 +173,17 @@ The `mlcroissant` traversal function visits shared nodes twice and raises a
 embed it as a fresh blank-node object without `@id` at each usage site
 (see Rule 4).
 
-!!! note "Status in v1.4.0 — unverified"
-    The reference example no longer has `@graph` peers, and each `included`
-    body is referenced exactly once, so this crash mode is not exercised and
-    the rule stands unconfirmed rather than resolved. Treat it as still in
-    force until someone tests a doubly-referenced `included` body.
+!!! note "Status in v1.5.0 — tested, does not reproduce"
+    Tested directly against the pattern the rule warns about: the reference
+    example's unit bodies were held once under `included` and referenced from
+    117 use sites by `@id`. `mlcroissant` loads the document, and the expanded
+    graph is isomorphic to the one with the bodies inlined.
+
+    The rule was derived from the pre-v1.4.0 layout, where shared nodes were
+    peer members of a top-level `@graph`. That layout is gone, and with bodies
+    under `@included` the `KeyError` does not occur. It is recorded here
+    because the constraint shaped earlier versions of the spec, not because it
+    still binds.
 
 ### Rule 2 — No `"@type": "@id"` on cross-graph properties
 
