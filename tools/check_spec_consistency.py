@@ -475,6 +475,38 @@ def check_published_contexts(ctx_inline: dict) -> None:
                         f"- cut a new version, or revert the edit:", differing[:12])
 
 
+def check_context_cut_for_latest_tag() -> None:
+    """Every release cuts a frozen context, so the newest must not lag the newest tag.
+
+    This is the half the first attempt at this check missed: anchoring on the
+    newest context is only sound if one exists per release. v1.5.1 was tagged
+    without cutting a context, so the anchor stayed at v1.5.0 and the example
+    was compared against a version the repository had already left behind.
+    """
+    import re as _re
+    import subprocess
+
+    published = sorted(CONTEXT_DIR.glob("v*.jsonld"))
+    if not published:
+        return
+    key = lambda v: [int(n) for n in _re.findall(r"\d+", v)]
+    newest_ctx = max((p.stem for p in published), key=key)
+    try:
+        tags = subprocess.run(["git", "-C", str(ROOT), "tag", "-l", "v*"],
+                              capture_output=True, text=True, check=True).stdout.split()
+    except (subprocess.CalledProcessError, FileNotFoundError):
+        return
+    tags = [t for t in tags if _re.fullmatch(r"v\d+\.\d+\.\d+", t)]
+    if not tags:
+        return
+    newest_tag = max(tags, key=key)
+    if key(newest_ctx) < key(newest_tag):
+        fail("version", f"the newest frozen context is {newest_ctx} but the newest release "
+                        f"tag is {newest_tag}",
+             [f"run tools/build_context.py {newest_tag} - every release cuts a context, "
+              f"even when its terms are unchanged"])
+
+
 def check_examples_declare_current_spec() -> None:
     """An example must declare the spec version it ships with.
 
@@ -514,6 +546,7 @@ def main() -> int:
     check_ontology_documented()
     check_context_coercions(ctx_inline)
     check_published_contexts(ctx_inline)
+    check_context_cut_for_latest_tag()
     check_examples_declare_current_spec()
     check_schemaorg_terms_exist(ctx_inline)
     check_types_are_mapped()

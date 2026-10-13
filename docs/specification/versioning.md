@@ -102,6 +102,16 @@ context and the working source disagree. The relationship is the same one
 `shapes/json-ld/` has to `shapes/turtle/`: generated, checked, not
 hand-maintained.
 
+**Every release cuts a context, even an unchanged one.** `v1.5.2`'s context
+is term-for-term identical to `v1.5.0`'s; it exists so that one rule holds
+without exception:
+
+> `conformsTo` = the release tag = the frozen context version
+
+The alternative — cutting a context only when the terms change — saves a
+duplicated file and costs a lookup table for which context a given release
+uses, plus an exception to remember. The duplication is about 14 KB.
+
 **The published form is flattened.** The working source is a context array —
 schema.org, Croissant, then the inline terms — while the published file
 carries only the term map. That resolves in a single request, works offline
@@ -154,9 +164,14 @@ the tag points at.
    as the site default.
 6. In consumers, advance the `fair2-spec` reference to the new tag.
 
-!!! warning "This list used to be in the wrong order"
-    Bumping `conformsTo` was step 3, *after* tagging — so following it
-    faithfully produced a tag whose example declared the previous version.
-    v1.5.0 shipped that way and was corrected in v1.5.1. The guard check added
-    with the fix makes the mistake unrepeatable, but the ordering above is
-    what makes it unnecessary.
+!!! warning "Two releases shipped with a stale declaration"
+    `conformsTo` used to be bumped at step 3, *after* tagging, so following
+    the list faithfully produced a tag whose example named the previous
+    version. v1.5.0 shipped declaring v1.4.0.
+
+    The first fix was itself incomplete: it compared the example against the
+    newest frozen context, which is sound only if one exists per release.
+    v1.5.1 was tagged without cutting a context, so the anchor stayed at
+    v1.5.0 and v1.5.1 shipped declaring v1.5.0. Both halves are checked from
+    v1.5.2 — the context must not lag the newest tag, and the example must
+    match the newest context.
