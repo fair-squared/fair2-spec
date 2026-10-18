@@ -14,12 +14,14 @@ The ontology is expressed in both JSON-LD and Turtle formats and is compatible w
 |:-------|:---------------|
 | `schema:` | https://schema.org/ |
 | `prov:` | http://www.w3.org/ns/prov# |
-| `cr:` | https://credit.niso.org/contributor-roles/ |
+| `cr:` | http://mlcommons.org/croissant/ |
+| `credit:` | https://credit.niso.org/contributor-roles/ |
 | `fair2:` | https://fair2.ai/ns/ |
 | `fair2s:` | https://fair2.ai/shapes/ |
 | `rdfs:` | http://www.w3.org/2000/01/rdf-schema# |
 | `rdf:` | http://www.w3.org/1999/02/22-rdf-syntax-ns# |
 | `xsd:` | http://www.w3.org/2001/XMLSchema# |
+| `oa:` | http://www.w3.org/ns/oa# |
 
 ---
 
@@ -124,6 +126,66 @@ the scope says **what was checked** — there is no metadata-only level.
 A certification whose scope omits `dataIntegrity` MUST be rendered as
 **“FAIR²-Certified (metadata only)”**. That is a requirement on consumers —
 SHACL can check the scope tokens, but not how they are displayed.
+
+
+## Added in v1.6.0 — status `testing`
+
+First needed by a producer's output (the data wrangler) and defined where no
+term in the vocabularies a `fair2.json` already uses says the same thing. They
+carry `vs:term_status "testing"`: usable, but open to change until a second
+producer relies on them or they settle. Where an existing vocabulary covers a
+case, a document uses it instead — e.g. `csvw:null` for missing-value codes,
+`cr:equivalentProperty schema:latitude` for a coordinate field,
+`geocr:timeSeriesIndex` for a time axis, `oa:Annotation` for an issue.
+
+### Describing the data
+
+| Term | Meaning |
+|:-----|:--------|
+| `fair2:role` | A field's role: `identifier`, `dimension`, `measure`, `count`, `category`, `datetime`, `geo`, `filemeta`. Identifiers correspond to `cr:key`; dimension, measure and attribute-like roles to the RDF Data Cube component properties. |
+| `fair2:roleSource` | Whether that role was `asserted` or `computed`. |
+| `fair2:valueConstraints` | The values a field may take, in words. |
+| `fair2:unitSingular` | What one record is (`cell`, `patient`). |
+| `fair2:unitPlural` | Its plural. |
+| `fair2:unitLabelSource` | Where those labels came from. |
+| `fair2:primaryMeasure` | The field an overview of a record set leads with. |
+| `fair2:encrypted` | Whether a file's content is encrypted. |
+| `fair2:rowCount` | Rows in a table. |
+| `fair2:easting` | A projected easting coordinate — named by a field's `cr:equivalentProperty`. |
+| `fair2:northing` | A projected northing coordinate, likewise. |
+| `fair2:declaredLicenses` | Every licence a source declared, when it declared several. |
+| `fair2:InferredJoin` | A join between record sets found by inference and not verified (unlike `cr:references`). |
+| `fair2:fromField` | The field(s) an inferred join starts from. |
+| `fair2:toField` | The field(s) it ends at. |
+| `fair2:cardinality` | `one-to-one`, `one-to-many`, `many-to-one` or `many-to-many`. |
+| `fair2:confidence` | `high`, `medium` or `low`. |
+| `fair2:matchedCount` | Distinct values or tuples found on both sides. |
+| `fair2:sourceDistinct` | Distinct values or tuples on the starting side. |
+| `fair2:targetDistinct` | Distinct values or tuples on the other side. |
+| `fair2:matchRate` | The share matched, 0–1. |
+| `fair2:uniqueness` | How unique the joined key is on the other side, 0–1. |
+
+### Recording how the data was processed
+
+| Term | Meaning |
+|:-----|:--------|
+| `fair2:PrivacyScreening` | Activity assessing whether a dataset can be published without disclosing personal information. |
+| `fair2:subjectType` | Who or what the data is about. |
+| `fair2:decision` | The screening's outcome. |
+| `fair2:action` | The change required of a field, on the `oa:Annotation` (motivated by `oa:editing`) that targets it. |
+| `fair2:userOverride` | Whether the screening's decision was overridden. |
+| `fair2:narrativeWithheld` | Whether narrative detail was withheld from the public record. |
+| `fair2:IntegrityAssessment` | Activity assessing a dataset's consistency and completeness; its issues are `oa:Annotation`s motivated by `oa:assessing`. |
+| `fair2:overallScore` | One score summarising it. |
+| `fair2:checks` | The individual checks and results, as an `rdf:JSON` literal. |
+| `fair2:severity` | How severe an issue is, on its annotation. |
+| `fair2:complianceStatus` | How far an applied standard was complied with. |
+| `fair2:contextLoad` | Whether a documentation file was preserved, and how. |
+| `fair2:renameRule` | How a set of files was renamed when packaged, as an `rdf:JSON` literal. |
+| `fair2:retrievedOn` | When a source was retrieved. |
+| `fair2:retrievalMethod` | How it was obtained. |
+| `fair2:resolvedBy` | How a dataset's main entity was resolved. |
+| `fair2:matchSource` | Where a match to an ontology concept came from. |
 
 
 ## Reserved terms

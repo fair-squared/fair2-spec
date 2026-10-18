@@ -3,8 +3,10 @@
         "schema": "https://schema.org/",
         "sh": "http://www.w3.org/ns/shacl#",
         "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
         "cr": "http://mlcommons.org/croissant/",
         "fair2s": "https://fair2.ai/shapes/",
+        "fair2": "https://fair2.ai/ns/",
         "sh:path": {
             "@type": "@id"
         },
@@ -16,6 +18,9 @@
         },
         "sh:nodeKind": {
             "@type": "@id"
+        },
+        "sh:datatype": {
+            "@type": "@id"
         }
     },
     "@graph": [
@@ -24,6 +29,11 @@
             "@type": "sh:NodeShape",
             "sh:nodeKind": "sh:IRI",
             "sh:property": [
+                {
+                    "sh:path": "fair2:encrypted",
+                    "sh:maxCount": 1,
+                    "sh:datatype": "xsd:boolean"
+                },
                 {
                     "sh:path": "schema:contentUrl",
                     "sh:minCount": 1,
@@ -57,6 +67,11 @@
             "@type": "sh:NodeShape",
             "sh:nodeKind": "sh:IRI",
             "sh:property": [
+                {
+                    "sh:path": "fair2:encrypted",
+                    "sh:maxCount": 1,
+                    "sh:datatype": "xsd:boolean"
+                },
                 {
                     "sh:path": "cr:includes",
                     "sh:minCount": 1,

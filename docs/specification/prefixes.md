@@ -11,9 +11,13 @@ consumers SHOULD expect these bindings to resolve to the URIs given here.
 | `cr:` | `http://mlcommons.org/croissant/` |
 | `cro:` | `http://purl.obolibrary.org/obo/CRO_` |
 | `credit:` | `http://purl.org/credit/ontology#CREDIT_` |
+| `csvw:` | `http://www.w3.org/ns/csvw#` |
 | `dct:` | `http://purl.org/dc/terms/` |
 | `fair2:` | `https://fair2.ai/ns/` |
 | `fair2s:` | `https://fair2.ai/shapes/` |
+| `geocr:` | `http://mlcommons.org/croissant/geo/` |
+| `oa:` | `http://www.w3.org/ns/oa#` |
+| `owl:` | `http://www.w3.org/2002/07/owl#` |
 | `prov:` | `http://www.w3.org/ns/prov#` |
 | `rai:` | `http://mlcommons.org/croissant/RAI/` |
 | `rdfs:` | `http://www.w3.org/2000/01/rdf-schema#` |

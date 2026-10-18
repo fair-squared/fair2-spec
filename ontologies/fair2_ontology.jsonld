@@ -3,13 +3,15 @@
     "cr": "http://mlcommons.org/croissant/",
     "ddi-stats": "http://rdf-vocabulary.ddialliance.org/cv/SummaryStatisticType/2.1.2/",
     "fair2": "https://fair2.ai/ns/",
+    "oa": "http://www.w3.org/ns/oa#",
     "prov": "http://www.w3.org/ns/prov#",
     "qudt": "http://qudt.org/schema/qudt/",
     "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     "schema": "https://schema.org/",
     "skos": "http://www.w3.org/2004/02/skos/core#",
-    "vs": "http://www.w3.org/2003/06/sw-vocab-status/ns#"
+    "vs": "http://www.w3.org/2003/06/sw-vocab-status/ns#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
   },
   "@graph": [
     {
@@ -112,11 +114,8 @@
     {
       "@id": "fair2:DistinctValueCount",
       "@type": "fair2:SummaryStatistic",
-      "rdfs:comment": "Number of distinct values in the field. DDI-CDI SummaryStatisticType has no equivalent.",
-      "rdfs:label": "unique",
-      "skos:closeMatch": {
-        "@id": "ddi-stats:c646dd8"
-      }
+      "rdfs:comment": "Number of distinct values in the field. DDI-CDI SummaryStatisticType has no equivalent; its c646dd8 is Valid cases, the count of non-missing values.",
+      "rdfs:label": "unique"
     },
     {
       "@id": "fair2:ExpectedValueCount",
@@ -151,6 +150,26 @@
       "rdfs:label": "top_10_freq"
     },
     {
+      "@id": "fair2:InferredJoin",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A join between record sets found by inference and not verified. Unlike cr:references, which declares a verified foreign key, it records the evidence and how far it holds. One or more fields on each side.",
+      "rdfs:label": "InferredJoin",
+      "rdfs:subClassOf": {
+        "@id": "prov:Entity"
+      },
+      "vs:term_status": "testing"
+    },
+    {
+      "@id": "fair2:IntegrityAssessment",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "An assessment of a dataset's internal consistency and completeness. The issues it finds are oa:Annotations motivated by oa:assessing.",
+      "rdfs:label": "IntegrityAssessment",
+      "rdfs:subClassOf": {
+        "@id": "prov:Activity"
+      },
+      "vs:term_status": "testing"
+    },
+    {
       "@id": "fair2:LicenseVerification",
       "@type": "fair2:CertificationScope",
       "rdfs:comment": "The declared licence was checked for presence and internal consistency.",
@@ -176,9 +195,19 @@
       "@type": "fair2:SummaryStatistic",
       "rdfs:comment": "How often the modal value occurs. Pairs with the mode itself, which is ddi-stats:650be61; DDI names the mode but not its frequency.",
       "rdfs:label": "freq",
-      "skos:closeMatch": {
+      "skos:related": {
         "@id": "ddi-stats:650be61"
       }
+    },
+    {
+      "@id": "fair2:PrivacyScreening",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "An assessment of whether, and how, a dataset can be published without disclosing personal information.",
+      "rdfs:label": "PrivacyScreening",
+      "rdfs:subClassOf": {
+        "@id": "prov:Activity"
+      },
+      "vs:term_status": "testing"
     },
     {
       "@id": "fair2:ProcessAttestation",
@@ -256,6 +285,19 @@
       "vs:term_status": "stable"
     },
     {
+      "@id": "fair2:action",
+      "@type": "rdf:Property",
+      "rdfs:comment": "The change a privacy screening requires of a field (e.g. drop, generalise, hash), on the oa:Annotation, motivated by oa:editing, that targets it.",
+      "rdfs:label": "action",
+      "schema:domainIncludes": {
+        "@id": "oa:Annotation"
+      },
+      "schema:rangeIncludes": {
+        "@id": "xsd:string"
+      },
+      "vs:term_status": "testing"
+    },
+    {
       "@id": "fair2:allowedScopes",
       "@type": "rdf:Property",
       "rdfs:comment": "The certification scopes a certifier is authorised to assert. A credential declaring a scope outside this set does not verify.",
@@ -286,6 +328,19 @@
       "schema:rangeIncludes": {
         "@id": "schema:Text"
       }
+    },
+    {
+      "@id": "fair2:cardinality",
+      "@type": "rdf:Property",
+      "rdfs:comment": "The cardinality of an inferred join: one-to-one, one-to-many, many-to-one or many-to-many.",
+      "rdfs:label": "cardinality",
+      "schema:domainIncludes": {
+        "@id": "fair2:InferredJoin"
+      },
+      "schema:rangeIncludes": {
+        "@id": "xsd:string"
+      },
+      "vs:term_status": "testing"
     },
     {
       "@id": "fair2:certificationDocument",
@@ -360,6 +415,19 @@
       }
     },
     {
+      "@id": "fair2:checks",
+      "@type": "rdf:Property",
+      "rdfs:comment": "The individual checks of an integrity assessment and their results, as a JSON object.",
+      "rdfs:label": "checks",
+      "schema:domainIncludes": {
+        "@id": "fair2:IntegrityAssessment"
+      },
+      "schema:rangeIncludes": {
+        "@id": "rdf:JSON"
+      },
+      "vs:term_status": "testing"
+    },
+    {
       "@id": "fair2:citationKey",
       "@type": "rdf:Property",
       "rdfs:comment": "Short citation key for the dataset (e.g. a BibTeX key).",
@@ -370,6 +438,45 @@
       "schema:rangeIncludes": {
         "@id": "schema:Text"
       }
+    },
+    {
+      "@id": "fair2:complianceStatus",
+      "@type": "rdf:Property",
+      "rdfs:comment": "How far a standard applied to the dataset was complied with.",
+      "rdfs:label": "complianceStatus",
+      "schema:domainIncludes": {
+        "@id": "prov:Activity"
+      },
+      "schema:rangeIncludes": {
+        "@id": "xsd:string"
+      },
+      "vs:term_status": "testing"
+    },
+    {
+      "@id": "fair2:confidence",
+      "@type": "rdf:Property",
+      "rdfs:comment": "How confident the inference is: high, medium or low.",
+      "rdfs:label": "confidence",
+      "schema:domainIncludes": {
+        "@id": "fair2:InferredJoin"
+      },
+      "schema:rangeIncludes": {
+        "@id": "xsd:string"
+      },
+      "vs:term_status": "testing"
+    },
+    {
+      "@id": "fair2:contextLoad",
+      "@type": "rdf:Property",
+      "rdfs:comment": "Whether a documentation file was preserved in the package, and how.",
+      "rdfs:label": "contextLoad",
+      "schema:domainIncludes": {
+        "@id": "cr:FileObject"
+      },
+      "schema:rangeIncludes": {
+        "@id": "xsd:string"
+      },
+      "vs:term_status": "testing"
     },
     {
       "@id": "fair2:dataArchive",
@@ -441,6 +548,42 @@
       }
     },
     {
+      "@id": "fair2:decision",
+      "@type": "rdf:Property",
+      "rdfs:comment": "The outcome of a privacy screening.",
+      "rdfs:label": "decision",
+      "schema:domainIncludes": {
+        "@id": "fair2:PrivacyScreening"
+      },
+      "schema:rangeIncludes": {
+        "@id": "xsd:string"
+      },
+      "vs:term_status": "testing"
+    },
+    {
+      "@id": "fair2:declaredLicenses",
+      "@type": "rdf:Property",
+      "rdfs:comment": "Every licence a source declared, when it declared more than one; schema:license carries the one applied.",
+      "rdfs:label": "declaredLicenses",
+      "schema:domainIncludes": [
+        {
+          "@id": "prov:Entity"
+        },
+        {
+          "@id": "schema:Dataset"
+        }
+      ],
+      "schema:rangeIncludes": [
+        {
+          "@id": "schema:CreativeWork"
+        },
+        {
+          "@id": "schema:URL"
+        }
+      ],
+      "vs:term_status": "testing"
+    },
+    {
       "@id": "fair2:domain",
       "@type": "rdf:Property",
       "rdfs:comment": "Subject domain classifying the dataset.",
@@ -453,6 +596,31 @@
       }
     },
     {
+      "@id": "fair2:easting",
+      "@type": "rdf:Property",
+      "rdfs:comment": "A projected easting coordinate, in the units of the coordinate reference system. Named by a field's cr:equivalentProperty, as schema:longitude is for geographic coordinates.",
+      "rdfs:label": "easting",
+      "vs:term_status": "testing"
+    },
+    {
+      "@id": "fair2:encrypted",
+      "@type": "rdf:Property",
+      "rdfs:comment": "Whether the file's content is encrypted, so that it cannot be read without a key.",
+      "rdfs:label": "encrypted",
+      "schema:domainIncludes": [
+        {
+          "@id": "cr:FileObject"
+        },
+        {
+          "@id": "cr:FileSet"
+        }
+      ],
+      "schema:rangeIncludes": {
+        "@id": "xsd:boolean"
+      },
+      "vs:term_status": "testing"
+    },
+    {
       "@id": "fair2:fair2ComplianceLevel",
       "@type": "rdf:Property",
       "rdfs:comment": "The FAIR² compliance level asserted for the package.",
@@ -463,6 +631,19 @@
       "schema:rangeIncludes": {
         "@id": "schema:URL"
       }
+    },
+    {
+      "@id": "fair2:fromField",
+      "@type": "rdf:Property",
+      "rdfs:comment": "The field or fields an inferred join starts from.",
+      "rdfs:label": "fromField",
+      "schema:domainIncludes": {
+        "@id": "fair2:InferredJoin"
+      },
+      "schema:rangeIncludes": {
+        "@id": "cr:Field"
+      },
+      "vs:term_status": "testing"
     },
     {
       "@id": "fair2:fundingScheme",
@@ -548,6 +729,42 @@
       "vs:term_status": "unstable"
     },
     {
+      "@id": "fair2:matchRate",
+      "@type": "rdf:Property",
+      "rdfs:comment": "The share of the starting side's distinct values found on the other side, from 0 to 1.",
+      "rdfs:label": "matchRate",
+      "schema:domainIncludes": {
+        "@id": "fair2:InferredJoin"
+      },
+      "schema:rangeIncludes": {
+        "@id": "xsd:decimal"
+      },
+      "vs:term_status": "testing"
+    },
+    {
+      "@id": "fair2:matchSource",
+      "@type": "rdf:Property",
+      "rdfs:comment": "Where a match to an ontology concept came from.",
+      "rdfs:label": "matchSource",
+      "schema:rangeIncludes": {
+        "@id": "xsd:string"
+      },
+      "vs:term_status": "testing"
+    },
+    {
+      "@id": "fair2:matchedCount",
+      "@type": "rdf:Property",
+      "rdfs:comment": "How many distinct values, or value tuples, of the starting side are found on the other side.",
+      "rdfs:label": "matchedCount",
+      "schema:domainIncludes": {
+        "@id": "fair2:InferredJoin"
+      },
+      "schema:rangeIncludes": {
+        "@id": "xsd:nonNegativeInteger"
+      },
+      "vs:term_status": "testing"
+    },
+    {
       "@id": "fair2:metadataModified",
       "@type": "rdf:Property",
       "rdfs:comment": "Date the fair2.json document was last edited. Distinct from schema:dateModified, which is when the dataset itself last changed; a metadata correction moves this and not that.",
@@ -584,6 +801,19 @@
       "schema:rangeIncludes": {
         "@id": "fair2:Section"
       }
+    },
+    {
+      "@id": "fair2:narrativeWithheld",
+      "@type": "rdf:Property",
+      "rdfs:comment": "Whether narrative detail of the screening was withheld from the public record.",
+      "rdfs:label": "narrativeWithheld",
+      "schema:domainIncludes": {
+        "@id": "fair2:PrivacyScreening"
+      },
+      "schema:rangeIncludes": {
+        "@id": "xsd:boolean"
+      },
+      "vs:term_status": "testing"
     },
     {
       "@id": "fair2:newFeatures",
@@ -644,6 +874,13 @@
       }
     },
     {
+      "@id": "fair2:northing",
+      "@type": "rdf:Property",
+      "rdfs:comment": "A projected northing coordinate, in the units of the coordinate reference system. Named by a field's cr:equivalentProperty, as schema:latitude is for geographic coordinates.",
+      "rdfs:label": "northing",
+      "vs:term_status": "testing"
+    },
+    {
       "@id": "fair2:otherInformation",
       "@type": "rdf:Property",
       "rdfs:comment": "Remaining notes for a change-log entry. A sibling property of schema:description on a schema:UpdateAction, not nested inside it.",
@@ -654,6 +891,19 @@
       "schema:rangeIncludes": {
         "@id": "schema:Text"
       }
+    },
+    {
+      "@id": "fair2:overallScore",
+      "@type": "rdf:Property",
+      "rdfs:comment": "A single score summarising an integrity assessment.",
+      "rdfs:label": "overallScore",
+      "schema:domainIncludes": {
+        "@id": "fair2:IntegrityAssessment"
+      },
+      "schema:rangeIncludes": {
+        "@id": "xsd:decimal"
+      },
+      "vs:term_status": "testing"
     },
     {
       "@id": "fair2:position",
@@ -669,6 +919,19 @@
       "vs:term_status": "stable"
     },
     {
+      "@id": "fair2:primaryMeasure",
+      "@type": "rdf:Property",
+      "rdfs:comment": "The field an overview of the record set should lead with.",
+      "rdfs:label": "primaryMeasure",
+      "schema:domainIncludes": {
+        "@id": "cr:RecordSet"
+      },
+      "schema:rangeIncludes": {
+        "@id": "cr:Field"
+      },
+      "vs:term_status": "testing"
+    },
+    {
       "@id": "fair2:qualifiedUsage",
       "@type": "rdf:Property",
       "rdfs:comment": "The condition governing a StepCase, as a string expression.",
@@ -679,6 +942,141 @@
       "schema:rangeIncludes": {
         "@id": "schema:Text"
       }
+    },
+    {
+      "@id": "fair2:renameRule",
+      "@type": "rdf:Property",
+      "rdfs:comment": "The rule by which a set of files was renamed when packaged, as a JSON object.",
+      "rdfs:label": "renameRule",
+      "schema:domainIncludes": [
+        {
+          "@id": "cr:FileSet"
+        },
+        {
+          "@id": "prov:Entity"
+        }
+      ],
+      "schema:rangeIncludes": {
+        "@id": "rdf:JSON"
+      },
+      "vs:term_status": "testing"
+    },
+    {
+      "@id": "fair2:resolvedBy",
+      "@type": "rdf:Property",
+      "rdfs:comment": "How a dataset's main entity was resolved.",
+      "rdfs:label": "resolvedBy",
+      "schema:domainIncludes": {
+        "@id": "cr:RecordSet"
+      },
+      "schema:rangeIncludes": {
+        "@id": "xsd:string"
+      },
+      "vs:term_status": "testing"
+    },
+    {
+      "@id": "fair2:retrievalMethod",
+      "@type": "rdf:Property",
+      "rdfs:comment": "How a source was obtained (e.g. provided locally, from a cache, fetched, from Crossref).",
+      "rdfs:label": "retrievalMethod",
+      "schema:domainIncludes": {
+        "@id": "prov:Entity"
+      },
+      "schema:rangeIncludes": {
+        "@id": "xsd:string"
+      },
+      "vs:term_status": "testing"
+    },
+    {
+      "@id": "fair2:retrievedOn",
+      "@type": "rdf:Property",
+      "rdfs:comment": "When a source was retrieved.",
+      "rdfs:label": "retrievedOn",
+      "schema:domainIncludes": {
+        "@id": "prov:Entity"
+      },
+      "schema:rangeIncludes": {
+        "@id": "xsd:dateTime"
+      },
+      "vs:term_status": "testing"
+    },
+    {
+      "@id": "fair2:role",
+      "@type": "rdf:Property",
+      "rdfs:comment": "The role a field plays in its record set: identifier, dimension, measure, count, category, datetime, geo or filemeta. identifier corresponds to cr:key on the record set; dimension, measure and the attribute-like roles to the RDF Data Cube component properties qb:DimensionProperty, qb:MeasureProperty and qb:AttributeProperty.",
+      "rdfs:label": "role",
+      "schema:domainIncludes": {
+        "@id": "cr:Field"
+      },
+      "schema:rangeIncludes": {
+        "@id": "xsd:string"
+      },
+      "vs:term_status": "testing"
+    },
+    {
+      "@id": "fair2:roleSource",
+      "@type": "rdf:Property",
+      "rdfs:comment": "Whether a field's role was asserted by a curator or computed from the data: asserted or computed.",
+      "rdfs:label": "roleSource",
+      "schema:domainIncludes": [
+        {
+          "@id": "cr:Field"
+        },
+        {
+          "@id": "schema:PropertyValue"
+        }
+      ],
+      "schema:rangeIncludes": {
+        "@id": "xsd:string"
+      },
+      "vs:term_status": "testing"
+    },
+    {
+      "@id": "fair2:rowCount",
+      "@type": "rdf:Property",
+      "rdfs:comment": "The number of rows in a table.",
+      "rdfs:label": "rowCount",
+      "schema:domainIncludes": [
+        {
+          "@id": "cr:FileObject"
+        },
+        {
+          "@id": "cr:RecordSet"
+        },
+        {
+          "@id": "prov:Derivation"
+        }
+      ],
+      "schema:rangeIncludes": {
+        "@id": "xsd:nonNegativeInteger"
+      },
+      "vs:term_status": "testing"
+    },
+    {
+      "@id": "fair2:severity",
+      "@type": "rdf:Property",
+      "rdfs:comment": "How severe an issue is, on the oa:Annotation that records it.",
+      "rdfs:label": "severity",
+      "schema:domainIncludes": {
+        "@id": "oa:Annotation"
+      },
+      "schema:rangeIncludes": {
+        "@id": "xsd:string"
+      },
+      "vs:term_status": "testing"
+    },
+    {
+      "@id": "fair2:sourceDistinct",
+      "@type": "rdf:Property",
+      "rdfs:comment": "Distinct values, or value tuples, on the side an inferred join starts from.",
+      "rdfs:label": "sourceDistinct",
+      "schema:domainIncludes": {
+        "@id": "fair2:InferredJoin"
+      },
+      "schema:rangeIncludes": {
+        "@id": "xsd:nonNegativeInteger"
+      },
+      "vs:term_status": "testing"
     },
     {
       "@id": "fair2:statistics",
@@ -719,6 +1117,19 @@
       "vs:term_status": "unstable"
     },
     {
+      "@id": "fair2:subjectType",
+      "@type": "rdf:Property",
+      "rdfs:comment": "Who or what the data is about, as assessed by a privacy screening (e.g. human participants).",
+      "rdfs:label": "subjectType",
+      "schema:domainIncludes": {
+        "@id": "fair2:PrivacyScreening"
+      },
+      "schema:rangeIncludes": {
+        "@id": "xsd:string"
+      },
+      "vs:term_status": "testing"
+    },
+    {
       "@id": "fair2:substep",
       "@type": "rdf:Property",
       "rdfs:comment": "Nests a subordinate procedural instruction under a Step.",
@@ -729,6 +1140,45 @@
       "schema:rangeIncludes": {
         "@id": "fair2:Substep"
       }
+    },
+    {
+      "@id": "fair2:targetDistinct",
+      "@type": "rdf:Property",
+      "rdfs:comment": "Distinct values, or value tuples, on the side an inferred join ends at.",
+      "rdfs:label": "targetDistinct",
+      "schema:domainIncludes": {
+        "@id": "fair2:InferredJoin"
+      },
+      "schema:rangeIncludes": {
+        "@id": "xsd:nonNegativeInteger"
+      },
+      "vs:term_status": "testing"
+    },
+    {
+      "@id": "fair2:toField",
+      "@type": "rdf:Property",
+      "rdfs:comment": "The field or fields an inferred join ends at.",
+      "rdfs:label": "toField",
+      "schema:domainIncludes": {
+        "@id": "fair2:InferredJoin"
+      },
+      "schema:rangeIncludes": {
+        "@id": "cr:Field"
+      },
+      "vs:term_status": "testing"
+    },
+    {
+      "@id": "fair2:uniqueness",
+      "@type": "rdf:Property",
+      "rdfs:comment": "How unique the joined key is on the side it ends at, from 0 to 1.",
+      "rdfs:label": "uniqueness",
+      "schema:domainIncludes": {
+        "@id": "fair2:InferredJoin"
+      },
+      "schema:rangeIncludes": {
+        "@id": "xsd:decimal"
+      },
+      "vs:term_status": "testing"
     },
     {
       "@id": "fair2:unit",
@@ -743,6 +1193,58 @@
       }
     },
     {
+      "@id": "fair2:unitLabelSource",
+      "@type": "rdf:Property",
+      "rdfs:comment": "Where the record-unit labels came from: a curated catalog or the producing agent.",
+      "rdfs:label": "unitLabelSource",
+      "schema:domainIncludes": {
+        "@id": "cr:RecordSet"
+      },
+      "schema:rangeIncludes": {
+        "@id": "xsd:string"
+      },
+      "vs:term_status": "testing"
+    },
+    {
+      "@id": "fair2:unitPlural",
+      "@type": "rdf:Property",
+      "rdfs:comment": "The plural of fair2:unitSingular (e.g. cells, patients).",
+      "rdfs:label": "unitPlural",
+      "schema:domainIncludes": {
+        "@id": "cr:RecordSet"
+      },
+      "schema:rangeIncludes": {
+        "@id": "xsd:string"
+      },
+      "vs:term_status": "testing"
+    },
+    {
+      "@id": "fair2:unitSingular",
+      "@type": "rdf:Property",
+      "rdfs:comment": "What one record of the record set is, in the singular (e.g. cell, patient).",
+      "rdfs:label": "unitSingular",
+      "schema:domainIncludes": {
+        "@id": "cr:RecordSet"
+      },
+      "schema:rangeIncludes": {
+        "@id": "xsd:string"
+      },
+      "vs:term_status": "testing"
+    },
+    {
+      "@id": "fair2:userOverride",
+      "@type": "rdf:Property",
+      "rdfs:comment": "Whether the person running the screening overrode its decision.",
+      "rdfs:label": "userOverride",
+      "schema:domainIncludes": {
+        "@id": "fair2:PrivacyScreening"
+      },
+      "schema:rangeIncludes": {
+        "@id": "xsd:boolean"
+      },
+      "vs:term_status": "testing"
+    },
+    {
       "@id": "fair2:validationReport",
       "@type": "rdf:Property",
       "rdfs:comment": "The validation report backing a certification or validation claim.",
@@ -754,6 +1256,19 @@
         "@id": "schema:URL"
       },
       "vs:term_status": "stable"
+    },
+    {
+      "@id": "fair2:valueConstraints",
+      "@type": "rdf:Property",
+      "rdfs:comment": "The values a field may take or the range it must fall in, in words. Distinct from fair2-governance's use constraints on a dataset.",
+      "rdfs:label": "valueConstraints",
+      "schema:domainIncludes": {
+        "@id": "cr:Field"
+      },
+      "schema:rangeIncludes": {
+        "@id": "xsd:string"
+      },
+      "vs:term_status": "testing"
     },
     {
       "@id": "fair2:verificationEndpoint",

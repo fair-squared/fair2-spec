@@ -5,6 +5,7 @@
         "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
         "cr": "http://mlcommons.org/croissant/",
         "fair2s": "https://fair2.ai/shapes/",
+        "fair2": "https://fair2.ai/ns/",
         "sh:path": {
             "@type": "@id"
         },
@@ -67,6 +68,11 @@
                     "sh:description": "The semantic type of the data (e.g., schema:Float)."
                 },
                 {
+                    "sh:path": "fair2:role",
+                    "sh:maxCount": 1,
+                    "sh:pattern": "^(identifier|dimension|measure|count|category|datetime|geo|filemeta)$"
+                },
+                {
                     "sh:path": "schema:name",
                     "sh:minCount": 1,
                     "sh:node": "fair2s:TextShape",
@@ -90,6 +96,16 @@
                     "sh:minCount": 1,
                     "sh:node": "fair2s:FieldShape",
                     "sh:description": "The columns/attributes defined within this record set."
+                },
+                {
+                    "sh:path": "fair2:unitPlural",
+                    "sh:maxCount": 1,
+                    "sh:node": "fair2s:TextShape"
+                },
+                {
+                    "sh:path": "fair2:unitSingular",
+                    "sh:maxCount": 1,
+                    "sh:node": "fair2s:TextShape"
                 },
                 {
                     "sh:path": "schema:name",
