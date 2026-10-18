@@ -49,7 +49,7 @@
 | `schema:datePublished` | `xsd:date` | `[0..∞]` | No |
 | `schema:dateUpdated` | `xsd:date` | `[0..∞]` | No |
 | `schema:description` | `fair2s:TextShape` | `[1..∞]` | Yes |
-| `schema:distribution` | `fair2s:DistributionShape` | `[1..∞]` | Yes |
+| `schema:distribution` | `cr:FileObject` (`fair2s:DistributionShape`) or `cr:FileSet` (`fair2s:FileSetShape`) | `[1..∞]` | Yes |
 | `schema:funding` | `fair2s:GrantShape` | `[0..∞]` | No |
 | `schema:identifier` | `fair2s:IdentifierShape` | `[1..∞]` | Yes |
 | `schema:keywords` | `fair2s:TextShape` | `[1..∞]` | Yes |
@@ -96,19 +96,49 @@
 
 
 ## fair2s:DistributionShape
+*Targets:* `cr:FileObject` — one downloadable file.
+
 | Property | Type | Cardinality | Mandatory |
 |---|---|---|---|
-| `schema:sha256` | `xsd:string` | `[1..∞]` | Yes |
-| `schema:contentUrl` | `xsd:anyURI` | `[1..∞]` | Yes |
-| `schema:encodingFormat` | `xsd:string` | `[1..∞]` | Yes |
+| `@id` | `sh:IRI` | — | Yes |
+| `schema:name` | `fair2s:TextShape` | `[1..∞]` | Yes |
+| `schema:contentUrl` | `fair2s:IdentifierShape` | `[1..∞]` | Yes |
+| `schema:encodingFormat` | `fair2s:TextShape` | `[1..∞]` | Yes |
+| `schema:contentSize` | `fair2s:TextShape` | `[1..∞]` | Yes |
+| `schema:sha256` | `fair2s:TextShape` | `[1..∞]` | Yes |
 
 <details><summary>Constraint notes</summary>
 
-- **schema:sha256**: Each distribution must have a SHA-256 checksum (`schema:sha256`, as expected by mlcroissant).
-- **schema:contentUrl**: Each distribution must have a content URL.
-- **schema:encodingFormat**: Each distribution must specify its encoding format.
+- **schema:sha256**: the SHA-256 checksum mlcroissant expects.
+- **schema:contentSize**: in bytes unless a unit is given (Croissant).
 
 </details>
+
+## fair2s:FileSetShape
+*Targets:* `cr:FileSet` — a collection of homogeneous files selected by glob,
+such as a folder of images. It has no single size or checksum, so the file
+requirements above do not apply.
+
+| Property | Type | Cardinality | Mandatory |
+|---|---|---|---|
+| `@id` | `sh:IRI` | — | Yes |
+| `schema:name` | `fair2s:TextShape` | `[1..∞]` | Yes |
+| `schema:encodingFormat` | `fair2s:TextShape` | `[1..∞]` | Yes |
+| `cr:includes` | `fair2s:TextShape` (glob) | `[1..∞]` | Yes |
+| `cr:excludes` | `fair2s:TextShape` (glob) | `[0..∞]` | No |
+| `cr:containedIn` | `sh:IRI` (an archive or manifest distribution) | `[0..∞]` | No |
+
+Without `containedIn`, the patterns select files shipped in the package itself.
+
+!!! note "Changed in v1.5.4"
+    Until v1.5.4 the Dataset's `schema:distribution` pointed at
+    `fair2s:DistributionShape` while the shape was defined as
+    `schema:DistributionShape`. SHACL treats a reference to an undefined shape
+    as one with no constraints, so nothing reached through `schema:distribution`
+    was checked by it, and there was no shape for `cr:FileSet` at all. Each
+    distribution must now be typed `cr:FileObject` or `cr:FileSet`, and is
+    checked by the shape for its kind. `GeoCoordinatesShape` moved from
+    `schema:` to `fair2s:` for the same reason.
 
 
 ## fair2s:AccessRightsShape
@@ -595,7 +625,7 @@ and where they sat in the list.
 | `schema:name` | `xsd:string` | `[0..∞]` | No |
 | `schema:description` | `xsd:string` | `[0..∞]` | No |
 | `schema:identifier` | `fair2s:IdentifierShape` | `[0..∞]` | No |
-| `schema:geo` | `fair2s:GeoShapeShape` or `schema:GeoCoordinatesShape` | `[0..∞]` | No |
+| `schema:geo` | `fair2s:GeoShapeShape` or `fair2s:GeoCoordinatesShape` | `[0..∞]` | No |
 | `schema:geoWithin` | `sh:BlankNodeOrIRI` | `[0..∞]` | No |
 | `schema:containsPlace` | `fair2s:SpatialCoverageShape` | `[0..∞]` | No |
 

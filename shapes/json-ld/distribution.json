@@ -18,35 +18,72 @@
             "@type": "@id"
         }
     },
-    "@id": "schema:DistributionShape",
-    "@type": "sh:NodeShape",
-    "sh:nodeKind": "sh:IRI",
-    "sh:property": [
+    "@graph": [
         {
-            "sh:path": "schema:contentUrl",
-            "sh:minCount": 1,
-            "sh:node": "fair2s:IdentifierShape"
+            "@id": "fair2s:DistributionShape",
+            "@type": "sh:NodeShape",
+            "sh:nodeKind": "sh:IRI",
+            "sh:property": [
+                {
+                    "sh:path": "schema:contentUrl",
+                    "sh:minCount": 1,
+                    "sh:node": "fair2s:IdentifierShape"
+                },
+                {
+                    "sh:path": "schema:contentSize",
+                    "sh:minCount": 1,
+                    "sh:node": "fair2s:TextShape"
+                },
+                {
+                    "sh:path": "schema:encodingFormat",
+                    "sh:minCount": 1,
+                    "sh:node": "fair2s:TextShape"
+                },
+                {
+                    "sh:path": "schema:name",
+                    "sh:minCount": 1,
+                    "sh:node": "fair2s:TextShape"
+                },
+                {
+                    "sh:path": "schema:sha256",
+                    "sh:minCount": 1,
+                    "sh:node": "fair2s:TextShape"
+                }
+            ],
+            "sh:targetClass": "cr:FileObject"
         },
         {
-            "sh:path": "schema:contentSize",
-            "sh:minCount": 1,
-            "sh:node": "fair2s:TextShape"
-        },
-        {
-            "sh:path": "schema:encodingFormat",
-            "sh:minCount": 1,
-            "sh:node": "fair2s:TextShape"
-        },
-        {
-            "sh:path": "schema:name",
-            "sh:minCount": 1,
-            "sh:node": "fair2s:TextShape"
-        },
-        {
-            "sh:path": "schema:sha256",
-            "sh:minCount": 1,
-            "sh:node": "fair2s:TextShape"
+            "@id": "fair2s:FileSetShape",
+            "@type": "sh:NodeShape",
+            "sh:nodeKind": "sh:IRI",
+            "sh:property": [
+                {
+                    "sh:path": "cr:includes",
+                    "sh:minCount": 1,
+                    "sh:node": "fair2s:TextShape",
+                    "sh:description": "A glob pattern selecting the files to include."
+                },
+                {
+                    "sh:path": "cr:containedIn",
+                    "sh:nodeKind": "sh:IRI",
+                    "sh:description": "The archive or manifest the files come from, by its @id."
+                },
+                {
+                    "sh:path": "schema:encodingFormat",
+                    "sh:minCount": 1,
+                    "sh:node": "fair2s:TextShape"
+                },
+                {
+                    "sh:path": "schema:name",
+                    "sh:minCount": 1,
+                    "sh:node": "fair2s:TextShape"
+                },
+                {
+                    "sh:path": "cr:excludes",
+                    "sh:node": "fair2s:TextShape"
+                }
+            ],
+            "sh:targetClass": "cr:FileSet"
         }
-    ],
-    "sh:targetClass": "cr:FileObject"
+    ]
 }

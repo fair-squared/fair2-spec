@@ -207,6 +207,26 @@ def check_types_are_mapped() -> None:
                  sorted(unmapped))
 
 
+def check_shape_references(shapes: rdflib.Graph) -> None:
+    """Shapes are named in fair2s:, and every sh:node points at a defined shape.
+
+    SHACL treats a reference to an undefined shape as a shape with no
+    constraints, so a typo'd or mis-namespaced sh:node silently checks nothing.
+    Until v1.5.4 dataset.ttl referenced fair2s:DistributionShape while the shape
+    was minted as schema:DistributionShape.
+    """
+    fair2s = "https://fair2.ai/shapes/"
+    defined = set(shapes.subjects(rdflib.RDF.type, SH.NodeShape))
+    misnamed = sorted(str(s) for s in defined if isinstance(s, rdflib.URIRef)
+                      and not str(s).startswith(fair2s))
+    if misnamed:
+        fail("shapes", "node shapes named outside fair2s:", misnamed)
+    dangling = sorted({str(o) for o in shapes.objects(None, SH.node)
+                       if isinstance(o, rdflib.URIRef) and o not in defined})
+    if dangling:
+        fail("shapes", "sh:node references to shapes no file defines:", dangling)
+
+
 def check_shape_mirrors() -> None:
     """Each shapes/json-ld/*.json must express the same graph as its .ttl."""
     drifted = []
@@ -574,6 +594,7 @@ def main() -> int:
     check_examples_declare_current_spec()
     check_schemaorg_terms_exist(ctx_inline)
     check_types_are_mapped()
+    check_shape_references(shapes)
     check_shape_mirrors()
     check_example_contexts(ctx_inline)
     check_no_vocab_fallthrough()

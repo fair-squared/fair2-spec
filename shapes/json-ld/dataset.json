@@ -23,6 +23,12 @@
         },
         "sh:datatype": {
             "@type": "@id"
+        },
+        "sh:class": {
+            "@type": "@id"
+        },
+        "sh:or": {
+            "@container": "@list"
         }
     },
     "@id": "fair2s:DatasetShape",
@@ -79,6 +85,19 @@
             }
         },
         {
+            "sh:path": "schema:distribution",
+            "sh:minCount": 1,
+            "sh:message": "Each distribution must be a cr:FileObject or a cr:FileSet.",
+            "sh:or": [
+                {
+                    "sh:class": "cr:FileObject"
+                },
+                {
+                    "sh:class": "cr:FileSet"
+                }
+            ]
+        },
+        {
             "sh:path": "schema:name",
             "sh:minCount": 1,
             "sh:node": "fair2s:TextShape",
@@ -89,11 +108,6 @@
             "sh:node": "fair2s:TextShape",
             "sh:message": "temporalCoverage must be an ISO 8601 date or interval (e.g. '1995-01-01/2023-12-31') for Google Dataset Search compliance.",
             "sh:pattern": "^(\\d{4}(-\\d{2}(-\\d{2})?)?)(/(\\d{4}(-\\d{2}(-\\d{2})?)?|\\.\\.))?$"
-        },
-        {
-            "sh:path": "schema:distribution",
-            "sh:minCount": 1,
-            "sh:node": "fair2s:DistributionShape"
         },
         {
             "sh:path": "dct:conformsTo",

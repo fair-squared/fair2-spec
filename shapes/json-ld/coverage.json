@@ -23,6 +23,22 @@
     },
     "@graph": [
         {
+            "@id": "fair2s:GeoCoordinatesShape",
+            "@type": "sh:NodeShape",
+            "sh:property": [
+                {
+                    "sh:path": "schema:latitude",
+                    "sh:minCount": 1,
+                    "sh:datatype": "xsd:float"
+                },
+                {
+                    "sh:path": "schema:longitude",
+                    "sh:minCount": 1,
+                    "sh:datatype": "xsd:float"
+                }
+            ]
+        },
+        {
             "@id": "fair2s:GeoShapeShape",
             "@type": "sh:NodeShape",
             "sh:message": "A GeoShape must declare at least one geometry (box, polygon, line, or circle).",
@@ -96,25 +112,9 @@
                             "sh:node": "fair2s:GeoShapeShape"
                         },
                         {
-                            "sh:node": "schema:GeoCoordinatesShape"
+                            "sh:node": "fair2s:GeoCoordinatesShape"
                         }
                     ]
-                }
-            ]
-        },
-        {
-            "@id": "schema:GeoCoordinatesShape",
-            "@type": "sh:NodeShape",
-            "sh:property": [
-                {
-                    "sh:path": "schema:latitude",
-                    "sh:minCount": 1,
-                    "sh:datatype": "xsd:float"
-                },
-                {
-                    "sh:path": "schema:longitude",
-                    "sh:minCount": 1,
-                    "sh:datatype": "xsd:float"
                 }
             ]
         }
