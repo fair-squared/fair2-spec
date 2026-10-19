@@ -60,6 +60,13 @@
       "vs:term_status": "stable"
     },
     {
+      "@id": "fair2:CompositeKey",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A verified foreign key over several fields, for when Croissant cannot state it. Croissant writes one as a cr:references on each source field into the target record set's cr:key; a record set has one key, so when the target's key is another set of fields the composite is stated with this instead. Its tuple is unique on the target, and the source's tuples fall inside it.",
+      "rdfs:label": "CompositeKey",
+      "vs:term_status": "testing"
+    },
+    {
       "@id": "fair2:ContributorRole",
       "@type": "rdfs:Class",
       "rdfs:comment": "Contributor role drawn from the CRediT or CRO vocabularies.",
@@ -635,11 +642,16 @@
     {
       "@id": "fair2:fromField",
       "@type": "rdf:Property",
-      "rdfs:comment": "The field or fields an inferred join starts from.",
+      "rdfs:comment": "The field or fields an inferred join or composite key starts from.",
       "rdfs:label": "fromField",
-      "schema:domainIncludes": {
-        "@id": "fair2:InferredJoin"
-      },
+      "schema:domainIncludes": [
+        {
+          "@id": "fair2:CompositeKey"
+        },
+        {
+          "@id": "fair2:InferredJoin"
+        }
+      ],
       "schema:rangeIncludes": {
         "@id": "cr:Field"
       },
@@ -733,9 +745,14 @@
       "@type": "rdf:Property",
       "rdfs:comment": "The share of the starting side's distinct values found on the other side, from 0 to 1.",
       "rdfs:label": "matchRate",
-      "schema:domainIncludes": {
-        "@id": "fair2:InferredJoin"
-      },
+      "schema:domainIncludes": [
+        {
+          "@id": "fair2:CompositeKey"
+        },
+        {
+          "@id": "fair2:InferredJoin"
+        }
+      ],
       "schema:rangeIncludes": {
         "@id": "xsd:decimal"
       },
@@ -756,9 +773,14 @@
       "@type": "rdf:Property",
       "rdfs:comment": "How many distinct values, or value tuples, of the starting side are found on the other side.",
       "rdfs:label": "matchedCount",
-      "schema:domainIncludes": {
-        "@id": "fair2:InferredJoin"
-      },
+      "schema:domainIncludes": [
+        {
+          "@id": "fair2:CompositeKey"
+        },
+        {
+          "@id": "fair2:InferredJoin"
+        }
+      ],
       "schema:rangeIncludes": {
         "@id": "xsd:nonNegativeInteger"
       },
@@ -1070,9 +1092,14 @@
       "@type": "rdf:Property",
       "rdfs:comment": "Distinct values, or value tuples, on the side an inferred join starts from.",
       "rdfs:label": "sourceDistinct",
-      "schema:domainIncludes": {
-        "@id": "fair2:InferredJoin"
-      },
+      "schema:domainIncludes": [
+        {
+          "@id": "fair2:CompositeKey"
+        },
+        {
+          "@id": "fair2:InferredJoin"
+        }
+      ],
       "schema:rangeIncludes": {
         "@id": "xsd:nonNegativeInteger"
       },
@@ -1146,9 +1173,14 @@
       "@type": "rdf:Property",
       "rdfs:comment": "Distinct values, or value tuples, on the side an inferred join ends at.",
       "rdfs:label": "targetDistinct",
-      "schema:domainIncludes": {
-        "@id": "fair2:InferredJoin"
-      },
+      "schema:domainIncludes": [
+        {
+          "@id": "fair2:CompositeKey"
+        },
+        {
+          "@id": "fair2:InferredJoin"
+        }
+      ],
       "schema:rangeIncludes": {
         "@id": "xsd:nonNegativeInteger"
       },
@@ -1157,11 +1189,16 @@
     {
       "@id": "fair2:toField",
       "@type": "rdf:Property",
-      "rdfs:comment": "The field or fields an inferred join ends at.",
+      "rdfs:comment": "The field or fields an inferred join or composite key ends at.",
       "rdfs:label": "toField",
-      "schema:domainIncludes": {
-        "@id": "fair2:InferredJoin"
-      },
+      "schema:domainIncludes": [
+        {
+          "@id": "fair2:CompositeKey"
+        },
+        {
+          "@id": "fair2:InferredJoin"
+        }
+      ],
       "schema:rangeIncludes": {
         "@id": "cr:Field"
       },

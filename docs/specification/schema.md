@@ -441,6 +441,22 @@ required: see [Data dictionary](data-dictionary.md).
 </details>
 
 
+## fair2s:CompositeKeyShape
+*Targets:* `fair2:CompositeKey`
+
+| Property | Type | Cardinality | Mandatory |
+|---|---|---|---|
+| `fair2:fromField` | IRI (`cr:Field`) | `[2..∞]` | Yes |
+| `fair2:toField` | IRI (`cr:Field`) | `[2..∞]` | Yes |
+
+A verified foreign key over several fields. Croissant states one with a
+`cr:references` on each source field into the target record set's `cr:key`;
+a record set has a single key, so when the target's key is another set of
+fields the composite is stated with a `fair2:CompositeKey` instead, in the
+same order on both sides. `fair2:matchedCount`, `fair2:sourceDistinct`,
+`fair2:targetDistinct` and `fair2:matchRate` may record the evidence.
+
+
 ## fair2s:FundingOrganizationShape
 *Targets:* `schema:Organization`
 

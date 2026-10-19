@@ -155,7 +155,8 @@ case, a document uses it instead — e.g. `csvw:null` for missing-value codes,
 | `fair2:northing` | A projected northing coordinate, likewise. |
 | `fair2:declaredLicenses` | Every licence a source declared, when it declared several. |
 | `fair2:InferredJoin` | A join between record sets found by inference and not verified (unlike `cr:references`). |
-| `fair2:fromField` | The field(s) an inferred join starts from. |
+| `fair2:CompositeKey` | A verified foreign key over several fields, when the target's `cr:key` is already another set of fields — otherwise Croissant's own form is used: a `cr:references` per field into the target's key. |
+| `fair2:fromField` | The field(s) an inferred join or composite key starts from. |
 | `fair2:toField` | The field(s) it ends at. |
 | `fair2:cardinality` | `one-to-one`, `one-to-many`, `many-to-one` or `many-to-many`. |
 | `fair2:confidence` | `high`, `medium` or `low`. |

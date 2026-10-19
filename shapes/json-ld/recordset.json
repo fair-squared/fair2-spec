@@ -54,6 +54,26 @@
             "sh:targetObjectsOf": "cr:annotation"
         },
         {
+            "@id": "fair2s:CompositeKeyShape",
+            "@type": "sh:NodeShape",
+            "sh:nodeKind": "sh:IRI",
+            "sh:property": [
+                {
+                    "sh:path": "fair2:fromField",
+                    "sh:minCount": 2,
+                    "sh:nodeKind": "sh:IRI",
+                    "sh:message": "A composite key names at least two source fields."
+                },
+                {
+                    "sh:path": "fair2:toField",
+                    "sh:minCount": 2,
+                    "sh:nodeKind": "sh:IRI",
+                    "sh:message": "A composite key names at least two target fields."
+                }
+            ],
+            "sh:targetClass": "fair2:CompositeKey"
+        },
+        {
             "@id": "fair2s:FieldShape",
             "@type": "sh:NodeShape",
             "sh:nodeKind": "sh:IRI",
