@@ -417,23 +417,26 @@ and where they sat in the list.
 
 
 ## fair2s:FieldShape
-*Targets:* `cr:Field`
+*Targets:* the objects of `cr:field` (a statistic, also a `cr:Field`, is checked by `fair2s:AnnotationShape`)
 
 | Property | Type | Cardinality | Mandatory |
 |---|---|---|---|
-| `cr:dataType` | `` | `[1..∞]` | Yes |
-| `fair2:statistics` | `` | `[1..∞]` | Yes |
-| `fair2:unit` | `` | `[1..∞]` | Yes |
+| `cr:dataType` | IRI | `[1..∞]` | Yes |
+| `cr:source` | `fair2s:SourceShape` | `[1..∞]` | Yes |
+| `fair2:role` | `xsd:string` | `[0..1]` | No |
 | `schema:description` | `xsd:string` | `[1..∞]` | Yes |
 | `schema:name` | `xsd:string` | `[1..∞]` | Yes |
 
 <details><summary>Constraint notes</summary>
 
-- **cr:dataType**: Each Field must specify a dataType (e.g., Text, Integer, Float, Date).
-- **fair2:statistics**: Each Field should include descriptive statistics (count, missing values, etc.).
-- **fair2:unit**: Each Field should specify a measurement unit, using QUDT or equivalent controlled vocabulary.
+- **cr:dataType**: The semantic type of the data (e.g., `schema:Float`).
+- **cr:source**: The file the values come from — a `cr:fileObject` or a `cr:fileSet` — and, through `cr:extract`/`cr:column`, the column.
+- **fair2:role**: One of `identifier`, `dimension`, `measure`, `count`, `category`, `datetime`, `geo`, `filemeta`.
 - **schema:description**: Each Field must include a human-readable description.
 - **schema:name**: Each Field must have a name.
+
+Units (`fair2:unit`) and statistics (`cr:annotation`) are recommended, not
+required: see [Data dictionary](data-dictionary.md).
 
 </details>
 

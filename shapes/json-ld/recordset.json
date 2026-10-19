@@ -20,6 +20,9 @@
         },
         "sh:targetObjectsOf": {
             "@type": "@id"
+        },
+        "sh:or": {
+            "@container": "@list"
         }
     },
     "@graph": [
@@ -125,12 +128,37 @@
             "@id": "fair2s:SourceShape",
             "@type": "sh:NodeShape",
             "sh:nodeKind": "sh:BlankNodeOrIRI",
+            "sh:message": "A field's source must name the FileObject or FileSet its values come from.",
+            "sh:or": [
+                {
+                    "sh:property": [
+                        {
+                            "sh:path": "cr:fileObject",
+                            "sh:minCount": 1,
+                            "sh:nodeKind": "sh:IRI"
+                        }
+                    ]
+                },
+                {
+                    "sh:property": [
+                        {
+                            "sh:path": "cr:fileSet",
+                            "sh:minCount": 1,
+                            "sh:nodeKind": "sh:IRI"
+                        }
+                    ]
+                }
+            ],
             "sh:property": [
                 {
                     "sh:path": "cr:fileObject",
-                    "sh:minCount": 1,
                     "sh:nodeKind": "sh:IRI",
                     "sh:description": "The @id of the FileObject this field is extracted from."
+                },
+                {
+                    "sh:path": "cr:fileSet",
+                    "sh:nodeKind": "sh:IRI",
+                    "sh:description": "The @id of the FileSet this field is extracted from."
                 },
                 {
                     "sh:path": "cr:extract",

@@ -57,7 +57,7 @@ column when writing or reading `fair2.json`.
 | Human label | `schema:alternateName` |
 | Semantic definition | `schema:description` |
 | Data type | `cr:dataType` |
-| Physical location | `cr:source` → `cr:fileObject` + `cr:extract`/`cr:column` |
+| Physical location | `cr:source` → `cr:fileObject` (or `cr:fileSet`) + `cr:extract`/`cr:column` |
 | Unit | `fair2:unit` → the QUDT unit IRI (see §4.3) |
 | Experimental flag | `fair2:isExperimentRelated` |
 | Statistics | `cr:annotation` (§5) |
@@ -114,7 +114,7 @@ them fails validation.
 | `schema:name` | schema.org | Column name as it appears in the file |
 | `schema:description` | schema.org | What the variable means |
 | `cr:dataType` | ML Croissant | Data type |
-| `cr:source` | ML Croissant | The file and column the values come from |
+| `cr:source` | ML Croissant | The file (a FileObject, or a FileSet) and column the values come from |
 
 ### 4.2 Strongly Recommended (FAIR²-Core+)
 
