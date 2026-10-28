@@ -45,7 +45,7 @@ FAIR² also introduces its own terms (fair2: namespace), SHACL shapes for compli
 	•	Structured methods with HowToStep and HowToSection
 	•	Contributor roles with prov:hadRole using CRO or FAIR² URIs
 	•	Temporal and spatial coverage using Google Rich Results
-	•	Terms of use defined through accessRights and FAIR² Agreement Levels
+	•	Terms of use defined through governance blocks — access tiers, conditions and use constraints (Agreement Levels until v1.7.0)
 
 ### 3.2 AI-Ready Design
 	•	Consistent use of controlled vocabularies
@@ -87,7 +87,7 @@ FAIR² certification involves:
 	•	SHACL validation of metadata
 	•	Alignment with AI-readiness and responsible reuse
 	•	Optional AI agent evaluation (e.g., Senscience)
-    Agreement levels (1–4) with clear reuse conditions
+    Access tiers and use constraints with clear reuse conditions (see Governance)
 
 ⸻
 

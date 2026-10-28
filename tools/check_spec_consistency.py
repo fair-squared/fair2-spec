@@ -317,6 +317,11 @@ def check_no_vocab_fallthrough() -> None:
                     if not key.startswith("@") and key not in defined:
                         if ":" not in key or key.split(":", 1)[0] not in prefixes:
                             undefined.add(key)
+                    # A term the context types @json (the governance blocks,
+                    # fair2:checks) holds a JSON value: its keys are data too.
+                    term = ctx.get(key)
+                    if isinstance(term, dict) and term.get("@type") == "@json":
+                        continue
                     walk(value)
             elif isinstance(node, list):
                 for item in node:

@@ -1,3 +1,11 @@
+!!! warning "Deprecated in v1.7.0"
+    Agreement Levels are replaced by the [governance blocks](../specification/governance.md).
+    For Level 2, use `L0`, with the licence and `fair2:constraints`; see
+    [Migrating from Agreement Levels](../specification/governance.md#migrating-from-agreement-levels).
+    The examples below use keys (`fair2:constraints` with `identity` and
+    `environment`, `fair2:reuseLogging`, …) that do not match the governance
+    model; do not copy them into new documents.
+
 # FAIR² Access Governance Documentation  
 ## **Level 2 – Collaborative Access**
 

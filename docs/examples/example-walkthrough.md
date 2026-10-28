@@ -133,19 +133,20 @@ This section exemplifies how FAIR² captures analytical data products, linking t
 
 ## Visualization
 
-Access conditions for datasets or records are expressed using the `schema:accessRights` property.
-This property provides human- and machine-readable information about who can access the data and under what conditions, ensuring transparency and compliance with repository and licensing policies.
+Access conditions are stated by the dataset's [governance blocks](../specification/governance.md). This dataset is open, so it states the open tier, `L0`, in `fair2:access`, and names the same tier in `accessRights` for consumers that read Dataset metadata alone:
 
 ```json
-"dct:accessRights": {
-    "@id": "https://fair2.ai/ns/AgreementLevels1",
-    "@type": "schema:DefinedTerm",
-    "name": "Open Access",
-    "skos:definition": "Anyone can access the dataset without registration or identification. No additional agreement is required.",
-    "skos:note": "By accessing this dataset, you acknowledge that it is made openly available under the stated license. You may use, share, and build upon it in accordance with the license terms, provided that you give appropriate attribution.",
-    "url": "https://fair2.ai/spec/AgreementLevels/1"
-  }
+"accessRights": {
+  "@id": "https://fair2.ai/ns/L0",
+  "@type": "DefinedTerm",
+  "name": "L0 — Open",
+  "definition": "No authentication is required. The data is distributed unencrypted; the licence and use terms apply, but do not gate access.",
+  "url": "https://fair2.ai/spec/v1.7.0/specification/governance/#access-tiers"
+},
+"fair2:access": { "tier": "L0" }
 ```
+
+A governed dataset adds the conditions and use constraints in the same blocks: see the [complete example](../specification/governance.md#complete-example).
 
 ---
 

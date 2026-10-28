@@ -22,7 +22,7 @@ nav:
       - Namespace Prefixes: specification/prefixes.md
       - Methods: specification/methods.md
       - FAIR² Data Dictionary: specification/data-dictionary.md
-      - Access Agreements: specification/access-agreements.md
+      - Governance: specification/governance.md
       - Certification: specification/certification.md
       - Responsible AI: specification/responsible-ai.md
       - Provenance and Citations: specification/provenance.md
@@ -35,12 +35,14 @@ nav:
       - Croissant RAI: integration/croissant-rai.md
       - Google Rich Search: integration/google-rich-search.md
       - ODPS Integration: integration/odps.md
+      - ODRL Policies: integration/odrl-policy.md
   - Examples: examples/example-walkthrough.md
   - Community:
       - Contributing: community/contributing.md
       - Governance: community/governance.md
       - Roadmap: community/roadmap.md
-  - Access Agreement Levels:
+  - Agreement Levels (deprecated):
+      - Overview: specification/access-agreements.md
       - Level 0: agreement-levels/Level0.md
       - Level 1: agreement-levels/Level1.md
       - Level 2: agreement-levels/Level2.md

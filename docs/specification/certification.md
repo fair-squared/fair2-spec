@@ -23,7 +23,8 @@ An assertion that the following automated checks all passed:
   0 warnings
 - All required metadata fields present and correctly typed
 - `_meta.version` and `_meta.dateModified` current
-- `license` URI resolves and is consistent with the declared `accessRights`
+- `license` URI resolves and is consistent with the declared `accessRights` and,
+  when present, the [governance blocks](governance.md)
 - All `distribution` SHA-256 checksums declared (not necessarily verified
   against actual file downloads)
 

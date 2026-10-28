@@ -130,7 +130,7 @@ RecordSets MUST NOT be presented as the primary data documentation mechanism.
 | Contents | `distribution` |
 | Data dictionary | `schema:variableMeasured` |
 | Methods | `method`, `prov:*`, `subjectOf` |
-| Access | `accessRights` |
+| Access | `fair2:access` (tier and conditions), `fair2:constraints`, `fair2:embargo`; else `accessRights` |
 | Responsible use | Explicit structured fields only |
 | Contributors | `author`, `contributor` |
 | Conformance | `conformsTo` |

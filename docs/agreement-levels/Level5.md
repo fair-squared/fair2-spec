@@ -1,3 +1,11 @@
+!!! warning "Deprecated in v1.7.0"
+    Agreement Levels are replaced by the [governance blocks](../specification/governance.md).
+    For Level 5, use `L2` with `environment: "secureHuman"` (+S); see
+    [Migrating from Agreement Levels](../specification/governance.md#migrating-from-agreement-levels).
+    The examples below use keys (`fair2:constraints` with `identity` and
+    `environment`, `fair2:reuseLogging`, …) that do not match the governance
+    model; do not copy them into new documents.
+
 # FAIR² Access Governance Documentation  
 ## **Level 5 – Secure / Federated Access**
 

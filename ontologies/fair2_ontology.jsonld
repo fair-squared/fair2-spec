@@ -1,6 +1,7 @@
 {
   "@context": {
     "cr": "http://mlcommons.org/croissant/",
+    "dct": "http://purl.org/dc/terms/",
     "ddi-stats": "http://rdf-vocabulary.ddialliance.org/cv/SummaryStatisticType/2.1.2/",
     "fair2": "https://fair2.ai/ns/",
     "oa": "http://www.w3.org/ns/oa#",
@@ -14,6 +15,156 @@
     "xsd": "http://www.w3.org/2001/XMLSchema#"
   },
   "@graph": [
+    {
+      "@id": "fair2:AccessTier",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "An access tier of the FAIR² governance model: L0 (open), L1 (registered) or L2 (credentialed). Named by accessRights; fair2:access states it as a JSON field.",
+      "rdfs:label": "AccessTier",
+      "rdfs:subClassOf": {
+        "@id": "skos:Concept"
+      },
+      "vs:term_status": "testing"
+    },
+    {
+      "@id": "fair2:AgreementLevel0",
+      "@type": "skos:Concept",
+      "dct:isReplacedBy": {
+        "@id": "fair2:L1"
+      },
+      "rdfs:comment": "Deprecated in v1.7.0. Agreement Levels had no machine-readable form beyond a label, and governance services do not read them; state the access tier and governance blocks instead (docs/specification/governance.md). Retained only so existing references resolve.",
+      "rdfs:label": "Agreement Level 0 — Embargoed",
+      "vs:term_status": "deprecated"
+    },
+    {
+      "@id": "fair2:AgreementLevel1",
+      "@type": "skos:Concept",
+      "dct:isReplacedBy": {
+        "@id": "fair2:L0"
+      },
+      "rdfs:comment": "Deprecated in v1.7.0. Agreement Levels had no machine-readable form beyond a label, and governance services do not read them; state the access tier and governance blocks instead (docs/specification/governance.md). Retained only so existing references resolve.",
+      "rdfs:label": "Agreement Level 1 — Open",
+      "vs:term_status": "deprecated"
+    },
+    {
+      "@id": "fair2:AgreementLevel2",
+      "@type": "skos:Concept",
+      "dct:isReplacedBy": {
+        "@id": "fair2:L0"
+      },
+      "rdfs:comment": "Deprecated in v1.7.0. Agreement Levels had no machine-readable form beyond a label, and governance services do not read them; state the access tier and governance blocks instead (docs/specification/governance.md). Retained only so existing references resolve.",
+      "rdfs:label": "Agreement Level 2 — Collaborative",
+      "vs:term_status": "deprecated"
+    },
+    {
+      "@id": "fair2:AgreementLevel3",
+      "@type": "skos:Concept",
+      "dct:isReplacedBy": {
+        "@id": "fair2:L2"
+      },
+      "rdfs:comment": "Deprecated in v1.7.0. Agreement Levels had no machine-readable form beyond a label, and governance services do not read them; state the access tier and governance blocks instead (docs/specification/governance.md). Retained only so existing references resolve.",
+      "rdfs:label": "Agreement Level 3 — Trusted",
+      "vs:term_status": "deprecated"
+    },
+    {
+      "@id": "fair2:AgreementLevel4",
+      "@type": "skos:Concept",
+      "dct:isReplacedBy": {
+        "@id": "fair2:L1"
+      },
+      "rdfs:comment": "Deprecated in v1.7.0. Agreement Levels had no machine-readable form beyond a label, and governance services do not read them; state the access tier and governance blocks instead (docs/specification/governance.md). Retained only so existing references resolve.",
+      "rdfs:label": "Agreement Level 4 — Community-governed",
+      "vs:term_status": "deprecated"
+    },
+    {
+      "@id": "fair2:AgreementLevel5",
+      "@type": "skos:Concept",
+      "dct:isReplacedBy": {
+        "@id": "fair2:L2"
+      },
+      "rdfs:comment": "Deprecated in v1.7.0. Agreement Levels had no machine-readable form beyond a label, and governance services do not read them; state the access tier and governance blocks instead (docs/specification/governance.md). Retained only so existing references resolve.",
+      "rdfs:label": "Agreement Level 5 — Secure environment",
+      "vs:term_status": "deprecated"
+    },
+    {
+      "@id": "fair2:AgreementLevel6",
+      "@type": "skos:Concept",
+      "dct:isReplacedBy": {
+        "@id": "fair2:L2"
+      },
+      "rdfs:comment": "Deprecated in v1.7.0. Agreement Levels had no machine-readable form beyond a label, and governance services do not read them; state the access tier and governance blocks instead (docs/specification/governance.md). Retained only so existing references resolve.",
+      "rdfs:label": "Agreement Level 6 — Federated compute-to-data",
+      "vs:term_status": "deprecated"
+    },
+    {
+      "@id": "fair2:AgreementLevels0",
+      "@type": "skos:Concept",
+      "dct:isReplacedBy": {
+        "@id": "fair2:L1"
+      },
+      "rdfs:comment": "Deprecated in v1.7.0. Agreement Levels had no machine-readable form beyond a label, and governance services do not read them; state the access tier and governance blocks instead (docs/specification/governance.md). Retained only so existing references resolve.",
+      "rdfs:label": "Agreement Level 0 — Embargoed",
+      "vs:term_status": "deprecated"
+    },
+    {
+      "@id": "fair2:AgreementLevels1",
+      "@type": "skos:Concept",
+      "dct:isReplacedBy": {
+        "@id": "fair2:L0"
+      },
+      "rdfs:comment": "Deprecated in v1.7.0. Agreement Levels had no machine-readable form beyond a label, and governance services do not read them; state the access tier and governance blocks instead (docs/specification/governance.md). Retained only so existing references resolve.",
+      "rdfs:label": "Agreement Level 1 — Open",
+      "vs:term_status": "deprecated"
+    },
+    {
+      "@id": "fair2:AgreementLevels2",
+      "@type": "skos:Concept",
+      "dct:isReplacedBy": {
+        "@id": "fair2:L0"
+      },
+      "rdfs:comment": "Deprecated in v1.7.0. Agreement Levels had no machine-readable form beyond a label, and governance services do not read them; state the access tier and governance blocks instead (docs/specification/governance.md). Retained only so existing references resolve.",
+      "rdfs:label": "Agreement Level 2 — Collaborative",
+      "vs:term_status": "deprecated"
+    },
+    {
+      "@id": "fair2:AgreementLevels3",
+      "@type": "skos:Concept",
+      "dct:isReplacedBy": {
+        "@id": "fair2:L2"
+      },
+      "rdfs:comment": "Deprecated in v1.7.0. Agreement Levels had no machine-readable form beyond a label, and governance services do not read them; state the access tier and governance blocks instead (docs/specification/governance.md). Retained only so existing references resolve.",
+      "rdfs:label": "Agreement Level 3 — Trusted",
+      "vs:term_status": "deprecated"
+    },
+    {
+      "@id": "fair2:AgreementLevels4",
+      "@type": "skos:Concept",
+      "dct:isReplacedBy": {
+        "@id": "fair2:L1"
+      },
+      "rdfs:comment": "Deprecated in v1.7.0. Agreement Levels had no machine-readable form beyond a label, and governance services do not read them; state the access tier and governance blocks instead (docs/specification/governance.md). Retained only so existing references resolve.",
+      "rdfs:label": "Agreement Level 4 — Community-governed",
+      "vs:term_status": "deprecated"
+    },
+    {
+      "@id": "fair2:AgreementLevels5",
+      "@type": "skos:Concept",
+      "dct:isReplacedBy": {
+        "@id": "fair2:L2"
+      },
+      "rdfs:comment": "Deprecated in v1.7.0. Agreement Levels had no machine-readable form beyond a label, and governance services do not read them; state the access tier and governance blocks instead (docs/specification/governance.md). Retained only so existing references resolve.",
+      "rdfs:label": "Agreement Level 5 — Secure environment",
+      "vs:term_status": "deprecated"
+    },
+    {
+      "@id": "fair2:AgreementLevels6",
+      "@type": "skos:Concept",
+      "dct:isReplacedBy": {
+        "@id": "fair2:L2"
+      },
+      "rdfs:comment": "Deprecated in v1.7.0. Agreement Levels had no machine-readable form beyond a label, and governance services do not read them; state the access tier and governance blocks instead (docs/specification/governance.md). Retained only so existing references resolve.",
+      "rdfs:label": "Agreement Level 6 — Federated compute-to-data",
+      "vs:term_status": "deprecated"
+    },
     {
       "@id": "fair2:AuthorRole",
       "@type": "rdfs:Class",
@@ -177,6 +328,27 @@
       "vs:term_status": "testing"
     },
     {
+      "@id": "fair2:L0",
+      "@type": "fair2:AccessTier",
+      "rdfs:comment": "No authentication. Data is distributed unencrypted; the governance terms state licence and use conditions but do not gate access.",
+      "rdfs:label": "L0 — Open",
+      "vs:term_status": "testing"
+    },
+    {
+      "@id": "fair2:L1",
+      "@type": "fair2:AccessTier",
+      "rdfs:comment": "An authenticated identity and acceptance of the terms.",
+      "rdfs:label": "L1 — Registered",
+      "vs:term_status": "testing"
+    },
+    {
+      "@id": "fair2:L2",
+      "@type": "fair2:AccessTier",
+      "rdfs:comment": "The dataset's credential requirements - by default a signed data use agreement.",
+      "rdfs:label": "L2 — Credentialed",
+      "vs:term_status": "testing"
+    },
+    {
       "@id": "fair2:LicenseVerification",
       "@type": "fair2:CertificationScope",
       "rdfs:comment": "The declared licence was checked for presence and internal consistency.",
@@ -292,6 +464,19 @@
       "vs:term_status": "stable"
     },
     {
+      "@id": "fair2:access",
+      "@type": "rdf:Property",
+      "rdfs:comment": "The dataset's access tier and the conditions on access (the +G, +S, +C, +P, +J and +Q modifiers), as a JSON object. When absent, or without a tier, the dataset is L0 (open).",
+      "rdfs:label": "access",
+      "schema:domainIncludes": {
+        "@id": "schema:Dataset"
+      },
+      "schema:rangeIncludes": {
+        "@id": "rdf:JSON"
+      },
+      "vs:term_status": "testing"
+    },
+    {
       "@id": "fair2:action",
       "@type": "rdf:Property",
       "rdfs:comment": "The change a privacy screening requires of a field (e.g. drop, generalise, hash), on the oa:Annotation, motivated by oa:editing, that targets it.",
@@ -301,6 +486,19 @@
       },
       "schema:rangeIncludes": {
         "@id": "xsd:string"
+      },
+      "vs:term_status": "testing"
+    },
+    {
+      "@id": "fair2:agentGovernance",
+      "@type": "rdf:Property",
+      "rdfs:comment": "Whether and how AI agents acting for a person may use the dataset, as a JSON object.",
+      "rdfs:label": "agentGovernance",
+      "schema:domainIncludes": {
+        "@id": "schema:Dataset"
+      },
+      "schema:rangeIncludes": {
+        "@id": "rdf:JSON"
       },
       "vs:term_status": "testing"
     },
@@ -473,6 +671,32 @@
       "vs:term_status": "testing"
     },
     {
+      "@id": "fair2:consentGovernance",
+      "@type": "rdf:Property",
+      "rdfs:comment": "How participants' consent withdrawals affect access, as a JSON object.",
+      "rdfs:label": "consentGovernance",
+      "schema:domainIncludes": {
+        "@id": "schema:Dataset"
+      },
+      "schema:rangeIncludes": {
+        "@id": "rdf:JSON"
+      },
+      "vs:term_status": "testing"
+    },
+    {
+      "@id": "fair2:constraints",
+      "@type": "rdf:Property",
+      "rdfs:comment": "Use constraints on the dataset - AI training, export, commercial use and combination with other datasets - as a JSON object.",
+      "rdfs:label": "constraints",
+      "schema:domainIncludes": {
+        "@id": "schema:Dataset"
+      },
+      "schema:rangeIncludes": {
+        "@id": "rdf:JSON"
+      },
+      "vs:term_status": "testing"
+    },
+    {
       "@id": "fair2:contextLoad",
       "@type": "rdf:Property",
       "rdfs:comment": "Whether a documentation file was preserved in the package, and how.",
@@ -591,6 +815,19 @@
       "vs:term_status": "testing"
     },
     {
+      "@id": "fair2:distributionGovernance",
+      "@type": "rdf:Property",
+      "rdfs:comment": "How decryption keys reach named recipients when data is shipped outside a broker network, as a JSON object.",
+      "rdfs:label": "distributionGovernance",
+      "schema:domainIncludes": {
+        "@id": "schema:Dataset"
+      },
+      "schema:rangeIncludes": {
+        "@id": "rdf:JSON"
+      },
+      "vs:term_status": "testing"
+    },
+    {
       "@id": "fair2:domain",
       "@type": "rdf:Property",
       "rdfs:comment": "Subject domain classifying the dataset.",
@@ -610,6 +847,19 @@
       "vs:term_status": "testing"
     },
     {
+      "@id": "fair2:embargo",
+      "@type": "rdf:Property",
+      "rdfs:comment": "A date before which governed (L1 and above) data is not released, and who is exempt, as a JSON object.",
+      "rdfs:label": "embargo",
+      "schema:domainIncludes": {
+        "@id": "schema:Dataset"
+      },
+      "schema:rangeIncludes": {
+        "@id": "rdf:JSON"
+      },
+      "vs:term_status": "testing"
+    },
+    {
       "@id": "fair2:encrypted",
       "@type": "rdf:Property",
       "rdfs:comment": "Whether the file's content is encrypted, so that it cannot be read without a key.",
@@ -624,6 +874,19 @@
       ],
       "schema:rangeIncludes": {
         "@id": "xsd:boolean"
+      },
+      "vs:term_status": "testing"
+    },
+    {
+      "@id": "fair2:encryption",
+      "@type": "rdf:Property",
+      "rdfs:comment": "How the dataset's governed data is encrypted and where keys are released, as a JSON object written by a governance service.",
+      "rdfs:label": "encryption",
+      "schema:domainIncludes": {
+        "@id": "schema:Dataset"
+      },
+      "schema:rangeIncludes": {
+        "@id": "rdf:JSON"
       },
       "vs:term_status": "testing"
     },
@@ -707,6 +970,19 @@
       "schema:rangeIncludes": {
         "@id": "schema:Text"
       }
+    },
+    {
+      "@id": "fair2:indigenousGovernance",
+      "@type": "rdf:Property",
+      "rdfs:comment": "The Indigenous data governance framework, governance bodies and cultural protocols that apply, as a JSON object.",
+      "rdfs:label": "indigenousGovernance",
+      "schema:domainIncludes": {
+        "@id": "schema:Dataset"
+      },
+      "schema:rangeIncludes": {
+        "@id": "rdf:JSON"
+      },
+      "vs:term_status": "testing"
     },
     {
       "@id": "fair2:isExperimentRelated",
@@ -1187,6 +1463,19 @@
       "vs:term_status": "testing"
     },
     {
+      "@id": "fair2:temporalGovernance",
+      "@type": "rdf:Property",
+      "rdfs:comment": "Phases in which the access tier or environment changes over time, as a JSON object.",
+      "rdfs:label": "temporalGovernance",
+      "schema:domainIncludes": {
+        "@id": "schema:Dataset"
+      },
+      "schema:rangeIncludes": {
+        "@id": "rdf:JSON"
+      },
+      "vs:term_status": "testing"
+    },
+    {
       "@id": "fair2:toField",
       "@type": "rdf:Property",
       "rdfs:comment": "The field or fields an inferred join or composite key ends at.",
@@ -1297,13 +1586,26 @@
     {
       "@id": "fair2:valueConstraints",
       "@type": "rdf:Property",
-      "rdfs:comment": "The values a field may take or the range it must fall in, in words. Distinct from fair2-governance's use constraints on a dataset.",
+      "rdfs:comment": "The values a field may take or the range it must fall in, in words. Distinct from fair2:constraints, a dataset's use constraints.",
       "rdfs:label": "valueConstraints",
       "schema:domainIncludes": {
         "@id": "cr:Field"
       },
       "schema:rangeIncludes": {
         "@id": "xsd:string"
+      },
+      "vs:term_status": "testing"
+    },
+    {
+      "@id": "fair2:variableGovernance",
+      "@type": "rdf:Property",
+      "rdfs:comment": "Access tiers and rules for individual columns, files, asset classes and record partitions, as a JSON object.",
+      "rdfs:label": "variableGovernance",
+      "schema:domainIncludes": {
+        "@id": "schema:Dataset"
+      },
+      "schema:rangeIncludes": {
+        "@id": "rdf:JSON"
       },
       "vs:term_status": "testing"
     },

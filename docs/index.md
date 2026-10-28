@@ -30,7 +30,7 @@ FAIR² defines:
 
 - **Dataset Shapes**: Metadata templates extending `schema:Dataset` with domain- and use-specific descriptors
 - **Method Structures**: Stepwise, provenance-aware method documentation (e.g., for computational workflows)
-- **Agreement Levels**: A 4-tier access control framework (Open → Secure) linked to machine-readable policies
+- **Governance**: Optional access tiers (open, registered, credentialed), access conditions and use constraints that governance services enforce
 - **Provenance Trails**: Link datasets, methods, tools, and people via `prov:wasGeneratedBy`, `prov:used`, etc.
 
 ## How to Use This Documentation
@@ -39,7 +39,7 @@ Browse the documentation sections:
 
 - 📖 **[Specification](specification/)**: Detailed field definitions and reference models
 - 🧩 **[Integration Guides](integration/)**: Interoperability with standards like Schema.org, ODPS, and ML Croissant
-- ⚖️ **[Access & Policies](specification/access-agreements/)**: Using agreement levels and ODRL policies
+- ⚖️ **[Governance](specification/governance.md)**: Access tiers, conditions and use constraints, and their ODRL export
 - 👥 **[Community](community/)**: Contribution guide, governance, and roadmap
 
 ## Try It

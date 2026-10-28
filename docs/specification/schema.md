@@ -63,7 +63,7 @@
 
 <details><summary>Constraint notes</summary>
 
-- **schema:accessRights**: Dataset may specify access rights (e.g., FAIR² Agreement Level).
+- **schema:accessRights**: Dataset may name its access tier (`fair2:L0`, `fair2:L1`, `fair2:L2`). The governance blocks (`fair2:access`, `fair2:constraints`, …) are optional and not constrained by this shape; see [Governance](governance.md).
 - **cr:citeAs**: Dataset may include a full 'cite as' text citation.
 - **fair2:changeLog**: Dataset may include a structured changelog for version history.
 - **fair2:dataArchive**: Dataset may be linked to one or more Data Archives for long-term preservation.
@@ -154,9 +154,9 @@ Without `containedIn`, the patterns select files shipped in the package itself.
 
 <details><summary>Constraint notes</summary>
 
-- **@id**: AccessRights @id should be a FAIR² AgreementLevels URI.
-- **schema:name**: AccessRights must have a name (e.g., 'Open Access').
-- **schema:url**: AccessRights URL must point to a FAIR² Agreement Level definition (1–4).
+- **@id**: AccessRights @id should be a FAIR² access tier: `fair2:L0`, `fair2:L1` or `fair2:L2`. The Agreement Level IRIs used before v1.7.0 are deprecated.
+- **schema:name**: AccessRights must have a name (e.g., 'L0 — Open').
+- **schema:url**: AccessRights URL may point to the tier's definition in [Governance](governance.md#access-tiers).
 - **skos:definition**: AccessRights must provide a definition describing the access conditions.
 - **skos:note**: AccessRights may include a note clarifying additional access information.
 

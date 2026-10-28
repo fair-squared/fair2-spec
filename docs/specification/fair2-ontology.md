@@ -189,6 +189,49 @@ case, a document uses it instead — e.g. `csvw:null` for missing-value codes,
 | `fair2:matchSource` | Where a match to an ontology concept came from. |
 
 
+## Governance — added in v1.7.0, status `testing`
+
+The governance blocks a `fair2.json` may carry, from the FAIR² governance
+model. Each is optional and holds a JSON value (`rdf:JSON`): its contents are
+defined by `schemas/fair2-governance.schema.json`, not by vocabulary terms.
+Documents write the keys with their prefix. See [Governance](governance.md).
+
+| Term | Meaning |
+|:-----|:--------|
+| `fair2:access` | The access tier and the conditions on access (modifiers +G, +S, +C, +P, +J, +Q). Absent, or without a tier, means L0. |
+| `fair2:constraints` | Use constraints: AI training, export, commercial use, combination. |
+| `fair2:embargo` | A date before which governed data is not released. |
+| `fair2:variableGovernance` | Tiers and rules for columns, files, asset classes and record partitions. |
+| `fair2:temporalGovernance` | Access that changes over time. |
+| `fair2:agentGovernance` | Whether and how AI agents may use the data. |
+| `fair2:consentGovernance` | How consent withdrawals affect access. |
+| `fair2:indigenousGovernance` | Indigenous governance framework, bodies and cultural protocols. |
+| `fair2:distributionGovernance` | How keys reach recipients outside a broker network. |
+| `fair2:encryption` | How governed data is encrypted — written by a governance service. |
+| `fair2:AccessTier` | Class of the three access tiers. |
+| `fair2:L0` | Open. |
+| `fair2:L1` | Registered. |
+| `fair2:L2` | Credentialed. |
+
+`fair2:constraints` here is a dataset's use constraints. A field's value
+constraints are `fair2:valueConstraints`.
+
+### Deprecated in v1.7.0 — Agreement Levels
+
+Retained only so existing references resolve; each names its closest tier with
+`dct:isReplacedBy`. See [Migrating from Agreement Levels](governance.md#migrating-from-agreement-levels).
+
+| Level | Identifiers | Replaced by |
+|:------|:------------|:------------|
+| 0 — Embargoed | `fair2:AgreementLevel0`, `fair2:AgreementLevels0` | `fair2:L1` with an embargo |
+| 1 — Open | `fair2:AgreementLevel1`, `fair2:AgreementLevels1` | `fair2:L0` |
+| 2 — Collaborative | `fair2:AgreementLevel2`, `fair2:AgreementLevels2` | `fair2:L0` |
+| 3 — Trusted | `fair2:AgreementLevel3`, `fair2:AgreementLevels3` | `fair2:L2` |
+| 4 — Community-governed | `fair2:AgreementLevel4`, `fair2:AgreementLevels4` | `fair2:L1` with +G |
+| 5 — Secure environment | `fair2:AgreementLevel5`, `fair2:AgreementLevels5` | `fair2:L2` with +S |
+| 6 — Federated | `fair2:AgreementLevel6`, `fair2:AgreementLevels6` | `fair2:L2` with +S and +Q |
+
+
 ## Reserved terms
 
 These four are declared so that existing documents keep resolving, but they

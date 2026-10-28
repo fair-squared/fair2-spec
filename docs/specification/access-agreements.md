@@ -1,117 +1,30 @@
-# FAIR² Access Agreement Levels
+# FAIR² Access Agreement Levels (deprecated)
 
-The FAIR² Access Agreement Levels define a structured, interoperable framework for governing dataset availability, reuse conditions, Responsible AI constraints, and sovereignty protections.
+!!! warning "Deprecated in v1.7.0"
+    Agreement Levels 0–6 are replaced by the [governance blocks](governance.md):
+    an access tier — `L0` open, `L1` registered, `L2` credentialed — and the
+    conditions and use constraints layered on it. Governance services read
+    those, not the Agreement Levels. New documents should not use the levels;
+    see [Migrating from Agreement Levels](governance.md#migrating-from-agreement-levels).
 
-This index provides an entry point to the full FAIR² access governance documentation for levels **0 through 6**, including:
+    This page and the level pages are kept so that existing links and
+    identifiers (`fair2:AgreementLevel1`, `https://fair2.ai/ns/AgreementLevels1`,
+    …) still resolve.
 
-- Definitions  
-- Constraint models  
-- Case scenario matrices  
-- Full JSON-LD metadata examples  
-- Navigation between levels  
+| Level | Name | Use instead |
+|-------|------|-------------|
+| [Level 0](../agreement-levels/Level0.md) | Embargoed Access | `L1` or `L2` with `fair2:embargo` |
+| [Level 1](../agreement-levels/Level1.md) | Open Access | `L0` |
+| [Level 2](../agreement-levels/Level2.md) | Collaborative Access | `L0`, with the licence and `fair2:constraints` |
+| [Level 3](../agreement-levels/Level3.md) | Trusted Access | `L2` with `credentialRequirements` (or `L1`) |
+| [Level 4](../agreement-levels/Level4.md) | Community-Governed (CARE) | `L1`/`L2` with `communityGovernance` and `fair2:indigenousGovernance` |
+| [Level 5](../agreement-levels/Level5.md) | Secure / Controlled Environment | `L2` with `environment: "secureHuman"` |
+| [Level 6](../agreement-levels/Level6.md) | Federated Compute-to-Data | `L2` with `environment: "computeToData"` and `queryGovernance` |
 
-Each level builds on earlier ones, adding stronger governance, identity, environment, or ethical constraints.
-
----
-
-# **Access Levels Overview**
-
-| Level | Name | Summary |
-|-------|-------|---------|
-| **Level 0** | Embargoed Access | Metadata open; dataset inaccessible until release date; discoverable and citable. |
-| **Level 1** | Open Access | Fully open; optional ethical constraints; may restrict AI training or exports. |
-| **Level 2** | Collaborative Access | Open, but with expectations of attribution, reciprocity, or consultation. |
-| **Level 3** | Trusted Access | Verified identity; Responsible Use Agreement; use logging; controlled sharing. |
-| **Level 4** | Community-Governed (CARE) | Governed by communities; CARE-informed decision rights; consultation/approval required. |
-| **Level 5** | Secure / Controlled Environment | Sensitive data; secure environments; no raw downloads; strict audit logging. |
-| **Level 6** | Federated Compute-to-Data | Algorithms visit data; no raw access; only aggregates/derived outputs permitted. |
-
-![FAIR² Access Agreement Levels diagram](../assets/images/access-levels-diagram.png)
-
-
----
-
-# **Documentation Index**
-
-Each level has a dedicated page:
-
-### **Access Level 0 — Embargoed Access**  
-👉 **[Level 0](../agreement-levels/Level0.md)**  
-Metadata open, dataset under embargo; early discoverability and citation.
-
----
-
-### **Access Level 1 — Open Access**  
-👉 **[Level 1](../agreement-levels/Level1.md)**  
-Dataset is openly available; may include specific reuse constraints (AI training, export limitations, consultation).
-
----
-
-### **Access Level 2 — Collaborative Access**  
-👉 **[Level 2](../agreement-levels/Level2.md)**  
-Open reuse with expectations of reciprocity, collaboration, and communication of results.
-
----
-
-### **Access Level 3 — Trusted Access**  
-👉 **[Level 3](../agreement-levels/Level3.md)**  
-Identity verification (ORCID or institutional), RUA acceptance, access logging.
-
----
-
-### **Access Level 4 — Community-Governed (CARE)**  
-👉 **[Level 4](../agreement-levels/Level4.md)**  
-Governed under CARE Principles; cultural/ethical protocols; community consultation or approval.
-
----
-
-### **Access Level 5 — Secure / Controlled Environment**  
-👉 **[Level 5](../agreement-levels/Level5.md)**  
-Sensitive human-derived or regulated data; accessible only in secure infrastructure.
-
----
-
-### **Access Level 6 — Federated Compute-to-Data**  
-👉 **[Level 6](../agreement-levels/Level6.md)**  
-No raw access; analytics via federated compute; strict export limitations.
-
----
-
-# **FAIR² Constraint Model**
-
-All access levels may be refined using a structured set of FAIR² constraints:
-
-- **identity**: none / ORCID / institutional / both  
-- **environment**: open / secureHuman / computeToData / hybrid  
-- **communityGovernance**: none / consultationRecommended / consultationRequired / communityApprovalRequired  
-- **aiTraining**: allowed / restrictedWithConditions / prohibited  
-- **exportRestriction**: none / aggregated-only / anonymized-only / derived-parameters-only  
-
-These constraints are documented in detail at each level.
-
----
-
-# **Navigation Between Levels**
-
-Each level page links to:
-
-- **previous level**  
-- **next level**  
-
-This ensures smooth traversal across the entire governance hierarchy.
-
----
-
-# **Feedback & Contributions**
-
-To propose changes or contribute improvements:
-
-- Open a GitHub issue  
-- Submit a pull request  
-- Contact the FAIR² specification team  
-
-FAIR² documentation follows the same principles as FAIR data: transparent, modular, and machine-readable.
-
----
-
-**End of Master Index — FAIR² Access Agreement Levels**
+The levels' constraint axes carry over into the governance blocks:
+`aiTraining` and `exportRestriction` are fields of `fair2:constraints`;
+`identity`, `environment` and `communityGovernance` are fields of
+`fair2:access`. The `fair2:constraints`, `fair2:reuseLogging`,
+`fair2:AIethicalUse` and `fair2:governanceProtocol` keys in the level pages'
+examples were never defined in the FAIR² vocabulary; `fair2:constraints` is
+now, with the governance model's meaning.

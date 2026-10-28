@@ -1,106 +1,65 @@
+# ODRL Policies
 
-# Integrating ODRL Policy Metadata in FAIR² Datasets
+The [W3C Open Digital Rights Language](https://www.w3.org/TR/odrl-model/)
+(ODRL 2.2) expresses permissions, prohibitions and duties in a form many policy
+systems read. In FAIR² it is an **export format**: a dataset's terms are stated
+in its [governance blocks](../specification/governance.md), and an ODRL policy
+is derived from them for systems that consume ODRL.
 
-## Overview
+!!! note "Changed in v1.7.0"
+    Up to v1.6.3 this page described embedding a hand-written ODRL `policy` in
+    `fair2.json` as the statement of a dataset's terms, with example policies
+    for four Agreement Levels. Governance blocks replace both: they are what
+    governance services enforce, and they carry terms ODRL cannot.
 
-The Open Digital Rights Language (ODRL) provides a formal, machine-readable way to express usage conditions, permissions, prohibitions, and obligations associated with a dataset. In the FAIR² specification, ODRL is used to enforce dataset terms of use beyond simple textual licenses, supporting responsible AI and governance-by-design.
+## Which form is authoritative
 
-This guide documents how to embed an ODRL policy inside a FAIR² dataset metadata record using schema.org and ODRL JSON-LD constructs.
+1. **`fair2:access`** and the other governance blocks are the canonical form.
+   When they are present, a consumer reads them.
+2. An **ODRL policy** is read only when a document has no `fair2:access` —
+   for example one produced by a system outside FAIR².
 
-## JSON-LD Structure
+A governance service may publish the ODRL rendering of a dataset's governance
+(for instance from a policy endpoint), marked as derived from `fair2:access`.
 
-### Required Structure
+## Mapping
 
-ODRL policies are included under a `policy` field at the top level of the JSON-LD document (i.e., alongside `@type: Dataset`). All ODRL-specific terms use the `odrl:` prefix and are scoped to the "http://www.w3.org/ns/odrl/2/" namespace.
+| FAIR² governance | ODRL |
+|---|---|
+| Access tier (`L0`–`L2`) | `odrl:Permission` with a credential-tier constraint |
+| +G community governance | `odrl:Duty` to obtain community approval |
+| +S environment | `odrl:Constraint` on the attested environment |
+| +P purpose binding | `odrl:purpose` constraint; per-column purposes target the column, with DPV purpose IRIs |
+| +J jurisdiction | `odrl:spatial` constraint |
+| `aiTraining: "prohibited"` | `odrl:Prohibition` of `odrl:derive` |
+| Embargo | `odrl:dateTime` constraint |
+| Data use agreement | `odrl:Duty` to accept the agreement |
+| Ethics training | `odrl:Duty` to hold the training |
 
-```json
-{
-  "@context": [
-    "https://schema.org/",
-    { "odrl": "http://www.w3.org/ns/odrl/2/" }
-  ],
-  "@type": "Dataset",
-  "name": "...",
-  "license": {
-    "url": "https://licenses.fair2.org/templates/clinical-research-only.odrl.json",
-    "usageInfo": "...",
-    "governedBy": "ODRL"
-  },
-  "policy": {
-    "@context": "http://www.w3.org/ns/odrl.jsonld",
-    "@type": "odrl:Policy",
-    "odrl:uid": "https://licenses.fair2.org/templates/clinical-research-only.odrl.json",
-    "odrl:profile": "http://www.w3.org/ns/odrl/2/data",
-    "odrl:permission": [...],
-    "odrl:prohibition": [...]
-  }
-}
-```
+The tier, approval, environment, agreement and training terms on the ODRL side
+belong to the FAIR² governance model's **ODRL profile**. They appear only in
+exported policies and are not part of the `fair2:` vocabulary this
+specification defines.
 
-## Example Use Case: Clinical Research-Only Dataset
+## What does not survive the export
 
-### High-Level Metadata
+The mapping is **lossy**. ODRL has no equivalent for, among others:
 
-```json
-"license": {
-  "url": "https://licenses.fair2.org/templates/clinical-research-only.odrl.json",
-  "usageInfo": "Use restricted to academic and clinical research purposes. Commercial reuse, redistribution, and reidentification attempts are strictly prohibited.",
-  "isAccessibleForFree": true,
-  "conditionsOfAccess": "Non-commercial research only",
-  "governedBy": "ODRL"
-}
-```
+- the difference between a declared and a verified purpose;
+- the people exempt from an embargo (`exemptSubjectIds`);
+- accepted identity providers and identity-assurance levels;
+- the agent ceiling tier and agent policy;
+- temporal phases;
+- query governance: granularity, group sizes, linkage policy;
+- Indigenous governance bodies and cultural protocols;
+- the approvers and approval threshold of community governance.
 
-### Embedded `policy` Block
+A system that enforces a dataset's terms must therefore read the governance
+blocks, not the ODRL rendering.
 
-```json
-"policy": {
-  "@context": "http://www.w3.org/ns/odrl.jsonld",
-  "@type": "odrl:Policy",
-  "odrl:uid": "https://licenses.fair2.org/templates/clinical-research-only.odrl.json",
-  "odrl:profile": "http://www.w3.org/ns/odrl/2/data",
-  "odrl:permission": [
-    {
-      "odrl:target": "urn:org:healthdata:anonymized-clinical-rct-2025",
-      "odrl:action": "odrl:use",
-      "odrl:constraint": {
-        "odrl:leftOperand": "odrl:purpose",
-        "odrl:operator": "odrl:eq",
-        "odrl:rightOperand": "research"
-      },
-      "odrl:duty": {
-        "odrl:action": "odrl:attribution",
-        "odrl:target": "Ministry of Health, Tanzania"
-      }
-    }
-  ],
-  "odrl:prohibition": [
-    { "odrl:action": "odrl:commercialize" },
-    { "odrl:action": "odrl:redistribute" },
-    { "odrl:action": "odrl:reidentify" }
-  ]
-}
-```
+## Earlier examples
 
-## Key ODRL Concepts
-
-| Element           | Purpose                                                                  |
-|-------------------|---------------------------------------------------------------------------|
-| `odrl:permission` | Defines actions users can perform (e.g., `use` for `research`)            |
-| `odrl:prohibition`| Defines actions that are forbidden (e.g., `commercialize`)                |
-| `odrl:constraint` | Adds conditions to permissions (e.g., limited by `purpose`)               |
-| `odrl:duty`       | Specifies obligations tied to a permission (e.g., attribution required)   |
-
-## Why Use ODRL in FAIR²?
-
-- Machine-Enforceable: Policies can be evaluated automatically by systems.
-- Responsible Use: Clearly encode non-commercial, ethical, or privacy-sensitive use terms.
-- Policy Governance: Supports a layered model with business-level (ODPS) and legal-level (ODRL) enforcement.
-
-## Validation
-
-To ensure compliance, you can:
-
-- Validate the policy using JSON Schema or SHACL
-- Check against an ODRL reasoner or Policy Decision Point (PDP) implementation
-- Link the `license.url` field to a reusable license template registry
+The policy files under `docs/policies/` (`open-access.json`,
+`collaborative-access.json`, `trusted-access.json`, `secure-access.json`) were
+written for the Agreement Levels and are deprecated with them. They are kept
+only so existing links resolve.
