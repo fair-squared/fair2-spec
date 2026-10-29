@@ -1,4 +1,4 @@
-# Governance
+# Governance Blocks
 
 A `fair2.json` can declare **who may access the data and on what terms**: an
 access tier, the conditions layered on top of it, the uses the data may and may
@@ -10,8 +10,10 @@ is read as open data.
 
 The blocks follow the FAIR² governance model, which governance services
 enforce: they encrypt governed data, release keys only to requesters who meet
-every declared requirement, and keep an audit trail. This page defines what a
-`fair2.json` declares and how a reader interprets it. How a service enforces it
+every declared requirement, and keep an audit trail — see the
+[Governance Model](governance-model.md) for how the parts fit together and are
+enforced. This page defines what a `fair2.json` declares and how a reader
+interprets it. How a service enforces it
 (key hierarchies, custodians, signing ceremonies, audit) is outside this
 specification.
 

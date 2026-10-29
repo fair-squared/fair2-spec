@@ -8,6 +8,15 @@ extra:
   version:
     provider: mike
     default: latest
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences
 extra_css:
   - assets/css/overrides.css
 nav:
@@ -22,7 +31,8 @@ nav:
       - Namespace Prefixes: specification/prefixes.md
       - Methods: specification/methods.md
       - FAIR² Data Dictionary: specification/data-dictionary.md
-      - Governance: specification/governance.md
+      - Governance Model: specification/governance-model.md
+      - Governance Blocks: specification/governance.md
       - Certification: specification/certification.md
       - Responsible AI: specification/responsible-ai.md
       - Provenance and Citations: specification/provenance.md

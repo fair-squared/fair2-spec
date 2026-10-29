@@ -39,7 +39,7 @@ Browse the documentation sections:
 
 - 📖 **[Specification](specification/)**: Detailed field definitions and reference models
 - 🧩 **[Integration Guides](integration/)**: Interoperability with standards like Schema.org, ODPS, and ML Croissant
-- ⚖️ **[Governance](specification/governance.md)**: Access tiers, conditions and use constraints, and their ODRL export
+- ⚖️ **[Governance](specification/governance-model.md)**: The governance model — access tiers, conditions and use constraints — and how a `fair2.json` declares it
 - 👥 **[Community](community/)**: Contribution guide, governance, and roadmap
 
 ## Try It

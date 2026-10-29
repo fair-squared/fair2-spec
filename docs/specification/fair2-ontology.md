@@ -194,7 +194,7 @@ case, a document uses it instead — e.g. `csvw:null` for missing-value codes,
 The governance blocks a `fair2.json` may carry, from the FAIR² governance
 model. Each is optional and holds a JSON value (`rdf:JSON`): its contents are
 defined by `schemas/fair2-governance.schema.json`, not by vocabulary terms.
-Documents write the keys with their prefix. See [Governance](governance.md).
+Documents write the keys with their prefix. See [Governance Blocks](governance.md) and the [Governance Model](governance-model.md).
 
 | Term | Meaning |
 |:-----|:--------|

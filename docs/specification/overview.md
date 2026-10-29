@@ -43,7 +43,7 @@ FAIR² enhances the FAIR framework with four primary components:
 - Uses Croissant RAI vocabulary for ethical metadata annotation
 - Declares, optionally, who may access the data and on what terms — access
   tiers, conditions and use constraints that governance services enforce
-  (see [Governance](governance.md))
+  (see the [Governance Model](governance-model.md))
 
 ### 4. Contributor Attribution and Provenance Tracking
 

@@ -15,7 +15,7 @@
 | `schema:url` | `xsd:anyURI` | `[1..∞]` | Yes |
 | `dct:conformsTo` | `fair2s:IdentifierShape` | `[1..∞]` | Yes |
 
-<details><summary>Constraint notes</summary>
+<details markdown="1"><summary>Constraint notes</summary>
 
 - **schema:distribution**: A dataset must have at least one distribution.
 - **cr:recordSet**: A dataset must have at least one record set.
@@ -61,9 +61,9 @@
 | `schema:url` | `fair2s:IdentifierShape` | `[1..∞]` | Yes |
 | `schema:version` | `fair2s:TextShape` | `[1..∞]` | Yes |
 
-<details><summary>Constraint notes</summary>
+<details markdown="1"><summary>Constraint notes</summary>
 
-- **schema:accessRights**: Dataset may name its access tier (`fair2:L0`, `fair2:L1`, `fair2:L2`). The governance blocks (`fair2:access`, `fair2:constraints`, …) are optional and not constrained by this shape; see [Governance](governance.md).
+- **schema:accessRights**: Dataset may name its access tier (`fair2:L0`, `fair2:L1`, `fair2:L2`). The governance blocks (`fair2:access`, `fair2:constraints`, …) are optional and not constrained by this shape; see [Governance Blocks](governance.md).
 - **cr:citeAs**: Dataset may include a full 'cite as' text citation.
 - **fair2:changeLog**: Dataset may include a structured changelog for version history.
 - **fair2:dataArchive**: Dataset may be linked to one or more Data Archives for long-term preservation.
@@ -107,7 +107,7 @@
 | `schema:contentSize` | `fair2s:TextShape` | `[1..∞]` | Yes |
 | `schema:sha256` | `fair2s:TextShape` | `[1..∞]` | Yes |
 
-<details><summary>Constraint notes</summary>
+<details markdown="1"><summary>Constraint notes</summary>
 
 - **schema:sha256**: the SHA-256 checksum mlcroissant expects.
 - **schema:contentSize**: in bytes unless a unit is given (Croissant).
@@ -152,11 +152,11 @@ Without `containedIn`, the patterns select files shipped in the package itself.
 | `skos:definition` | `xsd:string` | `[1..∞]` | Yes |
 | `skos:note` | `xsd:string` | `[0..∞]` | No |
 
-<details><summary>Constraint notes</summary>
+<details markdown="1"><summary>Constraint notes</summary>
 
 - **@id**: AccessRights @id should be a FAIR² access tier: `fair2:L0`, `fair2:L1` or `fair2:L2`. The Agreement Level IRIs used before v1.7.0 are deprecated.
 - **schema:name**: AccessRights must have a name (e.g., 'L0 — Open').
-- **schema:url**: AccessRights URL may point to the tier's definition in [Governance](governance.md#access-tiers).
+- **schema:url**: AccessRights URL may point to the tier's definition in [Governance Blocks](governance.md#access-tiers).
 - **skos:definition**: AccessRights must provide a definition describing the access conditions.
 - **skos:note**: AccessRights may include a note clarifying additional access information.
 
@@ -172,7 +172,7 @@ Without `containedIn`, the patterns select files shipped in the package itself.
 | `schema:identifier` | `` | `[1..∞]` | Yes |
 | `schema:name` | `xsd:string` | `[1..∞]` | Yes |
 
-<details><summary>Constraint notes</summary>
+<details markdown="1"><summary>Constraint notes</summary>
 
 - **schema:affiliation**: Each author must be affiliated with at least one organization.
 - **schema:identifier**: Each author must include an identifier, preferably an ORCID.
@@ -194,7 +194,7 @@ Without `containedIn`, the patterns select files shipped in the package itself.
 | `fair2:bugFixes` | `xsd:string` | `[0..∞]` | No |
 | `fair2:otherInformation` | `xsd:string` | `[0..∞]` | No |
 
-<details><summary>Constraint notes</summary>
+<details markdown="1"><summary>Constraint notes</summary>
 
 - **prov:wasRevisionOf**: Each changelog entry may reference the previous dataset version using prov:wasRevisionOf.
 - **schema:datePublished**: Each changelog entry must include a publication date.
@@ -225,7 +225,7 @@ and where they sat in the list.
 | `prov:hadRole` | `fair2s:ContributorRoleShape` | `[1..∞]` | Yes |
 | `fair2:position` | `xsd:integer` | `[0..1]` | No |
 
-<details><summary>Constraint notes</summary>
+<details markdown="1"><summary>Constraint notes</summary>
 
 - **prov:agent**: the Person or Organization, by reference. They are described once under `schema:creator`; the attribution does not repeat them.
 - **prov:hadRole**: one or more roles, from CRediT, CRO or the FAIR² role vocabulary.
@@ -259,7 +259,7 @@ and where they sat in the list.
 | `@id` | `sh:IRI` | `[1..∞]` | Yes |
 | `rdfs:label` | `xsd:string` | `[1..∞]` | Yes |
 
-<details><summary>Constraint notes</summary>
+<details markdown="1"><summary>Constraint notes</summary>
 
 - **@id**: Each role must have an IRI identifier, typically from CRO or FAIR² namespace.
 - **rdfs:label**: Each role must have a human-readable label (e.g., DataCuration, Supervision).
@@ -275,7 +275,7 @@ and where they sat in the list.
 | `schema:name` | `xsd:string` | `[1..∞]` | Yes |
 | `schema:url` | `fair2s:IdentifierShape` | `[0..∞]` | No |
 
-<details><summary>Constraint notes</summary>
+<details markdown="1"><summary>Constraint notes</summary>
 
 - **schema:name**: The referenced creative work must have a name.
 - **schema:url**: It may carry a URL (e.g. the FAIR² specification it conforms to).
@@ -296,7 +296,7 @@ and where they sat in the list.
 | `schema:version` | `xsd:string` | `[1..∞]` | Yes |
 | `fair2:changeLog` | `fair2s:UpdateActionShape` | `[0..∞]` | No |
 
-<details><summary>Constraint notes</summary>
+<details markdown="1"><summary>Constraint notes</summary>
 
 - **prov:wasDerivedFrom**: Data article must reference the dataset DOI or persistent identifier.
 - **schema:datePublished**: Data article must have a publication date.
@@ -327,7 +327,7 @@ and where they sat in the list.
 | `fair2:changeLog` | `fair2s:UpdateActionShape` | `[0..∞]` | No |
 | `fair2:dataset` | `fair2s:IdentifierShape` | `[0..∞]` | No |
 
-<details><summary>Constraint notes</summary>
+<details markdown="1"><summary>Constraint notes</summary>
 
 - **schema:name**: Data portal must include a name.
 - **schema:description**: Data portal must include a description.
@@ -363,7 +363,7 @@ and where they sat in the list.
 | `fair2:changeLog` | `fair2s:UpdateActionShape` | `[0..∞]` | No |
 | `fair2:dataset` | `fair2s:IdentifierShape` | `[0..∞]` | No |
 
-<details><summary>Constraint notes</summary>
+<details markdown="1"><summary>Constraint notes</summary>
 
 - **schema:name**: Data archive must include a name.
 - **schema:description**: Data archive must include a description.
@@ -390,7 +390,7 @@ and where they sat in the list.
 | `prov:wasAttributedTo` | `fair2s:AuthorShape` | `[1..∞]` | Yes |
 | `schema:name` | `xsd:string` | `[1..∞]` | Yes |
 
-<details><summary>Constraint notes</summary>
+<details markdown="1"><summary>Constraint notes</summary>
 
 - **@id**: Domain entries should ideally reference a controlled vocabulary (e.g., Wikidata).
 - **prov:wasAttributedTo**: Each domain should be attributed to at least one Person (creator or expert).
@@ -407,7 +407,7 @@ and where they sat in the list.
 | `schema:name` | `xsd:string` | `[1..∞]` | Yes |
 | `schema:identifier` | `fair2s:IdentifierShape` | `[0..∞]` | No |
 
-<details><summary>Constraint notes</summary>
+<details markdown="1"><summary>Constraint notes</summary>
 
 - A reusable shape for a contact (Person or Organization) attributed to a classification such as a domain.
 - **schema:name**: The contact must have a name.
@@ -427,7 +427,7 @@ and where they sat in the list.
 | `schema:description` | `xsd:string` | `[1..∞]` | Yes |
 | `schema:name` | `xsd:string` | `[1..∞]` | Yes |
 
-<details><summary>Constraint notes</summary>
+<details markdown="1"><summary>Constraint notes</summary>
 
 - **cr:dataType**: The semantic type of the data (e.g., `schema:Float`).
 - **cr:source**: The file the values come from — a `cr:fileObject` or a `cr:fileSet` — and, through `cr:extract`/`cr:column`, the column.
@@ -465,7 +465,7 @@ same order on both sides. `fair2:matchedCount`, `fair2:sourceDistinct`,
 | `schema:identifier` | `` | `[1..∞]` | Yes |
 | `schema:name` | `xsd:string` | `[1..∞]` | Yes |
 
-<details><summary>Constraint notes</summary>
+<details markdown="1"><summary>Constraint notes</summary>
 
 - **schema:identifier**: Funding organization should include an identifier (e.g., ROR ID).
 - **schema:name**: Funding organization must include a name.
@@ -481,7 +481,7 @@ same order on both sides. `fair2:matchedCount`, `fair2:sourceDistinct`,
 | `schema:identifier` | `` | `[1..∞]` | Yes |
 | `schema:name` | `xsd:string` | `[1..∞]` | Yes |
 
-<details><summary>Constraint notes</summary>
+<details markdown="1"><summary>Constraint notes</summary>
 
 - **schema:identifier**: Funding scheme must include an identifier (e.g., Horizon Europe code).
 - **schema:name**: Funding scheme must include a name.
@@ -499,7 +499,7 @@ same order on both sides. `fair2:matchedCount`, `fair2:sourceDistinct`,
 | `schema:name` | `xsd:string` | `[1..∞]` | Yes |
 | `schema:url` | `sh:IRI` | `[0..1]` | No |
 
-<details><summary>Constraint notes</summary>
+<details markdown="1"><summary>Constraint notes</summary>
 
 - **schema:funder**: Each funding entry must specify at least one funder organization.
 - **schema:fundingScheme**: If provided, fundingScheme must contain valid scheme metadata.
@@ -520,7 +520,7 @@ same order on both sides. `fair2:matchedCount`, `fair2:sourceDistinct`,
 | `fair2:next` | `sh:IRI` | `[0..∞]` | No |
 | `prov:used` | `sh:IRI` | `[0..∞]` | No |
 
-<details><summary>Constraint notes</summary>
+<details markdown="1"><summary>Constraint notes</summary>
 
 - **fair2:step**: Each Section must contain at least one Step or StepCase.
 - **schema:description**: Each Section must include a description summarizing the methodological context.
@@ -541,7 +541,7 @@ same order on both sides. `fair2:matchedCount`, `fair2:sourceDistinct`,
 | `schema:identifier` | `` | `[1..∞]` | Yes |
 | `schema:name` | `xsd:string` | `[1..∞]` | Yes |
 
-<details><summary>Constraint notes</summary>
+<details markdown="1"><summary>Constraint notes</summary>
 
 - **schema:address**: Organization should include a postal address.
 - **schema:identifier**: Organization should include a persistent identifier (e.g., ROR).
@@ -557,7 +557,7 @@ same order on both sides. `fair2:matchedCount`, `fair2:sourceDistinct`,
 |---|---|---|---|
 | `schema:name` | `xsd:string` | `[1..∞]` | Yes |
 
-<details><summary>Constraint notes</summary>
+<details markdown="1"><summary>Constraint notes</summary>
 
 - **schema:name**: Publication must include a name (journal or periodical title).
 
@@ -571,7 +571,7 @@ same order on both sides. `fair2:matchedCount`, `fair2:sourceDistinct`,
 |---|---|---|---|
 | `schema:name` | `xsd:string` | `[1..∞]` | Yes |
 
-<details><summary>Constraint notes</summary>
+<details markdown="1"><summary>Constraint notes</summary>
 
 - **schema:name**: Publisher organization must include a name.
 
@@ -587,7 +587,7 @@ same order on both sides. `fair2:matchedCount`, `fair2:sourceDistinct`,
 | `schema:description` | `xsd:string` | `[1..∞]` | Yes |
 | `schema:name` | `xsd:string` | `[1..∞]` | Yes |
 
-<details><summary>Constraint notes</summary>
+<details markdown="1"><summary>Constraint notes</summary>
 
 - **cr:field**: Each RecordSet must define at least one Field.
 - **schema:description**: Each RecordSet must include a description.
@@ -604,7 +604,7 @@ same order on both sides. `fair2:matchedCount`, `fair2:sourceDistinct`,
 | `schema:identifier` | `sh:IRI` | `[1..∞]` | Yes |
 | `schema:version` | `xsd:string` | `[1..∞]` | Yes |
 
-<details><summary>Constraint notes</summary>
+<details markdown="1"><summary>Constraint notes</summary>
 
 - **schema:identifier**: Revision reference must include a persistent identifier (e.g., DOI).
 - **schema:version**: Revision reference must include a version label.
@@ -624,7 +624,7 @@ same order on both sides. `fair2:matchedCount`, `fair2:sourceDistinct`,
 | `schema:keywords` | `xsd:string` | `[1..∞]` | Yes |
 | `schema:url` | `sh:IRI` | `[0..∞]` | No |
 
-<details><summary>Constraint notes</summary>
+<details markdown="1"><summary>Constraint notes</summary>
 
 - **schema:accountServiceHomePage**: Each entry must specify the social media service homepage as an IRI (e.g., 'https://twitter.com/').
 - **schema:articleBody**: Each entry must include the message text or post body.
@@ -648,7 +648,7 @@ same order on both sides. `fair2:matchedCount`, `fair2:sourceDistinct`,
 | `schema:geoWithin` | `sh:BlankNodeOrIRI` | `[0..∞]` | No |
 | `schema:containsPlace` | `fair2s:SpatialCoverageShape` | `[0..∞]` | No |
 
-<details><summary>Constraint notes</summary>
+<details markdown="1"><summary>Constraint notes</summary>
 
 - A `Place` may carry a name, description, and identifier.
 - **schema:geo**: a geometry, either a `GeoShape` (bounding box / polygon) or a `GeoCoordinates` point.
@@ -681,7 +681,7 @@ same order on both sides. `fair2:matchedCount`, `fair2:sourceDistinct`,
 | `schema:line` | `xsd:string` | one geometry | Conditional |
 | `schema:circle` | `xsd:string` | one geometry | Conditional |
 
-<details><summary>Constraint notes</summary>
+<details markdown="1"><summary>Constraint notes</summary>
 
 - A `GeoShape` must declare **at least one** geometry (`box`, `polygon`, `line`, or `circle`).
 
@@ -700,7 +700,7 @@ same order on both sides. `fair2:matchedCount`, `fair2:sourceDistinct`,
 | `schema:description` | `xsd:string` | `[1..∞]` | Yes |
 | `schema:name` | `xsd:string` | `[1..∞]` | Yes |
 
-<details><summary>Constraint notes</summary>
+<details markdown="1"><summary>Constraint notes</summary>
 
 - **fair2:generated**: If provided, 'generated' should reference produced data elements (e.g., fields, recordSets) by IRI.
 - **fair2:next**: If provided, 'next' should reference the following step using an IRI.
@@ -722,7 +722,7 @@ same order on both sides. `fair2:matchedCount`, `fair2:sourceDistinct`,
 | `schema:description` | `xsd:string` | `[1..∞]` | Yes |
 | `schema:name` | `xsd:string` | `[1..∞]` | Yes |
 
-<details><summary>Constraint notes</summary>
+<details markdown="1"><summary>Constraint notes</summary>
 
 - **fair2:next**: If provided, 'next' should reference the subsequent substep.
 - **prov:used**: Substep may reference source documents or scripts used as inputs.
@@ -745,7 +745,7 @@ Conditional branching within a method. StepCase items sit in the same `fair2:ste
 | `fair2:nextTrue` | `sh:IRI` | `[1..∞]` | Yes |
 | `fair2:next` | `sh:IRI` | `[0..∞]` | No |
 
-<details><summary>Constraint notes</summary>
+<details markdown="1"><summary>Constraint notes</summary>
 
 - **schema:name**: Each StepCase must include a condition label.
 - **schema:description**: Each StepCase must include a description of what the branch does and why.
@@ -768,7 +768,7 @@ Source documents referenced via `prov:used` in method sections and steps (e.g., 
 | `schema:encodingFormat` | `xsd:string` | `[0..∞]` | No |
 | `schema:url` | `sh:IRI` | `[0..1]` | No |
 
-<details><summary>Constraint notes</summary>
+<details markdown="1"><summary>Constraint notes</summary>
 
 - **schema:name**: Document must have a human-readable name.
 - **schema:pagination**: Relative file path to the document within the dataset package (repurposed from schema.org).
@@ -792,7 +792,7 @@ Scripts and code files used or produced by method steps, referenced via `prov:us
 | `schema:programmingLanguage` | `xsd:string` | `[0..∞]` | No |
 | `schema:runtimePlatform` | `xsd:string` | `[0..∞]` | No |
 
-<details><summary>Constraint notes</summary>
+<details markdown="1"><summary>Constraint notes</summary>
 
 - **schema:name**: Script must have a human-readable name (e.g., filename).
 - **schema:identifier**: Relative path or persistent identifier for the script.
@@ -816,7 +816,7 @@ A computational or manual activity that uses inputs and produces outputs. Activi
 | `schema:startTime` | `xsd:dateTime` | `[0..1]` | No |
 | `schema:endTime` | `xsd:dateTime` | `[0..1]` | No |
 
-<details><summary>Constraint notes</summary>
+<details markdown="1"><summary>Constraint notes</summary>
 
 - **rdfs:label**: Activity must have a human-readable name describing the computation or process.
 - **prov:wasAssociatedWith**: Activity may reference one or more responsible agents (SoftwareAgent, Person, Organization).
@@ -838,7 +838,7 @@ A software tool or application that performed an activity. Software agents are r
 | `schema:softwareVersion` | `xsd:string` | `[0..∞]` | No |
 | `schema:programmingLanguage` | `xsd:string` | `[0..∞]` | No |
 
-<details><summary>Constraint notes</summary>
+<details markdown="1"><summary>Constraint notes</summary>
 
 - **schema:name**: Software agent must have a name (e.g., `Pandas`, `R`, `CESM2.2`).
 - **schema:identifier**: Software agent may include a persistent identifier or homepage URL.
