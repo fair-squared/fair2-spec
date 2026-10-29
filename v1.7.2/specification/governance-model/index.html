@@ -1,0 +1,1896 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://fair2.ai/spec/v1.7.2/specification/governance-model/">
+      
+      
+        <link rel="prev" href="../data-dictionary/">
+      
+      
+        <link rel="next" href="../governance/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
+    
+    
+      
+        <title>Governance Model - FAIR² Specification</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.57a0d79d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/css/overrides.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#governance-model" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="FAIR² Specification" class="md-header__button md-logo" aria-label="FAIR² Specification" data-md-component="logo">
+      
+  <img src="../../assets/images/fair2-logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            FAIR² Specification
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Governance Model
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="FAIR² Specification" class="md-nav__button md-logo" aria-label="FAIR² Specification" data-md-component="logo">
+      
+  <img src="../../assets/images/fair2-logo.png" alt="logo">
+
+    </a>
+    FAIR² Specification
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Specification
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Specification
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fair2json-format/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fair2.json File Format
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../versioning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Versioning & Conformance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../shacl-validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SHACL Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fair2-ontology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAIR² Ontology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prefixes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Namespace Prefixes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../methods/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Methods
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data-dictionary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAIR² Data Dictionary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Governance Model
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Governance Model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ten-primitives" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ten primitives
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ten primitives">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#three-tiers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Three tiers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#common-compositions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common compositions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-a-request-is-decided" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How a request is decided
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-enforced-and-how" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is enforced, and how
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#derived-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Derived data
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lifecycle-and-signatures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lifecycle and signatures
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ai-agents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AI agents
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fair-and-care" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FAIR and CARE
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scope-of-this-specification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scope of this specification
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../governance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Governance Blocks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../certification/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Certification
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../responsible-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Responsible AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../provenance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Provenance and Citations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Integration
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Integration
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/ml-croissant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ML Croissant
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/schema-org/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schema.org
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/prov-o/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PROV-O
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/units-qudt-om/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Units
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/contributor-roles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributor Roles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/croissant-rai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Croissant RAI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/google-rich-search/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Google Rich Search
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/odps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ODPS Integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/odrl-policy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ODRL Policies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../examples/example-walkthrough/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Community
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Community
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../community/contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../community/governance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Governance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../community/roadmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Roadmap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ten-primitives" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ten primitives
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ten primitives">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#three-tiers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Three tiers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#common-compositions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common compositions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-a-request-is-decided" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How a request is decided
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-enforced-and-how" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is enforced, and how
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#derived-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Derived data
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lifecycle-and-signatures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lifecycle and signatures
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ai-agents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AI agents
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fair-and-care" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FAIR and CARE
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scope-of-this-specification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scope of this specification
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="governance-model">Governance Model<a class="headerlink" href="#governance-model" title="Permanent link">&para;</a></h1>
+<p>FAIR² is FAIR, made <strong>AI-ready</strong> and <strong>responsible</strong>: FAIR + AIR + RAI. The
+governance model is the responsible part made operational. It states how a
+dataset may be accessed, used, combined and derived — by people and by AI
+agents acting for them — and it is designed so that, for governed data, the
+statement is enforced rather than advisory.</p>
+<p>A dataset's governance is declared in its <code>fair2.json</code>, in the optional
+<a href="../governance/">governance blocks</a>, and enforced by <strong>governance services</strong>:
+systems that encrypt governed data, decide every request against the declared
+terms, release decryption keys only when they are met, and record what they
+released. This page describes the model; <a href="../governance/">Governance blocks</a>
+defines how a <code>fair2.json</code> states it.</p>
+<p><img alt="The FAIR² governance model: three access tiers, the modifiers that apply to governed data, use constraints at every tier, and how each is enforced" src="../../assets/images/governance-model.svg" /></p>
+<hr />
+<h2 id="ten-primitives">Ten primitives<a class="headerlink" href="#ten-primitives" title="Permanent link">&para;</a></h2>
+<p>A dataset's governance is fully described by which of ten primitives are active
+and how each is set. They are orthogonal: any combination is valid, and each
+adds a requirement without weakening another.</p>
+<table>
+<thead>
+<tr>
+<th>Primitive</th>
+<th>Controls</th>
+<th>Declared in</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Access tier</strong> — L0, L1, L2</td>
+<td>Who may obtain the data at all: anyone, a registered identity, or a credentialed one</td>
+<td><code>fair2:access.tier</code></td>
+</tr>
+<tr>
+<td><strong>+G</strong> Community governance</td>
+<td>A community's approval before access — the CARE principle of Authority to Control</td>
+<td><code>fair2:access.communityGovernance</code></td>
+</tr>
+<tr>
+<td><strong>+S</strong> Secure environment</td>
+<td>Where the data may be processed: a secure human environment, compute-to-data, an attested enclave</td>
+<td><code>fair2:access.environment</code></td>
+</tr>
+<tr>
+<td><strong>+C</strong> Client certification</td>
+<td>Which software may receive the data</td>
+<td><code>fair2:access.clientCertification</code></td>
+</tr>
+<tr>
+<td><strong>+P</strong> Purpose binding</td>
+<td>Why the data may be used, as declared or verified purposes</td>
+<td><code>fair2:access.purposeBinding</code></td>
+</tr>
+<tr>
+<td><strong>+J</strong> Jurisdiction</td>
+<td>Where processing may take place</td>
+<td><code>fair2:access.jurisdiction</code></td>
+</tr>
+<tr>
+<td><strong>+Q</strong> Query governance</td>
+<td>How the data may be queried and linked: granularity, group sizes, joins with other data</td>
+<td><code>fair2:access.queryGovernance</code></td>
+</tr>
+<tr>
+<td><strong>Use constraints</strong></td>
+<td>What the data may be used for: AI training, export, commercial use, combination</td>
+<td><code>fair2:constraints</code></td>
+</tr>
+<tr>
+<td><strong>Embargo</strong></td>
+<td>When governed data is released</td>
+<td><code>fair2:embargo</code></td>
+</tr>
+<tr>
+<td><strong>Record partitions</strong></td>
+<td>Which records a stricter tier applies to</td>
+<td><code>fair2:variableGovernance.partitions</code></td>
+</tr>
+</tbody>
+</table>
+<p>Beyond them, the model governs <strong>AI agents</strong> (<code>fair2:agentGovernance</code>),
+<strong>participant consent</strong> (<code>fair2:consentGovernance</code>), <strong>Indigenous data
+sovereignty</strong> (<code>fair2:indigenousGovernance</code>) and <strong>access that changes over
+time</strong> (<code>fair2:temporalGovernance</code>).</p>
+<h3 id="three-tiers">Three tiers<a class="headerlink" href="#three-tiers" title="Permanent link">&para;</a></h3>
+<p>The tiers form a ladder, aligned with established controlled-access models
+such as those of GA4GH and PhysioNet.</p>
+<table>
+<thead>
+<tr>
+<th>Tier</th>
+<th>Requires</th>
+<th>The data</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>L0 — Open</strong></td>
+<td>Nothing</td>
+<td>Distributed unencrypted. Its terms — licence, citation, use constraints — bind the user but do not gate access.</td>
+</tr>
+<tr>
+<td><strong>L1 — Registered</strong></td>
+<td>An authenticated identity and acceptance of the terms</td>
+<td>Encrypted; keys released on request.</td>
+</tr>
+<tr>
+<td><strong>L2 — Credentialed</strong></td>
+<td>The steward's credential requirements: by default a signed data use agreement (DUA), optionally institutional affiliation, ethics training, or a stronger identity assurance</td>
+<td>Encrypted; keys released to credentialed requesters.</td>
+</tr>
+</tbody>
+</table>
+<p>The dataset's tier is a <strong>floor</strong>: a requester below it receives nothing, and
+one above it reaches every part of the dataset tagged at or below their own
+standing. A single dataset can therefore <strong>mix tiers</strong> — summary columns open
+at L0, diagnoses at L1, identifiers at L2; one directory of images at L2; the
+records of minors at L2 while adults' are at L1.</p>
+<p><strong>No tier means L0.</strong> A dataset that declares no governance, or no tier, is
+open. A governance service requires the tier to be stated before it publishes a
+dataset, so that open access is a decision rather than an omission.</p>
+<h3 id="common-compositions">Common compositions<a class="headerlink" href="#common-compositions" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Composition</th>
+<th>For example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>L0</td>
+<td>Open data under a licence</td>
+</tr>
+<tr>
+<td>L1</td>
+<td>Registered access: users identify themselves and accept the terms</td>
+</tr>
+<tr>
+<td>L2</td>
+<td>Credentialed access under a data use agreement</td>
+</tr>
+<tr>
+<td>L1 + G</td>
+<td>Registered access with community approval — Indigenous health data</td>
+</tr>
+<tr>
+<td>L2 + S</td>
+<td>Credentialed access inside a trusted research environment — clinical trial data</td>
+</tr>
+<tr>
+<td>L2 + C</td>
+<td>Credentialed access through approved software only</td>
+</tr>
+<tr>
+<td>L1 + P</td>
+<td>Registered access for stated purposes — "academic research" or "public health"</td>
+</tr>
+<tr>
+<td>L2 + J</td>
+<td>Credentialed access processed only within the EU</td>
+</tr>
+<tr>
+<td>L1 + Q</td>
+<td>Registered access to aggregates; individual records at L2</td>
+</tr>
+<tr>
+<td>L2 + G + S + C + P + J + Q</td>
+<td>Every safeguard at once</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="how-a-request-is-decided">How a request is decided<a class="headerlink" href="#how-a-request-is-decided" title="Permanent link">&para;</a></h2>
+<p>A governance service evaluates a request in a fixed order and stops at the
+first requirement that is not met, so a refusal names exactly what is missing.</p>
+<ol>
+<li><strong>Withdrawn or erased?</strong> A retracted or tombstoned dataset is refused.</li>
+<li><strong>Embargoed?</strong> Governed data is withheld until the embargo date.</li>
+<li><strong>Which phase?</strong> Temporal governance may change the tier in force.</li>
+<li><strong>Open?</strong> If everything requested is L0, it is granted here.</li>
+<li><strong>Use constraints.</strong> A request to train AI, or for commercial use, that the
+   constraints prohibit is refused.</li>
+<li><strong>Tier and identity.</strong> The requester must reach the tier, present the
+   required credentials and identity assurance, and come from an accepted
+   identity provider.</li>
+<li><strong>Modifiers.</strong> Community approval (+G) and governance-body or
+   cultural-protocol clearance, then the environment (+S), the client's
+   certificate (+C), the purposes (+P) and the jurisdiction (+J). Purposes can
+   narrow the grant to the columns they authorise; partitions narrow it to the
+   records the requester's tier reaches.</li>
+<li><strong>Agents.</strong> An AI agent needs a verified delegation from a person, and is
+   capped at its ceiling tier; a dataset may refuse agents altogether.</li>
+<li><strong>Queries.</strong> Query governance (+Q) may refuse queries at the granted tier.</li>
+<li><strong>Consent.</strong> Outstanding consent withdrawals can block the release, or
+    exclude the withdrawn records.</li>
+</ol>
+<p>The outcome is <strong>granted</strong> — with the tier granted, the constraints that apply
+and, where purposes limit it, the columns released — or a refusal stating what
+is required: credentials, governance approval, an environment, a certificate, a
+purpose, a jurisdiction, or a date.</p>
+<hr />
+<h2 id="what-is-enforced-and-how">What is enforced, and how<a class="headerlink" href="#what-is-enforced-and-how" title="Permanent link">&para;</a></h2>
+<p>Governance holds in different ways at different points, and the model is
+explicit about which.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Enforced by</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>L0 data</strong></td>
+<td>The licence and use constraints — contractually. Nothing gates access.</td>
+</tr>
+<tr>
+<td><strong>Access to L1 and L2 data</strong></td>
+<td>Cryptography. The data is encrypted at rest; decryption keys are released only after every requirement is met, and only for the parts the requester may reach. Without keys the data is inert, wherever it is stored — on a governance service, in a public repository, on a shipped drive.</td>
+</tr>
+<tr>
+<td><strong>Tier separation, purpose-scoped columns, embargo, community veto</strong></td>
+<td>Key release: the keys for what a requester may not reach are never sent.</td>
+</tr>
+<tr>
+<td><strong>Use after decryption</strong> — purpose, AI training, export, redistribution</td>
+<td>The data use agreement and use constraints, contractually; a certified client (+C) adds an accountability loop, since its certificate can be revoked.</td>
+</tr>
+<tr>
+<td><strong>Derived data</strong></td>
+<td>Inheritance: a derived dataset carries the most restrictive terms of all its sources.</td>
+</tr>
+<tr>
+<td><strong>What happened</strong></td>
+<td>A tamper-evident, hash-chained audit trail of every governance action and key release.</td>
+</tr>
+</tbody>
+</table>
+<p>Cryptographic enforcement ends at decryption. What a requester does with data
+they hold is bound by agreement, not by mathematics — the model states this
+rather than claiming more.</p>
+<p>Keys can be held by a network of independent custodians, a threshold of whom
+must take part in every release, so that no single party — not even the service
+— can release them alone. With community governance, the community holds a
+share of that authority, which makes its veto technical rather than nominal.</p>
+<hr />
+<h2 id="derived-data">Derived data<a class="headerlink" href="#derived-data" title="Permanent link">&para;</a></h2>
+<p>When data is transformed, aggregated or combined, its governance travels with
+it. A derived dataset inherits, for each constraint, the most restrictive value
+among its sources:</p>
+<table>
+<thead>
+<tr>
+<th>Constraint</th>
+<th>From least to most restrictive</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AI training</td>
+<td><code>allowed</code> → <code>restrictedWithConditions</code> → <code>prohibited</code></td>
+</tr>
+<tr>
+<td>Commercial use</td>
+<td><code>allowed</code> → <code>nonCommercialOnly</code></td>
+</tr>
+<tr>
+<td>Export</td>
+<td><code>none</code> → <code>aggregated-only</code> → <code>anonymized-only</code> → <code>derived-parameters-only</code></td>
+</tr>
+<tr>
+<td>Query granularity</td>
+<td><code>individual</code> → <code>grouped</code> → <code>aggregated</code> → <code>none</code></td>
+</tr>
+<tr>
+<td>Purpose requirement</td>
+<td><code>none</code> → <code>declared</code> → <code>verified</code></td>
+</tr>
+<tr>
+<td>Linkage</td>
+<td><code>unrestricted</code> → <code>sameStudy</code> → <code>approved</code> → <code>prohibited</code></td>
+</tr>
+</tbody>
+</table>
+<p>Allowed purposes and accepted jurisdictions narrow to those <strong>all</strong> sources
+accept; prohibited purposes accumulate from <strong>any</strong> source. Combining datasets
+is checked first against each one's combination policy.</p>
+<hr />
+<h2 id="lifecycle-and-signatures">Lifecycle and signatures<a class="headerlink" href="#lifecycle-and-signatures" title="Permanent link">&para;</a></h2>
+<p>A governance declaration has a lifecycle:</p>
+<div class="highlight"><pre><span></span><code>draft → signed by the author → countersigned by the publisher → published
+                                                   published ⇄ retracted
+                                                   published → tombstoned
+</code></pre></div>
+<ul>
+<li><strong>Published</strong> governance is signed twice — by the author and by the
+  publisher — with <a href="https://www.w3.org/TR/vc-data-integrity/">W3C Data Integrity</a>
+  proofs, so the terms are tamper-evident and attributable. It cannot be changed
+  in place: new terms are a new version, which supersedes the old one for
+  future requests.</li>
+<li><strong>Retracted</strong> data is withdrawn by its author; access to governed data stops.
+  Retraction can be reversed.</li>
+<li><strong>Tombstoned</strong> data has been erased, for instance on a GDPR request: the
+  descriptive metadata is stripped, access to governed data is refused, and its
+  keys can be destroyed. Data that may need erasing should be at L1 or above —
+  open copies already downloaded cannot be recalled.</li>
+</ul>
+<hr />
+<h2 id="ai-agents">AI agents<a class="headerlink" href="#ai-agents" title="Permanent link">&para;</a></h2>
+<p>An AI agent acting for a person is governed in its own right. Its access is
+capped at a <strong>ceiling tier</strong>, whatever its principal could reach; it needs a
+verified delegation; and a dataset can limit how it works — directly, planning
+only, planning with human approval, algorithmic agents only — or refuse agents
+altogether. Only the refusal is enforced at key release; the other policies
+bind the software that runs the agent.</p>
+<hr />
+<h2 id="fair-and-care">FAIR and CARE<a class="headerlink" href="#fair-and-care" title="Permanent link">&para;</a></h2>
+<p>The model supports, rather than certifies, the FAIR and CARE principles: it
+provides the mechanisms; stewards, communities and services supply the
+decisions.</p>
+<table>
+<thead>
+<tr>
+<th>Principle</th>
+<th>What the model provides</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Findable</strong></td>
+<td>Governance metadata that travels with the dataset's identifier; version history</td>
+</tr>
+<tr>
+<td><strong>Accessible</strong></td>
+<td>Conditional access through open protocols — FAIR permits authentication and authorisation; metadata stays public while governed data is withheld</td>
+</tr>
+<tr>
+<td><strong>Interoperable</strong></td>
+<td>A shared, machine-readable governance representation; W3C DPV purposes; an <a href="../../integration/odrl-policy/">ODRL export</a></td>
+</tr>
+<tr>
+<td><strong>Reusable</strong></td>
+<td>Licence, use constraints and agreements stating the conditions of reuse; signed provenance of the terms</td>
+</tr>
+<tr>
+<td><strong>Collective benefit</strong></td>
+<td>Community review of proposed access (+G); permitted and prohibited purposes (+P); agreement terms for benefit-sharing</td>
+</tr>
+<tr>
+<td><strong>Authority to control</strong></td>
+<td>Community approval with a technical veto; named governance bodies; cultural protocols such as seasonal restrictions</td>
+</tr>
+<tr>
+<td><strong>Responsibility</strong></td>
+<td>Signed declarations naming accountable parties; audit trails and lineage of downstream use</td>
+</tr>
+<tr>
+<td><strong>Ethics</strong></td>
+<td>Verified purposes, ethics approval, AI-use restrictions, consent controls</td>
+</tr>
+</tbody>
+</table>
+<p>A community-governed dataset can expose community-approved discovery metadata
+while its sensitive data stays at L1 or L2 under +G and +P, its reuse recorded
+through lineage and audit. Communities decide whether metadata itself reveals
+sensitive knowledge; being discoverable never authorises publishing everything.</p>
+<hr />
+<h2 id="scope-of-this-specification">Scope of this specification<a class="headerlink" href="#scope-of-this-specification" title="Permanent link">&para;</a></h2>
+<p>This specification defines what a <code>fair2.json</code> declares and how a reader must
+interpret it — <a href="../governance/">Governance blocks</a> — and nothing about how a
+service implements enforcement: key hierarchies, custody, signing ceremonies,
+audit formats and protocols are the governance service's. A service documents
+which of the guarantees above it provides, and under which deployment.</p>
+<p>This page follows the FAIR² governance model version 1.16.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"default": "latest", "provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c21346df.min.js"></script>
+      
+    
+  </body>
+</html>
