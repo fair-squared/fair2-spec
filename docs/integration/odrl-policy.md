@@ -8,9 +8,9 @@ is derived from them for systems that consume ODRL.
 
 !!! note "Changed in v1.7.0"
     Up to v1.6.3 this page described embedding a hand-written ODRL `policy` in
-    `fair2.json` as the statement of a dataset's terms, with example policies
-    for four Agreement Levels. Governance blocks replace both: they are what
-    governance services enforce, and they carry terms ODRL cannot.
+    `fair2.json` as the statement of a dataset's terms. Governance blocks
+    replace it: they are what governance services enforce, and they carry terms
+    ODRL cannot.
 
 ## Which form is authoritative
 
@@ -56,10 +56,3 @@ The mapping is **lossy**. ODRL has no equivalent for, among others:
 
 A system that enforces a dataset's terms must therefore read the governance
 blocks, not the ODRL rendering.
-
-## Earlier examples
-
-The policy files under `docs/policies/` (`open-access.json`,
-`collaborative-access.json`, `trusted-access.json`, `secure-access.json`) were
-written for the Agreement Levels and are deprecated with them. They are kept
-only so existing links resolve.

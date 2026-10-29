@@ -808,7 +808,7 @@ fair2:L2 a fair2:AccessTier ;
   vs:term_status "testing" .
 
 # Agreement Levels 0-6 (deprecated in v1.7.0). Both spellings were in use:
-# AgreementLevel<n> in the level pages, AgreementLevels<n> in the reference
+# AgreementLevel<n> in the (removed) level pages, AgreementLevels<n> in the reference
 # example and the documents built from it. dct:isReplacedBy names the
 # tier; the other blocks a level implied are in governance.md.
 

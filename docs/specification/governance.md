@@ -18,7 +18,8 @@ specification.
 !!! note "New in v1.7.0 — replaces the Agreement Levels"
     Up to v1.6.3 access was described by Agreement Levels 0–6 under
     `dct:accessRights`. They had no machine-readable form beyond a label, and
-    governance services do not read them. They are deprecated; see
+    governance services do not read them. Their pages were removed in v1.7.1;
+    to convert a document that uses them, see
     [Migrating from Agreement Levels](#migrating-from-agreement-levels).
 
 ---
@@ -434,13 +435,16 @@ on); the schema's document-level properties (`fair2:id`, `fair2:version`,
 apply to a `fair2.json` as a whole.
 
 SHACL does not reach inside a block — it is a JSON literal — and the Dataset
-shape requires none of them.
+shape requires none of them. [fair2-validator](https://github.com/fair-squared/fair2-validator)
+(from v0.5.0) checks each block that is present against the schema and against
+the [reading rules](#reading-rules).
 
 ---
 
 ## Migrating from Agreement Levels
 
-Agreement Levels 0–6 are deprecated. Their identifiers — `fair2:AgreementLevel0`
+Agreement Levels 0–6 are deprecated, and their documentation pages were
+removed in v1.7.1. Their identifiers — `fair2:AgreementLevel0`
 to `6`, and the `fair2:AgreementLevels0` to `6` spelling used by the reference
 example until v1.6.3 — stay defined with status `deprecated` and a
 `dct:isReplacedBy` naming the closest tier, so existing documents still

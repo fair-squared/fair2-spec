@@ -21,7 +21,7 @@ FAIR² makes datasets not only **Findable, Accessible, Interoperable, and Reusab
 
 - **Context-Rich Metadata**: Capture details on data generation, cleaning, validation, and ethical limitations
 - **AI-Ready Design**: Optimized for ML workflows, including descriptor integration and method linking
-- **Responsible AI Alignment**: Support for auditability, access control, and consent via access levels and policy layers
+- **Responsible AI Alignment**: Support for auditability, access control and consent through governance — access tiers, conditions and use constraints
 - **Standard Compatibility**: Works with [ML Croissant](https://mlcommons.org/croissant/), [Schema.org](https://schema.org/), and other [GO FAIR](https://www.go-fair.org/) supported standards
 
 ## Core Concepts
