@@ -5,6 +5,8 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix fair2: <https://fair2.ai/ns/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
 
 fair2s:RecordSetShape
     a sh:NodeShape ;
@@ -79,6 +81,26 @@ fair2s:FieldShape
         sh:minCount 1 ;
         sh:node fair2s:SourceShape ;
         sh:description "The mapping to the physical file and column."
+    ] .
+
+# A field's unit is a node of its own, referenced by IRI: a QUDT unit, or any
+# other where QUDT has none. When it is described, it has a label and a
+# symbol, usually given once under `included`. Units carry no @type, so the shape
+# targets what fair2:unit points at. Neither label nor symbol is required: a
+# unit may be given by its IRI alone.
+fair2s:UnitShape
+    a sh:NodeShape ;
+    sh:targetObjectsOf fair2:unit ;
+    sh:nodeKind sh:IRI ;
+    sh:property [
+        sh:path rdfs:label ;
+        sh:node fair2s:TextShape ;
+        sh:description "The unit's name, e.g. \"Micrograms per litre\"."
+    ] ;
+    sh:property [
+        sh:path qudt:symbol ;
+        sh:node fair2s:TextShape ;
+        sh:description "The unit's symbol, e.g. \"µg/L\"."
     ] .
 
 # Croissant takes a field's values from a FileObject or from a FileSet - a

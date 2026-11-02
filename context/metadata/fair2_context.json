@@ -608,7 +608,8 @@
         "@id": "schema:temporalCoverage"
       },
       "unit": {
-        "@id": "fair2:unit"
+        "@id": "fair2:unit",
+        "@type": "@id"
       },
       "unitCode": {
         "@id": "schema:unitCode"
@@ -651,7 +652,6 @@
       "wasRevisionOf": {
         "@id": "prov:wasRevisionOf"
       },
-      "uri": "@id",
       "identifier": {
         "@id": "schema:identifier"
       },
