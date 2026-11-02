@@ -3,9 +3,11 @@
         "schema": "https://schema.org/",
         "sh": "http://www.w3.org/ns/shacl#",
         "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
         "cr": "http://mlcommons.org/croissant/",
         "fair2s": "https://fair2.ai/shapes/",
         "fair2": "https://fair2.ai/ns/",
+        "qudt": "http://qudt.org/schema/qudt/",
         "sh:path": {
             "@type": "@id"
         },
@@ -194,6 +196,24 @@
                     "sh:description": "The physical column name in the source file."
                 }
             ]
+        },
+        {
+            "@id": "fair2s:UnitShape",
+            "@type": "sh:NodeShape",
+            "sh:nodeKind": "sh:IRI",
+            "sh:property": [
+                {
+                    "sh:path": "rdfs:label",
+                    "sh:node": "fair2s:TextShape",
+                    "sh:description": "The unit's name, e.g. \"Micrograms per litre\"."
+                },
+                {
+                    "sh:path": "qudt:symbol",
+                    "sh:node": "fair2s:TextShape",
+                    "sh:description": "The unit's symbol, e.g. \"µg/L\"."
+                }
+            ],
+            "sh:targetObjectsOf": "fair2:unit"
         }
     ]
 }

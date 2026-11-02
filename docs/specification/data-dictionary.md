@@ -132,20 +132,27 @@ carries its own label and symbol:
 
 ```jsonld
 "unit": {
-  "uri": "http://qudt.org/vocab/unit/MicroGM-PER-L",
+  "@id": "http://qudt.org/vocab/unit/MicroGM-PER-L",
   "label": "Micrograms per litre",
   "symbol": "µg/L"
 }
 ```
-
-In the FAIR² context `uri` is an alias for `@id`, so this is a reference to
-the QUDT unit itself, not a string: it expands to
 
 ```
 <field> fair2:unit <http://qudt.org/vocab/unit/MicroGM-PER-L> .
 <http://qudt.org/vocab/unit/MicroGM-PER-L> rdfs:label "Micrograms per litre" ;
                                            qudt:symbol "µg/L" .
 ```
+
+The context types `unit` as `@id`, so a unit may also be given by its IRI
+alone, `"unit": "http://qudt.org/vocab/unit/MicroGM-PER-L"`: it is a reference
+to the unit, not text. When several fields share a unit, its label and symbol
+are given once, on the unit's node under `included`, and each field references
+it by its IRI alone, as the reference example does.
+
+`fair2s:UnitShape` checks what `fair2:unit` points at. It must be an IRI: a
+QUDT unit, or any other where QUDT has none. Its `label` (`rdfs:label`) and
+`symbol` (`qudt:symbol`), when given, must be text. Neither is required.
 
 Consumers wanting `qudt:unit` semantics can treat `fair2:unit` as equivalent;
 the object is the same QUDT resource.
@@ -256,7 +263,7 @@ documents use:
     "extract": { "column": "parameter_value" }
   },
   "unit": {
-    "uri": "http://qudt.org/vocab/unit/MicroGM-PER-L",
+    "@id": "http://qudt.org/vocab/unit/MicroGM-PER-L",
     "label": "Micrograms per litre",
     "symbol": "µg/L"
   }
