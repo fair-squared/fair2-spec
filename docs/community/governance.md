@@ -16,7 +16,7 @@ All participants are expected to adhere to the [FAIR² Code of Conduct](code-of-
 
 There are multiple ways to participate in the FAIR² governance process:
 
-1. **Propose improvements** via [GitHub Issues](https://github.com/fair2-spec) or pull requests
+1. **Propose improvements** via [GitHub Issues](https://github.com/fair-squared/fair2-spec) or pull requests
 2. **Join discussions** in community meetings and working groups
 3. **Adopt FAIR²** in your datasets, platforms, or tools
 4. **Contribute to outreach** through workshops, writing, or speaking engagements

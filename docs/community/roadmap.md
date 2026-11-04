@@ -52,7 +52,7 @@ This phase invites the broader community to test, implement, and critique the FA
 - 🔜 Iterative updates to ontology, validation rules, and documentation based on feedback  
 
 **Join the feedback process:**  
-[github.com/fair2-spec](https://github.com/fair2-spec)  
+[github.com/fair-squared/fair2-spec](https://github.com/fair-squared/fair2-spec)  
 [community@fair2.ai](mailto:community@fair2.ai)
 
 ---
@@ -80,7 +80,7 @@ This phase focuses on formalizing adoption pathways and compliance verification 
 
 FAIR² is a collaborative project, and community input is essential to its evolution. You can contribute by:
 
-- Submitting feature proposals or revisions via [GitHub Issues](https://github.com/fair2-spec/issues)  
+- Submitting feature proposals or revisions via [GitHub Issues](https://github.com/fair-squared/fair2-spec/issues)  
 - Assisting with SHACL rule testing and FAIR² Validator feedback  
 - Promoting adoption within academic, clinical, or industrial settings  
 
@@ -93,7 +93,7 @@ FAIR² is a collaborative project, and community input is essential to its evolu
 
 - [Explore the FAIR² Specification](../specification/overview.md)  
 - [Contribute to FAIR²](contributing.md)  
-- [Engage in ongoing discussions](https://github.com/fair2-spec/issues)
+- [Engage in ongoing discussions](https://github.com/fair-squared/fair2-spec/issues)
 
 ---
 
