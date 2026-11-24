@@ -21,6 +21,9 @@
         },
         "sh:datatype": {
             "@type": "@id"
+        },
+        "sh:or": {
+            "@container": "@list"
         }
     },
     "@graph": [
@@ -28,11 +31,39 @@
             "@id": "fair2s:DistributionShape",
             "@type": "sh:NodeShape",
             "sh:nodeKind": "sh:IRI",
+            "sh:or": [
+                {
+                    "sh:property": [
+                        {
+                            "sh:path": "schema:sha256",
+                            "sh:minCount": 1
+                        }
+                    ]
+                },
+                {
+                    "sh:property": [
+                        {
+                            "sh:path": "cr:md5",
+                            "sh:minCount": 1
+                        }
+                    ]
+                }
+            ],
             "sh:property": [
                 {
                     "sh:path": "fair2:encrypted",
                     "sh:maxCount": 1,
                     "sh:datatype": "xsd:boolean"
+                },
+                {
+                    "sh:path": "cr:md5",
+                    "sh:maxCount": 1,
+                    "sh:node": "fair2s:TextShape"
+                },
+                {
+                    "sh:path": "schema:sha256",
+                    "sh:maxCount": 1,
+                    "sh:node": "fair2s:TextShape"
                 },
                 {
                     "sh:path": "schema:contentUrl",
@@ -53,34 +84,6 @@
                     "sh:path": "schema:name",
                     "sh:minCount": 1,
                     "sh:node": "fair2s:TextShape"
-                },
-                {
-                    "sh:path": "schema:sha256",
-                    "sh:maxCount": 1,
-                    "sh:node": "fair2s:TextShape"
-                },
-                {
-                    "sh:path": "cr:md5",
-                    "sh:maxCount": 1,
-                    "sh:node": "fair2s:TextShape"
-                }
-            ],
-            "sh:or": [
-                {
-                    "sh:property": [
-                        {
-                            "sh:path": "schema:sha256",
-                            "sh:minCount": 1
-                        }
-                    ]
-                },
-                {
-                    "sh:property": [
-                        {
-                            "sh:path": "cr:md5",
-                            "sh:minCount": 1
-                        }
-                    ]
                 }
             ],
             "sh:targetClass": "cr:FileObject"

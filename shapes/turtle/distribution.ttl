@@ -42,8 +42,27 @@ fair2s:DistributionShape
     sh:property [
         sh:path schema:sha256 ;
         sh:node fair2s:TextShape ;
-        sh:minCount 1 ;
-    ] .
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path cr:md5 ;
+        sh:node fair2s:TextShape ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:or (
+        [
+            sh:property [
+                sh:path schema:sha256 ;
+                sh:minCount 1 ;
+            ]
+        ]
+        [
+            sh:property [
+                sh:path cr:md5 ;
+                sh:minCount 1 ;
+            ]
+        ]
+    ) .
 
 # A collection of homogeneous files, selected by glob (Croissant FileSet). It has
 # no single size or checksum, so DistributionShape's file requirements cannot
