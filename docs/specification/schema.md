@@ -105,11 +105,12 @@
 | `schema:contentUrl` | `fair2s:IdentifierShape` | `[1..∞]` | Yes |
 | `schema:encodingFormat` | `fair2s:TextShape` | `[1..∞]` | Yes |
 | `schema:contentSize` | `fair2s:TextShape` | `[1..∞]` | Yes |
-| `schema:sha256` | `fair2s:TextShape` | `[1..∞]` | Yes |
+| `schema:sha256` | `fair2s:TextShape` | `[0..1]` | No* |
+| `cr:md5` | `fair2s:TextShape` | `[0..1]` | No* |
 
 <details markdown="1"><summary>Constraint notes</summary>
 
-- **schema:sha256**: the SHA-256 checksum mlcroissant expects.
+- **Checksum requirement**: FileObject must have exactly one checksum: either `schema:sha256` (SHA-256) or `cr:md5` (MD5), but not both. These are the only checksum algorithms Croissant FileObject supports.
 - **schema:contentSize**: in bytes unless a unit is given (Croissant).
 
 </details>

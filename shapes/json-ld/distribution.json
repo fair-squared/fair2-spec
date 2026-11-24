@@ -56,8 +56,31 @@
                 },
                 {
                     "sh:path": "schema:sha256",
-                    "sh:minCount": 1,
+                    "sh:maxCount": 1,
                     "sh:node": "fair2s:TextShape"
+                },
+                {
+                    "sh:path": "cr:md5",
+                    "sh:maxCount": 1,
+                    "sh:node": "fair2s:TextShape"
+                }
+            ],
+            "sh:or": [
+                {
+                    "sh:property": [
+                        {
+                            "sh:path": "schema:sha256",
+                            "sh:minCount": 1
+                        }
+                    ]
+                },
+                {
+                    "sh:property": [
+                        {
+                            "sh:path": "cr:md5",
+                            "sh:minCount": 1
+                        }
+                    ]
                 }
             ],
             "sh:targetClass": "cr:FileObject"

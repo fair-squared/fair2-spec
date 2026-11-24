@@ -35,7 +35,10 @@ This document outlines how FAIR² builds upon and extends ML Croissant to provid
 | `name`         | Filename                               | `xsd:string`   | `"name": "data.csv"`                          |
 | `contentUrl`   | URL of hosted file                     | `xsd:anyURI`   | `"contentUrl": "https://example.com/data.csv"`|
 | `encodingFormat`| File format (e.g., text/csv)           | `xsd:string`   | `"encodingFormat": "text/csv"`               |
-| `sha256`       | File checksum                          | `xsd:string`   | `"sha256": "abc123..."`                       |
+| `sha256`       | File checksum (SHA-256)                | `xsd:string`   | `"sha256": "abc123..."`                       |
+| `md5`          | File checksum (MD5)                    | `xsd:string`   | `"md5": "def456..."`                          |
+
+**Note**: Provide exactly one checksum (`sha256` or `md5`, not both). Croissant FileObject enforces mutual exclusivity between these algorithms.
 
 ### RecordSet (Inside `recordSet`)
 
