@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" role="img" aria-labelledby="title desc">
+  <title id="title">The FAIR² governance model</title>
+  <desc id="desc">Three access tiers, L0 open, L1 registered and L2 credentialed, form a ladder. Six modifiers (+G community governance, +S secure environment, +C client certification, +P purpose binding, +J jurisdiction, +Q query governance), embargo and record partitions apply to governed data at L1 and above. Use constraints apply at every tier. L0 data is open and its terms are contractual; L1 and L2 data is encrypted and its keys are released only after every requirement is met, after which obligations are contractual.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#5c6b8a"/>
+    </marker>
+  </defs>
+  <rect width="960" height="600" rx="16" fill="#ffffff"/>
+
+  <!-- Title -->
+  <text x="480" y="42" text-anchor="middle" font-size="24" font-weight="700" fill="#1f2a4d">The FAIR² governance model</text>
+  <text x="480" y="66" text-anchor="middle" font-size="14" fill="#5c6b8a">An access tier, the conditions layered on it, and the uses the data may be put to — declared in fair2.json</text>
+
+  <!-- Use constraints band (all tiers) -->
+  <rect x="40" y="88" width="880" height="56" rx="10" fill="#fff4e5" stroke="#f0a43a"/>
+  <text x="60" y="112" font-size="14" font-weight="700" fill="#8a4b00">Use constraints — every tier</text>
+  <text x="60" y="132" font-size="13" fill="#5a3a10">fair2:constraints · AI training · export restriction · commercial use · combination with other datasets</text>
+
+  <!-- Modifiers band (governed data) -->
+  <rect x="330" y="160" width="590" height="132" rx="10" fill="#eef1fb" stroke="#2b3d8d"/>
+  <text x="350" y="184" font-size="14" font-weight="700" fill="#2b3d8d">Modifiers, embargo, partitions — governed data (L1 and above)</text>
+  <g font-size="13" fill="#1f2a4d">
+    <rect x="350" y="196" width="178" height="38" rx="7" fill="#ffffff" stroke="#9aa6d6"/>
+    <text x="362" y="220"><tspan font-weight="700">+G</tspan> community governance</text>
+    <rect x="538" y="196" width="178" height="38" rx="7" fill="#ffffff" stroke="#9aa6d6"/>
+    <text x="550" y="220"><tspan font-weight="700">+S</tspan> secure environment</text>
+    <rect x="726" y="196" width="178" height="38" rx="7" fill="#ffffff" stroke="#9aa6d6"/>
+    <text x="738" y="220"><tspan font-weight="700">+C</tspan> client certification</text>
+    <rect x="350" y="242" width="178" height="38" rx="7" fill="#ffffff" stroke="#9aa6d6"/>
+    <text x="362" y="266"><tspan font-weight="700">+P</tspan> purpose binding</text>
+    <rect x="538" y="242" width="178" height="38" rx="7" fill="#ffffff" stroke="#9aa6d6"/>
+    <text x="550" y="266"><tspan font-weight="700">+J</tspan> jurisdiction</text>
+    <rect x="726" y="242" width="178" height="38" rx="7" fill="#ffffff" stroke="#9aa6d6"/>
+    <text x="738" y="266"><tspan font-weight="700">+Q</tspan> query governance</text>
+  </g>
+  <text x="185" y="216" text-anchor="middle" font-size="13" fill="#5c6b8a">embargo · record partitions</text>
+  <text x="185" y="236" text-anchor="middle" font-size="13" fill="#5c6b8a">temporal phases · consent</text>
+  <line x1="290" y1="226" x2="326" y2="226" stroke="#5c6b8a" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Tier ladder -->
+  <g>
+    <rect x="40" y="318" width="270" height="118" rx="12" fill="#e8f6ee" stroke="#2e8b57" stroke-width="2"/>
+    <text x="60" y="350" font-size="22" font-weight="700" fill="#1e6b42">L0 · Open</text>
+    <text x="60" y="376" font-size="13" fill="#1f3d2c">No authentication</text>
+    <text x="60" y="396" font-size="13" fill="#1f3d2c">Distributed unencrypted</text>
+    <text x="60" y="416" font-size="13" fill="#1f3d2c">The default when no tier is stated</text>
+
+    <rect x="345" y="318" width="270" height="118" rx="12" fill="#eef1fb" stroke="#2b3d8d" stroke-width="2"/>
+    <text x="365" y="350" font-size="22" font-weight="700" fill="#2b3d8d">L1 · Registered</text>
+    <text x="365" y="376" font-size="13" fill="#1f2a4d">Authenticated identity</text>
+    <text x="365" y="396" font-size="13" fill="#1f2a4d">Accepts the terms</text>
+    <text x="365" y="416" font-size="13" fill="#1f2a4d">Encrypted; keys on request</text>
+
+    <rect x="650" y="318" width="270" height="118" rx="12" fill="#f1ecfb" stroke="#5b3fa6" stroke-width="2"/>
+    <text x="670" y="350" font-size="22" font-weight="700" fill="#5b3fa6">L2 · Credentialed</text>
+    <text x="670" y="376" font-size="13" fill="#2d1f52">Credential requirements —</text>
+    <text x="670" y="396" font-size="13" fill="#2d1f52">by default a signed data use</text>
+    <text x="670" y="416" font-size="13" fill="#2d1f52">agreement (DUA)</text>
+
+    <line x1="312" y1="377" x2="341" y2="377" stroke="#5c6b8a" stroke-width="2" marker-end="url(#arrow)"/>
+    <line x1="617" y1="377" x2="646" y2="377" stroke="#5c6b8a" stroke-width="2" marker-end="url(#arrow)"/>
+    <text x="480" y="306" text-anchor="middle" font-size="13" fill="#5c6b8a">fair2:access.tier — the floor; per-column, per-file and per-record tiers in fair2:variableGovernance</text>
+  </g>
+
+  <!-- Enforcement band -->
+  <rect x="40" y="460" width="270" height="92" rx="10" fill="#f6f7f9" stroke="#c4c9d4"/>
+  <text x="60" y="486" font-size="14" font-weight="700" fill="#1f2a4d">Contractual</text>
+  <text x="60" y="508" font-size="13" fill="#3a4560">Licence and use constraints</text>
+  <text x="60" y="528" font-size="13" fill="#3a4560">bind the user; nothing gates access</text>
+
+  <rect x="345" y="460" width="575" height="92" rx="10" fill="#f6f7f9" stroke="#c4c9d4"/>
+  <text x="365" y="486" font-size="14" font-weight="700" fill="#1f2a4d">Cryptographic, then contractual</text>
+  <text x="365" y="508" font-size="13" fill="#3a4560">Data is encrypted at rest; a governance service releases keys only when the requester meets</text>
+  <text x="365" y="528" font-size="13" fill="#3a4560">the tier and every declared condition. After decryption, the DUA and use constraints bind,</text>
+  <text x="365" y="546" font-size="13" fill="#3a4560">and every release is recorded in a tamper-evident audit trail.</text>
+
+  <text x="480" y="584" text-anchor="middle" font-size="12" fill="#8a93a8">Agents acting for a person are capped by fair2:agentGovernance; derived data inherits the most restrictive terms of its sources.</text>
+</svg>
